@@ -17,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/GNYIO/gny-docs/issues"
   },
-  "homepage": "https://github.com/GNYIO/gny-docs#readme"
+  "homepage": "https://github.com/GNYIO/gny-docs#readme",
+  "devDependencies": {
+    "husky": "^3.0.5",
+    "lint-staged": "^9.3.0",
+    "prettier": "^1.18.2",
+    "vuepress": "^1.1.0"
+  }
 }
