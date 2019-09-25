@@ -26,6 +26,10 @@
     "*.{md}": [
       "prettier --write",
       "git add"
+    ],
+    "*.{js}": [
+      "prettier --single-quote --trailing-comma es5 --write",
+      "git add"
     ]
   },
   "homepage": "https://github.com/GNYIO/gny-docs#readme",
