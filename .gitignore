@@ -1,1 +1,4 @@
 node_modules
+
+# ignore vuepress build
+docs/.vuepress/dist
