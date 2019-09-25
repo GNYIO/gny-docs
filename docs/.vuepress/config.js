@@ -35,12 +35,16 @@ module.exports = {
         ],
       },
       {
+        title: 'TypeScript Client',
+        path: '/client/',
+        collapsable: false,
+        children: [['/client/install', 'Install'], ['/client/api', 'API']],
+      },
+      {
         title: 'Guides',
         path: '/guide/',
         collapsable: false,
-        children: [
-          /* ... */
-        ],
+        children: [],
       },
     ],
   },
