@@ -28,10 +28,19 @@ module.exports = {
         title: 'Get Started',
         path: '/blockchain/', // important is a / at the end
         collapsable: false,
-        sidebarDepth: 3,
+        sidebarDepth: 0, // important otherwise the sidebar would get confusing
         children: [
           ['/blockchain/install', 'Install'],
           ['/blockchain/docker', 'Docker'],
+          {
+            title: 'Sub-Packages',
+            path: '/blockchain/sub-packages/',
+            sidebarDepth: 1,
+            collapsable: true,
+            children: [
+              ['/blockchain/sub-packages/architecture', 'Architecture'],
+            ],
+          },
         ],
       },
       {
@@ -44,7 +53,7 @@ module.exports = {
         title: 'Guides',
         path: '/guide/',
         collapsable: false,
-        children: [],
+        children: [['/guide/send-transaction', 'Send Transaction']],
       },
     ],
   },
