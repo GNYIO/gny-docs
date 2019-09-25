@@ -4,7 +4,7 @@ heroText: GNY Blockchain
 heroImage: /gny_io_logo.webp
 tagline: Decentralized machine learning on the blockchain
 actionText: Get started →
-actionLink: ./guide/
+actionLink: ./blockchain/install
 features:
   - title: Machine Learning
     details: Use our patent Machine Learning algorithm to get the best out of your data.

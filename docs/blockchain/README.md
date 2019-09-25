@@ -1,5 +1,4 @@
-
-# gny-experiment
+# Blockchain
 
 The [gny-experiment](https://github.com/gnyio/gny-experiment) is the main GNY repositoy. It contains the GNY Blockchain. The GNY Blockchain is written in [TypeScript](https://www.typescriptlang.org) and follows a modular architecture by using [lerna.js](https://github.com/lerna/lerna).
 
