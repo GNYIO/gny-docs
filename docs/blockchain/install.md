@@ -31,7 +31,7 @@ nvm alias default # set node version in .nvmrc as default one
 Clone this repository:
 
 ```bash
-git clone https://github.com/gnyio/gny-experiment
+git clone https://github.com/gnyio/gny-experiment gny-experiment && cd $_
 ```
 
 ### Install Dependencies

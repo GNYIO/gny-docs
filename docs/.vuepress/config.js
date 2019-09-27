@@ -39,6 +39,13 @@ module.exports = {
             collapsable: true,
             children: [
               ['/blockchain/sub-packages/architecture', 'Architecture'],
+              [
+                '/blockchain/sub-packages/database-postgres',
+                'Pkg. Database-Postgres',
+              ],
+              ['/blockchain/sub-packages/base', 'Pkg. Base'],
+              ['/blockchain/sub-packages/interfaces', 'Pkg. Interfaces'],
+              ['/blockchain/sub-packages/p2p', 'Pkg. P2P'],
             ],
           },
         ],
