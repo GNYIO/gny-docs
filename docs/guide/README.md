@@ -1,8 +1,3 @@
-
-
 # Guide
 
-```ts
-const x = new Block();
-
-```
+- [How to Send Transactions](./how-to-send-transactions.md)
