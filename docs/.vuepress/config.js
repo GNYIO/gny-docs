@@ -35,7 +35,7 @@ module.exports = {
           {
             title: 'Sub-Packages',
             path: '/blockchain/sub-packages/',
-            sidebarDepth: 1,
+            sidebarDepth: 0,
             collapsable: true,
             children: [
               ['/blockchain/sub-packages/architecture', 'Architecture'],
