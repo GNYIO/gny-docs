@@ -468,7 +468,7 @@ try {
 
 In order to use the `sdb` package one has to first call the `init()` method.
 
-#### init(): Promise<void>
+#### init(): Promise\<void\>
 
 **Returns**: `void`  
 **Description**: This operation is mandatory and initializes the `sdb` package. Initialization includes connecting to the Database, loading the last block, setting the latest block height, loads all entities of the memory models, loading the `BlockHistory` of the latest block.
@@ -588,7 +588,7 @@ console.log(JSON.stringify(entity));
 }
 ```
 
-### del\<T\>(T, ObjectWithPrimaryKey(s)): Promise<void>
+### del\<T\>(T, ObjectWithPrimaryKey(s)): Promise\<void\>
 
 **Returns**: `Promise<undefined>`  
 **Description**: This operation deletes an Entity by its primary key, composite keys or unique key.
@@ -600,7 +600,7 @@ await sdb.del<Vote>(Vote, {
 });
 ```
 
-### update\<T\>(T, ObjectWithUpdatedProps, ObjectWithPrimaryKey(s)): Promise<void>
+### update\<T\>(T, ObjectWithUpdatedProps, ObjectWithPrimaryKey(s)): Promise\<void\>
 
 **Returns**: `Promise<undefined>`  
 **Description**: Checks if the property which should be updated is in memory, if not it loads it in memory. In the example below the Account `G4C9q...` gets the new `gny` balance of `'20000000000'`. This operation increments the `_version_` property of each Entity by one.
