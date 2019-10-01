@@ -21,16 +21,13 @@ module.exports = {
     ],
   ],
   themeConfig: {
-    // displayAllHeaders: true,
+    repo: 'gnyio/gny-experiment',
+    repoLabel: 'GNY Source Code',
+    docsRepo: 'gnyio/gny-docs',
+    editLinks: true,
+    docsDir: 'docs',
+    lastUpdated: true, // string | boolean
     nav: [
-      {
-        text: 'GNY Source Code',
-        link: 'https://github.com/gnyio/gny-experiment',
-      },
-      {
-        text: 'Enhance Documentation',
-        link: 'https://github.com/gnyio/gny-docs',
-      },
       {
         text: 'Website',
         link: 'https://www.gny.io',
