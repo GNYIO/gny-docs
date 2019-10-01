@@ -7,6 +7,19 @@ module.exports = {
       includeLevel: [1, 2],
     },
   },
+  plugins: [
+    [
+      'vuepress-plugin-zooming',
+      {
+        // selector: '.my-wrapper .my-img',
+        delay: 1000,
+        options: {
+          bgColor: 'black',
+          zIndex: 10000,
+        },
+      },
+    ],
+  ],
   themeConfig: {
     // displayAllHeaders: true,
     nav: [
