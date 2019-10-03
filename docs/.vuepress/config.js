@@ -58,6 +58,7 @@ module.exports = {
               ['/blockchain/sub-packages/interfaces', 'Pkg. Interfaces'],
               ['/blockchain/sub-packages/p2p', 'Pkg. P2P'],
               ['/blockchain/sub-packages/extendedJoi', 'Pkg. Extended Joi'],
+              ['/blockchain/sub-packages/utils', 'Pkg. Utils'],
             ],
           },
         ],
