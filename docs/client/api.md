@@ -937,4 +937,45 @@ Response Parameter Description:
 
 
 
+## Loader
+
+### Basic usage
+
+``` typescript
+import { Connection } from 'gny-clinet';
+
+const connection = new Connection();
+const loaderApi = connection.api('Loader');
+
+```
+
+### Get blockchain status
+
+```typescript
+const { data }  = loaderApi.getStatus();
+``` 
+Request Parameter Description: none
+
+Response Parameter Description:
+
+| Name   | Type | Description                                 |
+| ------ | ---- | ------------------------------------------- |
+| loaded | bool | true: the blockchain is loaded successfully |
+
+
+### Sync blockchain status
+
+```typescript
+const { data }  = loaderApi.getStatus();
+``` 
+Request Parameter Description: none
+
+Response Parameter Description:
+
+| Name    | Type   | Description                       |
+| ------- | ------ | --------------------------------- |
+| syncing | bool   | true: the blockchain is syncing   |
+| blocks  | number | the number of blocks to be synced |
+| height  | string | the height of last block          |
+
 
