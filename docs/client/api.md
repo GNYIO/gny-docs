@@ -979,3 +979,45 @@ Response Parameter Description:
 | height  | string | the height of last block          |
 
 
+## Peer
+
+### Basic usage
+
+``` typescript
+import { Connection } from 'gny-clinet';
+
+const connection = new Connection();
+const peerApi = connection.api('Peer');
+```
+
+### Get peers
+
+```typescript
+const { data }  = peerApi.getPeers();
+``` 
+
+Request Parameter Description: none
+
+Response Parameter Description:
+
+| Name  | Type  | Description                |
+| ----- | ----- | -------------------------- |
+| Peers | Array | A list of peer information |
+| count | bool  | The number of peers        |
+
+### Get version
+
+```typescript
+const { data }  = peerApi.getVersion();
+``` 
+
+Request Parameter Description: none
+
+Response Parameter Description:
+
+| Name    | Type   | Description           |
+| ------- | ------ | --------------------- |
+| version | string | Version of blockchain |
+| build   | string | Build version         |
+| net     | string | Net version           |
+
