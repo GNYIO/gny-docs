@@ -1021,3 +1021,33 @@ Response Parameter Description:
 | build   | string | Build version         |
 | net     | string | Net version           |
 
+
+## System
+
+### Basic usage
+
+``` typescript
+import { Connection } from 'gny-clinet';
+
+const connection = new Connection();
+const systemApi = connection.api('System');
+```
+
+### Get version
+
+```typescript
+const { data }  = systemApi.getSystemInfo();
+``` 
+
+Request Parameter Description: none
+
+Response Parameter Description:
+
+| Name      | Type   | Description                        |
+| --------- | ------ | ---------------------------------- |
+| os        | string | Operating system information       |
+| version   | string | Version of blockchain              |
+| timestamp | string | the time right now                 |
+| lastBlock | json   | Basic information about last block |
+
+
