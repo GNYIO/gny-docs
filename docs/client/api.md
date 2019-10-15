@@ -619,3 +619,322 @@ JSON Response Example:
 }
 ```
 
+## Delegate
+
+### Basic usage
+
+``` typescript
+import { Connection } from 'gny-clinet';
+
+const connection = new Connection();
+const delegateApi = connection.api('Delegate');
+
+```
+
+### Count the number of delegates
+
+```typescript
+const { data }  = delegateApi.count();
+``` 
+
+Request Parameter Description: none
+
+Response Parameter Description:
+
+| Name    | Type    | Description                             |
+| ------- | ------- | --------------------------------------- |
+| success | bool    | true: response data return successfully |
+| count   | integer | total number of delegates               |
+
+JSON Response Example:
+
+```js
+{
+    "success":true,
+    "count":234
+}
+```
+
+### Get the voters by username
+
+```typescript
+const { data }  = delegateApi.getVoters(username);
+``` 
+
+Request Parameter Description:
+
+| Name     | Type   | Required | Description              |
+| -------- | ------ | -------- | ------------------------ |
+| username | string | Y        | username of the delegate |
+
+Response Parameter Description:
+
+| Name     | Type  | Description                             |
+| -------- | ----- | --------------------------------------- |
+| success  | bool  | true: response data return successfully |
+| accounts | Array | a JSON object list of account           |
+
+JSON Response Example:
+
+```js
+{
+	"success": true,
+	"accounts": [{
+		"address": "2918354313445278349",
+		"publicKey": "4fde4c49f1297d5d3a24b1494204543c4281aff17917ff7ff8ff32da3b4b222f",
+		"balance": 1338227722727,
+		"weight": 0.013316660647014596
+	},
+	{
+		"address": "1523444724068322527",
+		"publicKey": "8a6a61c28dc47541aadf1eecec2175c8f768f2331eea3472b1593bf1aa4e1fb4",
+		"balance": 2109297623765,
+		"weight": 0.020989552213127274
+	},
+	{
+		"address": "14483826354741911727",
+		"publicKey": "5dacb7983095466b9b037690150c3edec0f073815326e33a4744b6d1d50953e2",
+		"balance": 5135815841470,
+		"weight": 0.051106336795243436
+	}
+	}]
+}
+```
+### Get delegate by public key
+
+```typescript
+const { data }  = delegateApi.getDelegateByPubKey(publicKey);
+``` 
+Request Parameter Description:
+
+| Name      | Type   | Required  | Description           |
+| --------- | ------ | --------- | --------------------- |
+| publickey | string | Y         | delegate's public key |
+
+
+Response Parameter Description:
+
+| Name     | Type | Description                             |
+| -------- | ---- | --------------------------------------- |
+| success  | bool | true: response data return successfully |
+| delegate | JSON | the detail information of this delegate |
+
+
+JSON Response Example:
+
+```js
+{
+  "delegate":{
+    "address":"G3kkkSaJNVY87AhVPyxXVGFpR61VB",
+    "username":"gny_d1",
+    "transactionId":"156c950d69dda92214fa26d37baff860990fad43d40ba74a342fabf9adaaa2dc",
+    "publicKey":"85b4c2efe56642398dad3f1ec338e87e712063cfaee4a836cb58b673cdb820f4",
+    "votes":0,
+    "producedBlocks":0,
+    "missedBlocks":0,
+    "fees":0,
+    "rewards":0,
+    "_version_":1,
+    "rate":47,
+    "approval":0,
+    "productivity":"0.00",
+    "vote":0,
+    "missedblocks":0,
+    "producedblocks":0
+  }
+}
+```
+
+### Get delegate by user name
+
+```typescript
+const { data }  = delegateApi.getDelegateByUsername(username);
+``` 
+Request Parameter Description:
+
+| Name     | Type   | Required  | Description          |
+| -------- | ------ | --------- | -------------------- |
+| username | string | Y         | delegate's user name |
+
+
+Response Parameter Description:
+
+| Name     | Type | Description                             |
+| -------- | ---- | --------------------------------------- |
+| success  | bool | true: response data return successfully |
+| delegate | JSON | the detail information of this delegate |
+
+
+
+### Get delegate by public key
+
+```typescript
+const { data }  = delegateApi.getDelegateByAddress(address);
+``` 
+Request Parameter Description:
+
+| Name    | Type   | Required  | Description        |
+| ------- | ------ | --------- | ------------------ |
+| address | string | Y         | delegate's address |
+
+
+Response Parameter Description:
+
+| Name     | Type | Description                             |
+| -------- | ---- | --------------------------------------- |
+| success  | bool | true: response data return successfully |
+| delegate | JSON | the detail information of this delegate |
+
+
+
+### Get the list of Delegates
+
+```typescript
+const { data }  = delegateApi.getDelegates(offset, limit);
+``` 
+
+Request Parameter Description:
+
+| Name   | Type    | Required | Description            |
+| ------ | ------- | -------- | ---------------------- |
+| offset | int     | N        | maximum return records |
+| limit  | integer | N        | offset, minimum: 0     |
+
+Response Parameter Description:
+
+| Name       | Type   | Description                                     |
+| ---------- | ------ | ----------------------------------------------- |
+| success    | bool   | true: response data return successfully         |
+| delegates  | Array  | a list containing delegates' detail information |
+| totalCount | number | How many delegates exist overall?               |
+
+
+JSON Response Example:
+
+```js
+{
+  "totalCount":101,
+  "delegates":[{
+    "address":"GmCQ2xoGv5bWWtaxQfiBNuTUvaoe",
+    "username":"gny_d95",
+    "transactionId":"d32dcf7b9db93591ae94878f4390807e21052b0b76044b5eadc8a6385557e503",
+    "publicKey":"fffd516f0748ead6720440e94da58ed3afd686b546f5d36a3c5b52cfed834371",
+    "votes":0,
+    "producedBlocks":0,
+    "missedBlocks":0,
+    "fees":0,
+    "rewards":0,
+    "_version_":1,
+    "rate":1,
+    "approval":0,
+    "productivity":"0.00",
+    "vote":0,
+    "missedblocks":0,
+    "producedblocks":0
+  },
+  {
+    "address":"G94UbHjRnd6Em1o3FxQAqkMXA2RV",
+    "username":"gny_d10",
+    "transactionId":"9f9a6818b467dcc73c71c24ff622babeb63850263626dfc7472c1f87f58ebbe9",
+    "publicKey":"ff47c9e9bafcf28ae8528c2b259661ade96a3030ab73ddde82b52ee44c9122b5",
+    "votes":0,
+    "producedBlocks":0,
+    "missedBlocks":0,
+    "fees":0,
+    "rewards":0,
+    "_version_":1,
+    "rate":2,
+    "approval":0,
+    "productivity":"0.00",
+    "vote":0,
+    "missedblocks":0,
+    "producedblocks":0
+  }
+]}
+```
+
+### Enable forging
+
+```typescript
+const { data }  = delegateApi.forgingEnable(secret, pulicKey);
+``` 
+
+Request Parameter Description:
+
+| Name      | Type   | Required  | Description           |
+| --------- | ------ | --------- | --------------------- |
+| secret    | string | Y         | gny account password  |
+| publickey | string | Y         | delegate's public key |
+
+
+Response Parameter Description:
+
+| Name     | Type | Description                             |
+| -------- | ---- | --------------------------------------- |
+| success  | bool | true: response data return successfully |
+
+
+### Disable forging
+
+```typescript
+const { data }  = delegateApi.forgingDisable(secret, pulicKey);
+``` 
+
+Request Parameter Description:
+
+| Name      | Type   | Required  | Description           |
+| --------- | ------ | --------- | --------------------- |
+| secret    | string | Y         | gny account password  |
+| publickey | string | Y         | delegate's public key |
+
+
+Response Parameter Description:
+
+| Name     | Type | Description                             |
+| -------- | ---- | --------------------------------------- |
+| success  | bool | true: response data return successfully |
+
+
+### Get forging status
+
+```typescript
+const { data }  = delegateApi.forgingStatus(pulicKey);
+``` 
+
+Request Parameter Description:
+
+| Name      | Type   | Required  | Description           |
+| --------- | ------ | --------- | --------------------- |
+| publickey | string | Y         | delegate's public key |
+
+
+Response Parameter Description:
+
+| Name     | Type | Description                             |
+| -------- | ---- | --------------------------------------- |
+| success  | bool | true: response data return successfully |
+| enabled  | bool | true: forging is enabled                |
+
+### Register as a delegate
+
+```typescript
+const { data }  = delegateApi.registerDelegate(secret);
+``` 
+
+Request Parameter Description:
+
+| Name   | Type   | Required  | Description          |
+| ------ | ------ | --------- | -------------------- |
+| secret | string | Y         | gny account password |
+
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
+
+
+
+
