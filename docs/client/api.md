@@ -1051,3 +1051,187 @@ Response Parameter Description:
 | lastBlock | json   | Basic information about last block |
 
 
+## Transaction
+
+### Basic usage
+
+``` typescript
+import { Connection } from 'gny-clinet';
+
+const connection = new Connection();
+const transactionApi = connection.api('Transaction');
+```
+
+### Get transactions
+
+```typescript
+const { data }  = transactionApi.getTransactions(query);
+``` 
+
+Request Parameter Description: 
+
+| Name                  | Type     | Required              | Description                                                                                         |
+| --------------------- | -------- | --------------------- | --------------------------------------------------------------------------------------------------- |
+| query.limit           | integer  | N                     | the limitation of returned records，minimum：0,maximum：100                                         |
+| query.offset          | integer  | N                     | offset, minimum 0                                                                                   |
+| query.id              | string   | N                     | transaction id                                                                                      |
+| query.senderId        | N        | GNY address of sender |
+| query.senderPublicKey | string   | N                     | sender's public key                                                                                 |
+| query.blockId         | string   | N                     | block id                                                                                            |
+| query.height          | integer  | specific block height |
+| query.type            | interger | N                     | Transaction type, see https://github.com/GNYIO/gny-general/wiki/Transactions for futher information |
+| query.message         | string   | Transaction message   |
+
+Response Parameter Description:
+
+| Name         | Type  | Description                                                 |
+| ------------ | ----- | ----------------------------------------------------------- |
+| success      | bool  | true: response data return successfully                     |
+| transactions | Array | A JSON object list containing multiple transactions' detail |
+| count        | int   | the total number of retrieved transactions                  |
+
+JSON Response Example:
+
+```js
+{
+  "transactions":[
+    {
+      "transactionId":"42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
+      "senderId":"G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
+      "recipientId":"G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
+      "recipientName":null,
+      "currency":"gny",
+      "amount":"10000000000000000",
+      "timestamp":0,
+      "height":0,
+      "_version_":1
+    }
+  ],
+  "count":1
+}
+```
+
+
+### Get unconfirmed transactions by transaction id
+
+```typescript
+const { data }  = transactionApi.getUnconfirmedTransaction(id);
+``` 
+Request Parameter Description:
+
+| Name | Type   | Required | Description                |
+| ---- | ------ | -------- | -------------------------- |
+| id   | string | Y        | unconfirmed transaction id |
+
+Response Parameter Description:
+
+| Name        | Type | Description                                |
+| ----------- | ---- | ------------------------------------------ |
+| success     | bool | true: response data return successfully    |
+| transaction | json | unconfirmed transaction detail inforamtion |
+
+
+JSON Response Example:
+
+```js
+{
+  "transactionId":"42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
+  "senderId":"G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
+  "recipientId":"G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
+  "recipientName":null,
+  "currency":"gny",
+  "amount":"10000000000000000",
+  "timestamp":0,
+  "height":0,
+  "_version_":1
+}
+```
+
+### Create transaction
+
+```typescript
+const { data }  = transactionApi.addTransactionUnsigned(secret, fee, type, secondSecret, args, message, senderId);
+``` 
+
+Request Parameter Description:
+
+| Name         | Type   | Required | Description                                                                                    |
+| ------------------------ | ------- | -------- | ---------------------------------------------------------------------------------------------- |
+| secret       | string | Y        | GNY account password                                                                            |
+| fee          | string | Y        | transaction fee                                                                                 |
+| type         | number | Y        | transaction type                                                                                |
+| senderId     | string | N        | sender's public key                                                                             |
+| secondSecret | string | N        | sender's second password (must fit the BIP39 standard), the length should be between 1 and 100 |
+|message       | string | N        | some message along with transaction                                                             |  
+
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
+
+
+JSON Response Example:
+
+```js
+{
+	"success": true,
+	"transactionId": "16670272591943275531"
+}
+```
+
+
+### Create a batch of transactions
+
+
+```typescript
+
+const genesisSecret =
+  "grow pencil ten junk bomb right describe trade rich valid tuna service";
+const trs = gnyClient.basic.transfer(
+  "GuQr4DM3aiTD36EARqDpbfsEHoNF",
+  50 * 1e8,
+  undefined,
+  genesisSecret,
+  undefined
+);
+
+const transactions = [trs];
+
+const { data }  = transactionApi.addTransactions(transactions);
+``` 
+
+Request Parameter Description:  
+| Name         | Type  | Required | Description           |  
+| ------------ | ----- | -------- | --------------------- |  
+| transactions | Y     | Y        | Array of transactions |
+
+
+JSON Response Example:
+
+```js
+{
+  "success": true,
+  "transactions": [
+    {
+      "type": 0,
+      "timestamp": 3619538,
+      "fee": 10000000,
+      "args": [
+        5000000000,
+        "GuQr4DM3aiTD36EARqDpbfsEHoNF"
+      ],
+      "senderPublicKey": "575bf8f32b941b9e6ae1af82539689198327b73d77d22a98cdef2460c9257f7b",
+      "senderId": "G4GDW6G78sgQdSdVAQUXdm5xPS13t",
+      "signatures": [
+        "5fd14364bed18697f9c9ec1e03d66825af2cc9e716d5f6089dc265d99d5d6f3a79b778a48733e06b1353ea007036455ab4b9f0d4a3035a343584c4fb137e1400"
+      ],
+      "id": "0bd53c3a60b6746e4383dbafa8f63f2eaea7e167e0e754cbf9aaf419b3cb2eef"
+    }
+  ]
+}
+```
+
+
