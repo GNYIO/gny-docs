@@ -1676,3 +1676,58 @@ Response Parameter Description:
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
 
+
+## Vote
+
+### Basic usage
+
+```typescript
+import { Connection } from 'gny-clinet';
+
+const connection = new Connection();
+const voteApi = connection.api('Vote');
+```
+
+### Vote for a list of keys
+
+```typescript
+const { data }  = uiaApi.voteApi(keyList, secret, secondSecret);
+```
+
+Request Parameter Description:
+
+| Name         | Type    | Required | Description                 |
+| ------------ | ------- | -------- | --------------------------- |
+| keyList      | Array   | Y        | public key list to be voted |
+| secret       | string  | Y        | gny account password        |
+| secondSecret | string  | N        | gny account second password |
+
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
+
+### Unvote for a list of keys
+
+```typescript
+const { data }  = uiaApi.unvoteApi(keyList, secret, secondSecret);
+```
+
+Request Parameter Description:
+
+| Name         | Type    | Required | Description                 |
+| ------------ | ------- | -------- | --------------------------- |
+| keyList      | Array   | Y        | public key list to be voted |
+| secret       | string  | Y        | gny account password        |
+| secondSecret | string  | N        | gny account second password |
+
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
