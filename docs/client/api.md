@@ -1317,3 +1317,362 @@ Response Parameter Description:
 | ------------- | ------ | --------------------------------------- |
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
+
+
+## User Defined Asset UIA
+
+### Basic usage
+
+``` typescript
+import { Connection } from 'gny-clinet';
+
+const connection = new Connection();
+const uiaApi = connection.api('Uia');
+```
+
+### Get all publishers
+
+```typescript
+const { data }  = uiaApi.getIssuers(limit, offset);
+```
+Request Parameter Description:
+
+| Name   | Type    | Required | Description                                            |
+| ------ | ------- | -------- | ------------------------------------------------------ |
+| limit  | integer | N        | maximum number of records to return, between 0 and 100 |
+| offset | integer | N        | Offset, minimum 0                                      |
+
+Response Parameter Description:
+
+| Name    | Type    | Description                      |
+| ------- | ------- | -------------------------------- |
+| success | boolean | true: response data return successfully |
+| issues  | Array   | Array of publishers              |
+| count   | integer | Total number of publishers       |
+
+
+JSON Response:
+
+```js
+{
+  "count":1,
+  "issues":[{
+      "tid":"279ee5d155f25bd5eb7f09b63a6e096b89e22ff70b5b8a9858cfd19dc21149d3",
+      "name":"AAA",
+      "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
+      "desc":"\"some description\"",
+      "_version_":1
+  }]
+}
+```
+
+### Check if the address is a publisher
+
+```typescript
+const { data }  = uiaApi.isIssuer(address);
+```
+
+Request Parameter Description:
+
+| Name          | Type   | Required | Description                    |
+| ------------- | ------ | -------- | ------------------------------ |
+| address       | string | Y        | Can be the GNY account address |
+
+Response Parameter Description:
+
+| Name       | Type    | Description                             |
+| ---------- | ------- | --------------------------------------- |
+| success    | boolean | true: response data return successfully |
+| isIssuer   | boolean | true: the address is an issuer          |
+| issuerName | string  | the publisher name                      |
+
+
+JSON Response:
+
+```js
+{
+  "success": true,
+  "isIssuer": true,
+  "issuerName": "AAA"
+}
+```
+
+
+### Query information about a publisher
+
+```typescript
+const { data }  = uiaApi.getIssuer(publisherName|address);
+```
+
+Request Parameter Description:
+
+| Name          | Type   | Required | Description                    |
+| ------------- | ------ | -------- | ------------------------------ |
+| publisherName | string | Y        | Can be GNY publisher name      |
+| address       | string | Y        | Can be the GNY account address |
+
+Response Parameter Description:
+
+| Name    | Type    | Description                                                    |
+| ------- | ------- | -------------------------------------------------------------- |
+| success | boolean | Whether operation was successful                               |
+| issuer  | JSON    | Contains the publisher name, description and id (GNY address) |
+
+
+JSON Response:
+
+```js
+{
+  "issuer":{
+    "tid":"c194bf2d4ccb1d07829f161165b307332d91a14f44a71a7a99a28dea8154e524",
+    "name":"AAA",
+    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
+    "desc":"\"some description\"",
+    "_version_":1
+  }
+}
+```
+
+### View assets of a specified publisher
+
+```typescript
+const { data }  = uiaApi.getIssuerAssets(name, limit?, offset?);
+```
+
+Request Parameter Description:
+
+| Name   | Type    | Required | Description                                            |
+| ------ | ------- | -------- | ------------------------------------------------------ |
+| name   | string  | Y        | Can be GNY publisher name                              |
+| limit  | integer | N        | maximum number of records to return, between 0 and 100 |
+| offset | integer | N        | Offset, minimum 0                                      |
+
+
+
+Response Parameter Description:
+
+| Name    | Type     | Description                                            |
+| ------- | -------- | ------------------------------------------------------ |
+| success | boolean  | true: response data return successfully                |
+| assets  | Array    | Array of assets                                        |
+| count   | interger | The total number of assets registered by the publisher |
+
+
+JSON Response:
+
+```js
+{
+  "count":1,
+  "assets":[{
+    "tid":"4316b799601e15831bbd8514862e61b6b67754b8971938f90025723d1be9eb67",
+    "name":"AAA.BBB",
+    "timestamp":3714160,
+    "maximum":"1000000000",
+    "precision":8,
+    "quantity":"500000000",
+    "desc":"some description",
+    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
+    "_version_":2
+  }]
+}
+```
+
+### Get all assets
+
+```typescript
+const { data }  = uiaApi.getAssets(limit, offset);
+```
+
+Request Parameter Description:
+
+| Name   | Type    | Required | Description                                            |
+| ------ | ------- | -------- | ------------------------------------------------------ |
+| limit  | integer | N        | maximum number of records to return, between 0 and 100 |
+| offset | integer | N        | Offset, minimum 0                                      |
+
+Response Parameter Description:
+
+| Name    | Type    | Description                             |
+| ------- | ------- | --------------------------------------- |
+| success | boolean | true: response data return successfully |
+| assets  | Array   | Array of assets                         |
+| count   | integer | Number of all assets                    |
+
+
+JSON Response:
+
+```js
+{
+  "count":1,
+  "assets":[{
+    "tid":"44fd0eff16f2a39be263a3b77f34145c7039b16790265feef74c52538eff9cde",
+    "name":"AAA.BBB",
+    "timestamp":3714682,
+    "maximum":"1000000000",
+    "precision":8,
+    "quantity":"500000000",
+    "desc":"some description",
+    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
+    "_version_":2
+  }]
+}
+```
+
+### Get specified asset information
+
+```typescript
+const { data }  = uiaApi.getAsset(name);
+```
+
+Request Parameter Description:
+
+| Name | Type   | Required | Description |
+| ---- | ------ | -------- | ----------- |
+| name | string | Y        | Asset name  |
+
+Response Parameter Description:
+
+| Name    | Type    | Description                                                                                       |
+| ------- | ------- | ------------------------------------------------------------------------------------------------- |
+| success | boolean | true: response data return successfully                                                                |
+| asset   | JSON    | Contains asset name, description, cap, precision, current circulation, issue height, publisher id |
+
+JSON Response:
+
+```js
+{
+  "asset":{
+    "tid":"92bf426d9a517a35ac6a63ef210d0f062f5195b636f35878e949e7581355d5b8",
+    "name":"AAA.BBB",
+    "timestamp":3717011,
+    "maximum":"1000000000",
+    "precision":8,
+    "quantity":"500000000",
+    "desc":"some description",
+    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
+    "_version_":2
+  }
+}
+```
+
+
+### Get the balance of all UIA Assets for an account
+
+```typescript
+const { data }  = uiaApi.getBalances(address, limit?, offset?);
+```
+
+Request Parameter Description:
+
+| Name    | Type    | Required | Description                                            |
+| ------- | ------- | -------- | ------------------------------------------------------ |
+| address | string  | Y        | GNY account address                                    |
+| limit   | integer | N        | maximum number of records to return, between 0 and 100 |
+| offset  | integer | N        | Offset, minimum 0                                      |
+
+Response Parameter Description:
+
+| Name     | Type    | Description                                                                                                                                                                  |
+| -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| success  | boolean | Whether operation was successful                                                                                                                                             |
+| balances | Array   | Asset array, details owned, each element is an asset, including asset name, balance, cap, precision, current circulation, whether to cancel (0: not cancelled, 1: cancelled) |
+| count    | integer | The number of assets currently owned by this address                                                                                                                         |
+
+JSON Response:
+
+```js
+{
+  "count":1,
+  "balances":[{
+    "address":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
+    "currency":"AAA.BBB",
+    "balance":"500000000",
+    "flag":2,
+    "_version_":1
+  }]
+}
+```
+
+### Get balance of a specific UIA Asset for an account
+
+```typescript
+const { data }  = uiaApi.getBalance(address, currency);
+```
+
+Request Parameter Description:
+
+| Name     | Type    | Required | Description          |
+| -------- | ------- | -------- | -------------------- |
+| address  | string  | Y        | GNY account address  |
+| currency | string  | Y        | a specific UIA Asset |
+
+Response Parameter Description:
+
+| Name    | Type    | Description                      |
+| ------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| balance | json    | Asset array, details owned, each element is an asset, including asset name, balance, cap, precision, current circulation, whether to cancel (0: not cancelled, 1: cancelled) |
+
+
+JSON Response:
+
+```js
+{
+  "balance":{
+    "address":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
+    "currency":"AAA.BBB",
+    "balance":"1000000000",
+    "flag":2,
+    "_version_":2
+  }
+}
+```
+
+### Register asset
+
+```typescript
+const { data }  = uiaApi.registerAsset(name, desc, maximum, precision, secret, secondSecret);
+```
+
+Request Parameter Description:
+
+| Name         | Type    | Required | Description                        |
+| ------------ | ------- | -------- | ---------------------------------- |
+| name         | string  | Y        | the currency name to be registered |
+| desc         | string  | Y        | a descripition about the currency  |
+| maximum      | string  | Y        | maximum number of the currency     |
+| precision    | number  | Y        | precision of the currency          |
+| secret       | string  | Y        | gny account password               |
+| secondSecret | string  | N        | gny account second password        |
+
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
+
+
+### Register as an issuer
+
+```typescript
+const { data }  = uiaApi.registerIssuer(name, desc, secret, secondSecret);
+```
+
+Request Parameter Description:
+
+| Name         | Type    | Required | Description                        |
+| ------------ | ------- | -------- | ---------------------------------- |
+| name         | string  | Y        | the currency name to be registered |
+| desc         | string  | Y        | a descripition about the currency  |
+| secret       | string  | Y        | gny account password               |
+| secondSecret | string  | N        | gny account second password        |
+
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
+
