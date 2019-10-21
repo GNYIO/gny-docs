@@ -1235,3 +1235,85 @@ JSON Response Example:
 ```
 
 
+## Transfer
+
+### Basic usage
+
+``` typescript
+import { Connection } from 'gny-clinet';
+
+const connection = new Connection();
+const transferApi = connection.api('Transfer');
+```
+
+### Get transfers
+
+```typescript
+const { data }  = transferApi.getRoot(query);
+``` 
+
+Request Parameter Description:
+
+| Name              | Type     | Required | Description                                                |
+| ----------------- | -------- | -------- | ---------------------------------------------------------- |
+| query.limit       | integer  | N        | the limitation of returned records，minimum：0,maximum：100 |
+| query.offset      | integer  | N        | offset, minimum 0                                          |
+| query.ownId       | string   | N        | public key related to transfers                            |
+| query.currency    | string   | N        | gny UIA Assets                                             |
+| query.senderId    | string   | N        | GNY address of sender                                      |
+| query.recipientId | string   | N        | recipient's public key                                     |
+
+
+Response Parameter Description:
+
+| Name      | Type   | Description                             |
+| --------- | ------ | --------------------------------------- |
+| succes    | bool   | true: response data return successfully |
+| count     | string | the number of transfers                 |
+| transfers | Array  | An array of transfers                   |
+
+
+
+### Get total amount of transfers
+
+```typescript
+const { data }  = transferApi.getAmount(startTimestamp, endTimestamp);
+``` 
+
+Request Parameter Description:  
+
+| Name           | Type   | Required | Description     |  
+| -------------- | ------ | -------- | --------------- |  
+| startTimestamp | string | Y        | start timestamp |
+| endTimestamp   | string | Y        | end timestamp   |
+
+Response Parameter Description:
+
+| Name           | Type   | Description                             |
+| -------------- | ------ | --------------------------------------- |
+| succes         | bool   | true: response data return successfully |
+| count          | string | the number of transfers                 |
+| strTotalAmount | string | the total amout of transfers            |
+
+### Create a transaction
+
+```typescript
+const { data }  = transferApi.send(recipient, amount, message, secret, secondeSecret);
+``` 
+
+Request Parameter Description:
+
+| Name                     | Type    | Required | Description                                                                                    |
+| ------------------------ | ------- | -------- | ---------------------------------------------------------------------------------------------- |
+| secret                   | string  | Y        | GNY account password                                                                           |
+| amount                   | integer | Y        | amount，between 1 and 10000000000000000                                                        |
+| recipientId              | string  | Y        | recipient's address, minimum:1                                                                 |
+| message                  | string  | N        | message with the transaction                                                                       |
+| secondSecret             | string  | N        | sender's second password (must fit the BIP39 standard), the length should be between 1 and 100 |
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
