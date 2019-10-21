@@ -5,7 +5,7 @@
 ### Basic usage
 
 ``` typesript
-import { Connection } from 'gny-clinet';
+import { Connection } from '@gny/client';
 
 const connection = new Connection();
 const accountApi = connection.api('Account');
@@ -369,7 +369,7 @@ Response Parameter Description:
 ### Basic usage
 
 ``` typescript
-import { Connection } from 'gny-clinet';
+import { Connection } from '@gny/client';
 
 const connection = new Connection();
 const blockApi = connection.api('Block');
@@ -624,7 +624,7 @@ JSON Response Example:
 ### Basic usage
 
 ``` typescript
-import { Connection } from 'gny-clinet';
+import { Connection } from '@gny/client';
 
 const connection = new Connection();
 const delegateApi = connection.api('Delegate');
@@ -942,7 +942,7 @@ Response Parameter Description:
 ### Basic usage
 
 ``` typescript
-import { Connection } from 'gny-clinet';
+import { Connection } from '@gny/client';
 
 const connection = new Connection();
 const loaderApi = connection.api('Loader');
@@ -984,7 +984,7 @@ Response Parameter Description:
 ### Basic usage
 
 ``` typescript
-import { Connection } from 'gny-clinet';
+import { Connection } from '@gny/client';
 
 const connection = new Connection();
 const peerApi = connection.api('Peer');
@@ -1027,7 +1027,7 @@ Response Parameter Description:
 ### Basic usage
 
 ``` typescript
-import { Connection } from 'gny-clinet';
+import { Connection } from '@gny/client';
 
 const connection = new Connection();
 const systemApi = connection.api('System');
@@ -1056,7 +1056,7 @@ Response Parameter Description:
 ### Basic usage
 
 ``` typescript
-import { Connection } from 'gny-clinet';
+import { Connection } from '@gny/client';
 
 const connection = new Connection();
 const transactionApi = connection.api('Transaction');
@@ -1240,7 +1240,7 @@ JSON Response Example:
 ### Basic usage
 
 ``` typescript
-import { Connection } from 'gny-clinet';
+import { Connection } from '@gny/client';
 
 const connection = new Connection();
 const transferApi = connection.api('Transfer');
@@ -1324,7 +1324,7 @@ Response Parameter Description:
 ### Basic usage
 
 ``` typescript
-import { Connection } from 'gny-clinet';
+import { Connection } from '@gny/client';
 
 const connection = new Connection();
 const uiaApi = connection.api('Uia');
@@ -1682,7 +1682,7 @@ Response Parameter Description:
 ### Basic usage
 
 ```typescript
-import { Connection } from 'gny-clinet';
+import { Connection } from '@gny/client';
 
 const connection = new Connection();
 const voteApi = connection.api('Vote');
