@@ -494,17 +494,17 @@ Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name    | Type    | Description                             |
-| ------- | ------- | --------------------------------------- |
-| success | bool    | true: response data return successfully |
-| height  | integer | block height                            |
+| Name    | Type   | Description                             |
+| ------- | ------ | --------------------------------------- |
+| success | bool   | true: response data return successfully |
+| height  | string | block height                            |
 
 JSON Response Example:
 
 ```js
 {
   "success":true,
-  "height":140569
+  "height": "140569"
 }
 ```
 
