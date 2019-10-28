@@ -92,17 +92,21 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name    | Type    | Description                             |
-| ------- | ------- | --------------------------------------- |
-| success | bool    | true: response data return successfully |
-| balance | integer | balance                                 |
+| Name     | Type    | Description                                  |
+| -------- | ------- | -------------------------------------------- |
+| count    | integer | the number of balances owned by this address |
+| balances | Array   | balance list of GNY                          |
 
 JSON Response Example:
 
 ```js
 {
-  "success": true,
-  "balance": 0
+  "count": 1,
+  "balances":  [
+  {
+    "gny": "400000000000"
+  }
+  ]
 }
 ```
 
