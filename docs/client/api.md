@@ -890,7 +890,9 @@ Response Parameter Description:
 | success | bool | true: response data return successfully |
 | enabled | bool | true: forging is enabled                |
 
-### Register as a delegate
+### Register as a delegate (contract)
+
+Prize: 100 GNY
 
 ```typescript
 const { data } = delegateApi.registerDelegate(secret);
@@ -1261,7 +1263,9 @@ Response Parameter Description:
 | count          | string | the number of transfers                 |
 | strTotalAmount | string | the total amout of transfers            |
 
-### Create a transaction
+### Create a transaction (contract)
+
+Prize: 0.1 GNY
 
 ```typescript
 const { data } = transferApi.send(
@@ -1589,7 +1593,9 @@ JSON Response:
 }
 ```
 
-### Register asset
+### Register asset (contract)
+
+Prize: 500 GNY
 
 ```typescript
 const { data } = uiaApi.registerAsset(
@@ -1620,7 +1626,9 @@ Response Parameter Description:
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
 
-### Register as an issuer
+### Register as an issuer (contract)
+
+Prize: 100 GNY
 
 ```typescript
 const { data } = uiaApi.registerIssuer(name, desc, secret, secondSecret);
@@ -1653,10 +1661,12 @@ const connection = new Connection();
 const voteApi = connection.api.Vote;
 ```
 
-### Vote for a list of keys
+### Vote for a list of keys (contract)
+
+Prize: 0.1 GNY
 
 ```typescript
-const { data } = uiaApi.voteApi(keyList, secret, secondSecret);
+const { data } = voteApi.vote(keyList, secret, secondSecret);
 ```
 
 Request Parameter Description:
@@ -1674,10 +1684,12 @@ Response Parameter Description:
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
 
-### Unvote for a list of keys
+### Unvote for a list of keys (contract)
+
+Prize: 0.1 GNY
 
 ```typescript
-const { data } = uiaApi.unvoteApi(keyList, secret, secondSecret);
+const { data } = uiavoteApiApi.unvote(keyList, secret, secondSecret);
 ```
 
 Request Parameter Description:
