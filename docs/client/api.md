@@ -4,11 +4,11 @@
 
 ### Basic usage
 
-```typesript
+```typescript
 import { Connection } from '@gny/client';
 
 const connection = new Connection();
-const accountApi = connection.api('Account');
+const accountApi = connection.api.Account;
 ```
 
 ### Open account
@@ -363,7 +363,7 @@ Response Parameter Description:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const blockApi = connection.api("Block");
+const blockApi = connection.api.Block;
 ```
 
 ### Get block by id
@@ -613,7 +613,7 @@ JSON Response Example:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const delegateApi = connection.api("Delegate");
+const delegateApi = connection.api.Delegate;
 ```
 
 ### Count the number of delegates
@@ -917,7 +917,7 @@ Response Parameter Description:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const loaderApi = connection.api("Loader");
+const loaderApi = connection.api.Loader;
 ```
 
 ### Get blockchain status
@@ -958,7 +958,7 @@ Response Parameter Description:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const peerApi = connection.api("Peer");
+const peerApi = connection.api.Peer;
 ```
 
 ### Get peers
@@ -1000,7 +1000,7 @@ Response Parameter Description:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const systemApi = connection.api("System");
+const systemApi = connection.api.System;
 ```
 
 ### Get version
@@ -1028,7 +1028,7 @@ Response Parameter Description:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const transactionApi = connection.api("Transaction");
+const transactionApi = connection.api.Transaction;
 ```
 
 ### Get transactions
@@ -1212,7 +1212,7 @@ JSON Response Example:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const transferApi = connection.api("Transfer");
+const transferApi = connection.api.Transfer;
 ```
 
 ### Get transfers
@@ -1298,7 +1298,7 @@ Response Parameter Description:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const uiaApi = connection.api("Uia");
+const uiaApi = connection.api.Uia;
 ```
 
 ### Get all publishers
@@ -1650,7 +1650,7 @@ Response Parameter Description:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const voteApi = connection.api("Vote");
+const voteApi = connection.api.Vote;
 ```
 
 ### Vote for a list of keys
