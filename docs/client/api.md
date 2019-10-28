@@ -588,21 +588,21 @@ Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name      | Type    | Description                              |
-| --------- | ------- | ---------------------------------------- |
-| success   | bool    | true: response data return successfully  |
-| height    | integer | blockchain height                        |
-| fee       | integer | transaction fee                          |
-| milestone | integer |                                          |
-| reward    | integer | block reward                             |
-| supply    | integer | total amount of XAS in the whole network |
+| Name      | Type      | Description                              |
+| --------- | --------- | ---------------------------------------- |
+| success   | bool      | true: response data return successfully  |
+| height    | string    | blockchain height                        |
+| fee       | string    | transaction fee                          |
+| milestone | integer   |                                          |
+| reward    | integer   | block reward                             |
+| supply    | BigNumber | total amount of XAS in the whole network |
 
 JSON Response Example:
 
 ```js
 {
-  "height":11,
-  "fee":10000000,
+  "height":"11",
+  "fee":"10000000",
   "milestone":0,
   "reward":0,
   "supply":"10000000000000000"
