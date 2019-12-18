@@ -60,12 +60,13 @@ const { data } = await accountApi.generateAccount();
 Request Parameter Description: none  
 Response Parameter Description:
 
-| Name       | Type   | Description             |
-| ---------- | ------ | ----------------------- |
-| address    | string | Client's address        |
-| secret     | string | gny account password    |
-| privateKey | string | gny account private key |
-| publicKey  | string | gny account public key  |
+| Name       | Type   | Description                   |
+| ---------- | ------ | ----------------------------- |
+| success    | bool   | Whether request is successful |
+| address    | string | Client's address              |
+| secret     | string | gny account password          |
+| privateKey | string | gny account private key       |
+| publicKey  | string | gny account public key        |
 
 JSON Response Example:
 
@@ -94,6 +95,7 @@ Response Parameter Description:
 
 | Name     | Type    | Description                                  |
 | -------- | ------- | -------------------------------------------- |
+| success  | bool    | Whether request is successful               |
 | count    | integer | the number of balances owned by this address |
 | balances | Array   | balance list of GNY                          |
 
@@ -936,9 +938,10 @@ Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name   | Type | Description                                 |
-| ------ | ---- | ------------------------------------------- |
-| loaded | bool | true: the blockchain is loaded successfully |
+| Name    | Type | Description                                 |
+| ------- | ---- | ------------------------------------------- |
+| success | bool | true: response data return successfully     |
+| loaded  | bool | true: the blockchain is loaded successfully |
 
 ### Sync blockchain status
 
@@ -950,11 +953,12 @@ Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name    | Type   | Description                       |
-| ------- | ------ | --------------------------------- |
-| syncing | bool   | true: the blockchain is syncing   |
-| blocks  | number | the number of blocks to be synced |
-| height  | string | the height of last block          |
+| Name    | Type   | Description                             |
+| ------- | ------ | --------------------------------------- |
+| success | bool   | true: response data return successfully |
+| syncing | bool   | true: the blockchain is syncing         |
+| blocks  | number | the number of blocks to be synced       |
+| height  | string | the height of last block                |
 
 ## Peer
 
@@ -977,10 +981,11 @@ Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name  | Type  | Description                |
-| ----- | ----- | -------------------------- |
-| Peers | Array | A list of peer information |
-| count | bool  | The number of peers        |
+| Name    | Type  | Description                              |
+| ------- | ----- | ---------------------------------------- |
+| success | bool   | true: response data return successfully |
+| Peers   | Array | A list of peer information               |
+| count   | bool  | The number of peers                      |
 
 ### Get version
 
@@ -992,11 +997,12 @@ Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name    | Type   | Description           |
-| ------- | ------ | --------------------- |
-| version | string | Version of blockchain |
-| build   | string | Build version         |
-| net     | string | Net version           |
+| Name    | Type   | Description                             |
+| ------- | ------ | --------------------------------------- |
+| success | bool   | true: response data return successfully |
+| version | string | Version of blockchain                   |
+| build   | string | Build version                           |
+| net     | string | Net version                             |
 
 ## System
 
@@ -1019,12 +1025,13 @@ Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name      | Type   | Description                        |
-| --------- | ------ | ---------------------------------- |
-| os        | string | Operating system information       |
-| version   | string | Version of blockchain              |
-| timestamp | string | the time right now                 |
-| lastBlock | json   | Basic information about last block |
+| Name      | Type   | Description                             |
+| --------- | ------ | --------------------------------------- |
+| success   | bool   | true: response data return successfully |
+| os        | string | Operating system information            |
+| version   | string | Version of blockchain                   |
+| timestamp | string | the time right now                      |
+| lastBlock | json   | Basic information about last block      |
 
 ## Transaction
 
@@ -1181,9 +1188,9 @@ const { data } = transactionApi.addTransactions(transactions);
 ```
 
 Request Parameter Description:  
-| Name | Type | Required | Description |  
+| Name         | Type  | Required | Description           |  
 | ------------ | ----- | -------- | --------------------- |  
-| transactions | Y | Y | Array of transactions |
+| transactions | Y     | Y        | Array of transactions |
 
 JSON Response Example:
 
@@ -1240,11 +1247,11 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name      | Type   | Description                             |
-| --------- | ------ | --------------------------------------- |
-| succes    | bool   | true: response data return successfully |
-| count     | string | the number of transfers                 |
-| transfers | Array  | An array of transfers                   |
+| Name       | Type   | Description                             |
+| ---------- | ------ | --------------------------------------- |
+| success    | bool   | true: response data return successfully |
+| count      | string | the number of transfers                 |
+| transfers  | Array  | An array of transfers                   |
 
 ### Get total amount of transfers
 
@@ -1261,11 +1268,11 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name           | Type   | Description                             |
-| -------------- | ------ | --------------------------------------- |
-| succes         | bool   | true: response data return successfully |
-| count          | string | the number of transfers                 |
-| strTotalAmount | string | the total amout of transfers            |
+| Name            | Type   | Description                             |
+| --------------- | ------ | --------------------------------------- |
+| success         | bool   | true: response data return successfully |
+| count           | string | the number of transfers                 |
+| strTotalAmount  | string | the total amout of transfers            |
 
 ### Create a transaction (contract)
 
@@ -1506,7 +1513,7 @@ Response Parameter Description:
 
 | Name    | Type    | Description                                                                                       |
 | ------- | ------- | ------------------------------------------------------------------------------------------------- |
-| success | boolean | true: response data return successfully                                                           |
+| success | boolean | true: response data return successfully                                                                |
 | asset   | JSON    | Contains asset name, description, cap, precision, current circulation, issue height, publisher id |
 
 JSON Response:
@@ -1581,6 +1588,7 @@ Response Parameter Description:
 
 | Name    | Type | Description                                                                                                                                                                  |
 | ------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| success | bool | Whether operation was successful                                                                                                                                                |
 | balance | json | Asset array, details owned, each element is an asset, including asset name, balance, cap, precision, current circulation, whether to cancel (0: not cancelled, 1: cancelled) |
 
 JSON Response:
