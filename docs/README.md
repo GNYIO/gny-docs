@@ -8,7 +8,7 @@ actionLink: ./blockchain/install
 features:
   - title: Machine Learning
     details: Use our patent Machine Learning algorithm to get the best out of your data.
-  - title: Pay only what you use.
+  - title: Pay only what you use
     details: You only pay for what you use. No hidden costs or service flats.
   - title: Secure
     details: Store your data safely on-chain. You keep control over your data. No need to give your data to a 3rd party
