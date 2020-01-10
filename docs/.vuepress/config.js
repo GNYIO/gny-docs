@@ -35,6 +35,17 @@ module.exports = {
     ],
     sidebar: [
       {
+        title: 'Run Node',
+        path: '/run-node/', // important is a / at the end
+        collapsable: false,
+        sidebarDepth: 0, // important otherwise the sidebar would get confusing
+        children: [
+          ['/run-node/get-started', 'Get Started'],
+          ['/run-node/start-node', 'Start node'],
+          ['/run-node/configure', 'Configure'],
+        ],
+      },
+      {
         title: 'Get Started',
         path: '/blockchain/', // important is a / at the end
         collapsable: false,
