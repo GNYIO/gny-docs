@@ -46,30 +46,30 @@ module.exports = {
         ],
       },
       {
-        title: 'Get Started',
-        path: '/blockchain/', // important is a / at the end
+        title: 'Contribute',
+        path: '/contribute/', // important is a / at the end
         collapsable: false,
         sidebarDepth: 0, // important otherwise the sidebar would get confusing
         children: [
-          ['/blockchain/install', 'Install'],
-          ['/blockchain/docker', 'Docker'],
+          ['/contribute/install', 'Install'],
+          ['/contribute/docker', 'Docker'],
           {
             title: 'Sub-Packages',
-            path: '/blockchain/sub-packages/',
+            path: '/contribute/sub-packages/',
             sidebarDepth: 0,
             collapsable: true,
             children: [
-              ['/blockchain/sub-packages/architecture', 'Architecture'],
-              ['/blockchain/sub-packages/raw-api', 'Raw HTTP API'],
+              ['/contribute/sub-packages/architecture', 'Architecture'],
+              ['/contribute/sub-packages/raw-api', 'Raw HTTP API'],
               [
-                '/blockchain/sub-packages/database-postgres',
+                '/contribute/sub-packages/database-postgres',
                 'Pkg. Database-Postgres',
               ],
-              ['/blockchain/sub-packages/base', 'Pkg. Base'],
-              ['/blockchain/sub-packages/interfaces', 'Pkg. Interfaces'],
-              ['/blockchain/sub-packages/p2p', 'Pkg. P2P'],
-              ['/blockchain/sub-packages/extendedJoi', 'Pkg. Extended Joi'],
-              ['/blockchain/sub-packages/utils', 'Pkg. Utils'],
+              ['/contribute/sub-packages/base', 'Pkg. Base'],
+              ['/contribute/sub-packages/interfaces', 'Pkg. Interfaces'],
+              ['/contribute/sub-packages/p2p', 'Pkg. P2P'],
+              ['/contribute/sub-packages/extendedJoi', 'Pkg. Extended Joi'],
+              ['/contribute/sub-packages/utils', 'Pkg. Utils'],
             ],
           },
         ],
