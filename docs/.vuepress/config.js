@@ -46,6 +46,16 @@ module.exports = {
         ],
       },
       {
+        title: 'HTTP',
+        path: '/http/',
+        collapsable: false,
+        sidebarDepth: 0,
+        children: [
+          ['/http/api', 'API'],
+          ['/http/exchange-endpoints', 'Exchange Endpoints'],
+        ],
+      },
+      {
         title: 'Contribute',
         path: '/contribute/', // important is a / at the end
         collapsable: false,
@@ -60,7 +70,6 @@ module.exports = {
             collapsable: true,
             children: [
               ['/contribute/sub-packages/architecture', 'Architecture'],
-              ['/contribute/sub-packages/raw-api', 'Raw HTTP API'],
               [
                 '/contribute/sub-packages/database-postgres',
                 'Pkg. Database-Postgres',
