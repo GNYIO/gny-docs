@@ -88,6 +88,12 @@ module.exports = {
         sidebarDepth: 0,
         children: [['/guide/how-to-send-transactions', 'Send Transaction']],
       },
+      {
+        title: 'FAQ',
+        path: '/faq/',
+        collapsable: false,
+        sidebarDepth: 0,
+      },
     ],
   },
 };
