@@ -50,3 +50,45 @@ The `p2pSecret` is used to identify a P2P node (on the P2P port) and encrypt the
   "pubKey": "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDCAwXZkflrt9zgdgHuYiP28o7NTHKMhqOcTM/ZYnKCOEtr2/YsixUGI2MU0gaLSaXiJ1fZoYMZ0l+MhSVcnj3xgihKJJuQnlxQe77djUlLdcXCuSwC8H8/MMty4f5Kg0Srfl3zatIIUQgRA2MpWUxe7hQ/hPHfcy+tZC0Cy3aPsNorfk2L0CFKT1DcMf23BVdlANaWwaVhSheFUj6Z1dqSAcOSgMQve/ECUocxLyhx6xQCpsoR2tHeUwQmmP6vEuRdocmUVEDsiNYW57kA4vq/IvLNAs4I6VIrAyC3DtoKVRApgBkmfyuIpu693vCgnsggOqQ0MZlzZi8P2dLsw8JXAgMBAAE="
 }
 ```
+
+### What is a `network` type?
+
+In order to better test
+
+### What is a `Genesis` Account?
+
+A `Genesis` Account is the first Account in a Blockchain. In the GNY Blockchain the `Genesis` Account has initially 400 million GNY which are later distributed.
+
+Down belos you will find the the `Genesis` Account for the `localnet`. The `localnet` is only for local development. If you want to user another account for your `localnet` then transfer GNY to another address. Otherwise only the `Genesis` Account can invoke contracts.
+
+```json
+{
+  "keypair": {
+    "publicKey": "575bf8f32b941b9e6ae1af82539689198327b73d77d22a98cdef2460c9257f7b",
+    "privateKey": "c68434b960ef024b2a868118be7641be25e566f720a5eb12ff314022629ccc71575bf8f32b941b9e6ae1af82539689198327b73d77d22a98cdef2460c9257f7b"
+  },
+  "address": "G4GDW6G78sgQdSdVAQUXdm5xPS13t",
+  "secret": "grow pencil ten junk bomb right describe trade rich valid tuna service"
+}
+```
+
+### What are `contracts`?
+
+Contracts are the only tools that can change the Blockchain. If you want to transfer GNY to another account, you will need to invoke a contract. You invoke a contract by broadcasting a Transaction. This is getting pretty technical. If you use the Wallet, the technical aspect is hidden behind the graphical user interface.
+
+Here is a full list of all available contracts currently in the GNY Blockchain:
+
+| Contract Type |            Name             |                    Description                     | Prize (GNY) |
+| :-----------: | :-------------------------: | :------------------------------------------------: | :---------: |
+|       0       |      `basic.transfer`       |     Transfer `GNY` from one account to another     |     0.1     |
+|       1       |     `basic.setUserName`     |             Set `username` for Account             |      5      |
+|       2       | `basic.setSecondPassphrase` |     Set `secondPassPhrase` for current Account     |      5      |
+|       3       |        `basic.lock`         |      Lock Account until specific Block height      |     0.1     |
+|       4       |        `basic.vote`         |                Vote for a Delegate                 |     0.1     |
+|       5       |       `basic.unvote`        |                  Unvote Delegate                   |     0.1     |
+|       6       |       `basic.unlock`        | Unlock Account after lock Block height was reached |      0      |
+|      10       |  `basic.registerDelegate`   |            Register Account as Delegate            |     100     |
+|      100      |    `uia.registerIssuer`     |          Register Account as Asset Issuer          |     100     |
+|      101      |     `uia.registerAsset`     |                 Register an Asset                  |     500     |
+|      102      |         `uia.issue`         |               Issue registered Asset               |     0.1     |
+|      103      |       `uia.transfer`        |          Transfer Asset to other Account           |     0.1     |
