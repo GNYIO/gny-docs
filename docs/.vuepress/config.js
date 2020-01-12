@@ -19,6 +19,8 @@ module.exports = {
         },
       },
     ],
+    ['vuepress-plugin-code-copy', true],
+    ['seo'],
   ],
   themeConfig: {
     repo: 'gnyio/gny-experiment',
