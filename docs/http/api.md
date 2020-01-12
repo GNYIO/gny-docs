@@ -16,17 +16,16 @@
 
 #### 2.1.1 Login
 
-##### 2.1.1.1 Login without locally encrypt
+##### 2.1.1.1 Login with PublicKey
 
 Interface Address: /api/accounts/open/  
 Request Method: POST  
-Supported Format: json  
+Supported Format: JSON  
 Request Parameter Description:
 
-| Name      | Type   | Required | Description                            |
-| --------- | ------ | -------- | -------------------------------------- |
-| secret    | string | N        | gny account password (not recommended) |
-| publicKey | string | N        | GNY publicKey (recommended)            |
+| Name      | Type   | Required | Description   |
+| --------- | ------ | -------- | ------------- |
+| publicKey | string | Y        | GNY publicKey |
 
 Response Parameter Description:
 
@@ -35,13 +34,7 @@ Response Parameter Description:
 | success | bool | Whether login is successful |
 | account | json | Account information         |
 
-Request Example (secret):
-
-```bash
-curl -X POST -H "Content-Type: application/json" -k -d '{"secret":"fault still attack alley expand music basket purse later educate follow ride"}' http://localhost:4096/api/accounts/open/
-```
-
-Request Example (publicKey):
+Request Example:
 
 ```bash
 curl -X POST -H "Content-Type: applicat28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"}' http://localhost:4096/api/accounts/open/
@@ -208,40 +201,7 @@ JSON Response Example:
 }
 ```
 
-#### 2.1.5 Generate Public Key
-
-Interface Address: /api/accounts/generatePublickey  
-Request Method: post  
-Supported Format: json  
-Request Parameter Description:
-
-| Name   | Type   | Required | Description          |
-| ------ | ------ | -------- | -------------------- |
-| secret | string | Y        | gny account password |
-
-Response Parameter Description:
-
-| Name      | Type   | Description                             |
-| --------- | ------ | --------------------------------------- |
-| success   | bool   | true: response data return successfully |
-| publicKey | string | public key                              |
-
-Request Example:
-
-```bash
-curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"fault still attack alley expand music basket purse later educate follow ride"}' 'http://localhost:4096/api/accounts/generatePublickey'
-```
-
-JSON Response Example:
-
-```js
-{
-	"success": true,
-	"publicKey": "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
-}
-```
-
-#### 2.1.6 Get Voting List by Address
+#### 2.1.5 Get Voting List by Address
 
 Interface Address: /api/accounts/delegates  
 Request Method: get  
@@ -411,7 +371,7 @@ JSON Response Example:
 }
 ```
 
-#### 2.2.4 Get Unconfirmed Transaction Detail Inforamtion [within all network]
+#### 2.2.4 Get Unconfirmed Transaction Detail Information [within all network]
 
 Interface Address: /api/transactions/unconfirmed  
 Request Method: GET  
@@ -446,46 +406,7 @@ JSON Response Example:
 }
 ```
 
-#### 2.2.5 Create Transaction
-
-Interface Address: /api/transactions  
-Request Method: PUT  
-Supported Format: json  
-Comment: Recipiant acount must have already login in wallet on the web.  
-Request Parameter Description:
-
-| Name                     | Type    | Required | Description                                                                                    |
-| ------------------------ | ------- | -------- | ---------------------------------------------------------------------------------------------- |
-| secret                   | string  | Y        | GNY account password                                                                           |
-| amount                   | integer | Y        | amount，between 1 and 10000000000000000                                                        |
-| recipientId              | string  | Y        | recipient's address, minimum:1                                                                 |
-| publicKey                | string  | N        | sender's public key                                                                            |
-| secondSecret             | string  | N        | sender's second password (must fit the BIP39 standard), the length should be between 1 and 100 |
-| multisigAccountPublicKey | string  | N        | the public key of multiple signature account                                                   |
-
-Response Parameter Description:
-
-| Name          | Type   | Description                             |
-| ------------- | ------ | --------------------------------------- |
-| success       | bool   | true: response data return successfully |
-| transactionId | string | transaction id                          |
-
-Request Example:
-
-```bash
-curl -k -H "Content-Type: application/json" -X PUT -d '{"secret":"grow pencil ten junk bomb right describe trade rich valid tuna service", "type":0, "args":[100000000,"G4GDW6G78sgQdSdVAQUXdm5xPS13t"], "fee":10000000}' 'http://localhost:4096/api/transactions/'
-```
-
-JSON Response Example:
-
-```js
-{
-	"success": true,
-	"transactionId": "16670272591943275531"
-}
-```
-
-### 2.2.6 Create a Batch of Transactions
+### 2.2.5 Create a Batch of Transactions
 
 Interface Address: /api/transactions/batch  
 Request Method: PUT  
