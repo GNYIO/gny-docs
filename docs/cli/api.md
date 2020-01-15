@@ -8,7 +8,7 @@
 openaccount [secret]
 ```
 
-open your account and get the infomation by secret
+open your account and get the infomation by publicKey
 
 | Name      | Type   | Required | Description           |
 | --------- | ------ | -------- | --------------------- |
@@ -611,15 +611,13 @@ Response Parameter Description:
 
 | Name    | Type    | Description                             |
 | ------- | ------- | --------------------------------------- |
-| success | bool    | true: response data return successfully |
 | count   | integer | total number of delegates               |
 
 JSON Response Example:
 
 ```js
 {
-    "success":true,
-    "count":234
+  "count":234
 }
 ```
 
@@ -639,34 +637,31 @@ Response Parameter Description:
 
 | Name     | Type  | Description                             |
 | -------- | ----- | --------------------------------------- |
-| success  | bool  | true: response data return successfully |
 | accounts | Array | a JSON object list of account           |
 
 JSON Response Example:
 
 ```js
-{
-	"success": true,
-	"accounts": [{
-		"address": "2918354313445278349",
-		"publicKey": "4fde4c49f1297d5d3a24b1494204543c4281aff17917ff7ff8ff32da3b4b222f",
-		"balance": 1338227722727,
-		"weight": 0.013316660647014596
-	},
-	{
-		"address": "1523444724068322527",
-		"publicKey": "8a6a61c28dc47541aadf1eecec2175c8f768f2331eea3472b1593bf1aa4e1fb4",
-		"balance": 2109297623765,
-		"weight": 0.020989552213127274
-	},
-	{
-		"address": "14483826354741911727",
-		"publicKey": "5dacb7983095466b9b037690150c3edec0f073815326e33a4744b6d1d50953e2",
-		"balance": 5135815841470,
-		"weight": 0.051106336795243436
-	}
-	}]
-}
+[
+  {
+    "address": "2918354313445278349",
+    "publicKey": "4fde4c49f1297d5d3a24b1494204543c4281aff17917ff7ff8ff32da3b4b222f",
+    "balance": 1338227722727,
+    "weight": 0.013316660647014596
+  },
+  {
+    "address": "1523444724068322527",
+    "publicKey": "8a6a61c28dc47541aadf1eecec2175c8f768f2331eea3472b1593bf1aa4e1fb4",
+    "balance": 2109297623765,
+    "weight": 0.020989552213127274
+  },
+  {
+    "address": "14483826354741911727",
+    "publicKey": "5dacb7983095466b9b037690150c3edec0f073815326e33a4744b6d1d50953e2",
+    "balance": 5135815841470,
+    "weight": 0.051106336795243436
+  }
+]
 ```
 
 ### Get delegate by public key
@@ -685,32 +680,30 @@ Response Parameter Description:
 
 | Name     | Type | Description                             |
 | -------- | ---- | --------------------------------------- |
-| success  | bool | true: response data return successfully |
 | delegate | JSON | the detail information of this delegate |
 
 JSON Response Example:
 
 ```js
 {
-  "delegate":{
-    "address":"G3kkkSaJNVY87AhVPyxXVGFpR61VB",
-    "username":"gny_d1",
-    "transactionId":"156c950d69dda92214fa26d37baff860990fad43d40ba74a342fabf9adaaa2dc",
-    "publicKey":"85b4c2efe56642398dad3f1ec338e87e712063cfaee4a836cb58b673cdb820f4",
-    "votes":0,
-    "producedBlocks":0,
-    "missedBlocks":0,
-    "fees":0,
-    "rewards":0,
-    "_version_":1,
-    "rate":47,
-    "approval":0,
-    "productivity":"0.00",
-    "vote":0,
-    "missedblocks":0,
-    "producedblocks":0
-  }
+  "address":"G3kkkSaJNVY87AhVPyxXVGFpR61VB",
+  "username":"gny_d1",
+  "transactionId":"156c950d69dda92214fa26d37baff860990fad43d40ba74a342fabf9adaaa2dc",
+  "publicKey":"85b4c2efe56642398dad3f1ec338e87e712063cfaee4a836cb58b673cdb820f4",
+  "votes":0,
+  "producedBlocks":0,
+  "missedBlocks":0,
+  "fees":0,
+  "rewards":0,
+  "_version_":1,
+  "rate":47,
+  "approval":0,
+  "productivity":"0.00",
+  "vote":0,
+  "missedblocks":0,
+  "producedblocks":0
 }
+
 ```
 
 ### Get delegate by user name
@@ -729,7 +722,6 @@ Response Parameter Description:
 
 | Name     | Type | Description                             |
 | -------- | ---- | --------------------------------------- |
-| success  | bool | true: response data return successfully |
 | delegate | JSON | the detail information of this delegate |
 
 ### Get delegate by address
@@ -748,7 +740,6 @@ Response Parameter Description:
 
 | Name     | Type | Description                             |
 | -------- | ---- | --------------------------------------- |
-| success  | bool | true: response data return successfully |
 | delegate | JSON | the detail information of this delegate |
 
 ### Get the list of Delegates
@@ -816,4 +807,84 @@ JSON Response Example:
   }
 ]}
 ```
+
+## Exchange
+
+### Open your account and get the infomation by secret
+
+```bash
+openaccountwithsecret [secret]
+```
+
+open your account and get the infomation by secret
+
+| Name   | Type   | Required | Description        |
+| ------ | ------ | -------- | ------------------ |
+| secret | string | N        | gny account secret |
+
+Response Parameter Description:
+
+| Name    | Type | Description                 |
+| ------- | ---- | --------------------------- |
+| success | bool | Whether login is successful |
+| account | json | Account information         |
+
+JSON Response Example:
+
+```js
+{
+  "success": true,
+  "account":{
+    "address":"G4b8BhmeRFBmWAHZemKD25BmEP2G",
+    "balance":0,
+    "secondPublicKey":"",
+    "lockHeight":0,
+    "publicKey":"bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
+  },
+  "latestBlock":{
+    "height":53,
+    "timestamp":3471490
+  },
+  "version":{
+    "version":"1.0.0",
+    "build":"DEFAULT_BUILD_TIME",
+    "net":"testnet"
+  }
+}
+```
+
+### Generate public key with secret
+
+```bash
+genpublickey [secret]
+```
+
+open your account and get the infomation by secret
+
+| Name   | Type   | Required | Description        |
+| ------ | ------ | -------- | ------------------ |
+| secret | string | N        | gny account secret |
+
+Response Parameter Description:
+
+| Name      | Type   | Description                 |
+| --------- | ------ | --------------------------- |
+| publicKey | string | gny account publicKey       |
+
+
+### Generate accounts
+
+```bash
+genaccount
+```
+
+Response Parameter Description:
+
+| Name     | Type  | Description   |
+| -------- | ----- | ------------- |
+| accounts | Array | account array |
+
+
+
+
 
