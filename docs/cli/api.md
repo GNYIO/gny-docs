@@ -597,3 +597,223 @@ Response Parameter Description:
 | payloadHash | string | the block payload hash |
 
 
+## Delegate
+
+### Count the number of delegates
+
+```bash
+getdelegatescount
+```
+
+Request Parameter Description: none
+
+Response Parameter Description:
+
+| Name    | Type    | Description                             |
+| ------- | ------- | --------------------------------------- |
+| success | bool    | true: response data return successfully |
+| count   | integer | total number of delegates               |
+
+JSON Response Example:
+
+```js
+{
+    "success":true,
+    "count":234
+}
+```
+
+### Get the voters by username
+
+```bash
+getvoters [username]
+```
+
+Request Parameter Description:
+
+| Name     | Type   | Required | Description              |
+| -------- | ------ | -------- | ------------------------ |
+| username | string | Y        | username of the delegate |
+
+Response Parameter Description:
+
+| Name     | Type  | Description                             |
+| -------- | ----- | --------------------------------------- |
+| success  | bool  | true: response data return successfully |
+| accounts | Array | a JSON object list of account           |
+
+JSON Response Example:
+
+```js
+{
+	"success": true,
+	"accounts": [{
+		"address": "2918354313445278349",
+		"publicKey": "4fde4c49f1297d5d3a24b1494204543c4281aff17917ff7ff8ff32da3b4b222f",
+		"balance": 1338227722727,
+		"weight": 0.013316660647014596
+	},
+	{
+		"address": "1523444724068322527",
+		"publicKey": "8a6a61c28dc47541aadf1eecec2175c8f768f2331eea3472b1593bf1aa4e1fb4",
+		"balance": 2109297623765,
+		"weight": 0.020989552213127274
+	},
+	{
+		"address": "14483826354741911727",
+		"publicKey": "5dacb7983095466b9b037690150c3edec0f073815326e33a4744b6d1d50953e2",
+		"balance": 5135815841470,
+		"weight": 0.051106336795243436
+	}
+	}]
+}
+```
+
+### Get delegate by public key
+
+```bash
+getdelegatebypublickey [publicKey]
+```
+
+Request Parameter Description:
+
+| Name      | Type   | Required | Description           |
+| --------- | ------ | -------- | --------------------- |
+| publickey | string | Y        | delegate's public key |
+
+Response Parameter Description:
+
+| Name     | Type | Description                             |
+| -------- | ---- | --------------------------------------- |
+| success  | bool | true: response data return successfully |
+| delegate | JSON | the detail information of this delegate |
+
+JSON Response Example:
+
+```js
+{
+  "delegate":{
+    "address":"G3kkkSaJNVY87AhVPyxXVGFpR61VB",
+    "username":"gny_d1",
+    "transactionId":"156c950d69dda92214fa26d37baff860990fad43d40ba74a342fabf9adaaa2dc",
+    "publicKey":"85b4c2efe56642398dad3f1ec338e87e712063cfaee4a836cb58b673cdb820f4",
+    "votes":0,
+    "producedBlocks":0,
+    "missedBlocks":0,
+    "fees":0,
+    "rewards":0,
+    "_version_":1,
+    "rate":47,
+    "approval":0,
+    "productivity":"0.00",
+    "vote":0,
+    "missedblocks":0,
+    "producedblocks":0
+  }
+}
+```
+
+### Get delegate by user name
+
+```bash
+getdelegatebyusername [username]
+```
+
+Request Parameter Description:
+
+| Name     | Type   | Required | Description          |
+| -------- | ------ | -------- | -------------------- |
+| username | string | Y        | delegate's user name |
+
+Response Parameter Description:
+
+| Name     | Type | Description                             |
+| -------- | ---- | --------------------------------------- |
+| success  | bool | true: response data return successfully |
+| delegate | JSON | the detail information of this delegate |
+
+### Get delegate by address
+
+```bash
+getdelegatebyaddress [address]
+```
+
+Request Parameter Description:
+
+| Name    | Type   | Required | Description        |
+| ------- | ------ | -------- | ------------------ |
+| address | string | Y        | delegate's address |
+
+Response Parameter Description:
+
+| Name     | Type | Description                             |
+| -------- | ---- | --------------------------------------- |
+| success  | bool | true: response data return successfully |
+| delegate | JSON | the detail information of this delegate |
+
+### Get the list of Delegates
+
+```bash
+getdelegates -o [offset] -l [limit]
+getdelegates --offset [offset] --limit [limit]
+```
+
+Request Parameter Description:
+
+| Name   | Type    | Required | Description            |
+| ------ | ------- | -------- | ---------------------- |
+| offset | int     | N        | maximum return records |
+| limit  | integer | N        | offset, minimum: 0     |
+
+Response Parameter Description:
+
+| Name       | Type   | Description                                     |
+| ---------- | ------ | ----------------------------------------------- |
+| success    | bool   | true: response data return successfully         |
+| delegates  | Array  | a list containing delegates' detail information |
+| totalCount | number | How many delegates exist overall?               |
+
+JSON Response Example:
+
+```js
+{
+  "totalCount":101,
+  "delegates":[{
+    "address":"GmCQ2xoGv5bWWtaxQfiBNuTUvaoe",
+    "username":"gny_d95",
+    "transactionId":"d32dcf7b9db93591ae94878f4390807e21052b0b76044b5eadc8a6385557e503",
+    "publicKey":"fffd516f0748ead6720440e94da58ed3afd686b546f5d36a3c5b52cfed834371",
+    "votes":0,
+    "producedBlocks":0,
+    "missedBlocks":0,
+    "fees":0,
+    "rewards":0,
+    "_version_":1,
+    "rate":1,
+    "approval":0,
+    "productivity":"0.00",
+    "vote":0,
+    "missedblocks":0,
+    "producedblocks":0
+  },
+  {
+    "address":"G94UbHjRnd6Em1o3FxQAqkMXA2RV",
+    "username":"gny_d10",
+    "transactionId":"9f9a6818b467dcc73c71c24ff622babeb63850263626dfc7472c1f87f58ebbe9",
+    "publicKey":"ff47c9e9bafcf28ae8528c2b259661ade96a3030ab73ddde82b52ee44c9122b5",
+    "votes":0,
+    "producedBlocks":0,
+    "missedBlocks":0,
+    "fees":0,
+    "rewards":0,
+    "_version_":1,
+    "rate":2,
+    "approval":0,
+    "productivity":"0.00",
+    "vote":0,
+    "missedblocks":0,
+    "producedblocks":0
+  }
+]}
+```
+

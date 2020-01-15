@@ -755,7 +755,7 @@ Response Parameter Description:
 | success  | bool | true: response data return successfully |
 | delegate | JSON | the detail information of this delegate |
 
-### Get delegate by public key
+### Get delegate by address
 
 ```typescript
 const { data } = delegateApi.getDelegateByAddress(address);
