@@ -885,6 +885,300 @@ Response Parameter Description:
 | accounts | Array | account array |
 
 
+## Peer
+
+### Get peers
+
+```bash
+getpeers
+```
+
+Request Parameter Description: none
+
+Response Parameter Description:
+
+| Name    | Type  | Description                              |
+| ------- | ----- | ---------------------------------------- |
+| success | bool  | true: response data return successfully |
+| Peers   | Array | A list of peer information               |
+| count   | bool  | The number of peers                      |
+
+### Get version
+
+```bash
+getversion
+```
+
+Request Parameter Description: none
+
+Response Parameter Description:
+
+| Name    | Type   | Description                             |
+| ------- | ------ | --------------------------------------- |
+| success | bool   | true: response data return successfully |
+| version | string | Version of blockchain                   |
+| build   | string | Build version                           |
+| net     | string | Net version                             |
+
+
+
+## System
+
+### Get version
+
+```bash
+getsysteminfo
+```
+
+Request Parameter Description: none
+
+Response Parameter Description:
+
+| Name      | Type   | Description                             |
+| --------- | ------ | --------------------------------------- |
+| success   | bool   | true: response data return successfully |
+| os        | string | Operating system information            |
+| version   | string | Version of blockchain                   |
+| timestamp | string | the time right now                      |
+| lastBlock | json   | Basic information about last block      |
+
+
+
+## Transaction
+
+
+### Get transactions
+
+```bash
+gettransactions -l [limit] -o [offset] -i [id] --senderId [senderId] --senderPublicKey [senderPublicKey] -b [blockId] -h [height] -t [type] -m [message]
+gettransactions --limit [limit] --offset [offset] --id [id] --senderId [senderId] --senderPublicKey [senderPublicKey] --blockId [blockId] --height [height] --type [type] --message [message]
+```
+
+Request Parameter Description:
+
+| Name                  | Type     | Required              | Description                                                                                         |
+| --------------------- | -------- | --------------------- | --------------------------------------------------------------------------------------------------- |
+| limit           | integer  | N                     | the limitation of returned records，minimum：0,maximum：100                                         |
+| offset          | integer  | N                     | offset, minimum 0                                                                                   |
+| id              | string   | N                     | transaction id                                                                                      |
+| senderId        | N        | GNY address of sender |
+| senderPublicKey | string   | N                     | sender's public key                                                                                 |
+| blockId         | string   | N                     | block id                                                                                            |
+| height          | integer  | specific block height |
+| type            | interger | N                     | Transaction type, see https://github.com/GNYIO/gny-general/wiki/Transactions for futher information |
+| message         | string   | Transaction message   |
+
+Response Parameter Description:
+
+| Name         | Type  | Description                                                 |
+| ------------ | ----- | ----------------------------------------------------------- |
+| success      | bool  | true: response data return successfully                     |
+| transactions | Array | A JSON object list containing multiple transactions' detail |
+| count        | int   | the total number of retrieved transactions                  |
+
+JSON Response Example:
+
+```js
+{
+  "transactions":[
+    {
+      "transactionId":"42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
+      "senderId":"G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
+      "recipientId":"G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
+      "recipientName":null,
+      "currency":"gny",
+      "amount":"10000000000000000",
+      "timestamp":0,
+      "height":0,
+      "_version_":1
+    }
+  ],
+  "count":1
+}
+```
+
+### Get unconfirmed transactions 
+
+```bash
+getunconfirmedtransactions -k [sender public key] -a [address]
+getunconfirmedtransactions --key [sender public key] --address [address]
+```
+
+Request Parameter Description:
+
+| Name      | Type   | Required | Description       |
+| --------- | ------ | -------- | ----------------- |
+| publicKey | string | Y        | sender public key |
+| address   | string | Y        | sender id         |
+
+
+Response Parameter Description:
+
+| Name         | Type | Description                                |
+| ------------ | ---- | ------------------------------------------ |
+| transactions | json | unconfirmed transaction detail inforamtion |
+
+JSON Response Example:
+
+```js
+[
+  {
+    "transactionId":"42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
+    "senderId":"G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
+    "recipientId":"G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
+    "recipientName":null,
+    "currency":"gny",
+    "amount":"10000000000000000",
+    "timestamp":0,
+    "height":0,
+    "_version_":1
+  },
+]
+```
+
+### Get unconfirmed transaction by transaction id
+
+```bash
+gettransaction [id]
+```
+
+Request Parameter Description:
+
+| Name | Type   | Required | Description                |
+| ---- | ------ | -------- | -------------------------- |
+| id   | string | Y        | unconfirmed transaction id |
+
+Response Parameter Description:
+
+| Name        | Type | Description                                |
+| ----------- | ---- | ------------------------------------------ |
+| success     | bool | true: response data return successfully    |
+| transaction | json | unconfirmed transaction detail inforamtion |
+
+JSON Response Example:
+
+```js
+{
+  "transactionId":"42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
+  "senderId":"G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
+  "recipientId":"G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
+  "recipientName":null,
+  "currency":"gny",
+  "amount":"10000000000000000",
+  "timestamp":0,
+  "height":0,
+  "_version_":1
+}
+```
+
+
+### Send money (contract)
+
+Prize: 0.1 GNY
+
+```bash
+sendmoney -e [secret] -s [secondSecret] -a [amount] -r [recipientId] -m [message]
+sendmoney --secret [secret] --secondSecret [secondSecret] --amount [amount] --recipient [recipientId] --message [message]
+```
+
+| Name         | Type    | Required | Description                                                                                    |
+| ------------ | ------- | -------- | ---------------------------------------------------------------------------------------------- |
+| secret       | string  | Y        | GNY account password                                                                           |
+| amount       | integer | Y        | amount，between 1 and 10000000000000000                                                        |
+| recipientId  | string  | Y        | recipient's address, minimum:1                                                                 |
+| message      | string  | N        | message with the transaction                                                                   |
+| secondSecret | string  | N        | sender's second password (must fit the BIP39 standard), the length should be between 1 and 100 |
+
+Response Parameter Description:
+
+| Name          | Type   | Description    |
+| ------------- | ------ | -------------- |
+| transactionId | string | transaction id |
+
+
+### Get transaction bytes
+
+```bash
+gettransactionbytes -f [file]
+```
+
+Request Parameter Description:
+
+| Name | Type   | Required | Description            |
+| ---- | ------ | -------- | ---------------------- |
+| file | string | Y        | transaction file path  |
+
+Response Parameter Description:
+
+| Name             | Type   | Description           |
+| ---------------- | ------ | --------------------- |
+| transactionbytes | string | the transaction bytes |
+
+
+
+### Get transaction id
+
+```bash
+gettransactionid -f [file]
+```
+
+Request Parameter Description:
+
+| Name | Type   | Required | Description            |
+| ---- | ------ | -------- | ---------------------- |
+| file | string | Y        | transaction file path  |
+
+Response Parameter Description:
+
+| Name          | Type   | Description        |
+| ------------- | ------ | ------------------ |
+| transactionId | string | the transaction id |
+
+### Verify transaction bytes
+
+```bash
+verifybytes -b [bytes] -s [signature] -p [publicKey]
+```
+
+Request Parameter Description:
+
+| Name      | Type   | Required | Description                     |
+| --------- | ------ | -------- | ------------------------------- |
+| bytes     | string | Y        | transaction bytes               |
+| signature | string | Y        | transaction or block signature  |
+| publicKey | string | Y        | signer public key               |
+
+Response Parameter Description:
+
+| Name   | Type    | Description                 |
+| ------ | ------- | --------------------------- |
+| resule | boolean | true: verified successfully |
+
+
+### Send transaction with fee
+
+```bash
+transaction -e [secret] -s [secondSecret] -a [amount] -r [recipientId] -m [message] -f [feee]
+transaction --secret [secret] --secondSecret [secondSecret] --amount [amount] --recipient [recipientId] --message [message] --fee [fee]
+```
+
+Request Parameter Description:
+
+| Name         | Type    | Required | Description                                                                                    |
+| ------------ | ------- | -------- | ---------------------------------------------------------------------------------------------- |
+| secret       | string  | Y        | GNY account password                                                                           |
+| amount       | integer | Y        | amount，between 1 and 10000000000000000                                                        |
+| recipientId  | string  | Y        | recipient's address, minimum:1                                                                 |
+| message      | string  | N        | message with the transaction                                                                   |
+| secondSecret | string  | N        | sender's second password (must fit the BIP39 standard), the length should be between 1 and 100 |
+| fee          | string  | Y        | transaction fee                                                                                |
+
+Response Parameter Description:
+
+| Name          | Type   | Description    |
+| ------------- | ------ | -------------- |
+| transactionId | string | transaction id |
+
 
 
 
