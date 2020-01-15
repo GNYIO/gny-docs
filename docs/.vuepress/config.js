@@ -86,11 +86,18 @@ module.exports = {
         ],
       },
       {
-        title: 'TypeScript/JavaScript Client',
+        title: 'JavaScript Client',
         path: '/client/',
         collapsable: false,
         sidebarDepth: 0,
         children: [['/client/install', 'Install'], ['/client/api', 'API']],
+      },
+      {
+        title: 'CLI',
+        path: '/cli/',
+        collapsable: false,
+        sidebarDepth: 0,
+        children: [['/cli/install', 'Install'], ['/cli/commands', 'Commands']],
       },
       {
         title: 'Guides',

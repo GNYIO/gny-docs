@@ -1,11 +1,11 @@
-## Exchange Endpoints
+# Exchange Endpoints
 
 The following endpoints are exclusively for Exchanges. This endpoints are not reachable on default - they need to be **enabled first**. The Exchange endpoints work with plain text `secrets`. This is normally not recommended for node operators, because a malicious Blockchain nodes could log users `secrets` and steal all assets.
 
-### Enable Exchange Endpoints
+## Enable Exchange Endpoints
 
-> **IMPORTANT**  
-> To enable the Exchange endpoints (`/api/exchange`) start the GNY Blockchain with the environment variable `EXCHANGE_API=true`
+**IMPORTANT**  
+To enable the Exchange endpoints (`/api/exchange`) start the GNY Blockchain with the environment variable `EXCHANGE_API=true`
 
 Adapt your `docker-compose.yml` file and pass the environment variable to the GNY Blockchain:
 
@@ -28,9 +28,9 @@ services:
       - db1
 ```
 
-### 1 Endpoints
+## 1 Endpoints
 
-#### 1.1 Send unsigned Transaction
+### 1.1 Send unsigned Transaction
 
 Interface Address: /api/exchange/  
 Request Method: PUT  
@@ -68,7 +68,7 @@ JSON Response Example:
 }
 ```
 
-#### 1.2 Open Account with Secret
+### 1.2 Open Account with Secret
 
 Interface Address: /api/exchange/openAccount/  
 Request Method: POST  
@@ -115,7 +115,7 @@ JSON Response Example:
 }
 ```
 
-#### 1.3 Generate Account
+### 1.3 Generate Account
 
 Interface Address: /api/exchange/generateAccount  
 Request Method: POST  
@@ -150,7 +150,7 @@ JSON Response Example:
 }
 ```
 
-#### 1.4 Generate PublicKey from secret
+### 1.4 Generate PublicKey from secret
 
 Interface Address: /api/exchange/generatePublicKey/  
 Request Method: POST  
