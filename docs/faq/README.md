@@ -92,3 +92,7 @@ Here is a full list of all available contracts currently in the GNY Blockchain:
 |      101      |     `uia.registerAsset`     |                 Register an Asset                  |     500     |
 |      102      |         `uia.issue`         |               Issue registered Asset               |     0.1     |
 |      103      |       `uia.transfer`        |          Transfer Asset to other Account           |     0.1     |
+
+### What is a Block period?
+
+Every 10 seconds a Block is mined.
