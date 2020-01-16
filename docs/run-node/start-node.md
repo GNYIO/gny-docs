@@ -39,6 +39,12 @@ services:
       - db1
 ```
 
+Now start the `postgres` and the `gny` service with:
+
+```bash
+docker-compose up
+```
+
 ## Result
 
 This will start a GNY Blockchain node.
