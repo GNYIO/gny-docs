@@ -4,6 +4,16 @@
 
 This is only a short excerpt from the fantastic [docs.docker.com](https://docs.docker.com/) documentation website. Please visit it for more indepth information.
 
+# Visualization
+
+`docker-compose` consists of many services that are started together and interact together. In our case we have the GNY Blockchain Node (a `node.js` app) and a `postgres` database.
+
+![postgresdb](../.vuepress/public/simple-db.png) ![GNY Blockchain](../.vuepress/public/basic-node.png)
+
+This two services are based off the [docker images](https://docs.docker.com/engine/reference/commandline/images/) `postgres:9.6.12` and `gny/blockchain`.
+
+A `docker image` is like a cookie cutter which can instantiate cookies. From one image we can create exact the same program, without the need to install it or providing all the libraries a program depends upon.
+
 # Docker-Compose 101
 
 ## Create and Start all services
