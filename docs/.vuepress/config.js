@@ -58,34 +58,34 @@ module.exports = {
           ['/http/exchange-endpoints', 'Exchange Endpoints'],
         ],
       },
-      {
-        title: 'Contribute',
-        path: '/contribute/', // important is a / at the end
-        collapsable: false,
-        sidebarDepth: 0, // important otherwise the sidebar would get confusing
-        children: [
-          ['/contribute/install', 'Install'],
-          ['/contribute/docker', 'Docker'],
-          {
-            title: 'Sub-Packages',
-            path: '/contribute/sub-packages/',
-            sidebarDepth: 0,
-            collapsable: true,
-            children: [
-              ['/contribute/sub-packages/architecture', 'Architecture'],
-              [
-                '/contribute/sub-packages/database-postgres',
-                'Pkg. Database-Postgres',
-              ],
-              ['/contribute/sub-packages/base', 'Pkg. Base'],
-              ['/contribute/sub-packages/interfaces', 'Pkg. Interfaces'],
-              ['/contribute/sub-packages/p2p', 'Pkg. P2P'],
-              ['/contribute/sub-packages/extendedJoi', 'Pkg. Extended Joi'],
-              ['/contribute/sub-packages/utils', 'Pkg. Utils'],
-            ],
-          },
-        ],
-      },
+      // {
+      //   title: 'Contribute',
+      //   path: '/contribute/', // important is a / at the end
+      //   collapsable: false,
+      //   sidebarDepth: 0, // important otherwise the sidebar would get confusing
+      //   children: [
+      //     ['/contribute/install', 'Install'],
+      //     ['/contribute/docker', 'Docker'],
+      //     {
+      //       title: 'Sub-Packages',
+      //       path: '/contribute/sub-packages/',
+      //       sidebarDepth: 0,
+      //       collapsable: true,
+      //       children: [
+      //         ['/contribute/sub-packages/architecture', 'Architecture'],
+      //         [
+      //           '/contribute/sub-packages/database-postgres',
+      //           'Pkg. Database-Postgres',
+      //         ],
+      //         ['/contribute/sub-packages/base', 'Pkg. Base'],
+      //         ['/contribute/sub-packages/interfaces', 'Pkg. Interfaces'],
+      //         ['/contribute/sub-packages/p2p', 'Pkg. P2P'],
+      //         ['/contribute/sub-packages/extendedJoi', 'Pkg. Extended Joi'],
+      //         ['/contribute/sub-packages/utils', 'Pkg. Utils'],
+      //       ],
+      //     },
+      //   ],
+      // },
       {
         title: 'JavaScript Client',
         path: '/client/',
