@@ -14,6 +14,12 @@ This two services are based off the [docker images](https://docs.docker.com/engi
 
 A `docker image` is like a cookie cutter which can instantiate cookies. From one image we can create exact the same program, without the need to install it or providing all the libraries a program depends upon.
 
+![docker-db-image](../.vuepress/public/docker-db-image.png)
+
+From an image we can create multiple containers.
+
+![docker-db-image](../.vuepress/public/docker-db-image-multiple-instances.png)
+
 # Docker-Compose 101
 
 ## Create and Start all services
