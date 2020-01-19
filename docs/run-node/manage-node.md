@@ -2,15 +2,42 @@
 
 ## With Docker
 
-This is only a short excerpt from the fantastic [docs.docker.com](https://docs.docker.com/) documentation website. Please visit it for more indepth information.
+This is only a short summary from the fantastic [docs.docker.com](https://docs.docker.com/) documentation website. Please visit it for more indepth information.
 
 # Visualization
 
-`docker-compose` consists of many services that are started together and interact together. In our case we have the services: GNY Blockchain Node (a `node.js` app) and a database (`postgres`) service.
+```yml
+version: "3.3"
+services:
+  db1:
+    image: "postgres:9.6.12"
+    container_name: "db1"
+    restart: always
+    expose: # only internal
+      - "5432"
+    environment:
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+  node1:
+    build: .
+    container_name: "node1"
+    image: gny-experiment:integration # tags
+    command: bash -c 'while !</dev/tcp/db1/5432; do sleep 0.5; done; node packages/main/dist/src/app --ormConfig "ormconfig.integration.json"'
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "4096:4096"
+      - "4097:4097"
+    depends_on:
+      - db1
+```
+
+`docker-compose` bundles many services that are started together and interact together. In our case we have the services: GNY Blockchain Node (a `node.js` app) and a database (`postgres`) service. Each of this services is a separate [`docker container`](https://www.docker.com/resources/what-container).
 
 ![postgresdb](../.vuepress/public/simple-db.png) ![GNY Blockchain](../.vuepress/public/basic-node.png)
 
-This two services are based off the [docker images](https://docs.docker.com/engine/reference/commandline/images/) `postgres:9.6.12` and `gny/blockchain`.
+This two services are based off their respective [docker images](https://docs.docker.com/engine/reference/commandline/images/) `postgres:9.6.12` and `gny/blockchain`.
 
 ### Docker Images
 
@@ -26,9 +53,9 @@ From an image we can create multiple containers.
 
 ### Docker networks
 
-`docker-compose` creates a network where only the services inside the `docker-compose` file can communicate. This is represented by the grey box. We can configure which service ports from the containers are visible on the host machine. The `postgres` database port is not reachable from the host machine. Only the GNY Blockchain can access the `postgres` database. The GNY Blockchain ports are mapped to the
+`docker-compose` creates automatically a network where only the services inside the `docker-compose` file can communicate. This is represented by the grey box. We can configure which service ports from the containers are visible on the host machine. The `postgres` database port is not reachable from the host machine. Only the GNY Blockchain service can access the `postgres` database service. The GNY Blockchain ports (`4096` and `4097`) are mapped to the host machine.
 
-This is the beauty of `docker-compose`. We can specify the `docker images` that should work together and with one command we can all embedded services.
+This is the beauty of `docker-compose`. We can specify all services that should work together and with one command we can start|stop|pause all services.
 
 ![](../.vuepress/public/docker-compose.png)
 
