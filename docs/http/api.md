@@ -93,7 +93,7 @@ curl -k -X GET http://localhost:4096/api/accounts?address=G4b8BhmeRFBmWAHZemKD25
 Request Example (publicKey):
 
 ```bash
-curl -k -X GET http://localhost:4096/api/accounts?name=asch_g11
+curl -k -X GET http://localhost:4096/api/accounts?name=gny_d11
 ```
 
 JSON Response Example (address):
@@ -123,7 +123,7 @@ JSON Response Example (username):
 ```js
 {
   "address":"GJX8DYKb7mF3M6JCUhBqYnLiha6y",
-  "username":"asch_g11",
+  "username":"gny_d11",
   "gny":0,
   "publicKey":null,
   "secondPublicKey":null,
@@ -228,7 +228,7 @@ curl -k -X GET 'http://localhost:4096/api/accounts/delegates?address=GJX8DYKb7mF
 Request Example (username):
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/accounts/delegates?name=asch_g11'
+curl -k -X GET 'http://localhost:4096/api/accounts/delegates?name=gny_d11'
 ```
 
 JSON Response Example:
@@ -1249,10 +1249,10 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name    | Type    | Description                                                    |
-| ------- | ------- | -------------------------------------------------------------- |
-| success | boolean | Whether operation was successful                               |
-| issuers | JSON    | Contains the publisher name, description and id (ASCH address) |
+| Name    | Type    | Description                                                   |
+| ------- | ------- | ------------------------------------------------------------- |
+| success | boolean | Whether operation was successful                              |
+| issuers | JSON    | Contains the publisher name, description and id (GNY address) |
 
 Request example (publisher name):
 
@@ -1425,7 +1425,7 @@ Request Parameter Description:
 
 | Name    | Type    | Required | Description                                            |
 | ------- | ------- | -------- | ------------------------------------------------------ |
-| address | string  | Y        | ASCH account address                                   |
+| address | string  | Y        | GNY account address                                    |
 | limit   | integer | N        | maximum number of records to return, between 0 and 100 |
 | offset  | integer | N        | Offset, minimum 0                                      |
 
