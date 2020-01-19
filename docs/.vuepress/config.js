@@ -14,7 +14,7 @@ module.exports = {
         // selector: '.my-wrapper .my-img',
         delay: 1000,
         options: {
-          bgColor: 'black',
+          bgColor: 'white',
           zIndex: 10000,
         },
       },
