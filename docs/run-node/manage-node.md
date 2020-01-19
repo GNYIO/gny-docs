@@ -59,6 +59,10 @@ This is the beauty of `docker-compose`. We can specify all services that should 
 
 ![](../.vuepress/public/docker-compose.png)
 
+### Docker-Compose Lifecycle
+
+![](../.vuepress/public/docker-compose-lifecycle.png)
+
 # Docker-Compose 101
 
 ## Create and Start all services
