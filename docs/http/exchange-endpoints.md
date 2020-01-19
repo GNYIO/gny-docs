@@ -28,7 +28,7 @@ services:
       - db1
 ```
 
-## 1 Endpoints
+## 1 Exchange Endpoints
 
 ### 1.1 Send unsigned Transaction
 
@@ -41,9 +41,9 @@ Request Parameter Description:
 | ------------ | ------ | -------- | ---------------------------------------------------------------------------------------------- |
 | secret       | string | Y        | GNY account password                                                                           |
 | secondSecret | string | N        | sender's second password (must fit the BIP39 standard), the length should be between 1 and 100 |
-| fee          | string | Y        |                                                                                                |
-| type         | number | Y        |                                                                                                |
-| args         | Array  | Y        |                                                                                                |
+| fee          | string | Y        | the fee you want to pay, there are minimums depending on the contract you are using            |
+| type         | number | Y        | the contract type. This is an integer                                                          |
+| args         | Array  | Y        | the arguments with which the contract should be invoked                                        |
 | message      | string | N        | optional message, max length 256 characters                                                    |
 
 Response Parameter Description:
