@@ -105,7 +105,12 @@ module.exports = {
         path: '/guide/',
         collapsable: false,
         sidebarDepth: 0,
-        children: [['/guide/how-to-send-transactions', 'Send Transaction']],
+        children: [
+          ['/guide/how-to-send-transactions', 'Send Transaction'],
+          ['/guide/set-username', 'Set Username'],
+          ['/guide/register-as-delegate', 'Register as Delegate'],
+          ['/guide/vote-for-delegate', 'Vote for Delegate'],
+        ],
       },
       {
         title: 'FAQ',
