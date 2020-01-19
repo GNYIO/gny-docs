@@ -15,7 +15,7 @@ We support currently only Linux. Please use Ubuntu or one of its derivates:
 
 ### Install Docker
 
-Follow this guide to install Docker on Ubuntu. [install Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+Follow this guide to install Docker on Ubuntu. [Install Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
 ### Install Git
 

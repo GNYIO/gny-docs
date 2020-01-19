@@ -45,9 +45,15 @@ Now start the `postgres` and the `gny` service with:
 docker-compose up
 ```
 
+<br/>
+
+> For information on how to **mine Blocks** see [**configure**](./configure)
+
+<br/>
+
 ## Result
 
-This will start a GNY Blockchain node.
+This will start a GNY Blockchain.
 
 ![simple node with ports](../.vuepress/public/simple-node-with-ports.png)
 
