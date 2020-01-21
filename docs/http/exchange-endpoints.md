@@ -1,6 +1,6 @@
 # Exchange Endpoints
 
-The following endpoints are exclusively for Exchanges. This endpoints are not reachable on default - they need to be **enabled first**. The Exchange endpoints work with plain text `secrets`. This is normally not recommended for node operators, because a malicious Blockchain nodes could log users `secrets` and steal all assets.
+The following endpoints are exclusively for Exchanges. These endpoints are not reachable on default - they need to be **enabled first**. The Exchange endpoints work with plain text `secrets`. This is normally not recommended for node operators, because a malicious Blockchain nodes could log users `secrets` and steal all assets.
 
 ## Enable Exchange Endpoints
 

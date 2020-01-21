@@ -2,7 +2,10 @@
 
 ## Start Forging
 
-In order to start forging please a secret to the `--secret` switch.
+In order to start forging please pass a secret or multiple secrets to the `--secret` switch.
+
+Example1: `--secret "chief next globe deny try danger trust wet spoil away eight task"`.
+Example2: `--secret "abandon shop gain rebuild punch concert congress tuna distance push coyote victory,paper snack vote repair once render boss donkey volume entry wine anxiety,chronic settle analyst field horn elegant nominee loyal scatter hint captain loyal"`
 
 > Information  
 > In order start forging you need to first register as delegate. Be sure checkout our [Guides](../guide/).
@@ -25,6 +28,8 @@ services:
       - db1
 
 ```
+
+## All Environment Variable Options
 
 ## All available Options
 

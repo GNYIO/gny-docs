@@ -41,7 +41,7 @@ This two services are based off their respective [docker images](https://docs.do
 
 ### Docker Images
 
-A `docker image` is like a cookie cutter which can cuts cookies (instantiate containers). From one image we can create exact the same program, without the need to install or provide all libraries a program depends upon.
+A `docker image` is like a cookie cutter which can cut cookies (instantiate containers). From one image we can create exactly the same program, without the need to install or provide all libraries a program depends upon.
 
 ![docker-db-image](../.vuepress/public/docker-db-image.png) ![docker-node-image](../.vuepress/public/docker-node-image.png)
 
@@ -71,7 +71,7 @@ This is the beauty of `docker-compose`. We can specify all services that should 
 docker-compose --file docker-compose.yml up
 ```
 
-This command does will print all container messages to screen:
+This command will print all container messages to screen:
 ![docker_compose_up_console_output](../.vuepress/public/docker_compose_up_console.png)
 
 ## Create and Start all services
