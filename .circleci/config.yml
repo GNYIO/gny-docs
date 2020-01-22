@@ -13,7 +13,6 @@ jobs:
           name: npm audit dependencies
           command: npm audit
 workflows:
-  version: 2
   run_npm_audit_on_every_commit:
     jobs:
       - security__npm-audit
