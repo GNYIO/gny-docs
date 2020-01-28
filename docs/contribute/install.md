@@ -5,12 +5,18 @@ Ubuntu 18.04.3 LTS or higher is required!
 ## Install Linux Dependencies
 
 ```
+sudo apt-get update
+
+sudo apt-get -y upgrade
+
 sudo apt-get install curl ntp wget git libssl-dev openssl make gcc g++ autoconf automake python build-essential -y
 
 sudo apt-get install libtool libtool-bin -y
 
 # Install nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+
+
 # This loads nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -65,7 +71,7 @@ Start a postgres docker container:
 
 ```bash
 # start POSTGRESQL database on port 3000
-sudo docker run --env POSTGRES_PASSWORD=docker --env POSTGRES_DB=postgres --env POSTGRES_USER=postgres -p 3000:5432 postgres
+sudo docker run --env POSTGRES_PASSWORD=docker --env POSTGRES_DB=postgres --env POSTGRES_USER=postgres -p 3000:5432 postgres:9.6.12
 ```
 
 Open a new `console` and start the GNY blockchain:
