@@ -26,7 +26,10 @@ jobs:
 
     - run: npm ci
 
-    - run: npm run docs:build
+    - name: Build
+      run: |
+        npm run docs:build
+        echo "docs.gny.io" > ./docs/.vuepress/dist/CNAME
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
