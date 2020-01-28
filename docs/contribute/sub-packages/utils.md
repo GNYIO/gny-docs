@@ -9,6 +9,8 @@ This package consists of many different classes:
 - [Address related](#address-related)
 - [Transaction Fees](#transaction-fees-calculator)
 - [Class Blockreward](#class-blockreward)
+- [Limit Cache](#limit-cache-key-val)
+- [Slot](#slot)
 
 ## Address related
 
@@ -100,4 +102,60 @@ const result0 = blockReward.calculateSupply(0); // BigNumber('40000000000000000'
 const result1 = blockReward.calculateSupply(2159); // BigNumber('40000000000000000')
 const result2 = blockReward.calculateSupply(2160); // BigNumber('40000000200000000')
 const result3 = blockReward.calculateSupply(2162); // BigNumber('40000000600000000')
+```
+
+## LimitCache\<KEY, VAL\>
+
+The `LimitCache<KEY, VAL>` limits the the keys that are saved. When you have a `new LimitCache<string, boolean>(2)` and you are adding 3 keys then the first added will be gone. This helps that the cache is not growing indefinitely.
+
+```ts
+import { LimitCache } from "@gny/utils";
+
+const limit = 10000; // default
+const limitCache = new LimitCache<string, boolean>(limit);
+```
+
+### set(key: KEY, value: VAL): void
+
+```ts
+limitCache.set(
+  "568a0b86490177ea105c26b99c8f2a8e9eb0bc582957a0320ae7621ed56a63dd",
+  true
+);
+```
+
+### has(key: KEY): boolean
+
+```ts
+limitCache.has(
+  "09d1d652b8cced07a99f2f6cfe8763e10e9c073b20d7514a5306ac27ee9ef088"
+); // false
+```
+
+### getLimit(): number
+
+```ts
+limitCache.getLimit(); // 10000
+```
+
+### Slot
+
+Every 10 seconds a new **Slot** is beeing created. The `currentSlot` is `n`th Slot since the `epochTime` of the Blockchain (`2018-11-18T20:00:00.000Z`).
+
+```
+currentSlot: 492862, realTime: 22:03:48
+currentSlot: 492862, realTime: 22:03:49
+
+currentSlot: 492863, realTime: 22:03:50
+currentSlot: 492863, realTime: 22:03:51
+currentSlot: 492863, realTime: 22:03:52
+currentSlot: 492863, realTime: 22:03:53
+currentSlot: 492863, realTime: 22:03:54
+currentSlot: 492863, realTime: 22:03:55
+currentSlot: 492863, realTime: 22:03:56
+currentSlot: 492863, realTime: 22:03:57
+currentSlot: 492863, realTime: 22:03:58
+currentSlot: 492863, realTime: 22:03:59
+
+currentSlot: 492864, realTime: 22:04:00
 ```

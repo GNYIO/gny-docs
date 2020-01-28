@@ -1,0 +1,18 @@
+version: 2.1
+jobs:
+  security__npm-audit:
+    docker:
+      - image: circleci/node:10.16.2
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: npm install dependencies
+          command: npm ci
+      - run:
+          name: npm audit dependencies
+          command: npm audit
+workflows:
+  run_npm_audit_on_every_commit:
+    jobs:
+      - security__npm-audit

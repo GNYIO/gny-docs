@@ -1,3 +1,3 @@
 # GNY CLI
 
-A command line interface for bootstrapping and managing __GNY__ blockchain apps.
+A command line interface (CLI) for accessing information from a GNY Blockchain instance.

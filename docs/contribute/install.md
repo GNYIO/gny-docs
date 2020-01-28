@@ -16,8 +16,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-nvm use # uses node version in the .nvmrc file
-nvm alias default # set node version in .nvmrc as default one
+nvm install           # install node version in .nvmrc file
+nvm use               # uses node version in the .nvmrc file
+nvm alias default     # set node version in .nvmrc as default one
 ```
 
 ## Install Docker and Docker-Compose
@@ -78,7 +79,6 @@ Default ports:
 |    Service     |  Port  |           Where to change            |
 | :------------: | :----: | :----------------------------------: |
 |    Postgres    |  3000  |           `ormconfig.json`           |
-|     Redis      |  3001  |           `ormconfig.json`           |
 | Blockchain-API |  4096  |            `config.json`             |
 | Blockchain-P2P | 4096+1 | Can't be changed! Always API-Port +1 |
 
