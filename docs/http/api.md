@@ -1074,23 +1074,36 @@ JSON Response Example:
 
 ```js
 {
-  "success":true,
-  "count":38,
-  "peers":[{
-    "host":"43.63.27.97",
-    "port":81,
-    "id":"1042d68eaf2b33850df92f27067d5d5e2b7fde3c",
-    "seen":1546190180562,
-    "_id":"HMR4YC1CBHQQe9lK"
-  },
-  {
-    "id":"adeba25c798f6c585ca0196414ce20c519e221df",
-    "host":"107.131.41.208",
-    "port":81,
-    "distance":0,
-    "seen":1545991199838,
-    "_id":"5YGHaUd3CtckBbjK"
-  }]
+  "success": true,
+  "peers": [
+    {
+      "id": {
+        "id": "QmeDn2SETzxuENnAiynzWXjw78eDRiNLmwzNDtwb2XhVsi",
+        "pubKey": "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDo9QnqRUmrO3uAqyoAAnjmDB7+lCSA9a7tAKv0vsq0fnq0/espA70e7sJZSjmHqOpP5Jyse3pjezMfSsBR80vQJheb0dOwCsZu/dJ2kA0nuXRZwOd7ZUUsRUh5oj5NFBrY3tuScq/HtbXDqMs0MZdlKIBkEseTnF1rLZw8fhIiY3AFwlJFUCNGKyrk2rk6IvrwMWshyBkr+r1pPfGp6W46/fw5gwdvRTgxCvmqkQq35uncosBbV2+lAimvviTfT7NR6SuLdkAb5TqC0kh7XJV2eu44TtHwI/rTQw0lfCg/WnRKA+uFyedeg3BcTzqjdnhkxP8v7KAMnxi8Z/3q50jbAgMBAAE="
+      },
+      "multiaddrs": [
+        "/ip4/13.80.136.143/tcp/4097/ipfs/QmeDn2SETzxuENnAiynzWXjw78eDRiNLmwzNDtwb2XhVsi"
+      ],
+      "simple": {
+        "host": "13.80.136.143",
+        "port": 4097
+      }
+    },
+    {
+      "id": {
+        "id": "QmPiFnYYNeuYBxqzA77bPPrpJ8AaGJQujMVFXYJEGbpMRR",
+        "pubKey": "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDghE7wWvJxLW2KFTgfaBQ6Yh5hpSrxZqlOu/M4kWFcZ87S81053So92CCcTLdJPaE6mvip3/PTHpzzvfsiEhk7/1oTHDonKjbx44L39dqzvVht+q8LyU3XYo8qw6mJd4Ry69+89V1RmgJGdEtR+G2sBQxZ/m+subcHKfy6jvG2Zw8BkJdcyjlAXaH4mw9ZO5lkrN8E0aI32GwipVBu37Wts7ZYIcJxZ9zxGGVwNb7B8Utq2DVSpmqguM9M1DsBDJZ+yZg3vF435zLcmMS7eRLCB0PIXrZ5HPYsDKk/FMyF3sDy05xtGTUgF75L7zeMYxoEUg6BtgM9HV5T2cWtcDDXAgMBAAE="
+      },
+      "multiaddrs": [
+        "/ip4/174.129.53.40/tcp/4097/ipfs/QmPiFnYYNeuYBxqzA77bPPrpJ8AaGJQujMVFXYJEGbpMRR"
+      ],
+      "simple": {
+        "host": "174.129.53.40",
+        "port": 4097
+      }
+    }
+  ],
+  "count": 2
 }
 ```
 
@@ -1108,7 +1121,7 @@ Response Parameter Description:
 | success | bool      | true: response data return successfully |
 | version | string    | version number                          |
 | build   | timestamp | built time                              |
-| net     | string    | if the peer is mainnet or testnet       |
+| net     | string    | either localnet, testnet or mainnet     |
 
 Request Example:
 
@@ -1120,9 +1133,47 @@ JSON Response Example:
 
 ```js
 {
-  "version":"1.0.0",
-  "build":"DEFAULT_BUILD_TIME",
-  "net":"testnet"
+  "success": true,
+  "version": "1.0.5",
+  "build": "Tue Jan 28 2020 12:44:42 GMT+0000 (Coordinated Universal Time)",
+  "net": "localnet"
+}
+```
+
+#### 2.5.3 Get Node P2P Information
+
+Interface Address: /api/peers/version  
+Request Method: GET  
+Supported Format: none  
+Request Parameter Description: none
+
+Response Parameter Description:
+
+| Name       | Type             | Description                                                                                               |
+| ---------- | ---------------- | --------------------------------------------------------------------------------------------------------- |
+| success    | bool             | true: response data return successfully                                                                   |
+| id         | string of peerId | libp2p [peer-id](https://www.npmjs.com/package/peer-id)                                                   |
+| multiaddrs | string[]         | Array of [multiaddrs](https://www.npmjs.com/package/multiaddr) strings which is used for p2p communcation |
+| publicIp   | string           | own public ip                                                                                             |
+| address    | string           | ip address on which the server is listening. Normal this is a private ip address                          |
+
+Request Example:
+
+```bash
+curl -k -X GET 'http://localhost:4096/api/peers/info'
+```
+
+JSON Response Example:
+
+```js
+{
+  "success": true,
+  "id": "QmQbVdde9AeXSP3FoLyVNd3Fi3BjCe2tFyJV43bNWEBYSA",
+  "multiaddrs": [
+    "/ip4/20.188.42.0/tcp/4097/ipfs/QmQbVdde9AeXSP3FoLyVNd3Fi3BjCe2tFyJV43bNWEBYSA"
+  ],
+  "publicIp": "20.188.42.0",
+  "address": "10.0.3.4"
 }
 ```
 

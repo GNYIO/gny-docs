@@ -1,6 +1,6 @@
 module.exports = {
   title: 'GNY Blockchain',
-  description: 'Just playing around',
+  description: 'Decentralized machine learning on the blockchain',
   markdown: {
     lineNumbers: true,
     toc: {
