@@ -61,7 +61,7 @@ Response Parameter Description:
 
 | Name     | Type    | Description                                  |
 | -------- | ------- | -------------------------------------------- |
-| success  | bool    | Whether request is successful               |
+| success  | bool    | Whether request is successful                |
 | count    | integer | the number of balances owned by this address |
 | balances | Array   | balance list of GNY                          |
 
@@ -120,7 +120,6 @@ Response Parameter Description:
 | latestBlock | json | latest block information              |
 | version     | json | version information                   |
 
-
 ### Count the number of accounts
 
 ```bash
@@ -134,7 +133,6 @@ Response Parameter Description:
 | ------- | ------ | --------------------------------------- |
 | success | bool   | true: response data return successfully |
 | count   | number | the total number of accounts            |
-
 
 ### Get voted delegates
 
@@ -216,7 +214,6 @@ Response Parameter Description:
 | success   | bool   | true: response data return successfully |
 | publicKey | string | public key                              |
 
-
 ### Generate publicKey by secret
 
 ```bash
@@ -235,7 +232,6 @@ Response Parameter Description:
 | --------- | ------ | --------------------------------------- |
 | success   | bool   | true: response data return successfully |
 | publicKey | string | public key                              |
-
 
 ### Generate Account
 
@@ -265,7 +261,6 @@ JSON Response Example:
 }
 ```
 
-
 ### Get balance by address and currency
 
 ```bash
@@ -294,7 +289,6 @@ JSON Response Example:
   "balance": 0
 }
 ```
-
 
 ## Block API
 
@@ -377,15 +371,12 @@ JSON Response Example:
 }
 ```
 
-
-
 ### Get blocks
 
 ```bash
 getblocks -o [offset] -l [limit] -s [orderBy] -t [transactions]
 getblocks --offset [offset] --limit [limit] --sort [orderBy] --transactions [transactions]
 ```
-
 
 Request Parameter Description:
 
@@ -539,7 +530,6 @@ JSON Response Example:
 }
 ```
 
-
 ### Get block bytes
 
 ```bash
@@ -548,16 +538,15 @@ getblockbytes -f [file]
 
 Request Parameter Description:
 
-| Name | Type   | Required | Description      |
-| ---- | ------ | -------- | ---------------- |
-| file | string | Y        | block file path  |
+| Name | Type   | Required | Description     |
+| ---- | ------ | -------- | --------------- |
+| file | string | Y        | block file path |
 
 Response Parameter Description:
 
 | Name       | Type   | Description     |
 | ---------- | ------ | --------------- |
 | blockbytes | string | the block bytes |
-
 
 ### Get block id
 
@@ -567,16 +556,15 @@ getblockid -f [file]
 
 Request Parameter Description:
 
-| Name | Type   | Required | Description      |
-| ---- | ------ | -------- | ---------------- |
-| file | string | Y        | block file path  |
+| Name | Type   | Required | Description     |
+| ---- | ------ | -------- | --------------- |
+| file | string | Y        | block file path |
 
 Response Parameter Description:
 
 | Name | Type   | Description  |
 | ---- | ------ | ------------ |
 | id   | string | the block id |
-
 
 ### Get block payload hash
 
@@ -586,16 +574,15 @@ getblockpayloadhash -f [file]
 
 Request Parameter Description:
 
-| Name | Type   | Required | Description      |
-| ---- | ------ | -------- | ---------------- |
-| file | string | Y        | block file path  |
+| Name | Type   | Required | Description     |
+| ---- | ------ | -------- | --------------- |
+| file | string | Y        | block file path |
 
 Response Parameter Description:
 
 | Name        | Type   | Description            |
 | ----------- | ------ | ---------------------- |
 | payloadHash | string | the block payload hash |
-
 
 ## Delegate
 
@@ -609,9 +596,9 @@ Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name    | Type    | Description                             |
-| ------- | ------- | --------------------------------------- |
-| count   | integer | total number of delegates               |
+| Name  | Type    | Description               |
+| ----- | ------- | ------------------------- |
+| count | integer | total number of delegates |
 
 JSON Response Example:
 
@@ -635,33 +622,36 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name     | Type  | Description                             |
-| -------- | ----- | --------------------------------------- |
-| accounts | Array | a JSON object list of account           |
+| Name     | Type  | Description                   |
+| -------- | ----- | ----------------------------- |
+| accounts | Array | a JSON object list of account |
 
 JSON Response Example:
 
 ```js
 [
   {
-    "address": "2918354313445278349",
-    "publicKey": "4fde4c49f1297d5d3a24b1494204543c4281aff17917ff7ff8ff32da3b4b222f",
-    "balance": 1338227722727,
-    "weight": 0.013316660647014596
+    address: "2918354313445278349",
+    publicKey:
+      "4fde4c49f1297d5d3a24b1494204543c4281aff17917ff7ff8ff32da3b4b222f",
+    balance: 1338227722727,
+    weight: 0.013316660647014596
   },
   {
-    "address": "1523444724068322527",
-    "publicKey": "8a6a61c28dc47541aadf1eecec2175c8f768f2331eea3472b1593bf1aa4e1fb4",
-    "balance": 2109297623765,
-    "weight": 0.020989552213127274
+    address: "1523444724068322527",
+    publicKey:
+      "8a6a61c28dc47541aadf1eecec2175c8f768f2331eea3472b1593bf1aa4e1fb4",
+    balance: 2109297623765,
+    weight: 0.020989552213127274
   },
   {
-    "address": "14483826354741911727",
-    "publicKey": "5dacb7983095466b9b037690150c3edec0f073815326e33a4744b6d1d50953e2",
-    "balance": 5135815841470,
-    "weight": 0.051106336795243436
+    address: "14483826354741911727",
+    publicKey:
+      "5dacb7983095466b9b037690150c3edec0f073815326e33a4744b6d1d50953e2",
+    balance: 5135815841470,
+    weight: 0.051106336795243436
   }
-]
+];
 ```
 
 ### Get delegate by public key
@@ -867,10 +857,9 @@ open your account and get the infomation by secret
 
 Response Parameter Description:
 
-| Name      | Type   | Description                 |
-| --------- | ------ | --------------------------- |
-| publicKey | string | gny account publicKey       |
-
+| Name      | Type   | Description           |
+| --------- | ------ | --------------------- |
+| publicKey | string | gny account publicKey |
 
 ### Generate accounts
 
@@ -884,7 +873,6 @@ Response Parameter Description:
 | -------- | ----- | ------------- |
 | accounts | Array | account array |
 
-
 ## Peer
 
 ### Get peers
@@ -897,11 +885,48 @@ Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name    | Type  | Description                              |
-| ------- | ----- | ---------------------------------------- |
-| success | bool  | true: response data return successfully |
-| Peers   | Array | A list of peer information               |
-| count   | bool  | The number of peers                      |
+| Name    | Type    | Description                             |
+| ------- | ------- | --------------------------------------- |
+| success | bool    | true: response data return successfully |
+| peers   | Array   | a JSON array of peers' information      |
+| count   | integer | the number of currently running peers   |
+
+JSON Response Example:
+
+```js
+{
+  "success": true,
+  "peers": [
+    {
+      "id": {
+        "id": "QmeDn2SETzxuENnAiynzWXjw78eDRiNLmwzNDtwb2XhVsi",
+        "pubKey": "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDo9QnqRUmrO3uAqyoAAnjmDB7+lCSA9a7tAKv0vsq0fnq0/espA70e7sJZSjmHqOpP5Jyse3pjezMfSsBR80vQJheb0dOwCsZu/dJ2kA0nuXRZwOd7ZUUsRUh5oj5NFBrY3tuScq/HtbXDqMs0MZdlKIBkEseTnF1rLZw8fhIiY3AFwlJFUCNGKyrk2rk6IvrwMWshyBkr+r1pPfGp6W46/fw5gwdvRTgxCvmqkQq35uncosBbV2+lAimvviTfT7NR6SuLdkAb5TqC0kh7XJV2eu44TtHwI/rTQw0lfCg/WnRKA+uFyedeg3BcTzqjdnhkxP8v7KAMnxi8Z/3q50jbAgMBAAE="
+      },
+      "multiaddrs": [
+        "/ip4/13.80.136.143/tcp/4097/ipfs/QmeDn2SETzxuENnAiynzWXjw78eDRiNLmwzNDtwb2XhVsi"
+      ],
+      "simple": {
+        "host": "13.80.136.143",
+        "port": 4097
+      }
+    },
+    {
+      "id": {
+        "id": "QmPiFnYYNeuYBxqzA77bPPrpJ8AaGJQujMVFXYJEGbpMRR",
+        "pubKey": "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDghE7wWvJxLW2KFTgfaBQ6Yh5hpSrxZqlOu/M4kWFcZ87S81053So92CCcTLdJPaE6mvip3/PTHpzzvfsiEhk7/1oTHDonKjbx44L39dqzvVht+q8LyU3XYo8qw6mJd4Ry69+89V1RmgJGdEtR+G2sBQxZ/m+subcHKfy6jvG2Zw8BkJdcyjlAXaH4mw9ZO5lkrN8E0aI32GwipVBu37Wts7ZYIcJxZ9zxGGVwNb7B8Utq2DVSpmqguM9M1DsBDJZ+yZg3vF435zLcmMS7eRLCB0PIXrZ5HPYsDKk/FMyF3sDy05xtGTUgF75L7zeMYxoEUg6BtgM9HV5T2cWtcDDXAgMBAAE="
+      },
+      "multiaddrs": [
+        "/ip4/174.129.53.40/tcp/4097/ipfs/QmPiFnYYNeuYBxqzA77bPPrpJ8AaGJQujMVFXYJEGbpMRR"
+      ],
+      "simple": {
+        "host": "174.129.53.40",
+        "port": 4097
+      }
+    }
+  ],
+  "count": 2
+}
+```
 
 ### Get version
 
@@ -913,14 +938,55 @@ Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name    | Type   | Description                             |
-| ------- | ------ | --------------------------------------- |
-| success | bool   | true: response data return successfully |
-| version | string | Version of blockchain                   |
-| build   | string | Build version                           |
-| net     | string | Net version                             |
+| Name    | Type      | Description                             |
+| ------- | --------- | --------------------------------------- |
+| success | bool      | true: response data return successfully |
+| version | string    | version number                          |
+| build   | timestamp | built time                              |
+| net     | string    | either localnet, testnet or mainnet     |
 
+JSON Response Example:
 
+```js
+{
+  "success": true,
+  "version": "1.0.5",
+  "build": "Tue Jan 28 2020 12:44:42 GMT+0000 (Coordinated Universal Time)",
+  "net": "localnet"
+}
+```
+
+### Get info
+
+```bash
+getinfo
+```
+
+Request Parameter Description: none
+
+Response Parameter Description:
+
+| Name       | Type             | Description                                                                                               |
+| ---------- | ---------------- | --------------------------------------------------------------------------------------------------------- |
+| success    | bool             | true: response data return successfully                                                                   |
+| id         | string of peerId | libp2p [peer-id](https://www.npmjs.com/package/peer-id)                                                   |
+| multiaddrs | string[]         | Array of [multiaddrs](https://www.npmjs.com/package/multiaddr) strings which is used for p2p communcation |
+| publicIp   | string           | own public ip                                                                                             |
+| address    | string           | ip address on which the server is listening. Normal this is a private ip address                          |
+
+JSON Response Example:
+
+```js
+{
+  "success": true,
+  "id": "QmQbVdde9AeXSP3FoLyVNd3Fi3BjCe2tFyJV43bNWEBYSA",
+  "multiaddrs": [
+    "/ip4/20.188.42.0/tcp/4097/ipfs/QmQbVdde9AeXSP3FoLyVNd3Fi3BjCe2tFyJV43bNWEBYSA"
+  ],
+  "publicIp": "20.188.42.0",
+  "address": "10.0.3.4"
+}
+```
 
 ## System
 
@@ -942,10 +1008,7 @@ Response Parameter Description:
 | timestamp | string | the time right now                      |
 | lastBlock | json   | Basic information about last block      |
 
-
-
 ## Transaction
-
 
 ### Get transactions
 
@@ -956,8 +1019,8 @@ gettransactions --limit [limit] --offset [offset] --id [id] --senderId [senderId
 
 Request Parameter Description:
 
-| Name                  | Type     | Required              | Description                                                                                         |
-| --------------------- | -------- | --------------------- | --------------------------------------------------------------------------------------------------- |
+| Name            | Type     | Required              | Description                                                                                         |
+| --------------- | -------- | --------------------- | --------------------------------------------------------------------------------------------------- |
 | limit           | integer  | N                     | the limitation of returned records, minimum：0,maximum: 100                                         |
 | offset          | integer  | N                     | offset, minimum 0                                                                                   |
 | id              | string   | N                     | transaction id                                                                                      |
@@ -997,7 +1060,7 @@ JSON Response Example:
 }
 ```
 
-### Get unconfirmed transactions 
+### Get unconfirmed transactions
 
 ```bash
 getunconfirmedtransactions -k [sender public key] -a [address]
@@ -1011,7 +1074,6 @@ Request Parameter Description:
 | publicKey | string | Y        | sender public key |
 | address   | string | Y        | sender id         |
 
-
 Response Parameter Description:
 
 | Name         | Type | Description                                |
@@ -1023,17 +1085,18 @@ JSON Response Example:
 ```js
 [
   {
-    "transactionId":"42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
-    "senderId":"G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
-    "recipientId":"G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
-    "recipientName":null,
-    "currency":"gny",
-    "amount":"10000000000000000",
-    "timestamp":0,
-    "height":0,
-    "_version_":1
-  },
-]
+    transactionId:
+      "42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
+    senderId: "G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
+    recipientId: "G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
+    recipientName: null,
+    currency: "gny",
+    amount: "10000000000000000",
+    timestamp: 0,
+    height: 0,
+    _version_: 1
+  }
+];
 ```
 
 ### Get unconfirmed transaction by transaction id
@@ -1071,7 +1134,6 @@ JSON Response Example:
 }
 ```
 
-
 ### Send money (contract)
 
 Prize: 0.1 GNY
@@ -1095,7 +1157,6 @@ Response Parameter Description:
 | ------------- | ------ | -------------- |
 | transactionId | string | transaction id |
 
-
 ### Get transaction bytes
 
 ```bash
@@ -1104,17 +1165,15 @@ gettransactionbytes -f [file]
 
 Request Parameter Description:
 
-| Name | Type   | Required | Description            |
-| ---- | ------ | -------- | ---------------------- |
-| file | string | Y        | transaction file path  |
+| Name | Type   | Required | Description           |
+| ---- | ------ | -------- | --------------------- |
+| file | string | Y        | transaction file path |
 
 Response Parameter Description:
 
 | Name             | Type   | Description           |
 | ---------------- | ------ | --------------------- |
 | transactionbytes | string | the transaction bytes |
-
-
 
 ### Get transaction id
 
@@ -1124,9 +1183,9 @@ gettransactionid -f [file]
 
 Request Parameter Description:
 
-| Name | Type   | Required | Description            |
-| ---- | ------ | -------- | ---------------------- |
-| file | string | Y        | transaction file path  |
+| Name | Type   | Required | Description           |
+| ---- | ------ | -------- | --------------------- |
+| file | string | Y        | transaction file path |
 
 Response Parameter Description:
 
@@ -1142,18 +1201,17 @@ verifybytes -b [bytes] -s [signature] -p [publicKey]
 
 Request Parameter Description:
 
-| Name      | Type   | Required | Description                     |
-| --------- | ------ | -------- | ------------------------------- |
-| bytes     | string | Y        | transaction bytes               |
-| signature | string | Y        | transaction or block signature  |
-| publicKey | string | Y        | signer public key               |
+| Name      | Type   | Required | Description                    |
+| --------- | ------ | -------- | ------------------------------ |
+| bytes     | string | Y        | transaction bytes              |
+| signature | string | Y        | transaction or block signature |
+| publicKey | string | Y        | signer public key              |
 
 Response Parameter Description:
 
 | Name   | Type    | Description                 |
 | ------ | ------- | --------------------------- |
 | resule | boolean | true: verified successfully |
-
 
 ### Send transaction with fee
 
@@ -1179,15 +1237,13 @@ Response Parameter Description:
 | ------------- | ------ | -------------- |
 | transactionId | string | transaction id |
 
-
 ## User Defined Asset UIA
-
 
 ### Get all publishers
 
 ```bash
 getissuers -o [offset] -l [limit]
-getissuers --offset [offset] --limit [limit] 
+getissuers --offset [offset] --limit [limit]
 ```
 
 Request Parameter Description:
@@ -1258,9 +1314,9 @@ getissuer [name or address]
 
 Request Parameter Description:
 
-| Name                     | Type   | Required | Description                             |
-| ------------------------ | ------ | -------- | --------------------------------------- |
-| publisherName or address | string | Y        | Can be GNY publisher name or address    |
+| Name                     | Type   | Required | Description                          |
+| ------------------------ | ------ | -------- | ------------------------------------ |
+| publisherName or address | string | Y        | Can be GNY publisher name or address |
 
 Response Parameter Description:
 
@@ -1381,7 +1437,7 @@ Response Parameter Description:
 
 | Name    | Type    | Description                                                                                       |
 | ------- | ------- | ------------------------------------------------------------------------------------------------- |
-| success | boolean | true: response data return successfully                                                            |
+| success | boolean | true: response data return successfully                                                           |
 | asset   | JSON    | Contains asset name, description, cap, precision, current circulation, issue height, publisher id |
 
 JSON Response:
@@ -1481,7 +1537,7 @@ Prize: 10000000
 
 ```bash
 sendasset -e,--secret <secret> -s,--secondSecret <secret> -c,--currency <currency> -a,--amount <amount> -r,--recipient <address> -m,--message <message>
-``` 
+```
 
 Request Parameter Description:
 
@@ -1494,14 +1550,12 @@ Request Parameter Description:
 | recipient    | string  | Y        | recipient's address                     |
 | message      | string  | Y        | message with the transaction            |
 
-
 Response Parameter Description:
 
 | Name          | Type   | Description                             |
 | ------------- | ------ | --------------------------------------- |
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
-
 
 ### Register as a delegate (contract)
 
@@ -1513,12 +1567,11 @@ registerdelegate -e,--secret <secret> -s,--secondSecret <secret> -m,--message <m
 
 Request Parameter Description:
 
-| Name         | Type    | Required | Description                             |
-| ------------ | ------- | -------- | --------------------------------------- |
-| secret       | string  | Y        | gny account password                    |
-| secondSecret | string  | N        | gny account second password             |
-| message      | string  | Y        | message with the transaction            |
-
+| Name         | Type   | Required | Description                  |
+| ------------ | ------ | -------- | ---------------------------- |
+| secret       | string | Y        | gny account password         |
+| secondSecret | string | N        | gny account second password  |
+| message      | string | Y        | message with the transaction |
 
 Response Parameter Description:
 
@@ -1527,8 +1580,7 @@ Response Parameter Description:
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
 
-
-## Basic 
+## Basic
 
 ### Set second secret (contract)
 
@@ -1538,11 +1590,10 @@ setsecondsecret -e,--secret <secret> -s,--secondSecret <secret>
 
 Request Parameter Description:
 
-| Name         | Type    | Required | Description                             |
-| ------------ | ------- | -------- | --------------------------------------- |
-| secret       | string  | Y        | gny account password                    |
-| secondSecret | string  | N        | gny account second password             |
-
+| Name         | Type   | Required | Description                 |
+| ------------ | ------ | -------- | --------------------------- |
+| secret       | string | Y        | gny account password        |
+| secondSecret | string | N        | gny account second password |
 
 Response Parameter Description:
 
@@ -1550,7 +1601,6 @@ Response Parameter Description:
 | ------------- | ------ | --------------------------------------- |
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
-
 
 ### Lock account (contract)
 
@@ -1576,7 +1626,6 @@ Response Parameter Description:
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
 
-
 ### Vote for a list of keys (contract)
 
 Prize: 0.1 GNY
@@ -1599,8 +1648,6 @@ Response Parameter Description:
 | ------------- | ------ | --------------------------------------- |
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
-
-
 
 ### Unvote for a list of keys (contract)
 
@@ -1625,8 +1672,6 @@ Response Parameter Description:
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
 
-
-
 ### List diff voters
 
 ```bash
@@ -1635,13 +1680,13 @@ listdiffvotes -u, --username <username> -a, --address <address>
 
 Request Parameter Description:
 
-| Name       | Type   | Required | Description            |
-| ---------- | ------ | -------- | ---------------------- |
-| username   | string | Y        | delegate username      |
-| address    | string | Y        | delegate address       |
+| Name     | Type   | Required | Description       |
+| -------- | ------ | -------- | ----------------- |
+| username | string | Y        | delegate username |
+| address  | string | Y        | delegate address  |
 
 Response Parameter Description:
 
-| Name       | Type  | Required | Description        |
-| ---------- | ----- | -------- | ------------------ |
-| diffvotes  | Array | Y        | username  array    |
+| Name      | Type  | Required | Description    |
+| --------- | ----- | -------- | -------------- |
+| diffvotes | Array | Y        | username array |
