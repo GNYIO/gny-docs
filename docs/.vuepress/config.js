@@ -1,5 +1,4 @@
 module.exports = {
-  base: '/gny-docs/',
   title: 'GNY Blockchain',
   description: 'Just playing around',
   markdown: {
