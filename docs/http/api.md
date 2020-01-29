@@ -1149,13 +1149,13 @@ Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name       | Type              | Description                                                                                       |
-| ---------- | ----------------- | ------------------------------------------------------------------------------------------------- |
-| success    | bool              | true: response data return successfully                                                           |
-| id         | peerId            | libp2p [peer-id](https://www.npmjs.com/package/peer-id)                                           |
-| multiaddrs | Array<multiaddrs> | Array of [multiaddrs](https://www.npmjs.com/package/multiaddr) which is used for p2p communcation |
-| publicIp   | ip                | own public ip                                                                                     |
-| address    | ip                | ip address on which the server is listening. Normal this is a private ip address                  |
+| Name       | Type             | Description                                                                                               |
+| ---------- | ---------------- | --------------------------------------------------------------------------------------------------------- |
+| success    | bool             | true: response data return successfully                                                                   |
+| id         | string of peerId | libp2p [peer-id](https://www.npmjs.com/package/peer-id)                                                   |
+| multiaddrs | string[]         | Array of [multiaddrs](https://www.npmjs.com/package/multiaddr) strings which is used for p2p communcation |
+| publicIp   | string           | own public ip                                                                                             |
+| address    | string           | ip address on which the server is listening. Normal this is a private ip address                          |
 
 Request Example:
 

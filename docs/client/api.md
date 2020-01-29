@@ -5,7 +5,7 @@
 ### Basic usage
 
 ```typescript
-import { Connection } from '@gny/client';
+import { Connection } from "@gny/client";
 
 const connection = new Connection();
 const accountApi = connection.api.Account;
@@ -95,7 +95,7 @@ Response Parameter Description:
 
 | Name     | Type    | Description                                  |
 | -------- | ------- | -------------------------------------------- |
-| success  | bool    | Whether request is successful               |
+| success  | bool    | Whether request is successful                |
 | count    | integer | the number of balances owned by this address |
 | balances | Array   | balance list of GNY                          |
 
@@ -981,11 +981,48 @@ Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name    | Type  | Description                              |
-| ------- | ----- | ---------------------------------------- |
-| success | bool   | true: response data return successfully |
-| Peers   | Array | A list of peer information               |
-| count   | bool  | The number of peers                      |
+| Name    | Type  | Description                             |
+| ------- | ----- | --------------------------------------- |
+| success | bool  | true: response data return successfully |
+| peers   | Array | A list of peer information              |
+| count   | bool  | The number of peers                     |
+
+JSON Response Example:
+
+```js
+{
+  "success": true,
+  "peers": [
+    {
+      "id": {
+        "id": "QmeDn2SETzxuENnAiynzWXjw78eDRiNLmwzNDtwb2XhVsi",
+        "pubKey": "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDo9QnqRUmrO3uAqyoAAnjmDB7+lCSA9a7tAKv0vsq0fnq0/espA70e7sJZSjmHqOpP5Jyse3pjezMfSsBR80vQJheb0dOwCsZu/dJ2kA0nuXRZwOd7ZUUsRUh5oj5NFBrY3tuScq/HtbXDqMs0MZdlKIBkEseTnF1rLZw8fhIiY3AFwlJFUCNGKyrk2rk6IvrwMWshyBkr+r1pPfGp6W46/fw5gwdvRTgxCvmqkQq35uncosBbV2+lAimvviTfT7NR6SuLdkAb5TqC0kh7XJV2eu44TtHwI/rTQw0lfCg/WnRKA+uFyedeg3BcTzqjdnhkxP8v7KAMnxi8Z/3q50jbAgMBAAE="
+      },
+      "multiaddrs": [
+        "/ip4/13.80.136.143/tcp/4097/ipfs/QmeDn2SETzxuENnAiynzWXjw78eDRiNLmwzNDtwb2XhVsi"
+      ],
+      "simple": {
+        "host": "13.80.136.143",
+        "port": 4097
+      }
+    },
+    {
+      "id": {
+        "id": "QmPiFnYYNeuYBxqzA77bPPrpJ8AaGJQujMVFXYJEGbpMRR",
+        "pubKey": "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDghE7wWvJxLW2KFTgfaBQ6Yh5hpSrxZqlOu/M4kWFcZ87S81053So92CCcTLdJPaE6mvip3/PTHpzzvfsiEhk7/1oTHDonKjbx44L39dqzvVht+q8LyU3XYo8qw6mJd4Ry69+89V1RmgJGdEtR+G2sBQxZ/m+subcHKfy6jvG2Zw8BkJdcyjlAXaH4mw9ZO5lkrN8E0aI32GwipVBu37Wts7ZYIcJxZ9zxGGVwNb7B8Utq2DVSpmqguM9M1DsBDJZ+yZg3vF435zLcmMS7eRLCB0PIXrZ5HPYsDKk/FMyF3sDy05xtGTUgF75L7zeMYxoEUg6BtgM9HV5T2cWtcDDXAgMBAAE="
+      },
+      "multiaddrs": [
+        "/ip4/174.129.53.40/tcp/4097/ipfs/QmPiFnYYNeuYBxqzA77bPPrpJ8AaGJQujMVFXYJEGbpMRR"
+      ],
+      "simple": {
+        "host": "174.129.53.40",
+        "port": 4097
+      }
+    }
+  ],
+  "count": 2
+}
+```
 
 ### Get version
 
@@ -1003,6 +1040,49 @@ Response Parameter Description:
 | version | string | Version of blockchain                   |
 | build   | string | Build version                           |
 | net     | string | Net version                             |
+
+JSON Response Example:
+
+```js
+{
+  "success": true,
+  "version": "1.0.5",
+  "build": "Tue Jan 28 2020 12:44:42 GMT+0000 (Coordinated Universal Time)",
+  "net": "localnet"
+}
+```
+
+### Get info
+
+```typescript
+const { data } = peerApi.getInfo();
+```
+
+Request Parameter Description: none
+
+Response Parameter Description:
+
+| Name       | Type             | Description                                                                                               |
+| ---------- | ---------------- | --------------------------------------------------------------------------------------------------------- |
+| success    | bool             | true: response data return successfully                                                                   |
+| id         | string of peerId | libp2p [peer-id](https://www.npmjs.com/package/peer-id)                                                   |
+| multiaddrs | string[]         | Array of [multiaddrs](https://www.npmjs.com/package/multiaddr) strings which is used for p2p communcation |
+| publicIp   | string           | own public ip                                                                                             |
+| address    | string           | ip address on which the server is listening. Normal this is a private ip address                          |
+
+JSON Response Example:
+
+```js
+{
+  "success": true,
+  "id": "QmQbVdde9AeXSP3FoLyVNd3Fi3BjCe2tFyJV43bNWEBYSA",
+  "multiaddrs": [
+    "/ip4/20.188.42.0/tcp/4097/ipfs/QmQbVdde9AeXSP3FoLyVNd3Fi3BjCe2tFyJV43bNWEBYSA"
+  ],
+  "publicIp": "20.188.42.0",
+  "address": "10.0.3.4"
+}
+```
 
 ## System
 
@@ -1145,9 +1225,9 @@ const { data } = transactionApi.addTransactions(transactions);
 ```
 
 Request Parameter Description:  
-| Name         | Type  | Required | Description           |  
+| Name | Type | Required | Description |  
 | ------------ | ----- | -------- | --------------------- |  
-| transactions | Y     | Y        | Array of transactions |
+| transactions | Y | Y | Array of transactions |
 
 JSON Response Example:
 
@@ -1204,11 +1284,11 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name       | Type   | Description                             |
-| ---------- | ------ | --------------------------------------- |
-| success    | bool   | true: response data return successfully |
-| count      | string | the number of transfers                 |
-| transfers  | Array  | An array of transfers                   |
+| Name      | Type   | Description                             |
+| --------- | ------ | --------------------------------------- |
+| success   | bool   | true: response data return successfully |
+| count     | string | the number of transfers                 |
+| transfers | Array  | An array of transfers                   |
 
 ### Get total amount of transfers
 
@@ -1225,11 +1305,11 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name            | Type   | Description                             |
-| --------------- | ------ | --------------------------------------- |
-| success         | bool   | true: response data return successfully |
-| count           | string | the number of transfers                 |
-| strTotalAmount  | string | the total amout of transfers            |
+| Name           | Type   | Description                             |
+| -------------- | ------ | --------------------------------------- |
+| success        | bool   | true: response data return successfully |
+| count          | string | the number of transfers                 |
+| strTotalAmount | string | the total amout of transfers            |
 
 ### Create a transaction (contract)
 
@@ -1470,7 +1550,7 @@ Response Parameter Description:
 
 | Name    | Type    | Description                                                                                       |
 | ------- | ------- | ------------------------------------------------------------------------------------------------- |
-| success | boolean | true: response data return successfully                                                                |
+| success | boolean | true: response data return successfully                                                           |
 | asset   | JSON    | Contains asset name, description, cap, precision, current circulation, issue height, publisher id |
 
 JSON Response:
@@ -1545,7 +1625,7 @@ Response Parameter Description:
 
 | Name    | Type | Description                                                                                                                                                                  |
 | ------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| success | bool | Whether operation was successful                                                                                                                                                |
+| success | bool | Whether operation was successful                                                                                                                                             |
 | balance | json | Asset array, details owned, each element is an asset, including asset name, balance, cap, precision, current circulation, whether to cancel (0: not cancelled, 1: cancelled) |
 
 JSON Response:
