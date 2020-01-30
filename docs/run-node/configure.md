@@ -2,10 +2,15 @@
 
 ## Start Forging
 
-In order to start forging please pass a secret or multiple secrets (comma separated) to the GNY Blockchain.
+::: warning
+Do not reuse your delegate secret on different GNY Blockchain networks (`localnet`, `testnet`, `mainnet`). Otherwise you will make yourself vulnerable for a replay attack.
+:::
 
-> Information  
-> In order start forging you need to first register as delegate. Be sure checkout our [Guides](../guide/).
+::: tip
+In order start forging you need to first register as delegate. Be sure checkout our [Guides](../guide/).
+:::
+
+In order to start forging please pass a secret or multiple secrets (comma separated) to the GNY Blockchain.
 
 Change CLI arguments:
 
