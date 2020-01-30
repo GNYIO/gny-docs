@@ -3,11 +3,11 @@
 ## Start Forging
 
 ::: warning
-Do not reuse your delegate secret on different GNY Blockchain networks (`localnet`, `testnet`, `mainnet`). Otherwise you will make yourself vulnerable for a replay attack.
+Do not reuse your delegate secret on different GNY Blockchain networks (`localnet`, `testnet`, `mainnet`). Otherwise you will make yourself vulnerable to replay attacks.
 :::
 
 ::: tip
-In order start forging you need to first register as delegate. Be sure checkout our [Guides](../guide/).
+In order to start forging you need to first register as delegate. Be sure to checkout our [Guides](../guide/).
 :::
 
 In order to start forging please pass a secret or multiple secrets (comma separated) to the GNY Blockchain.
@@ -30,7 +30,7 @@ services:
     image: gny-experiment
     command: bash -c 'while !</dev/tcp/db1/5432; do sleep 1; done; node packages/main/dist/src/app --ormConfig "ormconfig.integration.json"'
     environment:
-+	  - GNY_SECRET=chief next globe deny try danger trust wet spoil away eight task
++     - GNY_SECRET=chief next globe deny try danger trust wet spoil away eight task
       - NODE_ENV="production"
     ports:
       - "4096:4096"
@@ -45,14 +45,14 @@ services:
 The **publicIp** option is mandatory on the `testnet` and on the `mainnet`. If you don't set it then the node will automatically use its privateIp which which will make the p2p communication with other nodes not work.
 ::::
 
-The GNY Blockchain uses [libp2p](https://github.com/libp2p/js-libp2p/) for p2p communication. Libp2p itself communicates with the help of [multiaddr](https://www.npmjs.com/package/multiaddr). The standard procedure is to add a multiaddrs that listens on `0.0.0.0` and the libp2p automatically binds to privateIP address. As pointed out above this will not work on the `testnet` and on the `mainnet`
+The GNY Blockchain uses [libp2p](https://github.com/libp2p/js-libp2p/) for p2p communication. Libp2p itself communicates with the help of [multiaddr](https://www.npmjs.com/package/multiaddr). The standard procedure is that the GNY Blockchain adds a multiaddrs that listens on `0.0.0.0` and the libp2p automatically binds to the privateIP address. As pointed out above this will not work on the `testnet` and on the `mainnet`
 
 ```js
 const multi = `/ip4/0.0.0.0/tcp/4097`;
 peerInfo.multiaddrs.add(multi);
 ```
 
-This results in a own multiaddr array of e.g. where `10.0.3.4` is private IP address
+This results in a multiaddr array where for example `10.0.3.4` is used as the private IP address
 
 ```js
 {
@@ -62,7 +62,7 @@ This results in a own multiaddr array of e.g. where `10.0.3.4` is private IP add
 }
 ```
 
-The problem shows itself in the communication with other nodes. Because our node announces a private address which another node can't communicate with. Therefore we have to pass the **publicIP** to the GNY node.
+The problem shows itself in the communication with other nodes. Because our node announces a private IP address which other nodes can't communicate with. Therefore we have to pass the **publicIP** to the GNY node.
 
 The `publicIP` can be passed to the GNY node:
 
@@ -97,7 +97,7 @@ services:
 ```
 
 ::: tip
-After that the own `publicIP` configuration needs to be checked with the HTTP API endpint `/api/peers/info` which display information about the own node!
+After that the nodes own `publicIP` configuration should be checked with the HTTP API endpoint `/api/peers/info`. This endpoint displays information about the own node!
 :::
 
 It is important that the `multiaddrs` array displays only one entry with the correct **publicIp**
