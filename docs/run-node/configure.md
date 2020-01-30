@@ -17,16 +17,15 @@ services:
     build: .
     container_name: "node1"
     image: gny-experiment
--    command: bash -c 'while !</dev/tcp/db1/5432; do sleep 1; done; node packages/main/dist/src/app --ormConfig "ormconfig.integration.json"'
-+    command: bash -c 'while !</dev/tcp/db1/5432; do sleep 1; done; node packages/main/dist/src/app --ormConfig "ormconfig.integration.json" --secret "G44soFoHg493EUU1xfgSazxNX7uzc"'
+    command: bash -c 'while !</dev/tcp/db1/5432; do sleep 1; done; node packages/main/dist/src/app --ormConfig "ormconfig.integration.json"'
     environment:
++	  - GNY_SECRET=chief next globe deny try danger trust wet spoil away eight task
       - NODE_ENV="production"
     ports:
       - "4096:4096"
       - "4097:4097"
     depends_on:
       - db1
-
 ```
 
 ## All Environment Variable Options
