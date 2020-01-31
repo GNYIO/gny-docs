@@ -26,12 +26,16 @@ services:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
   node1:
-    build: .
     container_name: "node1"
-    image: gny-experiment:integration # tags
+    image: a1300/testnet
     command: bash -c 'while !</dev/tcp/db1/5432; do sleep 0.5; done; node packages/main/dist/src/app --ormConfig "ormconfig.integration.json"'
     environment:
       - NODE_ENV=production
+      - GNY_LOG_LEVEL=log
+      - GNY_PUBLIC_IP=<here goes your public ip address>
+      - GNY_SECRET=<here goes your BIP39 secret(s)>
+      - GNY_P2P_SECRET="<here goes your p2p secret"
+      - GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5
     ports:
       - "4096:4096"
       - "4097:4097"
@@ -39,16 +43,17 @@ services:
       - db1
 ```
 
-Now start the `postgres` and the `gny` service with:
+Now start both services (`db1`, `node1`) with:
 
 ```bash
-docker-compose up
+sudo docker-compose up
 ```
 
+::: tip
+For information on how to **mine Blocks** see [**configure**](./configure)
+:::
+
 <br/>
-
-> For information on how to **mine Blocks** see [**configure**](./configure)
-
 <br/>
 
 ## Result

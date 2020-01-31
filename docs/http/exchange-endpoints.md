@@ -14,18 +14,10 @@ version: "3.3"
 services:
   # db1 service omitted
   node1:
-    build: .
-    container_name: "node1"
-    image: gny-experiment
-    command: bash -c 'while !</dev/tcp/db1/5432; do sleep 1; done; node packages/main/dist/src/app --ormConfig "ormconfig.integration.json"'
+    # other keys ommitted
     environment:
       - NODE_ENV="production"
       - EXCHANGE_API=true # this activates the /api/exchange endpoints
-    ports:
-      - "4096:4096"
-      - "4097:4097"
-    depends_on:
-      - db1
 ```
 
 ## 1 Exchange Endpoints

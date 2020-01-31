@@ -11,16 +11,17 @@ We support currently only Linux. Please use Ubuntu or one of its derivates:
 - Ubuntu 18.04.3 LTS
 - Ubuntu 19.10
 
-## Install Tooling
-
-### Install Docker
+## Install Docker
 
 Follow this guide to install Docker on Ubuntu. Install [docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) and [docker-compose](https://docs.docker.com/compose/install/)
 
 ### Install Git
 
+<!--
 Install Git from their [Git Website](https://git-scm.com/)
 
 ### Install node.js
 
 Install node.js `v10.16.2` from their [node.js Website](https://github.com/nvm-sh/nvm) or via [nvm](https://github.com/nvm-sh/nvm)
+
+-->
