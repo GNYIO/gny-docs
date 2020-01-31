@@ -1,16 +1,25 @@
 # Configure
 
+::: tip
+In order to connect to the **`testnet`** be sure to use one of the following configurations:
+
+- `--peers="/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5"`
+- `GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5`
+  ::::
+
+<br/>
+
 ## Start Forging
 
 ::: warning
-Do not reuse your delegate secret on different GNY Blockchain networks (`localnet`, `testnet`, `mainnet`). Otherwise you will make yourself vulnerable to replay attacks.
+Do not reuse your delegate secret on different GNY Blockchain networks (`localnet`, `testnet`, `mainnet`). Otherwise you will make yourself vulnerable to [replay attacks](https://en.wikipedia.org/wiki/Replay_attack).
 :::
 
 ::: tip
 In order to start forging you need to first register as delegate. Be sure to checkout our [Guides](../guide/).
 :::
 
-In order to start forging please pass a secret or multiple secrets (comma separated) to the GNY Blockchain.
+In order to start forging please pass a secret or multiple secrets (comma separated) to the GNY Blockchain. This option is optional.
 
 Change CLI arguments:
 
@@ -25,19 +34,12 @@ Change your `docker-compose.yml`:
 services:
   # db1 service omitted
   node1:
-    build: .
-    container_name: "node1"
-    image: gny-experiment
-    command: bash -c 'while !</dev/tcp/db1/5432; do sleep 1; done; node packages/main/dist/src/app --ormConfig "ormconfig.integration.json"'
+    # other keys omitted
     environment:
 +     - GNY_SECRET=chief next globe deny try danger trust wet spoil away eight task
-      - NODE_ENV="production"
-    ports:
-      - "4096:4096"
-      - "4097:4097"
-    depends_on:
-      - db1
 ```
+
+<br/>
 
 ## Configure Public IP
 
@@ -64,40 +66,31 @@ This results in a multiaddr array where for example `10.0.3.4` is used as the pr
 
 The problem shows itself in the communication with other nodes. Because our node announces a private IP address which other nodes can't communicate with. Therefore we have to pass the **publicIP** to the GNY node.
 
-The `publicIP` can be passed to the GNY node:
+The `public ip` can be passed to the GNY node:
 
 - as argument: `--publicIP=20.188.42.0`
 - as environment variable: `GNY_PUBLIC_IP=20.188.42.0`
 
-Pass `publicIp` as argument:
+Pass `public ip` as argument:
 
 ```diff
 - npm run start
 + npm run start -- --publicIP="20.188.42.0"
 ```
 
-Pass `publicIp` as environment variable:
+Pass `public ip` as environment variable:
 
 ```diff
 services:
   # db1 service omitted
   node1:
-    build: .
-    container_name: "node1"
-    image: gny-experiment
-    command: bash -c 'while !</dev/tcp/db1/5432; do sleep 1; done; node packages/main/dist/src/app --ormConfig "ormconfig.integration.json"'
+    # other keys omitted
     environment:
 +	  - GNY_PUBLIC_IP=20.188.42.0
-      - NODE_ENV="production"
-    ports:
-      - "4096:4096"
-      - "4097:4097"
-    depends_on:
-      - db1
 ```
 
 ::: tip
-After that the nodes own `publicIP` configuration should be checked with the HTTP API endpoint `/api/peers/info`. This endpoint displays information about the own node!
+After that the nodes own `public ip` configuration should be checked with the HTTP API endpoint `/api/peers/info`. This endpoint displays information about the own node!
 :::
 
 It is important that the `multiaddrs` array displays only one entry with the correct **publicIp**
@@ -107,6 +100,64 @@ It is important that the `multiaddrs` array displays only one entry with the cor
 ![multiaddrs_publicIp_api_peers_info](../.vuepress/public/multiaddrs_publicIp_api_peers_info.png)
 
 <br>
+
+## Configure P2P Secret
+
+The `p2p secret` keeps the connection between peers secure. This is option is **mandatory**.
+
+The `p2p secret` can be passed to the GNY node:
+
+- as argument: `--privateP2PKey="CAASqQkwggSlAgEA..."`
+- as environment variable: `GNY_P2P_SECRET="CAASqQkwggSlAgEA..."`
+
+Pass `p2p secret` as argument:
+
+```diff
+- npm run start
++ npm run start -- --privateP2PKey="CAASqQkwggSlAgEA..."
+```
+
+Pass `p2p secret` as environment variable:
+
+```diff
+services:
+  # db1 service omitted
+  node1:
+    # other keys omitted
+    environment:
++	  - GNY_P2P_SECRET="CAASqQkwggSlAgEA..."
+```
+
+<br/>
+
+## Configure P2P Peers
+
+The `p2p peers` option says to which peer(s) (comma separated) we should connect in the network. This option is optional
+
+The `p2p peers` option can be passed to the GNY node:
+
+- as argument: `--peers="/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5"`
+- as environment variable: `GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5`
+
+Pass `p2p peers` as argument:
+
+```diff
+- npm run start
++ npm run start -- --peers="/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5"
+```
+
+Pass `p2p peers` as environment variable:
+
+```diff
+services:
+  # db1 service omitted
+  node1:
+    # other keys omitted
+    environment:
++	  - GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5
+```
+
+<br/>
 
 ## All Environment Variable Options
 

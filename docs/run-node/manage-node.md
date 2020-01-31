@@ -6,33 +6,6 @@ This is only a short summary from the fantastic [docs.docker.com](https://docs.d
 
 # Visualization
 
-```yml
-version: "3.3"
-services:
-  db1:
-    image: "postgres:9.6.12"
-    container_name: "db1"
-    restart: always
-    expose: # only internal
-      - "5432"
-    environment:
-      POSTGRES_PASSWORD: docker
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
-  node1:
-    build: .
-    container_name: "node1"
-    image: gny-experiment:integration # tags
-    command: bash -c 'while !</dev/tcp/db1/5432; do sleep 0.5; done; node packages/main/dist/src/app --ormConfig "ormconfig.integration.json"'
-    environment:
-      - NODE_ENV=production
-    ports:
-      - "4096:4096"
-      - "4097:4097"
-    depends_on:
-      - db1
-```
-
 `docker-compose` bundles many services that are started together and interact together. In our case we have the services: GNY Blockchain Node (a `node.js` app) and a database (`postgres`) service. Each of this services is a separate [`docker container`](https://www.docker.com/resources/what-container).
 
 ![postgresdb](../.vuepress/public/simple-db.png) ![GNY Blockchain](../.vuepress/public/basic-node.png)
