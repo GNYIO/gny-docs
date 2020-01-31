@@ -165,19 +165,28 @@ services:
 
 ```
 Options:
-  -V, --version              output the version number
-  -c, --config <path>        Config file path
-  -p, --port <port>          Listening port number
-  -a, --address <ip>         Listening host name or ip
-  -g, --genesisblock <path>  Genesisblock path
-  -x, --peers [peers...]     Peers list
-  -l, --log <level>          Log level
-  -d, --daemon               Run gny node as daemon
-  --base <dir>               Base directory
-  --ormConfig <file>         ormconfig.json file
-  --privateP2PKey <key>      Private P2P Key (base64 encoded) - overrides p2p_key.json file
-  --secret [secret...]       comma separated secrets
-  --publicIP <ip>            Public IP of own server
-  --noLogFile                no log output to file
-  -h, --help                 output usage information
+  -V, --version          output the version number
+  --config <path>        Config file path
+  --port <port>          Listening port number
+  --address <ip>         Listening host name or ip
+  --genesisblock <path>  Genesisblock path
+  --peers [peers...]     Peers list
+  --log <level>          Log level: log|trace|debug|info|warn|error|fatal
+  --base <dir>           Base directory
+  --ormConfig <file>     ormconfig.json file
+  --privateP2PKey <key>  Private P2P Key (base64 encoded) - overrides p2p_key.json file
+  --secret [secret...]   comma separated secrets
+  --publicIP <ip>        Public IP of own server, default private IP
+  --network <network>    Must be: localnet | testnet | mainnet
+  -h, --help             output usage information
+
+Environment Variables:
+  GNY_NETWORK=<network>    Must be: localnet | testnet | mainnet
+  GNY_PORT=<port>          Listening port number
+  GNY_LOG_LEVEL=<level>    log|trace|debug|info|warn|error|fatal
+  GNY_P2P_SECRET=<key>     Private P2P Key (base64 encoded) - overrides p2p_key.json file
+  GNY_SECRET=[secret...]   comma separated secrets
+  GNY_PUBLIC_IP=<ip>       Public IP of own server, default private IP
+  GNY_P2P_PEERS=[peers...] comma separated peers
+  GNY_ADDRESS=<address>    Listening host name or ip
 ```
