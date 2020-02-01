@@ -839,7 +839,7 @@ JSON Response Example:
   },
   "version":{
     "version":"1.0.0",
-    "build":"DEFAULT_BUILD_TIME",
+    "build":"Tue Jan 28 2020 11:07:40 GMT+0100 (Central European Standard Time)",
     "net":"testnet"
   }
 }
