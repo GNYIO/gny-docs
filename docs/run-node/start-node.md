@@ -10,6 +10,10 @@ Create a new file `docker-compose.yml`:
 touch docker-compose.yml
 ```
 
+::: tip Information
+The GNY docker image will be pulled from dockerhub repository [a1300/testnet](https://hub.docker.com/repository/docker/a1300/testnet)
+:::
+
 Copy the following content into your `docker-compose.yml` file:
 
 ```yml
