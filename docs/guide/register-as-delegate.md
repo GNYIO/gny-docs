@@ -6,4 +6,8 @@ Register as delegate can be done in different ways:
 
 ## With CLI
 
+WIP
+
 ## With Wallet (GUI)
+
+WIP
