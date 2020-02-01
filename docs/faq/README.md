@@ -24,8 +24,9 @@ The `secret` in the GNY network is used to:
 - Initiate transactions
 - Activate Forging for Delegates
 
-> WARNING  
-> Never disclose or share you `secret` with anyone. Be careful with which website you use your `secret` with. Always double check. Write the twelve word phrase onto a paper and keep it save.
+::: warning  
+Never disclose or share you `secret` with anyone. Be careful with which website you use your `secret` with. Always double check. Write the twelve word phrase onto a paper and keep it save.
+:::
 
 ### Whats a `multiaddr`?
 
@@ -36,8 +37,6 @@ A `multiaddr` describes a self-describing network address. Like:
 ```
 /ip4/20.174.24.9/tcp/4097/ipfs/QmRHqTMqdtmomUu7rSnikhnFtKx3B1gaXzctvr2TtLLJmE
 ```
-
-This can be read as
 
 ### Whats a `p2pSecret`?
 
@@ -50,10 +49,6 @@ The `p2pSecret` is used to identify a P2P node (on the P2P port) and encrypt the
   "pubKey": "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDCAwXZkflrt9zgdgHuYiP28o7NTHKMhqOcTM/ZYnKCOEtr2/YsixUGI2MU0gaLSaXiJ1fZoYMZ0l+MhSVcnj3xgihKJJuQnlxQe77djUlLdcXCuSwC8H8/MMty4f5Kg0Srfl3zatIIUQgRA2MpWUxe7hQ/hPHfcy+tZC0Cy3aPsNorfk2L0CFKT1DcMf23BVdlANaWwaVhSheFUj6Z1dqSAcOSgMQve/ECUocxLyhx6xQCpsoR2tHeUwQmmP6vEuRdocmUVEDsiNYW57kA4vq/IvLNAs4I6VIrAyC3DtoKVRApgBkmfyuIpu693vCgnsggOqQ0MZlzZi8P2dLsw8JXAgMBAAE="
 }
 ```
-
-### What is a `network` type?
-
-In order to better test
 
 ### What is a `Genesis` Account?
 
@@ -96,3 +91,7 @@ Here is a full list of all available contracts currently in the GNY Blockchain:
 ### What is a Block period?
 
 Every 10 seconds a Block is mined.
+
+### What is a `network` type?
+
+WIP
