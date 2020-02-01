@@ -489,7 +489,7 @@ Response Parameter Description:
 | Name    | Type    | Description                                  |
 | ------- | ------- | -------------------------------------------- |
 | success | bool    | true: response data return successfully      |
-| supply  | integer | the total amount of XAS in the whole network |
+| supply  | integer | the total amount of GNY in the whole network |
 
 JSON Response Example:
 
