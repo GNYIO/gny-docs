@@ -2,24 +2,17 @@
 
 ## Account API
 
-### Basic usage
-
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-const accountApi = connection.api.Account;
-```
-
 ### Open account
 
-```typescript
-const { data } = await accountApi.openAccount(secretOrPublicKey);
+```bash
+openaccount [publicKey]
 ```
 
-| Name              | Type   | Required | Description                                                       |
-| ----------------- | ------ | -------- | ----------------------------------------------------------------- |
-| secretOrPublicKey | string | N        | gny account password (not recommended) or publicKey (recommended) |
+open your account and get the infomation by publicKey
+
+| Name      | Type   | Required | Description           |
+| --------- | ------ | -------- | --------------------- |
+| publicKey | string | N        | gny account publicKey |
 
 Response Parameter Description:
 
@@ -32,57 +25,30 @@ JSON Response Example:
 
 ```js
 {
+  "success": true,
   "account":{
     "address":"G4b8BhmeRFBmWAHZemKD25BmEP2G",
     "balance":0,
     "secondPublicKey":"",
     "lockHeight":0,
     "publicKey":"bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
-    },
-    "latestBlock":{
-      "height":53,
-      "timestamp":3471490
-    },
-    "version":{
-      "version":"1.0.0",
-      "build":"DEFAULT_BUILD_TIME",
-      "net":"testnet"
-    }
-}
-```
-
-### Generate Account
-
-```typescript
-const { data } = await accountApi.generateAccount();
-```
-
-Request Parameter Description: none  
-Response Parameter Description:
-
-| Name       | Type   | Description                   |
-| ---------- | ------ | ----------------------------- |
-| success    | bool   | Whether request is successful |
-| address    | string | Client's address              |
-| secret     | string | gny account password          |
-| privateKey | string | gny account private key       |
-| publicKey  | string | gny account public key        |
-
-JSON Response Example:
-
-```js
-{
-    "address": "G318FKKb7mF3M6JCUhBqYnLiha6y",
-    "secret" : "carpet pudding topple genuine relax rally problem before pill gun nation method",
-    "publicKey": "c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2",
-    "privateKey": "c68434b960ef024b2a868118be7641be25e566f720a5eb12ff314022629ccc71575bf8f32b941b9e6ae1af82539689198327b73d77d22a98cdef2460c9257f7b"
+  },
+  "latestBlock":{
+    "height":53,
+    "timestamp":3471490
+  },
+  "version":{
+    "version":"1.0.0",
+    "build":"DEFAULT_BUILD_TIME",
+    "net":"testnet"
+  }
 }
 ```
 
 ### Get balance
 
-```typescript
-const { data } = await accountApi.getBalance(address);
+```
+getbalance [address]
 ```
 
 Request Parameter Description:
@@ -112,39 +78,10 @@ JSON Response Example:
 }
 ```
 
-### Get balance by address and currency
-
-```typescript
-const { data } = accountApi.getAddressCurrencyBalance(address, currency);
-```
-
-Request Parameter Description:
-
-| Name     | Type   | Required | Description      |
-| -------- | ------ | -------- | ---------------- |
-| address  | string | Y        | Client's address |
-| currency | string | Y        | currency         |
-
-Response Parameter Description:
-
-| Name    | Type    | Description                             |
-| ------- | ------- | --------------------------------------- |
-| success | bool    | true: response data return successfully |
-| balance | integer | balance                                 |
-
-JSON Response Example:
-
-```js
-{
-  "success": true,
-  "balance": 0
-}
-```
-
 ### Get the account by address
 
-```typescript
-const { data } = accountApi.getAccountByAddress(address);
+```bash
+getaccountbyaddress [address]
 ```
 
 Request Parameter Description:
@@ -164,8 +101,8 @@ Response Parameter Description:
 
 ### Get account by username
 
-```typescript
-const { data } = accountApi.getAccountByUsername(username);
+```bash
+getaccountbyusername [username]
 ```
 
 Request Parameter Description:
@@ -183,10 +120,24 @@ Response Parameter Description:
 | latestBlock | json | latest block information              |
 | version     | json | version information                   |
 
+### Count the number of accounts
+
+```bash
+countaccounts
+```
+
+Request Parameter Description: none  
+Response Parameter Description:
+
+| Name    | Type   | Description                             |
+| ------- | ------ | --------------------------------------- |
+| success | bool   | true: response data return successfully |
+| count   | number | the total number of accounts            |
+
 ### Get voted delegates
 
-```typescript
-const { data } = accountApi.getVotedDelegates(address, username);
+```bash
+getvoteddelegates -u [usename] -a [address]
 ```
 
 Request Parameter Description:
@@ -244,24 +195,10 @@ JSON Response Example:
 }
 ```
 
-### Count the number of accounts
+### Get publicKey by address
 
-```typescript
-const { data } = accountApi.countAccounts();
-```
-
-Request Parameter Description: none  
-Response Parameter Description:
-
-| Name    | Type   | Description                             |
-| ------- | ------ | --------------------------------------- |
-| success | bool   | true: response data return successfully |
-| count   | number | the total number of accounts            |
-
-### Get publicKey
-
-```typescript
-const { data } = accountApi.getPublicKey(address);
+```bash
+getpublickey [address]
 ```
 
 Request Parameter Description:
@@ -277,10 +214,10 @@ Response Parameter Description:
 | success   | bool   | true: response data return successfully |
 | publicKey | string | public key                              |
 
-### Generate publicKey
+### Generate publicKey by secret
 
-```typescript
-const { data } = accountApi.generatePublicKey(secret);
+```bash
+genpublickey [secret]
 ```
 
 Request Parameter Description:
@@ -296,86 +233,110 @@ Response Parameter Description:
 | success   | bool   | true: response data return successfully |
 | publicKey | string | public key                              |
 
-### Set username (contract)
+### Generate Account
 
-Prize: 5 GNY
+```bash
+genaccount
+```
 
-```typescript
-const { data } = accountApi.setUserName(username, secret, secondSecret);
+Request Parameter Description: none  
+Response Parameter Description:
+
+| Name       | Type   | Description                   |
+| ---------- | ------ | ----------------------------- |
+| success    | bool   | Whether request is successful |
+| address    | string | Client's address              |
+| secret     | string | gny account password          |
+| privateKey | string | gny account private key       |
+| publicKey  | string | gny account public key        |
+
+JSON Response Example:
+
+```js
+{
+    "address": "G318FKKb7mF3M6JCUhBqYnLiha6y",
+    "secret" : "carpet pudding topple genuine relax rally problem before pill gun nation method",
+    "publicKey": "c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2",
+    "privateKey": "c68434b960ef024b2a868118be7641be25e566f720a5eb12ff314022629ccc71575bf8f32b941b9e6ae1af82539689198327b73d77d22a98cdef2460c9257f7b"
+}
+```
+
+### Get balance by address and currency
+
+```bash
+getbalancebyaddresscurrency -a [address] -c [currency]
 ```
 
 Request Parameter Description:
 
-| Name         | Type   | Required | Description                 |
-| ------------ | ------ | -------- | --------------------------- |
-| username     | string | Y        | username                    |
-| secret       | string | Y        | gny account password        |
-| secondSecret | string | N        | gny account second password |
+| Name     | Type   | Required | Description      |
+| -------- | ------ | -------- | ---------------- |
+| address  | string | Y        | Client's address |
+| currency | string | Y        | currency         |
 
 Response Parameter Description:
 
-| Name          | Type   | Description                             |
-| ------------- | ------ | --------------------------------------- |
-| success       | bool   | true: response data return successfully |
-| transactionId | string | transaction id                          |
+| Name    | Type    | Description                             |
+| ------- | ------- | --------------------------------------- |
+| success | bool    | true: response data return successfully |
+| balance | integer | balance                                 |
 
-### Lock account (contract)
+JSON Response Example:
 
-Prize: 0.1 GNY
-
-```typescript
-const { data } = accountApi.lockAccount(height, amount, secret);
+```js
+{
+  "success": true,
+  "balance": 0
+}
 ```
-
-Request Parameter Description:
-
-| Name   | Type   | Required | Description             |
-| ------ | ------ | -------- | ----------------------- |
-| height | number | Y        | the height to be locked |
-| amount | number | Y        | the amount to be locked |
-| secret | string | Y        | gny account password    |
-
-Response Parameter Description:
-
-| Name          | Type   | Description                             |
-| ------------- | ------ | --------------------------------------- |
-| success       | bool   | true: response data return successfully |
-| transactionId | string | transaction id                          |
-
-### Unlock account
-
-```typescript
-const { data } = accountApi.unlockAccount(secret);
-```
-
-Request Parameter Description:
-
-| Name   | Type   | Required | Description          |
-| ------ | ------ | -------- | -------------------- |
-| secret | string | Y        | gny account password |
-
-Response Parameter Description:
-
-| Name          | Type   | Description                             |
-| ------------- | ------ | --------------------------------------- |
-| success       | bool   | true: response data return successfully |
-| transactionId | string | transaction id                          |
 
 ## Block API
 
-### Basic usage
+### Get block height
 
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-const blockApi = connection.api.Block;
+```bash
+getheight
 ```
+
+Response Parameter Description:
+
+| Name    | Type   | Description                             |
+| ------- | ------ | --------------------------------------- |
+| success | bool   | true: response data return successfully |
+| height  | string | block height                            |
+
+JSON Response Example:
+
+```js
+{
+  "success":true,
+  "height": "140569"
+}
+```
+
+### Get block by height
+
+```bash
+getblockbyheight [height]
+```
+
+Request Parameter Description:
+
+| Name   | Type   | Required | Description  |
+| ------ | ------ | -------- | ------------ |
+| height | string | Y        | block height |
+
+Response Parameter Description:
+
+| Name    | Type | Description                             |
+| ------- | ---- | --------------------------------------- |
+| success | bool | true: response data return successfully |
+| block   | json | the block detail information            |
 
 ### Get block by id
 
-```typescript
-const { data } = blockApi.getBlockById(id);
+```bash
+getblockbyid [id]
 ```
 
 Request Parameter Description:
@@ -410,29 +371,11 @@ JSON Response Example:
 }
 ```
 
-### Get block by height
-
-```typescript
-const { data } = blockApi.getBlockByHeight(height);
-```
-
-Request Parameter Description:
-
-| Name   | Type   | Required | Description  |
-| ------ | ------ | -------- | ------------ |
-| height | string | Y        | block height |
-
-Response Parameter Description:
-
-| Name    | Type | Description                             |
-| ------- | ---- | --------------------------------------- |
-| success | bool | true: response data return successfully |
-| block   | json | the block detail information            |
-
 ### Get blocks
 
-```typescript
-const { data } = blockApi.getBlocks(offset, limit, orderBy, transactions);
+```bash
+getblocks -o [offset] -l [limit] -s [orderBy] -t [transactions]
+getblocks --offset [offset] --limit [limit] --sort [orderBy] --transactions [transactions]
 ```
 
 Request Parameter Description:
@@ -442,7 +385,7 @@ Request Parameter Description:
 | limit        | integer | N        | maximum number of returned records, between 0 and 100                                                                                                    |
 | offset       | integer | N        | default is 0                                                                                                                                             |
 | orderBy      | string  | N        | sort by a field in the table, for example, specify `height:desc` to sort descending, default is `height:asc`. You can only sort by the `height` property |
-| transactions | boolean | N        | When transactions=true then                                                                                                                              |
+| transactions | boolean | N        | When transactions=true then the `transactions` property will be added to each block                 |
 
 Response Parameter Description:
 
@@ -450,7 +393,7 @@ Response Parameter Description:
 | ------- | ------- | ---------------------------------------------- |
 | success | bool    | true: response data return successfully        |
 | blocks  | Array   | a list of JSON objects containing block detail |
-| count   | integer | block height                                   |
+| count   | integer | number of blocks overall                                   |
 
 JSON Response Example:
 
@@ -486,34 +429,10 @@ JSON Response Example:
 ]}
 ```
 
-### Get block height
+### Get milestone of last block
 
-```typescript
-const { data } = blockApi.getHeight();
-```
-
-Request Parameter Description: none
-
-Response Parameter Description:
-
-| Name    | Type   | Description                             |
-| ------- | ------ | --------------------------------------- |
-| success | bool   | true: response data return successfully |
-| height  | string | block height                            |
-
-JSON Response Example:
-
-```js
-{
-  "success":true,
-  "height": "140569"
-}
-```
-
-### Get milestone
-
-```typescript
-const { data } = blockApi.getMilestone();
+```bash
+getmilestone
 ```
 
 Request Parameter Description: none  
@@ -522,7 +441,8 @@ Response Parameter Description:
 | Name      | Type    | Description                             |
 | --------- | ------- | --------------------------------------- |
 | success   | bool    | true: response data return successfully |
-| milestone | integer |                                         |
+| milestone | integer |shows milestone of the last Block (the Block with the highest height) |
+
 
 JSON Response Example:
 
@@ -533,10 +453,10 @@ JSON Response Example:
 }
 ```
 
-### Get reward information of a block
+### Get reward information of last block
 
-```typescript
-const { data } = blockApi.getReward();
+```bash
+getreward
 ```
 
 Request Parameter Description: none
@@ -546,7 +466,7 @@ Response Parameter Description:
 | Name    | Type    | Description                             |
 | ------- | ------- | --------------------------------------- |
 | success | bool    | true: response data return successfully |
-| reward  | integer | the reward of the block                 |
+| reward  | integer | shows reward of the last Block (the Block with the highest height)                 |
 
 JSON Response Example:
 
@@ -559,8 +479,8 @@ JSON Response Example:
 
 ### Get current maximum supply of the blockchain
 
-```typescript
-const { data } = blockApi.getSupply();
+```bash
+getsupply
 ```
 
 Request Parameter Description: none
@@ -570,7 +490,7 @@ Response Parameter Description:
 | Name    | Type    | Description                                  |
 | ------- | ------- | -------------------------------------------- |
 | success | bool    | true: response data return successfully      |
-| supply  | integer | the total amount of XAS in the whole network |
+| supply  | integer | the total amount of GNY in the whole network |
 
 JSON Response Example:
 
@@ -582,8 +502,8 @@ JSON Response Example:
 
 ### Get current status of blockchain
 
-```typescript
-const { data } = blockApi.getStatus();
+```bash
+getstatus
 ```
 
 Request Parameter Description: none
@@ -597,7 +517,7 @@ Response Parameter Description:
 | fee       | string    | transaction fee                          |
 | milestone | integer   |                                          |
 | reward    | integer   | block reward                             |
-| supply    | BigNumber | total amount of XAS in the whole network |
+| supply    | BigNumber | total amount of GNY in the whole network |
 
 JSON Response Example:
 
@@ -611,45 +531,88 @@ JSON Response Example:
 }
 ```
 
-## Delegate
+### Get block bytes
 
-### Basic usage
-
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-const delegateApi = connection.api.Delegate;
+```bash
+getblockbytes -f [file]
 ```
+
+Request Parameter Description:
+
+| Name | Type   | Required | Description     |
+| ---- | ------ | -------- | --------------- |
+| file | string | Y        | block file path |
+
+Response Parameter Description:
+
+| Name       | Type   | Description     |
+| ---------- | ------ | --------------- |
+| blockbytes | string | the block bytes |
+
+### Get block id
+
+```bash
+getblockid -f [file]
+```
+
+Request Parameter Description:
+
+| Name | Type   | Required | Description     |
+| ---- | ------ | -------- | --------------- |
+| file | string | Y        | block file path |
+
+Response Parameter Description:
+
+| Name | Type   | Description  |
+| ---- | ------ | ------------ |
+| id   | string | the block id |
+
+### Get block payload hash
+
+```bash
+getblockpayloadhash -f [file]
+```
+
+Request Parameter Description:
+
+| Name | Type   | Required | Description     |
+| ---- | ------ | -------- | --------------- |
+| file | string | Y        | block file path |
+
+Response Parameter Description:
+
+| Name        | Type   | Description            |
+| ----------- | ------ | ---------------------- |
+| payloadHash | string | the block payload hash |
+
+## Delegate
 
 ### Count the number of delegates
 
-```typescript
-const { data } = delegateApi.count();
+```bash
+getdelegatescount
 ```
 
 Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name    | Type    | Description                             |
-| ------- | ------- | --------------------------------------- |
-| success | bool    | true: response data return successfully |
-| count   | integer | total number of delegates               |
+| Name  | Type    | Description               |
+| ----- | ------- | ------------------------- |
+| count | integer | total number of delegates |
 
 JSON Response Example:
 
 ```js
 {
-    "success":true,
-    "count":234
+  "count":234
 }
 ```
 
 ### Get the voters by username
 
-```typescript
-const { data } = delegateApi.getVoters(username);
+```bash
+getvoters [username]
 ```
 
 Request Parameter Description:
@@ -660,42 +623,42 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name     | Type  | Description                             |
-| -------- | ----- | --------------------------------------- |
-| success  | bool  | true: response data return successfully |
-| accounts | Array | a JSON object list of account           |
+| Name     | Type  | Description                   |
+| -------- | ----- | ----------------------------- |
+| accounts | Array | a JSON object list of account |
 
 JSON Response Example:
 
 ```js
-{
-	"success": true,
-	"accounts": [{
-		"address": "2918354313445278349",
-		"publicKey": "4fde4c49f1297d5d3a24b1494204543c4281aff17917ff7ff8ff32da3b4b222f",
-		"balance": 1338227722727,
-		"weight": 0.013316660647014596
-	},
-	{
-		"address": "1523444724068322527",
-		"publicKey": "8a6a61c28dc47541aadf1eecec2175c8f768f2331eea3472b1593bf1aa4e1fb4",
-		"balance": 2109297623765,
-		"weight": 0.020989552213127274
-	},
-	{
-		"address": "14483826354741911727",
-		"publicKey": "5dacb7983095466b9b037690150c3edec0f073815326e33a4744b6d1d50953e2",
-		"balance": 5135815841470,
-		"weight": 0.051106336795243436
-	}
-	}]
-}
+[
+  {
+    address: "2918354313445278349",
+    publicKey:
+      "4fde4c49f1297d5d3a24b1494204543c4281aff17917ff7ff8ff32da3b4b222f",
+    balance: 1338227722727,
+    weight: 0.013316660647014596
+  },
+  {
+    address: "1523444724068322527",
+    publicKey:
+      "8a6a61c28dc47541aadf1eecec2175c8f768f2331eea3472b1593bf1aa4e1fb4",
+    balance: 2109297623765,
+    weight: 0.020989552213127274
+  },
+  {
+    address: "14483826354741911727",
+    publicKey:
+      "5dacb7983095466b9b037690150c3edec0f073815326e33a4744b6d1d50953e2",
+    balance: 5135815841470,
+    weight: 0.051106336795243436
+  }
+];
 ```
 
 ### Get delegate by public key
 
-```typescript
-const { data } = delegateApi.getDelegateByPubKey(publicKey);
+```bash
+getdelegatebypublickey [publicKey]
 ```
 
 Request Parameter Description:
@@ -708,38 +671,36 @@ Response Parameter Description:
 
 | Name     | Type | Description                             |
 | -------- | ---- | --------------------------------------- |
-| success  | bool | true: response data return successfully |
 | delegate | JSON | the detail information of this delegate |
 
 JSON Response Example:
 
 ```js
 {
-  "delegate":{
-    "address":"G3kkkSaJNVY87AhVPyxXVGFpR61VB",
-    "username":"gny_d1",
-    "transactionId":"156c950d69dda92214fa26d37baff860990fad43d40ba74a342fabf9adaaa2dc",
-    "publicKey":"85b4c2efe56642398dad3f1ec338e87e712063cfaee4a836cb58b673cdb820f4",
-    "votes":0,
-    "producedBlocks":0,
-    "missedBlocks":0,
-    "fees":0,
-    "rewards":0,
-    "_version_":1,
-    "rate":47,
-    "approval":0,
-    "productivity":"0.00",
-    "vote":0,
-    "missedblocks":0,
-    "producedblocks":0
-  }
+  "address":"G3kkkSaJNVY87AhVPyxXVGFpR61VB",
+  "username":"gny_d1",
+  "transactionId":"156c950d69dda92214fa26d37baff860990fad43d40ba74a342fabf9adaaa2dc",
+  "publicKey":"85b4c2efe56642398dad3f1ec338e87e712063cfaee4a836cb58b673cdb820f4",
+  "votes":0,
+  "producedBlocks":0,
+  "missedBlocks":0,
+  "fees":0,
+  "rewards":0,
+  "_version_":1,
+  "rate":47,
+  "approval":0,
+  "productivity":"0.00",
+  "vote":0,
+  "missedblocks":0,
+  "producedblocks":0
 }
+
 ```
 
 ### Get delegate by user name
 
-```typescript
-const { data } = delegateApi.getDelegateByUsername(username);
+```bash
+getdelegatebyusername [username]
 ```
 
 Request Parameter Description:
@@ -752,13 +713,12 @@ Response Parameter Description:
 
 | Name     | Type | Description                             |
 | -------- | ---- | --------------------------------------- |
-| success  | bool | true: response data return successfully |
 | delegate | JSON | the detail information of this delegate |
 
 ### Get delegate by address
 
-```typescript
-const { data } = delegateApi.getDelegateByAddress(address);
+```bash
+getdelegatebyaddress [address]
 ```
 
 Request Parameter Description:
@@ -771,13 +731,13 @@ Response Parameter Description:
 
 | Name     | Type | Description                             |
 | -------- | ---- | --------------------------------------- |
-| success  | bool | true: response data return successfully |
 | delegate | JSON | the detail information of this delegate |
 
 ### Get the list of Delegates
 
-```typescript
-const { data } = delegateApi.getDelegates(offset, limit);
+```bash
+getdelegates -o [offset] -l [limit]
+getdelegates --offset [offset] --limit [limit]
 ```
 
 Request Parameter Description:
@@ -839,153 +799,100 @@ JSON Response Example:
 ]}
 ```
 
-### Enable forging
+## Exchange
+> WARNING  
+> The following Exchange options are only unlocked for exchanges. This will not work for ordinary nodes  
 
-```typescript
-const { data } = delegateApi.forgingEnable(secret, pulicKey);
+### Open your account and get the infomation by secret
+
+```bash
+openaccountwithsecret [secret]
 ```
 
-Request Parameter Description:
+open your account and get the infomation by secret
 
-| Name      | Type   | Required | Description           |
-| --------- | ------ | -------- | --------------------- |
-| secret    | string | Y        | gny account password  |
-| publickey | string | Y        | delegate's public key |
+| Name   | Type   | Required | Description        |
+| ------ | ------ | -------- | ------------------ |
+| secret | string | N        | gny account secret |
 
 Response Parameter Description:
 
-| Name    | Type | Description                             |
-| ------- | ---- | --------------------------------------- |
-| success | bool | true: response data return successfully |
+| Name    | Type | Description                 |
+| ------- | ---- | --------------------------- |
+| success | bool | Whether login is successful |
+| account | json | Account information         |
 
-### Disable forging
+JSON Response Example:
 
-```typescript
-const { data } = delegateApi.forgingDisable(secret, pulicKey);
+```js
+{
+  "success": true,
+  "account":{
+    "address":"G4b8BhmeRFBmWAHZemKD25BmEP2G",
+    "balance":0,
+    "secondPublicKey":"",
+    "lockHeight":0,
+    "publicKey":"bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
+  },
+  "latestBlock":{
+    "height":53,
+    "timestamp":3471490
+  },
+  "version":{
+    "version":"1.0.0",
+    "build":"Tue Jan 28 2020 11:07:40 GMT+0100 (Central European Standard Time)",
+    "net":"testnet"
+  }
+}
 ```
 
-Request Parameter Description:
+### Generate public key with secret
 
-| Name      | Type   | Required | Description           |
-| --------- | ------ | -------- | --------------------- |
-| secret    | string | Y        | gny account password  |
-| publickey | string | Y        | delegate's public key |
+```bash
+genpublickey [secret]
+```
+
+open your account and get the infomation by secret
+
+| Name   | Type   | Required | Description        |
+| ------ | ------ | -------- | ------------------ |
+| secret | string | N        | gny account secret |
 
 Response Parameter Description:
 
-| Name    | Type | Description                             |
-| ------- | ---- | --------------------------------------- |
-| success | bool | true: response data return successfully |
+| Name      | Type   | Description           |
+| --------- | ------ | --------------------- |
+| publicKey | string | gny account publicKey |
 
-### Get forging status
+### Generate accounts
 
-```typescript
-const { data } = delegateApi.forgingStatus(pulicKey);
+```bash
+genaccount
 ```
-
-Request Parameter Description:
-
-| Name      | Type   | Required | Description           |
-| --------- | ------ | -------- | --------------------- |
-| publickey | string | Y        | delegate's public key |
 
 Response Parameter Description:
 
-| Name    | Type | Description                             |
-| ------- | ---- | --------------------------------------- |
-| success | bool | true: response data return successfully |
-| enabled | bool | true: forging is enabled                |
-
-### Register as a delegate (contract)
-
-Prize: 100 GNY
-
-```typescript
-const { data } = delegateApi.registerDelegate(secret);
-```
-
-Request Parameter Description:
-
-| Name   | Type   | Required | Description          |
-| ------ | ------ | -------- | -------------------- |
-| secret | string | Y        | gny account password |
-
-Response Parameter Description:
-
-| Name          | Type   | Description                             |
-| ------------- | ------ | --------------------------------------- |
-| success       | bool   | true: response data return successfully |
-| transactionId | string | transaction id                          |
-
-## Loader
-
-### Basic usage
-
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-const loaderApi = connection.api.Loader;
-```
-
-### Get blockchain status
-
-```typescript
-const { data } = loaderApi.getStatus();
-```
-
-Request Parameter Description: none
-
-Response Parameter Description:
-
-| Name    | Type | Description                                 |
-| ------- | ---- | ------------------------------------------- |
-| success | bool | true: response data return successfully     |
-| loaded  | bool | true: the blockchain is loaded successfully |
-
-### Sync blockchain status
-
-```typescript
-const { data } = loaderApi.getStatus();
-```
-
-Request Parameter Description: none
-
-Response Parameter Description:
-
-| Name    | Type   | Description                             |
-| ------- | ------ | --------------------------------------- |
-| success | bool   | true: response data return successfully |
-| syncing | bool   | true: the blockchain is syncing         |
-| blocks  | number | the number of blocks to be synced       |
-| height  | string | the height of last block                |
+| Name     | Type  | Description   |
+| -------- | ----- | ------------- |
+| accounts | Array | account array |
 
 ## Peer
 
-### Basic usage
-
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-const peerApi = connection.api.Peer;
-```
-
 ### Get peers
 
-```typescript
-const { data } = peerApi.getPeers();
+```bash
+getpeers
 ```
 
 Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name    | Type  | Description                             |
-| ------- | ----- | --------------------------------------- |
-| success | bool  | true: response data return successfully |
-| peers   | Array | A list of peer information              |
-| count   | bool  | The number of peers                     |
+| Name    | Type    | Description                             |
+| ------- | ------- | --------------------------------------- |
+| success | bool    | true: response data return successfully |
+| peers   | Array   | a JSON array of peers' information      |
+| count   | integer | the number of currently running peers   |
 
 JSON Response Example:
 
@@ -1026,20 +933,20 @@ JSON Response Example:
 
 ### Get version
 
-```typescript
-const { data } = peerApi.getVersion();
+```bash
+getversion
 ```
 
 Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name    | Type   | Description                             |
-| ------- | ------ | --------------------------------------- |
-| success | bool   | true: response data return successfully |
-| version | string | Version of blockchain                   |
-| build   | string | Build version                           |
-| net     | string | Net version                             |
+| Name    | Type      | Description                             |
+| ------- | --------- | --------------------------------------- |
+| success | bool      | true: response data return successfully |
+| version | string    | version number                          |
+| build   | timestamp | built time                              |
+| net     | string    | either localnet, testnet or mainnet     |
 
 JSON Response Example:
 
@@ -1054,8 +961,8 @@ JSON Response Example:
 
 ### Get info
 
-```typescript
-const { data } = peerApi.getInfo();
+```bash
+getinfo
 ```
 
 Request Parameter Description: none
@@ -1086,19 +993,10 @@ JSON Response Example:
 
 ## System
 
-### Basic usage
-
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-const systemApi = connection.api.System;
-```
-
 ### Get version
 
-```typescript
-const { data } = systemApi.getSystemInfo();
+```bash
+getsysteminfo
 ```
 
 Request Parameter Description: none
@@ -1115,34 +1013,26 @@ Response Parameter Description:
 
 ## Transaction
 
-### Basic usage
-
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-const transactionApi = connection.api.Transaction;
-```
-
 ### Get transactions
 
-```typescript
-const { data } = transactionApi.getTransactions(query);
+```bash
+gettransactions -l [limit] -o [offset] -i [id] --senderId [senderId] --senderPublicKey [senderPublicKey] -b [blockId] -h [height] -t [type] -m [message]
+gettransactions --limit [limit] --offset [offset] --id [id] --senderId [senderId] --senderPublicKey [senderPublicKey] --blockId [blockId] --height [height] --type [type] --message [message]
 ```
 
 Request Parameter Description:
 
-| Name                  | Type     | Required              | Description                                                                                         |
-| --------------------- | -------- | --------------------- | --------------------------------------------------------------------------------------------------- |
-| query.limit           | integer  | N                     | the limitation of returned records，minimum：0,maximum：100                                         |
-| query.offset          | integer  | N                     | offset, minimum 0                                                                                   |
-| query.id              | string   | N                     | transaction id                                                                                      |
-| query.senderId        | N        | GNY address of sender |
-| query.senderPublicKey | string   | N                     | sender's public key                                                                                 |
-| query.blockId         | string   | N                     | block id                                                                                            |
-| query.height          | integer  | specific block height |
-| query.type            | interger | N                     | Transaction type, see https://github.com/GNYIO/gny-general/wiki/Transactions for futher information |
-| query.message         | string   | Transaction message   |
+| Name            | Type     | Required              | Description                                                                                         |
+| --------------- | -------- | --------------------- | --------------------------------------------------------------------------------------------------- |
+| limit           | integer  | N                     | the limitation of returned records, minimum：0,maximum: 100                                         |
+| offset          | integer  | N                     | offset, minimum 0                                                                                   |
+| id              | string   | N                     | transaction id                                                                                      |
+| senderId        | N        | GNY address of sender |
+| senderPublicKey | string   | N                     | sender's public key                                                                                 |
+| blockId         | string   | N                     | block id                                                                                            |
+| height          | integer  | specific block height |
+| type            | interger | N                     | Transaction type, see https://github.com/GNYIO/gny-general/wiki/Transactions for futher information |
+| message         | string   | Transaction message   |
 
 Response Parameter Description:
 
@@ -1173,10 +1063,49 @@ JSON Response Example:
 }
 ```
 
-### Get unconfirmed transactions by transaction id
+### Get unconfirmed transactions
 
-```typescript
-const { data } = transactionApi.getUnconfirmedTransaction(id);
+```bash
+getunconfirmedtransactions -k [sender public key] -a [address]
+getunconfirmedtransactions --key [sender public key] --address [address]
+```
+
+Request Parameter Description:
+
+| Name      | Type   | Required | Description       |
+| --------- | ------ | -------- | ----------------- |
+| publicKey | string | Y        | sender public key |
+| address   | string | Y        | sender id         |
+
+Response Parameter Description:
+
+| Name         | Type | Description                                |
+| ------------ | ---- | ------------------------------------------ |
+| transactions | json | unconfirmed transaction detail inforamtion |
+
+JSON Response Example:
+
+```js
+[
+  {
+    transactionId:
+      "42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
+    senderId: "G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
+    recipientId: "G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
+    recipientName: null,
+    currency: "gny",
+    amount: "10000000000000000",
+    timestamp: 0,
+    height: 0,
+    _version_: 1
+  }
+];
+```
+
+### Get unconfirmed transaction by transaction id
+
+```bash
+gettransaction [id]
 ```
 
 Request Parameter Description:
@@ -1208,121 +1137,90 @@ JSON Response Example:
 }
 ```
 
-### Create a batch of transactions
-
-```typescript
-const genesisSecret =
-  "grow pencil ten junk bomb right describe trade rich valid tuna service";
-const trs = gnyClient.basic.transfer(
-  "GuQr4DM3aiTD36EARqDpbfsEHoNF",
-  50 * 1e8,
-  undefined,
-  genesisSecret,
-  undefined
-);
-const transactions = [trs];
-const { data } = transactionApi.addTransactions(transactions);
-```
-
-Request Parameter Description:  
-| Name | Type | Required | Description |  
-| ------------ | ----- | -------- | --------------------- |  
-| transactions | Y | Y | Array of transactions |
-
-JSON Response Example:
-
-```js
-{
-  "success": true,
-  "transactions": [
-    {
-      "type": 0,
-      "timestamp": 3619538,
-      "fee": 10000000,
-      "args": [
-        5000000000,
-        "GuQr4DM3aiTD36EARqDpbfsEHoNF"
-      ],
-      "senderPublicKey": "575bf8f32b941b9e6ae1af82539689198327b73d77d22a98cdef2460c9257f7b",
-      "senderId": "G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-      "signatures": [
-        "5fd14364bed18697f9c9ec1e03d66825af2cc9e716d5f6089dc265d99d5d6f3a79b778a48733e06b1353ea007036455ab4b9f0d4a3035a343584c4fb137e1400"
-      ],
-      "id": "0bd53c3a60b6746e4383dbafa8f63f2eaea7e167e0e754cbf9aaf419b3cb2eef"
-    }
-  ]
-}
-```
-
-## Transfer
-
-### Basic usage
-
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-const transferApi = connection.api.Transfer;
-```
-
-### Get transfers
-
-```typescript
-const { data } = transferApi.getRoot(query);
-```
-
-Request Parameter Description:
-
-| Name              | Type    | Required | Description                                                 |
-| ----------------- | ------- | -------- | ----------------------------------------------------------- |
-| query.limit       | integer | N        | the limitation of returned records，minimum：0,maximum：100 |
-| query.offset      | integer | N        | offset, minimum 0                                           |
-| query.ownId       | string  | N        | public key related to transfers                             |
-| query.currency    | string  | N        | gny UIA Assets                                              |
-| query.senderId    | string  | N        | GNY address of sender                                       |
-| query.recipientId | string  | N        | recipient's public key                                      |
-
-Response Parameter Description:
-
-| Name      | Type   | Description                             |
-| --------- | ------ | --------------------------------------- |
-| success   | bool   | true: response data return successfully |
-| count     | string | the number of transfers                 |
-| transfers | Array  | An array of transfers                   |
-
-### Get total amount of transfers
-
-```typescript
-const { data } = transferApi.getAmount(startTimestamp, endTimestamp);
-```
-
-Request Parameter Description:
-
-| Name           | Type   | Required | Description     |
-| -------------- | ------ | -------- | --------------- |
-| startTimestamp | string | Y        | start timestamp |
-| endTimestamp   | string | Y        | end timestamp   |
-
-Response Parameter Description:
-
-| Name           | Type   | Description                             |
-| -------------- | ------ | --------------------------------------- |
-| success        | bool   | true: response data return successfully |
-| count          | string | the number of transfers                 |
-| strTotalAmount | string | the total amout of transfers            |
-
-### Create a transaction (contract)
+### Send money (contract)
 
 Prize: 0.1 GNY
 
-```typescript
-const { data } = transferApi.send(
-  recipient,
-  amount,
-  message,
-  secret,
-  secondeSecret
-);
+```bash
+sendmoney -e [secret] -s [secondSecret] -a [amount] -r [recipientId] -m [message]
+sendmoney --secret [secret] --secondSecret [secondSecret] --amount [amount] --recipient [recipientId] --message [message]
+```
+
+| Name         | Type    | Required | Description                                                                                    |
+| ------------ | ------- | -------- | ---------------------------------------------------------------------------------------------- |
+| secret       | string  | Y        | GNY account password                                                                           |
+| amount       | integer | Y        | amount, between 1 and 10000000000000000                                                        |
+| recipientId  | string  | Y        | recipient's address, minimum:1                                                                 |
+| message      | string  | N        | message with the transaction                                                                   |
+| secondSecret | string  | N        | sender's second password (must fit the BIP39 standard), the length should be between 1 and 100 |
+
+Response Parameter Description:
+
+| Name          | Type   | Description    |
+| ------------- | ------ | -------------- |
+| transactionId | string | transaction id |
+
+### Get transaction bytes
+
+```bash
+gettransactionbytes -f [file]
+```
+
+Request Parameter Description:
+
+| Name | Type   | Required | Description           |
+| ---- | ------ | -------- | --------------------- |
+| file | string | Y        | transaction file path |
+
+Response Parameter Description:
+
+| Name             | Type   | Description           |
+| ---------------- | ------ | --------------------- |
+| transactionbytes | string | the transaction bytes |
+
+### Get transaction id
+
+```bash
+gettransactionid -f [file]
+```
+
+Request Parameter Description:
+
+| Name | Type   | Required | Description           |
+| ---- | ------ | -------- | --------------------- |
+| file | string | Y        | transaction file path |
+
+Response Parameter Description:
+
+| Name          | Type   | Description        |
+| ------------- | ------ | ------------------ |
+| transactionId | string | the transaction id |
+
+### Verify transaction bytes
+
+```bash
+verifybytes -b [bytes] -s [signature] -p [publicKey]
+```
+
+Request Parameter Description:
+
+| Name      | Type   | Required | Description                    |
+| --------- | ------ | -------- | ------------------------------ |
+| bytes     | string | Y        | transaction bytes              |
+| signature | string | Y        | transaction or block signature |
+| publicKey | string | Y        | signer public key              |
+
+Response Parameter Description:
+
+| Name   | Type    | Description                 |
+| ------ | ------- | --------------------------- |
+| resule | boolean | true: verified successfully |
+
+### Send transaction with fee
+
+```bash
+transaction -e [secret] -s [secondSecret] -a [amount] -r [recipientId] -m [message] -f [feee]
+transaction --secret [secret] --secondSecret [secondSecret] --amount [amount] --recipient [recipientId] --message [message] --fee [fee]
 ```
 
 Request Parameter Description:
@@ -1330,33 +1228,25 @@ Request Parameter Description:
 | Name         | Type    | Required | Description                                                                                    |
 | ------------ | ------- | -------- | ---------------------------------------------------------------------------------------------- |
 | secret       | string  | Y        | GNY account password                                                                           |
-| amount       | integer | Y        | amount，between 1 and 10000000000000000                                                        |
+| amount       | integer | Y        | amount, between 1 and 10000000000000000                                                        |
 | recipientId  | string  | Y        | recipient's address, minimum:1                                                                 |
 | message      | string  | N        | message with the transaction                                                                   |
 | secondSecret | string  | N        | sender's second password (must fit the BIP39 standard), the length should be between 1 and 100 |
+| fee          | string  | Y        | transaction fee                                                                                |
 
 Response Parameter Description:
 
-| Name          | Type   | Description                             |
-| ------------- | ------ | --------------------------------------- |
-| success       | bool   | true: response data return successfully |
-| transactionId | string | transaction id                          |
+| Name          | Type   | Description    |
+| ------------- | ------ | -------------- |
+| transactionId | string | transaction id |
 
 ## User Defined Asset UIA
 
-### Basic usage
-
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-const uiaApi = connection.api.Uia;
-```
-
 ### Get all publishers
 
-```typescript
-const { data } = uiaApi.getIssuers(limit, offset);
+```bash
+getissuers -o [offset] -l [limit]
+getissuers --offset [offset] --limit [limit]
 ```
 
 Request Parameter Description:
@@ -1391,8 +1281,8 @@ JSON Response:
 
 ### Check if the address is a publisher
 
-```typescript
-const { data } = uiaApi.isIssuer(address);
+```bash
+isissuer [address]
 ```
 
 Request Parameter Description:
@@ -1421,16 +1311,15 @@ JSON Response:
 
 ### Query information about a publisher
 
-```typescript
-const { data } = uiaApi.getIssuer(publisherName | address);
+```bash
+getissuer [name or address]
 ```
 
 Request Parameter Description:
 
-| Name          | Type   | Required | Description                    |
-| ------------- | ------ | -------- | ------------------------------ |
-| publisherName | string | Y        | Can be GNY publisher name      |
-| address       | string | Y        | Can be the GNY account address |
+| Name                     | Type   | Required | Description                          |
+| ------------------------ | ------ | -------- | ------------------------------------ |
+| publisherName or address | string | Y        | Can be GNY publisher name or address |
 
 Response Parameter Description:
 
@@ -1455,8 +1344,8 @@ JSON Response:
 
 ### View assets of a specified publisher
 
-```typescript
-const { data } = uiaApi.getIssuerAssets(name, limit?, offset?);
+```bash
+getissuerassets [name]
 ```
 
 Request Parameter Description:
@@ -1496,8 +1385,9 @@ JSON Response:
 
 ### Get all assets
 
-```typescript
-const { data } = uiaApi.getAssets(limit, offset);
+```bash
+getassets -o [offset] -l [limit]
+getassets --offset [offset] --limit [limit]
 ```
 
 Request Parameter Description:
@@ -1536,8 +1426,8 @@ JSON Response:
 
 ### Get specified asset information
 
-```typescript
-const { data } = uiaApi.getAsset(name);
+```bash
+getasset [name]
 ```
 
 Request Parameter Description:
@@ -1573,8 +1463,9 @@ JSON Response:
 
 ### Get the balance of all UIA Assets for an account
 
-```typescript
-const { data } = uiaApi.getBalances(address, limit?, offset?);
+```bash
+getbalances -a [address] -l [limit] -o [offset]
+getbalances --adress [address] --limit [limit] -offset [offset]
 ```
 
 Request Parameter Description:
@@ -1610,8 +1501,9 @@ JSON Response:
 
 ### Get balance of a specific UIA Asset for an account
 
-```typescript
-const { data } = uiaApi.getBalance(address, currency);
+```bash
+getbalance -a [address] -c [currency]
+getbalance --address [address] --currency [currency]
 ```
 
 Request Parameter Description:
@@ -1642,31 +1534,24 @@ JSON Response:
 }
 ```
 
-### Register asset (contract)
+### Send asset (contract)
 
-Prize: 500 GNY
+Prize: 10000000
 
-```typescript
-const { data } = uiaApi.registerAsset(
-  name,
-  desc,
-  maximum,
-  precision,
-  secret,
-  secondSecret
-);
+```bash
+sendasset -e,--secret <secret> -s,--secondSecret <secret> -c,--currency <currency> -a,--amount <amount> -r,--recipient <address> -m,--message <message>
 ```
 
 Request Parameter Description:
 
-| Name         | Type   | Required | Description                        |
-| ------------ | ------ | -------- | ---------------------------------- |
-| name         | string | Y        | the currency name to be registered |
-| desc         | string | Y        | a descripition about the currency  |
-| maximum      | string | Y        | maximum number of the currency     |
-| precision    | number | Y        | precision of the currency          |
-| secret       | string | Y        | gny account password               |
-| secondSecret | string | N        | gny account second password        |
+| Name         | Type    | Required | Description                             |
+| ------------ | ------- | -------- | --------------------------------------- |
+| secret       | string  | Y        | gny account password                    |
+| secondSecret | string  | N        | gny account second password             |
+| currency     | string  | Y        | a specific UIA Asset                    |
+| amount       | integer | Y        | amount, between 1 and 10000000000000000 |
+| recipient    | string  | Y        | recipient's address                     |
+| message      | string  | Y        | message with the transaction            |
 
 Response Parameter Description:
 
@@ -1675,22 +1560,21 @@ Response Parameter Description:
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
 
-### Register as an issuer (contract)
+### Register as a delegate (contract)
 
 Prize: 100 GNY
 
-```typescript
-const { data } = uiaApi.registerIssuer(name, desc, secret, secondSecret);
+```bash
+registerdelegate -e,--secret <secret> -s,--secondSecret <secret> -m,--message <message>
 ```
 
 Request Parameter Description:
 
-| Name         | Type   | Required | Description                        |
-| ------------ | ------ | -------- | ---------------------------------- |
-| name         | string | Y        | the currency name to be registered |
-| desc         | string | Y        | a descripition about the currency  |
-| secret       | string | Y        | gny account password               |
-| secondSecret | string | N        | gny account second password        |
+| Name         | Type   | Required | Description                  |
+| ------------ | ------ | -------- | ---------------------------- |
+| secret       | string | Y        | gny account password         |
+| secondSecret | string | N        | gny account second password  |
+| message      | string | Y        | message with the transaction |
 
 Response Parameter Description:
 
@@ -1699,23 +1583,58 @@ Response Parameter Description:
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
 
-## Vote
+## Basic
 
-### Basic usage
+### Set second secret (contract)
 
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-const voteApi = connection.api.Vote;
+```bash
+setsecondsecret -e,--secret <secret> -s,--secondSecret <secret>
 ```
+
+Request Parameter Description:
+
+| Name         | Type   | Required | Description                 |
+| ------------ | ------ | -------- | --------------------------- |
+| secret       | string | Y        | gny account password        |
+| secondSecret | string | N        | gny account second password |
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
+
+### Lock account (contract)
+
+Prize: 0.1 GNY
+
+```bash
+lock -e,--secret <secret> -s,--secondSecret <secret> -h,--height <height> -m,--amount <amount>
+```
+
+Request Parameter Description:
+
+| Name         | Type   | Required | Description                 |
+| ------------ | ------ | -------- | --------------------------- |
+| height       | number | Y        | the height to be locked     |
+| amount       | number | Y        | the amount to be locked     |
+| secret       | string | Y        | gny account password        |
+| secondSecret | string | N        | gny account second password |
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
 
 ### Vote for a list of keys (contract)
 
 Prize: 0.1 GNY
 
-```typescript
-const { data } = voteApi.vote(keyList, secret, secondSecret);
+```bash
+vote -e,--secret <secret> -s,--secondSecret <secret> -p,--publicKeys <keyList>
 ```
 
 Request Parameter Description:
@@ -1737,8 +1656,8 @@ Response Parameter Description:
 
 Prize: 0.1 GNY
 
-```typescript
-const { data } = uiavoteApiApi.unvote(keyList, secret, secondSecret);
+```bash
+unvote -e,--secret <secret> -s,--secondSecret <secret> -p,--publicKeys <keyList>
 ```
 
 Request Parameter Description:
@@ -1755,3 +1674,22 @@ Response Parameter Description:
 | ------------- | ------ | --------------------------------------- |
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
+
+### List diff voters
+
+```bash
+listdiffvotes -u, --username <username> -a, --address <address>
+```
+
+Request Parameter Description:
+
+| Name     | Type   | Required | Description       |
+| -------- | ------ | -------- | ----------------- |
+| username | string | Y        | delegate username |
+| address  | string | Y        | delegate address  |
+
+Response Parameter Description:
+
+| Name      | Type  | Required | Description    |
+| --------- | ----- | -------- | -------------- |
+| diffvotes | Array | Y        | username array |
