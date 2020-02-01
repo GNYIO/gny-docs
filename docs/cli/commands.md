@@ -1693,3 +1693,29 @@ Response Parameter Description:
 | Name      | Type  | Required | Description    |
 | --------- | ----- | -------- | -------------- |
 | diffvotes | Array | Y        | username array |
+
+## Maintenance
+
+### Create P2P Secret
+
+```bash
+createp2psecret
+```
+
+Response Parameter Description:
+
+| Name    | Type   | Required | Description                                                  |
+| ------- | ------ | -------- | ------------------------------------------------------------ |
+| id      | string | Y        | [peer-id](https://www.npmjs.com/package/peer-id) id          |
+| privKey | string | Y        | [peer-id](https://www.npmjs.com/package/peer-id) private key |
+| pubKey  | string | Y        | [peer-id](https://www.npmjs.com/package/peer-id) private key |
+
+JSON Response Example:
+
+```json
+{
+  "id": "QmS8qAn5UYykHD2FpqmELMTDFAB5WKBSWiKJWX4U7cnnR3",
+  "privKey": "CAASpwkwggSjAgEAAoIBAQCXtFhfimFv+VSFNZUSqAEDi+ve2ERvsSdBVZmbKImNtWl8nJVEGf8GY+oqRXCDsUIZaHihvC2N7LPTKd7SlAwqaTbByFcafHONttmCRqsE1+Dzm1KLXhnROtNgMQMWm1k9mKlvOhxJGMCC7k++4t3+jgNlKsPnqcGpwS6YFMYTb0gGjTpeYUy8anmFzqr34Hv5Em+BjCgutkbZ05aCVGU/r9B8tRpE1+Y6g0V4AtaGlK4y22KZuK9j3nHK0m5dFAYx9G6A4LODYfhuu0HgQpT40N3JdgnmyNZPv2c0ezCaOF0yELHatELxAS1FTvhaoV0s8UnndqyMvAGdIi9yHVqDAgMBAAECggEBAJPxZF2H7g3s8OgXoRFYleSHh7cC4XqrIMUuXWZa2gpAaGcFrOuFDpeEyNAAeAF11ChDIaFYinRl6dh8dLiXeGXDxYqlfYxu4aHKN8Q8dnt6q/3l81HGqxbIb2rXYVOinBzdzB6UZRFD+jm1fj+Br0yX4ee/FN3PRvXtVyso1yILW6rWKFQoxUDhPa5OKYuUUrC95oaVYqGF1L8JwcKmmKSd1x+Sd70dEmlmbheygBbCYtly1eu73+N78vbMjhHj92fUQxOGju8/jQ8EmhLCT0PY97390gvRxcASH3aFkYAkcjtnFG5jXeWkyRKGpyGu5rNbLsmF+jVtvSYejI8DuYECgYEAxX/mj/oFp9FHuZy+CVKyBsN87jGaqFJ1l/1WvbsWqbExt2pWHbzhE5yWY3t9YDtdAyAm97A+rp5tdvIRqi9We3gt4e2otUdlbxmDB11yzRj06zubMWLsz2ioXW8Iu/U6MY4JtaveYXB/wbXNNV+aC8fPM93aMxNbaTN4BOnJYXsCgYEAxKPeL23/tELQd11OMExlWzOH46tp2iICv7JrecgzdyEyREcLi+Xds7uH2ZD6pef/xudsKSnQWOUeFo3FleGYdjPI4G9rQPV2q9Fqb+5VfhWYm8hw8KM/U0Gdbs258iNiAp/8BtTrr4qOf9Cvg5Bk0ivMfOFQEQdllXs1xXmuyJkCgYAVBo3ELCjn+ca6Au7UTUJ4p90n+o3td4HfYXAXmNBL1nplfWOXnOEVVmlIRABP+2HmkEi1u8SgkGs064Zn6Mw7Lssrr0JzshshXcTuRsuO/CYu2NSnyFFPr2OlNsnmQLAmUGnGNnrhQrnHJJSpJvleYbI0Ylz1bQ0hQQJ4+26d+wKBgE1zUa8Sv1Vrv5pUKNjDLmTGni5hNJcTMEv65XQZE5RHgfn8laKrjjAdm/torCCuiUL5odNwwbxRuhEeFAXdzmQ4L1We7Pqv8+bm2+psUEYSEYLCZyGQ2v9a57xd0XB62T65btXuBUql40yakJbcR6m0UJ2bTSL36939ooc+T0Z5AoGAScJ8la5mePXkbMoyc07Frskf01PjJo6qr8/6L94BuT7/DzIIyyCjGArzxTOGcgU2v8OKNlJoZAvx9VoxMiK+pi4hzwoFSc39zRrbapWsu+K5zzrC51PYCrRShXTGd5gIvcJG1V8fCmSRK2PA6Wf2/HJ420Z7+iJOz5x1NyJnvlo=",
+  "pubKey": "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCXtFhfimFv+VSFNZUSqAEDi+ve2ERvsSdBVZmbKImNtWl8nJVEGf8GY+oqRXCDsUIZaHihvC2N7LPTKd7SlAwqaTbByFcafHONttmCRqsE1+Dzm1KLXhnROtNgMQMWm1k9mKlvOhxJGMCC7k++4t3+jgNlKsPnqcGpwS6YFMYTb0gGjTpeYUy8anmFzqr34Hv5Em+BjCgutkbZ05aCVGU/r9B8tRpE1+Y6g0V4AtaGlK4y22KZuK9j3nHK0m5dFAYx9G6A4LODYfhuu0HgQpT40N3JdgnmyNZPv2c0ezCaOF0yELHatELxAS1FTvhaoV0s8UnndqyMvAGdIi9yHVqDAgMBAAE="
+}
+```
