@@ -516,7 +516,7 @@ Response Parameter Description:
 | fee       | string    | transaction fee                          |
 | milestone | integer   |                                          |
 | reward    | integer   | block reward                             |
-| supply    | BigNumber | total amount of XAS in the whole network |
+| supply    | BigNumber | total amount of GNY in the whole network |
 
 JSON Response Example:
 
