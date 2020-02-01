@@ -3,5 +3,5 @@
 ## Install via npm
 
 ```bash
-npm install @gny/cli
+npm install --global @gny/cli
 ```
