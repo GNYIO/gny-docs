@@ -453,7 +453,7 @@ JSON Response Example:
 }
 ```
 
-### Get reward information of a block
+### Get reward information of last block
 
 ```bash
 getreward
