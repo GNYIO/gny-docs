@@ -441,7 +441,8 @@ Response Parameter Description:
 | Name      | Type    | Description                             |
 | --------- | ------- | --------------------------------------- |
 | success   | bool    | true: response data return successfully |
-| milestone | integer |                                         |
+| milestone | integer |shows milestone of the last Block (the Block with the highest height) |
+
 
 JSON Response Example:
 
