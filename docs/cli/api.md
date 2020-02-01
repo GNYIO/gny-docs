@@ -799,6 +799,8 @@ JSON Response Example:
 ```
 
 ## Exchange
+> WARNING  
+> The following Exchange options are only unlocked for exchanges. This will not work for ordinary nodes  
 
 ### Open your account and get the infomation by secret
 
