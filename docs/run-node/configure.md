@@ -16,7 +16,7 @@ Do not reuse your delegate secret on different GNY Blockchain networks (`localne
 :::
 
 ::: tip
-In order to start forging you need to first register as delegate. Be sure to checkout our [Guides](../guide/).
+In order to start forging you need to first register as delegate. Be sure to checkout our [Guides](../guide/) on how to register as `delegate` and how to create a random `secret`.
 :::
 
 In order to start forging please pass a secret or multiple secrets (comma separated) to the GNY Blockchain. This option is optional.
@@ -102,6 +102,10 @@ It is important that the `multiaddrs` array displays only one entry with the cor
 <br>
 
 ## Configure P2P Secret
+
+::: tip
+Checkout our [Guides](../guide/) on how to create a `p2p secret`
+:::
 
 The `p2p secret` keeps the connection between peers secure. This is option is **mandatory**.
 

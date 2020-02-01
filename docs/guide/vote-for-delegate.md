@@ -1,5 +1,3 @@
-# Vote
+# Vote for Delegate
 
-## With CLI
-
-## With Wallet (GUI)
+WIP
