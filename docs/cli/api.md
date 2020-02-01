@@ -393,7 +393,7 @@ Response Parameter Description:
 | ------- | ------- | ---------------------------------------------- |
 | success | bool    | true: response data return successfully        |
 | blocks  | Array   | a list of JSON objects containing block detail |
-| count   | integer | block height                                   |
+| count   | integer | number of blocks overall                                   |
 
 JSON Response Example:
 
