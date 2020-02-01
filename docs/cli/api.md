@@ -429,7 +429,7 @@ JSON Response Example:
 ]}
 ```
 
-### Get block milestone
+### Get milestone of last block
 
 ```bash
 getmilestone
