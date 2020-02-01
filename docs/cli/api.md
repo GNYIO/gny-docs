@@ -385,7 +385,7 @@ Request Parameter Description:
 | limit        | integer | N        | maximum number of returned records, between 0 and 100                                                                                                    |
 | offset       | integer | N        | default is 0                                                                                                                                             |
 | orderBy      | string  | N        | sort by a field in the table, for example, specify `height:desc` to sort descending, default is `height:asc`. You can only sort by the `height` property |
-| transactions | boolean | N        | When transactions=true then                                                                                                                              |
+| transactions | boolean | N        | When transactions=true then the `transactions` property will be added to each block                 |
 
 Response Parameter Description:
 
