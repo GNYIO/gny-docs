@@ -15,9 +15,9 @@ We support currently only Linux. Please use Ubuntu or one of its derivates:
 
 Follow this guide to install Docker on Ubuntu. Install [docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) and [docker-compose](https://docs.docker.com/compose/install/)
 
+<!--
 ### Install Git
 
-<!--
 Install Git from their [Git Website](https://git-scm.com/)
 
 ### Install node.js

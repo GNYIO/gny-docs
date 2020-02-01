@@ -16,7 +16,6 @@ services:
   node1:
     # other keys ommitted
     environment:
-      - NODE_ENV="production"
       - EXCHANGE_API=true # this activates the /api/exchange endpoints
 ```
 
