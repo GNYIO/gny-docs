@@ -107,6 +107,7 @@ module.exports = {
         sidebarDepth: 0,
         children: [
           ['/guide/create-p2p-secret', 'Create P2P Secret'],
+          ['/guide/create-secret', 'Create Delegate Secret'],
           ['/guide/how-to-send-transactions', 'Send Transaction'],
           ['/guide/set-username', 'Set Username'],
           ['/guide/register-as-delegate', 'Register as Delegate'],
