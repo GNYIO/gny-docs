@@ -466,7 +466,7 @@ Response Parameter Description:
 | Name    | Type    | Description                             |
 | ------- | ------- | --------------------------------------- |
 | success | bool    | true: response data return successfully |
-| reward  | integer | the reward of the block                 |
+| reward  | integer | shows reward of the last Block (the Block with the highest height)                 |
 
 JSON Response Example:
 
