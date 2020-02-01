@@ -5,7 +5,7 @@
 ### Open account
 
 ```bash
-openaccount [secret]
+openaccount [publicKey]
 ```
 
 open your account and get the infomation by publicKey
