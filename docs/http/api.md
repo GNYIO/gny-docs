@@ -1,5 +1,9 @@
 # HTTP API
 
+::: tip
+Use the HTTP API wrapper [@gny/client](../client) for easier endpoint usage.
+:::
+
 ## 1 API Usage Guide
 
 ### 1.1 Request Process Overview
@@ -14,9 +18,9 @@
 
 ### 2.1 Accounts
 
-#### 2.1.1 Login
+#### 2.1.1 Read Account
 
-##### 2.1.1.1 Login with PublicKey
+##### 2.1.1.1 Read Account with PublicKey
 
 Interface Address: /api/accounts/open/  
 Request Method: POST  
@@ -37,29 +41,29 @@ Response Parameter Description:
 Request Example:
 
 ```bash
-curl -X POST -H "Content-Type: applicat28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"}' http://localhost:4096/api/accounts/open/
+curl -X POST --data "publicKey=41d36d74761593dcf1380faafcd487b84e014eba27c044d1aa87782d1cbd1a19" http://localhost:4096/api/accounts/openAccount/
 ```
 
 JSON Response Example:
 
-```js
+```json
 {
-  "account":{
-    "address":"G4b8BhmeRFBmWAHZemKD25BmEP2G",
-    "balance":0,
-    "secondPublicKey":"",
-    "lockHeight":0,
-    "publicKey":"bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
-    },
-    "latestBlock":{
-      "height":53,
-      "timestamp":3471490
-    },
-    "version":{
-      "version":"1.0.0",
-      "build":"DEFAULT_BUILD_TIME",
-      "net":"testnet"
-    }
+  "account": {
+    "address": "G2QEzc5BndQ2h6BsSNqimCWbSBV9L",
+    "balance": 0,
+    "secondPublicKey": "",
+    "lockHeight": 0,
+    "publicKey": "a87c7230d9ade987dbf612605aab652667e6303d2a1c6b2ec91a13733593bb75"
+  },
+  "latestBlock": {
+    "height": 53,
+    "timestamp": 3471490
+  },
+  "version": {
+    "version": "1.0.0",
+    "build": "Sun Feb 02 2020 19:42:18 GMT+0100 (Central European Standard Time)",
+    "net": "testnet"
+  }
 }
 ```
 
@@ -70,10 +74,10 @@ Request Method: GET
 Supported Format: urlencoded  
 Request Parameter Description:
 
-| Name    | Type   | Required | Description                        |
-| ------- | ------ | -------- | ---------------------------------- |
-| address | string | N        | Client's address, minimum length:1 |
-| name    | string | N        | Client username                    |
+| Name     | Type   | Required | Description      |
+| -------- | ------ | -------- | ---------------- |
+| address  | string | N        | account address  |
+| username | string | N        | account username |
 
 Response Parameter Description:
 
@@ -90,48 +94,48 @@ Request Example (address):
 curl -k -X GET http://localhost:4096/api/accounts?address=G4b8BhmeRFBmWAHZemKD25BmEP2G
 ```
 
-Request Example (publicKey):
+Request Example (username):
 
 ```bash
-curl -k -X GET http://localhost:4096/api/accounts?name=gny_d11
+curl -k -X GET http://localhost:4096/api/accounts?username=liangpeili
 ```
 
 JSON Response Example (address):
 
-```js
+```json
 {
-  "account":{
-    "address":"G4b8BhmeRFBmWAHZemKD25BmEP2G",
-    "balance":0,
-    "secondPublicKey":"",
-    "lockHeight":0
+  "account": {
+    "address": "G3wAwmGh3rimRm9v4qjuh7RkkAebM",
+    "balance": 2000000000000,
+    "secondPublicKey": "",
+    "lockHeight": 0
   },
-  "latestBlock":{
-    "height":5,
-    "timestamp":3472080
+  "latestBlock": {
+    "height": 5,
+    "timestamp": 3472080
   },
-  "version":{
-    "version":"1.0.0",
-    "build":"DEFAULT_BUILD_TIME",
-    "net":"testnet"
+  "version": {
+    "version": "1.0.0",
+    "build": "Sun Feb 02 2020 19:46:48 GMT+0100 (Central European Standard Time)",
+    "net": "testnet"
   }
 }
 ```
 
 JSON Response Example (username):
 
-```js
+```json
 {
-  "address":"GJX8DYKb7mF3M6JCUhBqYnLiha6y",
-  "username":"gny_d11",
-  "gny":0,
-  "publicKey":null,
-  "secondPublicKey":null,
-  "isDelegate":1,
-  "isLocked":0,
-  "lockHeight":0,
-  "lockAmount":0,
-  "_version_":3
+  "address": "G3wAwmGh3rimRm9v4qjuh7RkkAebM",
+  "username": "liangpeili",
+  "gny": 2000000000000,
+  "publicKey": null,
+  "secondPublicKey": null,
+  "isDelegate": 1,
+  "isLocked": 0,
+  "lockHeight": 0,
+  "lockAmount": 0,
+  "_version_": 3
 }
 ```
 
@@ -145,13 +149,16 @@ Request Parameter Description:
 | Name    | Type   | Required | Description      |
 | ------- | ------ | -------- | ---------------- |
 | address | string | Y        | Client's address |
+| limit   | number | N        |                  |
+| offset  | number | N        |                  |
 
 Response Parameter Description:
 
-| Name    | Type    | Description                             |
-| ------- | ------- | --------------------------------------- |
-| success | bool    | true: response data return successfully |
-| balance | integer | balance                                 |
+| Name     | Type   | Description                             |
+| -------- | ------ | --------------------------------------- |
+| success  | bool   | true: response data return successfully |
+| count    | number | the total number of available balances  |
+| balances | Array  | list of balances                        |
 
 Request Example:
 
@@ -164,20 +171,25 @@ JSON Response Example:
 ```js
 {
   "success": true,
-  "balance": 0
+  "balances": [
+    {
+      "gny": "0"
+    }
+  ]
 }
 ```
 
+<!--
 #### 2.1.4 Get Account's Public Key
 
-Interface Address: /api/accounts/getPublickey  
-Request Method: GET  
-Supported Format: urlencoded  
+Interface Address: /api/accounts/getPublickey
+Request Method: GET
+Supported Format: urlencoded
 Request Parameter Description:
 
 | Name    | Type   | Required | Description                        |
 | ------- | ------ | -------- | ---------------------------------- |
-| address | string | Y        | Client's address, minimum length:1 |
+| address | string | Y        | account's address              |
 
 Response Parameter Description:
 
@@ -201,76 +213,7 @@ JSON Response Example:
 }
 ```
 
-#### 2.1.5 Get Voting List by Address
-
-Interface Address: /api/accounts/delegates  
-Request Method: get  
-Supported Format: urlencoded  
-Request Parameter Description:
-
-| Name    | Type   | Required | Description     |
-| ------- | ------ | -------- | --------------- |
-| address | string | Y        | Voter's address |
-
-Response Parameter Description:
-
-| Name      | Type  | Description                                                                       |
-| --------- | ----- | --------------------------------------------------------------------------------- |
-| success   | bool  | true: response data return successfully                                           |
-| delegates | Array | A list that contains detail information of those delegates who have already voted |
-
-Request Example (address):
-
-```bash
-curl -k -X GET 'http://localhost:4096/api/accounts/delegates?address=GJX8DYKb7mF3M6JCUhBqYnLiha6y'
-```
-
-Request Example (username):
-
-```bash
-curl -k -X GET 'http://localhost:4096/api/accounts/delegates?name=gny_d11'
-```
-
-JSON Response Example:
-
-```js
-{
-	"success": true,
-	"delegates": [{
-		"username": "wgl_002",
-		"address": "GJX8DYKb7mF3M6JCUhBqYnLiha6y",
-		"publicKey": "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7",
-		"vote": 9901985415600500,
-		"producedblocks": 1373,
-		"missedblocks": 6,
-		"rate": 1,
-		"approval": "98.54",
-		"productivity": "99.56"
-	},
-	{
-		"username": "wgl_003",
-		"address": "G318FKKb7mF3M6JCUhBqYnLiha6y",
-		"publicKey": "c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2",
-		"vote": 9891995435600500,
-		"producedblocks": 1371,
-		"missedblocks": 8,
-		"rate": 2,
-		"approval": "98.44",
-		"productivity": "99.41"
-	},
-	{
-		"username": "wgl_001",
-		"address": "1869971419039689816",
-		"publicKey": "c547df2dde6cbb4508aabcb5970d8f9132e5a1d1c422632da6bc20bf1df165b8",
-		"vote": 32401577128413,
-		"producedblocks": 969,
-		"missedblocks": 8,
-		"rate": 102,
-		"approval": "0.32",
-		"productivity": 0
-	}]
-}
-```
+-->
 
 ### 2.2 Transactions
 
@@ -301,7 +244,7 @@ Response Parameter Description:
 | ------------ | ----- | ----------------------------------------------------------- |
 | success      | bool  | true: response data return successfully                     |
 | transactions | Array | A JSON object list containing multiple transactions' detail |
-| count        | int   | the total number of retrieved transactions                  |
+| count        | int   | the total number of available transactions                  |
 
 Request Example:
 
@@ -1717,11 +1660,3 @@ JSON Response Example:
     "success":true  //transaction of vote/cancel the vote is success
 }
 ```
-
-## Appendix 1： Install 'gny-js' library
-
-All the writing operations in gny system are finished by starting a transaction.
-The transaction data is generated through a JS library named "gny-js", and then broadcasted by a POST API.
-
-**Install the library**  
-`npm install gny-js`
