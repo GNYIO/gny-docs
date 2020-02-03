@@ -41,7 +41,7 @@ This is the beauty of `docker-compose`. We can specify all services that should 
 ## Create and Start all services
 
 ```bash
-docker-compose --file docker-compose.yml up
+sudo docker-compose --file docker-compose.yml up
 ```
 
 This command will print all container messages to screen:
@@ -50,7 +50,7 @@ This command will print all container messages to screen:
 ## Create and Start all services
 
 ```bash
-docker-compose --file docker-compose.yml up --detach
+sudo docker-compose --file docker-compose.yml up --detach
 ```
 
 This command runs all services in background. See `logs` command to see the logs of the services in the background.
@@ -62,7 +62,7 @@ This command runs all services in background. See `logs` command to see the logs
 This can only be executed if the docker-compose `network` and all `containers` were created previously. For example after an `docker-compose stop`.
 
 ```bash
-docker-compose --file docker-compose.yml start
+sudo docker-compose --file docker-compose.yml start
 ```
 
 ![docker_compose_start_error](../.vuepress/public/docker_compose_start_error.png)
@@ -72,7 +72,7 @@ docker-compose --file docker-compose.yml start
 ## Check status of services
 
 ```bash
-docker-compose --file docker-compose.yml ps
+sudo docker-compose --file docker-compose.yml ps
 ```
 
 ![docker_compose_ps](../.vuepress/public/docker_compose_ps.png)
@@ -80,7 +80,7 @@ docker-compose --file docker-compose.yml ps
 ## Stop all services
 
 ```bash
-docker-compose --file docker-compose.yml stop
+sudo docker-compose --file docker-compose.yml stop
 ```
 
 ![docker_compose_stop](../.vuepress/public/docker_compose_stop.png)
@@ -90,7 +90,7 @@ docker-compose --file docker-compose.yml stop
 This removes the docker-compose `network` and `volumes` that were created.
 
 ```bash
-docker-compose --file docker-compose.yml down --volumes
+sudo docker-compose --file docker-compose.yml down --volumes
 ```
 
 <br>
