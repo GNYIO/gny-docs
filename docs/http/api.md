@@ -1,18 +1,22 @@
 # HTTP API
 
-::: tip
-Use the HTTP API wrapper [@gny/client](../client) for easier endpoint usage.
-:::
-
 ## 1 API Usage Guide
 
 ### 1.1 Request Process Overview
 
-- **Generate request data:** according the interface specification provided by HN system, generate the request data as a JSON object. (In one case, if you write about secure peer to peer transportation, you may need a JS library called gny-js to create signature. see [2.9 Peer to Peer transportation](# 29-peer-to-peer-transportation) for detail).
-- **Send request data:** transfer the generated data object to gny platform through POST/GET method upon HTTP
-- **gny system handles the data object:** after receiving the data object, gny server will validate the data firstly, then deal with it.
-- **Return the response data:** gny system send the response data to client as a JSON object. See interface part for detail, like response data format and error code.
+- **Generate request data:** according to the interface specification you need to generate the request with a valid JSON object. The prefered way to do this is with the [@gny/client](../client).
+- **Send request data:** transfer the generated data to the GNY Blockchain also with [@gny/client](../client).
+- **GNY Blockchain handles data object:** after receiving the data object, the GNY Blockchain will validate the data first and edit to a block if all checks pass.
+- **Return the response data:** The GNY Blockchain returns the transaction id upon successful execution. See the corresponding endpoint specification for detail.
 - **Client handles the response data**
+
+::: tip
+The [@gny/client](../client) is the preferred way to communicate with the HTTP API
+
+Head to the [@gny/client](../client) documentation for details
+:::
+
+![](../.vuepress/public/gny-client-lifecycle.png)
 
 ## 2 Interface
 

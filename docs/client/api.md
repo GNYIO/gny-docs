@@ -1,5 +1,9 @@
 # API
 
+The `@gny/client` acts as a wrapper for all [HTTP endpoints](../http) and **signs transactions**
+
+![](../.vuepress/public/gny-client-lifecycle.png)
+
 ## Account API
 
 ### Basic usage
