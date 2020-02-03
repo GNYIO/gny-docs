@@ -11,7 +11,7 @@ npm install --global @gny/cli
 Then execute the `createp2psecret` command:
 
 ```bash
-@gny/cli createp2psecret
+gny-cli createp2psecret
 ```
 
 The result:
