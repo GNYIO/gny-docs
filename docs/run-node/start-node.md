@@ -1,5 +1,9 @@
 # Start Node
 
+::: tip Information
+The GNY docker image will be pulled from dockerhub repository [a1300/testnet](https://hub.docker.com/repository/docker/a1300/testnet)
+:::
+
 ## With Docker
 
 To get up and running you will need to create a `docker-compose.yml` file.
@@ -10,11 +14,7 @@ Create a new file `docker-compose.yml`:
 touch docker-compose.yml
 ```
 
-::: tip Information
-The GNY docker image will be pulled from dockerhub repository [a1300/testnet](https://hub.docker.com/repository/docker/a1300/testnet)
-:::
-
-Copy the following content into your `docker-compose.yml` file:
+Copy the following content into your `docker-compose.yml` file and change the environment variables:
 
 ```yml
 version: "3.3"
@@ -35,7 +35,7 @@ services:
     command: bash -c 'while !</dev/tcp/db1/5432; do sleep 0.5; done; node packages/main/dist/src/app --ormConfig "ormconfig.integration.json"'
     environment:
       - NODE_ENV=production
-      - GNY_LOG_LEVEL=log
+      - GNY_LOG_LEVEL=info
       - GNY_PUBLIC_IP=<here goes your public ip address>
       - GNY_SECRET=<here goes your BIP39 secret(s)>
       - GNY_P2P_SECRET="<here goes your p2p secret"
@@ -47,6 +47,18 @@ services:
       - db1
 ```
 
+::: danger Edit docker-compose.yml file
+In order to make the `docker-compose.yml` file work you need to edit the following properties:
+
+|              Property              |                                 Description                                  |          Formatting tips           |
+| :--------------------------------: | :--------------------------------------------------------------------------: | :--------------------------------: |
+|     `GNY_PUBLIC_IP=214.42...`      |                         replace with your public ip                          |  **don't** double quote public ip  |
+|   `GNY_SECRET=health typical...`   | twelve word [BIP39](https://en.bitcoin.it/wiki/Seed_phrase) forging secret - | **don't** double quote your secret |
+| `GNY_P2P_SECRET="CAASqgkwggSm..."` |            [libp2p](https://github.com/libp2p/js-libp2p/) secret             |       **double quote** value       |
+
+See [`Configure`](./configure) for more details.
+:::
+
 Now start both services (`db1`, `node1`) with:
 
 ```bash
@@ -54,7 +66,7 @@ sudo docker-compose up
 ```
 
 ::: tip
-For information on how to **mine Blocks** see [**configure**](./configure)
+For information on how to **forge Blocks** see [**configure**](./configure)
 :::
 
 <br/>
