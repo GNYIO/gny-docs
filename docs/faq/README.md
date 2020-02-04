@@ -52,18 +52,15 @@ The `p2pSecret` is used to identify a P2P node (on the P2P port) and encrypt the
 
 ### What is a `Genesis` Account?
 
-A `Genesis` Account is the first Account in a Blockchain. In the GNY Blockchain the `Genesis` Account has initially 400 million GNY which are later distributed.
+A `Genesis` Account is the first Account on a Blockchain. In the GNY Blockchain the `Genesis` Account has initially 400 million GNY which are later distributed.
 
-Down below you will find the the `Genesis` Account for the `localnet`. The `localnet` is only for local development. If you want to user another account for your `localnet` then transfer GNY to another address. Otherwise only the `Genesis` Account can invoke contracts.
+Down below you will find a random `Genesis` Account.
 
 ```json
 {
-  "keypair": {
-    "publicKey": "575bf8f32b941b9e6ae1af82539689198327b73d77d22a98cdef2460c9257f7b",
-    "privateKey": "c68434b960ef024b2a868118be7641be25e566f720a5eb12ff314022629ccc71575bf8f32b941b9e6ae1af82539689198327b73d77d22a98cdef2460c9257f7b"
-  },
-  "address": "G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-  "secret": "grow pencil ten junk bomb right describe trade rich valid tuna service"
+  "address": "G2v6VR3NG5fnb3DR8HgUzGi7zuSCA",
+  "secret": "crystal post time quote satoshi baby fitness cabbage ozone assist purchase accuse",
+  "publicKey": "f4ecc586bdb2e00dfa85cec479ca252989b41becbc0a6ca677a45619509440b9"
 }
 ```
 
