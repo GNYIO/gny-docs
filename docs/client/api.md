@@ -1,5 +1,9 @@
 # API
 
+The `@gny/client` acts as a wrapper for all [HTTP endpoints](../http) and **signs transactions**
+
+![](../.vuepress/public/gny-client-lifecycle.png)
+
 ## Account API
 
 ### Basic usage
@@ -45,7 +49,7 @@ JSON Response Example:
     },
     "version":{
       "version":"1.0.0",
-      "build":"DEFAULT_BUILD_TIME",
+      "build":"Tue Feb 04 2020 10:26:47 GMT+0100 (Central European Standard Time)",
       "net":"testnet"
     }
 }

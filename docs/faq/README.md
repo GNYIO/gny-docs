@@ -45,25 +45,22 @@ The `p2pSecret` is used to identify a P2P node (on the P2P port) and encrypt the
 ```json
 {
   "id": "QmRHqTMqdtmomUu7rSnikhnFtKx3B1gaXzctvr2TtLLJmE",
-  "privKey": "CAASqAkwggSkAgEAAoIBAQDCAwXZkflrt9zgdgHuYiP28o7NTHKMhqOcTM/ZYnKCOEtr2/YsixUGI2MU0gaLSaXiJ1fZoYMZ0l+MhSVcnj3xgihKJJuQnlxQe77djUlLdcXCuSwC8H8/MMty4f5Kg0Srfl3zatIIUQgRA2MpWUxe7hQ/hPHfcy+tZC0Cy3aPsNorfk2L0CFKT1DcMf23BVdlANaWwaVhSheFUj6Z1dqSAcOSgMQve/ECUocxLyhx6xQCpsoR2tHeUwQmmP6vEuRdocmUVEDsiNYW57kA4vq/IvLNAs4I6VIrAyC3DtoKVRApgBkmfyuIpu693vCgnsggOqQ0MZlzZi8P2dLsw8JXAgMBAAECggEBAKl/SpUSWv4o2+eeMYG6bAFLWEc0Cr+KwVXEJbKdt7zcwcexnBi+SdfbAq0l8GGwLiSuiqmv2YGtsZxqloGcHjHorJpZ8S8fqzcFZXLaBLbQZb4BWNoYkpL6ZkQv/KHMnSnWdO483NI3OPzkILX3NimZhkcYNtgpIfYyFsDiUOqm6JomtyBTB6nBRCnT9Enplz+iuKID/UrW380NmtDB3prwmFs0frwsoSg12L61piBtkE7oNqmEaAQsoFXsQqokzdMjL5gcPHRrUx6O/7S1OOXIpBJvPM9mV9Oe1d9gZVSwu3xNm4WGb1qPFMzUQE/80wQdXypeY5KcR9YleONzwkECgYEA8uSMzYNLkA7/KHRaVUGMjPKFpsZQKEhSbyeMQ+tw5MSokoQgI1Ea1bzs7aXMEBNbh68J8AndxzCEyIe9N41NG0Y65bYWUQZAnbYJwvMUc86eneJO02uhe9dFVNj9IdG7Cvm78cfbQ1lPhu1+Tl1wHN2kmir5l/K6OXcIj+fvpEUCgYEAzHs0hp59BSNhHynRcU/1nrtVjnA0HKIfosTM2PVNv7KYvRx8Df9X7P/5Ldvf+sLXTD54hWTCjWB81n1bpmkG9QQnUOnitI44KXRHvQVzU4/BIYncb/GAv9r0cep9JjBGrWLycJxnpl19nCB1wBxZivTSeXVJ0//waR7bSA7lC+sCgYA1sBsHWhwbrZTsxjspWSHODdVI9dDF9qZx91XjtWjwyB9Ss22/ILBDyky8gsdGTmEO7rvNmQCyhKD1CjviyZLfknh2SfdI1Y72zUP/GWfN6T/aOimeRc4d54llpcjd7tPfKzBF0x0+F8GiW2Btxe2AE+XMRe+BjJ9pEEyOMoAf2QKBgD8Ol2oUIdWdzWuAx9e7orDqcD3WmBtkW4EkU09shidhefyHdjIS1hh972eW8IEx6JbYhO4N3nkekiDK06KDrOON/lnTZlfrq6IM+7psnd3c7N/c1Z+nx95iNROUDjfil0kMxFq5wLTrC7tDv0wY8fwJ94YBB11bBdZE77ZO8Y81AoGBAKIX6cYEwUrVBZ7DKwJAEzJgzRUWOCa/fTXkYQxToVZ81Hzbpc/k5sl8G3zjC/aoO6qofumn8JcOAa/rM/AT/tR/XD8d/cUeEdm7W8i5JwoJqQcCqmxYztzQ6RNqF/tpGn55EUE/Dt1F58tBfqHC+IW/emOxqi8OEhn0u68b8CBG",
-  "pubKey": "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDCAwXZkflrt9zgdgHuYiP28o7NTHKMhqOcTM/ZYnKCOEtr2/YsixUGI2MU0gaLSaXiJ1fZoYMZ0l+MhSVcnj3xgihKJJuQnlxQe77djUlLdcXCuSwC8H8/MMty4f5Kg0Srfl3zatIIUQgRA2MpWUxe7hQ/hPHfcy+tZC0Cy3aPsNorfk2L0CFKT1DcMf23BVdlANaWwaVhSheFUj6Z1dqSAcOSgMQve/ECUocxLyhx6xQCpsoR2tHeUwQmmP6vEuRdocmUVEDsiNYW57kA4vq/IvLNAs4I6VIrAyC3DtoKVRApgBkmfyuIpu693vCgnsggOqQ0MZlzZi8P2dLsw8JXAgMBAAE="
+  "privKey": "CAASqAkwggSkAgEAAoIBAQDCAwXZkfl...",
+  "pubKey": "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDCAwXZ..."
 }
 ```
 
 ### What is a `Genesis` Account?
 
-A `Genesis` Account is the first Account in a Blockchain. In the GNY Blockchain the `Genesis` Account has initially 400 million GNY which are later distributed.
+A `Genesis` Account is the first Account on a Blockchain. In the GNY Blockchain the `Genesis` Account has initially 400 million GNY which are later distributed.
 
-Down below you will find the the `Genesis` Account for the `localnet`. The `localnet` is only for local development. If you want to user another account for your `localnet` then transfer GNY to another address. Otherwise only the `Genesis` Account can invoke contracts.
+Down below you will find a random `Genesis` Account.
 
 ```json
 {
-  "keypair": {
-    "publicKey": "575bf8f32b941b9e6ae1af82539689198327b73d77d22a98cdef2460c9257f7b",
-    "privateKey": "c68434b960ef024b2a868118be7641be25e566f720a5eb12ff314022629ccc71575bf8f32b941b9e6ae1af82539689198327b73d77d22a98cdef2460c9257f7b"
-  },
-  "address": "G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-  "secret": "grow pencil ten junk bomb right describe trade rich valid tuna service"
+  "address": "G2v6VR3NG5fnb3DR8HgUzGi7zuSCA",
+  "secret": "crystal post time quote satoshi baby fitness cabbage ozone assist purchase accuse",
+  "publicKey": "f4ecc586bdb2e00dfa85cec479ca252989b41becbc0a6ca677a45619509440b9"
 }
 ```
 

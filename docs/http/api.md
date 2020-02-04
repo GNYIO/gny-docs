@@ -4,22 +4,30 @@
 
 ### 1.1 Request Process Overview
 
-- **Generate request data:** according the interface specification provided by HN system, generate the request data as a JSON object. (In one case, if you write about secure peer to peer transportation, you may need a JS library called gny-js to create signature. see [2.9 Peer to Peer transportation](# 29-peer-to-peer-transportation) for detail).
-- **Send request data:** transfer the generated data object to gny platform through POST/GET method upon HTTP
-- **gny system handles the data object:** after receiving the data object, gny server will validate the data firstly, then deal with it.
-- **Return the response data:** gny system send the response data to client as a JSON object. See interface part for detail, like response data format and error code.
+- **Generate request data:** according to the interface specification you need to generate the request with a valid JSON object. The prefered way to do this is with the [@gny/client](../client).
+- **Send request data:** transfer the generated data to the GNY Blockchain also with [@gny/client](../client).
+- **GNY Blockchain handles data object:** after receiving the data object, the GNY Blockchain will validate the data first and edit to a block if all checks pass.
+- **Return the response data:** The GNY Blockchain returns the transaction id upon successful execution. See the corresponding endpoint specification for detail.
 - **Client handles the response data**
+
+::: tip
+The [@gny/client](../client) is the preferred way to communicate with the HTTP API
+
+Head to the [@gny/client](../client) documentation for details
+
+![](../.vuepress/public/gny-client-lifecycle.png)
+:::
 
 ## 2 Interface
 
 ### 2.1 Accounts
 
-#### 2.1.1 Login
+#### 2.1.1 Read Account
 
-##### 2.1.1.1 Login with PublicKey
+##### 2.1.1.1 Read Account with PublicKey
 
-Interface Address: /api/accounts/open/  
-Request Method: POST  
+API Endpoint: `/api/accounts/open`  
+HTTP Verb: POST  
 Supported Format: JSON  
 Request Parameter Description:
 
@@ -37,43 +45,43 @@ Response Parameter Description:
 Request Example:
 
 ```bash
-curl -X POST -H "Content-Type: applicat28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"}' http://localhost:4096/api/accounts/open/
+curl -X POST --data "publicKey=41d36d74761593dcf1380faafcd487b84e014eba27c044d1aa87782d1cbd1a19" http://localhost:4096/api/accounts/openAccount/
 ```
 
 JSON Response Example:
 
-```js
+```json
 {
-  "account":{
-    "address":"G4b8BhmeRFBmWAHZemKD25BmEP2G",
-    "balance":0,
-    "secondPublicKey":"",
-    "lockHeight":0,
-    "publicKey":"bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
-    },
-    "latestBlock":{
-      "height":53,
-      "timestamp":3471490
-    },
-    "version":{
-      "version":"1.0.0",
-      "build":"DEFAULT_BUILD_TIME",
-      "net":"testnet"
-    }
+  "account": {
+    "address": "G2QEzc5BndQ2h6BsSNqimCWbSBV9L",
+    "balance": 0,
+    "secondPublicKey": "",
+    "lockHeight": 0,
+    "publicKey": "a87c7230d9ade987dbf612605aab652667e6303d2a1c6b2ec91a13733593bb75"
+  },
+  "latestBlock": {
+    "height": 53,
+    "timestamp": 3471490
+  },
+  "version": {
+    "version": "1.0.0",
+    "build": "Sun Feb 02 2020 19:42:18 GMT+0100 (Central European Standard Time)",
+    "net": "testnet"
+  }
 }
 ```
 
 #### 2.1.2 Get Account Information
 
-Interface Address: /api/accounts  
-Request Method: GET  
+API Endpoint: `/api/accounts`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
 
-| Name    | Type   | Required | Description                        |
-| ------- | ------ | -------- | ---------------------------------- |
-| address | string | N        | Client's address, minimum length:1 |
-| name    | string | N        | Client username                    |
+| Name     | Type   | Required | Description      |
+| -------- | ------ | -------- | ---------------- |
+| address  | string | N        | account address  |
+| username | string | N        | account username |
 
 Response Parameter Description:
 
@@ -90,68 +98,71 @@ Request Example (address):
 curl -k -X GET http://localhost:4096/api/accounts?address=G4b8BhmeRFBmWAHZemKD25BmEP2G
 ```
 
-Request Example (publicKey):
+Request Example (username):
 
 ```bash
-curl -k -X GET http://localhost:4096/api/accounts?name=gny_d11
+curl -k -X GET http://localhost:4096/api/accounts?username=liangpeili
 ```
 
 JSON Response Example (address):
 
-```js
+```json
 {
-  "account":{
-    "address":"G4b8BhmeRFBmWAHZemKD25BmEP2G",
-    "balance":0,
-    "secondPublicKey":"",
-    "lockHeight":0
+  "account": {
+    "address": "G3wAwmGh3rimRm9v4qjuh7RkkAebM",
+    "balance": 2000000000000,
+    "secondPublicKey": "",
+    "lockHeight": 0
   },
-  "latestBlock":{
-    "height":5,
-    "timestamp":3472080
+  "latestBlock": {
+    "height": 5,
+    "timestamp": 3472080
   },
-  "version":{
-    "version":"1.0.0",
-    "build":"DEFAULT_BUILD_TIME",
-    "net":"testnet"
+  "version": {
+    "version": "1.0.0",
+    "build": "Sun Feb 02 2020 19:46:48 GMT+0100 (Central European Standard Time)",
+    "net": "testnet"
   }
 }
 ```
 
 JSON Response Example (username):
 
-```js
+```json
 {
-  "address":"GJX8DYKb7mF3M6JCUhBqYnLiha6y",
-  "username":"gny_d11",
-  "gny":0,
-  "publicKey":null,
-  "secondPublicKey":null,
-  "isDelegate":1,
-  "isLocked":0,
-  "lockHeight":0,
-  "lockAmount":0,
-  "_version_":3
+  "address": "G3wAwmGh3rimRm9v4qjuh7RkkAebM",
+  "username": "liangpeili",
+  "gny": 2000000000000,
+  "publicKey": null,
+  "secondPublicKey": null,
+  "isDelegate": 1,
+  "isLocked": 0,
+  "lockHeight": 0,
+  "lockAmount": 0,
+  "_version_": 3
 }
 ```
 
 #### 2.1.3 Get Balance of Account
 
-Interface Address: /api/accounts/getBalance  
-Request Method: get  
+API Endpoint: `/api/accounts/getBalance`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
 
 | Name    | Type   | Required | Description      |
 | ------- | ------ | -------- | ---------------- |
 | address | string | Y        | Client's address |
+| limit   | number | N        |                  |
+| offset  | number | N        |                  |
 
 Response Parameter Description:
 
-| Name    | Type    | Description                             |
-| ------- | ------- | --------------------------------------- |
-| success | bool    | true: response data return successfully |
-| balance | integer | balance                                 |
+| Name     | Type   | Description                             |
+| -------- | ------ | --------------------------------------- |
+| success  | bool   | true: response data return successfully |
+| count    | number | the total number of available balances  |
+| balances | Array  | list of balances                        |
 
 Request Example:
 
@@ -164,20 +175,25 @@ JSON Response Example:
 ```js
 {
   "success": true,
-  "balance": 0
+  "balances": [
+    {
+      "gny": "0"
+    }
+  ]
 }
 ```
 
+<!--
 #### 2.1.4 Get Account's Public Key
 
-Interface Address: /api/accounts/getPublickey  
-Request Method: GET  
-Supported Format: urlencoded  
+API Endpoint: `/api/accounts/getPublickey`
+Request Method: GET
+Supported Format: urlencoded
 Request Parameter Description:
 
 | Name    | Type   | Required | Description                        |
 | ------- | ------ | -------- | ---------------------------------- |
-| address | string | Y        | Client's address, minimum length:1 |
+| address | string | Y        | account's address              |
 
 Response Parameter Description:
 
@@ -201,83 +217,14 @@ JSON Response Example:
 }
 ```
 
-#### 2.1.5 Get Voting List by Address
-
-Interface Address: /api/accounts/delegates  
-Request Method: get  
-Supported Format: urlencoded  
-Request Parameter Description:
-
-| Name    | Type   | Required | Description     |
-| ------- | ------ | -------- | --------------- |
-| address | string | Y        | Voter's address |
-
-Response Parameter Description:
-
-| Name      | Type  | Description                                                                       |
-| --------- | ----- | --------------------------------------------------------------------------------- |
-| success   | bool  | true: response data return successfully                                           |
-| delegates | Array | A list that contains detail information of those delegates who have already voted |
-
-Request Example (address):
-
-```bash
-curl -k -X GET 'http://localhost:4096/api/accounts/delegates?address=GJX8DYKb7mF3M6JCUhBqYnLiha6y'
-```
-
-Request Example (username):
-
-```bash
-curl -k -X GET 'http://localhost:4096/api/accounts/delegates?name=gny_d11'
-```
-
-JSON Response Example:
-
-```js
-{
-	"success": true,
-	"delegates": [{
-		"username": "wgl_002",
-		"address": "GJX8DYKb7mF3M6JCUhBqYnLiha6y",
-		"publicKey": "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7",
-		"vote": 9901985415600500,
-		"producedblocks": 1373,
-		"missedblocks": 6,
-		"rate": 1,
-		"approval": "98.54",
-		"productivity": "99.56"
-	},
-	{
-		"username": "wgl_003",
-		"address": "G318FKKb7mF3M6JCUhBqYnLiha6y",
-		"publicKey": "c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2",
-		"vote": 9891995435600500,
-		"producedblocks": 1371,
-		"missedblocks": 8,
-		"rate": 2,
-		"approval": "98.44",
-		"productivity": "99.41"
-	},
-	{
-		"username": "wgl_001",
-		"address": "1869971419039689816",
-		"publicKey": "c547df2dde6cbb4508aabcb5970d8f9132e5a1d1c422632da6bc20bf1df165b8",
-		"vote": 32401577128413,
-		"producedblocks": 969,
-		"missedblocks": 8,
-		"rate": 102,
-		"approval": "0.32",
-		"productivity": 0
-	}]
-}
-```
+-->
 
 ### 2.2 Transactions
 
 #### 2.2.1 Get the Transaction Detail Information
 
-Interface Address: /api/transactions  
-Request Method: get  
+API Endpoint: `/api/transactions`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Comment： if there is no parameter in request data, all transactions will be returned.
 
@@ -301,7 +248,7 @@ Response Parameter Description:
 | ------------ | ----- | ----------------------------------------------------------- |
 | success      | bool  | true: response data return successfully                     |
 | transactions | Array | A JSON object list containing multiple transactions' detail |
-| count        | int   | the total number of retrieved transactions                  |
+| count        | int   | the total number of available transactions                  |
 
 Request Example:
 
@@ -332,8 +279,8 @@ JSON Response Example:
 
 #### 2.2.3 Get Transaction Detail by Unconfirmed Transaction ID
 
-Interface Address: /api/transactions/unconfirmed/get  
-Request Method: GET  
+API Endpoint: `/api/transactions/unconfirmed/get`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Info: A unconfirmed transaction is only available up to 10 seconds until it is confirmed
 Request Parameter Description:
@@ -373,8 +320,8 @@ JSON Response Example:
 
 #### 2.2.4 Get Unconfirmed Transaction Detail Information [within all network]
 
-Interface Address: /api/transactions/unconfirmed  
-Request Method: GET  
+API Endpoint: `/api/transactions/unconfirmed`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Comment: If there is no parameter, all unconfirmed transactions in the whole network will be returned.
 Request Parameter Description:
@@ -408,8 +355,8 @@ JSON Response Example:
 
 ### 2.2.5 Create a Batch of Transactions
 
-Interface Address: /api/transactions/batch  
-Request Method: PUT  
+API Endpoint: `/api/transactions/batch`  
+HTTP Verb: PUT  
 Supported Format: JSON
 
 Request Parameter Description:  
@@ -479,8 +426,8 @@ JSON Response Example:
 
 #### 2.3.1 Get the Block Detail Information of the Given ID
 
-Interface Address: /api/blocks/get  
-Request Method: GET  
+API Endpoint: `/api/blocks/get`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
 
@@ -523,8 +470,8 @@ JSON Response Example:
 
 #### 2.3.2 Get the Latest Block
 
-Interface Address: /api/blocks  
-Request Method: GET  
+API Endpoint: `/api/blocks`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Comment: if there is no parameter, the detail of all the blocks in the whole network will be returned  
 Request Parameter Description:
@@ -553,7 +500,8 @@ curl -k -X GET 'http://localhost:4096/api/blocks?limit=2&offset=0&orderBy=height
 JSON Response Example:
 
 ```js
-{"count":56,
+{
+"count":56,
 "blocks":[
   {
     "version":0,
@@ -586,8 +534,8 @@ JSON Response Example:
 
 #### 2.3.3 Get the Block Height
 
-Interface Address: /api/blocks/getHeight  
-Request Method: GET  
+API Endpoint: `/api/blocks/getHeight`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -615,8 +563,8 @@ JSON Response Example:
 
 #### 2.3.5 Get the Milestone
 
-Interface Address: /api/blocks/getMilestone  
-Request Method: get  
+API Endpoint: `/api/blocks/getMilestone`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none  
 Response Parameter Description:
@@ -643,7 +591,7 @@ JSON Response Example:
 
 #### 2.3.6 Get the Reward Information of a Block
 
-Interface Address: /api/blocks/getReward  
+API Endpoint: `/api/blocks/getReward`  
 Request Method: GET  
 Supported Format: none  
 Request Parameter Description: none
@@ -672,8 +620,8 @@ JSON Response Example:
 
 #### 2.3.7 Get the Current Maximum Supply of the Blockchain
 
-Interface Address: /api/blocks/getSupply  
-Request Method: GET  
+API Endpoint: `/api/blocks/getSupply`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -700,8 +648,8 @@ JSON Response Example:
 
 #### 2.3.8 Get Current Status of Blockchain
 
-Interface Address: /api/blocks/getStatus  
-Request Method: GET  
+API Endpoint: `/api/blocks/getStatus`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -738,8 +686,8 @@ JSON Response Example:
 
 #### 2.4.1 Get the Total Number of Delegates
 
-Interface Address: /api/delegates/count  
-Request Method: get  
+API Endpoint: `/api/delegates/count`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -764,7 +712,7 @@ JSON Response Example:
 
 #### 2.4.2 Get Voters of Delegate by Delegate Public Key
 
-Interface Address: /api/delegates/voters  
+API Endpoint: `/api/delegates/voters`  
 Request Method: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
@@ -815,8 +763,8 @@ JSON Response Example:
 
 #### 2.4.3 Get the Delegate's Detail by Public Key or Name
 
-Interface Address: /api/delegates/get/  
-Request Method: GET  
+API Endpoint: `/api/delegates/get/`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Comment: Get the delegate's detail by his/her public key or user name  
 Request Parameter Description:
@@ -879,8 +827,8 @@ JSON Response Example:
 
 #### 2.4.4 Get the List of Delegates
 
-Interface Address: /api/delegates  
-Request Method: GET  
+API Endpoint: `/api/delegates`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Comment: if there is no parameter, all delegates in the whole network will be returned.
 Request Parameter Description:
@@ -952,8 +900,8 @@ JSON Response Example:
 
 #### 2.4.7 Enable Forging for Delegate
 
-Interface Address: /api/delegates/forging/enable  
-Request Method: POST  
+API Endpoint: `/api/delegates/forging/enable`  
+HTTP Verb: POST  
 Supported Format: urlencoded  
 Request Parameter Description:
 
@@ -984,8 +932,8 @@ JSON Response Example:
 
 #### 2.4.8 Disable Forging for Delegate
 
-Interface Address: /api/delegates/forging/disable  
-Request Method: POST  
+API Endpoint: `/api/delegates/forging/disable`  
+HTTP Verb: POST  
 Supported Format: urlencoded  
 Request Parameter Description:
 
@@ -1016,8 +964,8 @@ JSON Response Example:
 
 #### 2.4.9 Check Delgate Forging Status
 
-Interface Address: /api/delegates/forging/status  
-Request Method: GET  
+API Endpoint: `/api/delegates/forging/status`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
 
@@ -1051,8 +999,8 @@ JSON Response Example (forging disabled):
 
 #### 2.5.1 Get all Peers' Information in the Whole Network
 
-Interface Address: /api/peers  
-Request Method: GET  
+API Endpoint: `/api/peers`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Request Parameter Description: none
 
@@ -1109,8 +1057,8 @@ JSON Response Example:
 
 #### 2.5.2 Get the Version of Peer
 
-Interface Address: /api/peers/version  
-Request Method: GET  
+API Endpoint: `/api/peers/version`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -1142,8 +1090,8 @@ JSON Response Example:
 
 #### 2.5.3 Get Node P2P Information
 
-Interface Address: /api/peers/version  
-Request Method: GET  
+API Endpoint: `/api/peers/version`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -1181,8 +1129,8 @@ JSON Response Example:
 
 #### 2.6.1 Get the local blockchain loadig status
 
-Interface Address: /api/loader/status  
-Request Method: get  
+API Endpoint: `/api/loader/status`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -1213,8 +1161,8 @@ JSON Response Example:
 
 #### 2.6.2 Get the block syncing status
 
-Interface Address: /api/loader/status/sync  
-Request Method: get  
+API Endpoint: `/api/loader/status/sync`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -1287,7 +1235,7 @@ JSON Response:
 
 #### **2.11.2 Query information about a publisher by name**
 
-API Endpoint: /api/uia/issuers/:name|address  
+API Endpoint: `/api/uia/issuers/:name|address`  
 HTTP Verb: GET  
 Format: urlencoded
 
@@ -1333,7 +1281,7 @@ JSON Response:
 
 #### **2.11.3 View assets of a specified publisher**
 
-API Endpoint: /api/uia/issuers/:publisherName/assets  
+API Endpoint: `/api/uia/issuers/:publisherName/assets`  
 HTTP Verb: GET  
 Format: urlencoded
 
@@ -1379,7 +1327,7 @@ JSON Response:
 
 #### **2.11.4 Get all assets**
 
-API Endpoint: /api/uia/assets  
+API Endpoint: `/api/uia/assets`  
 HTTP Verb: GET  
 Format: urlencoded
 
@@ -1425,7 +1373,7 @@ JSON Response:
 
 #### **2.11.5 Get specified asset information**
 
-API Endpoint: /api/uia/assets/:name  
+API Endpoint: `/api/uia/assets/:name`  
 HTTP Verb: GET  
 Format: urlencoded
 
@@ -1468,7 +1416,7 @@ JSON Response:
 
 #### **2.11.6 Get the balance of all UIA Assets for an account**
 
-API Endpoint: /api/uia/balances/:address  
+API Endpoint: `/api/uia/balances/:address`  
 HTTP Verb: GET  
 Format: urlencoded
 
@@ -1511,7 +1459,7 @@ JSON Response:
 
 #### **2.11.6 Get balance of a specific UIA Assets for an account**
 
-API Endpoint: /api/uia/balances/:address/:currency  
+API Endpoint: `/api/uia/balances/:address/:currency`  
 HTTP Verb: GET  
 Format: urlencoded
 Request Parameter Description: none
@@ -1542,14 +1490,39 @@ JSON Response:
 }
 ```
 
-### 2.9 Peer to Peer Transportation[secure API]
+### 2.9 Initiate Transactions
 
 #### 2.9.1 Overview
 
-To request a peer related API, it is required to set a header like this:
+In order to send transactions you need set the `magic` header:
 
-- key=magic, and value=594fe0f3
-- key=version, and value=''
+`curl` example:
+
+```bash
+curl -X POST --header "magic: 594fe0f3"
+```
+
+[axios](https://www.npmjs.com/package/axios) (JavaScript example)
+
+```javascript
+const exampleUrl = "http://localhost:4096/peer/transactions";
+
+const data = {
+  transaction: someTransaction
+};
+
+const config = {
+  headers: {
+    magic: "594fe0f3"
+  }
+};
+
+await axios.post(url, data, config);
+```
+
+#### Transactions Endpoint
+
+All
 
 #### 2.9.2 Transaction
 
@@ -1717,11 +1690,3 @@ JSON Response Example:
     "success":true  //transaction of vote/cancel the vote is success
 }
 ```
-
-## Appendix 1： Install 'gny-js' library
-
-All the writing operations in gny system are finished by starting a transaction.
-The transaction data is generated through a JS library named "gny-js", and then broadcasted by a POST API.
-
-**Install the library**  
-`npm install gny-js`

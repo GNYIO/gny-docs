@@ -21,7 +21,7 @@ npm install --global @gny/cli
 Then execute the `genaccount` command:
 
 ```bash
-@gny/cli genaccount
+gny-cli genaccount
 ? Enter number of accounts to generate 1
 ```
 
