@@ -4,8 +4,9 @@ The following endpoints are exclusively for Exchanges. These endpoints are not r
 
 ## Enable Exchange Endpoints
 
-**IMPORTANT**  
+::: warning IMPORTANT
 To enable the Exchange endpoints (`/api/exchange`) start the GNY Blockchain with the environment variable `EXCHANGE_API=true`
+:::
 
 Adapt your `docker-compose.yml` file and pass the environment variable to the GNY Blockchain:
 
@@ -23,7 +24,7 @@ services:
 
 ### 1.1 Send unsigned Transaction
 
-Interface Address: /api/exchange/  
+Interface Address: `/api/exchange`  
 Request Method: PUT  
 Supported Format: JSON  
 Request Parameter Description:
@@ -61,9 +62,9 @@ JSON Response Example:
 
 ### 1.2 Open Account with Secret
 
-Interface Address: /api/exchange/openAccount/  
+Interface Address: `/api/exchange/openAccount`  
 Request Method: POST  
-Supported Format: json  
+Supported Format: JSON  
 Request Parameter Description:
 
 | Name   | Type   | Required | Description          |
@@ -100,7 +101,7 @@ JSON Response Example:
   },
   "version": {
     "version": "1.0.0",
-    "build": "DEFAULT_BUILD_TIME",
+    "build": "Tue Feb 04 2020 10:23:40 GMT+0100 (Central European Standard Time)",
     "net": "testnet"
   }
 }
@@ -108,9 +109,9 @@ JSON Response Example:
 
 ### 1.3 Generate Account
 
-Interface Address: /api/exchange/generateAccount  
+Interface Address: `/api/exchange/generateAccount`  
 Request Method: POST  
-Supported Format: json  
+Supported Format: JSON  
 Request Parameter Description: None
 
 Response Parameter Description:
@@ -143,7 +144,7 @@ JSON Response Example:
 
 ### 1.4 Generate PublicKey from secret
 
-Interface Address: /api/exchange/generatePublicKey/  
+Interface Address: `/api/exchange/generatePublicKey`  
 Request Method: POST  
 Supported Format: json  
 Request Parameter Description:

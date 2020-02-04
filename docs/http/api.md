@@ -14,9 +14,9 @@
 The [@gny/client](../client) is the preferred way to communicate with the HTTP API
 
 Head to the [@gny/client](../client) documentation for details
-:::
 
 ![](../.vuepress/public/gny-client-lifecycle.png)
+:::
 
 ## 2 Interface
 
@@ -26,8 +26,8 @@ Head to the [@gny/client](../client) documentation for details
 
 ##### 2.1.1.1 Read Account with PublicKey
 
-Interface Address: /api/accounts/open/  
-Request Method: POST  
+API Endpoint: `/api/accounts/open`  
+HTTP Verb: POST  
 Supported Format: JSON  
 Request Parameter Description:
 
@@ -73,8 +73,8 @@ JSON Response Example:
 
 #### 2.1.2 Get Account Information
 
-Interface Address: /api/accounts  
-Request Method: GET  
+API Endpoint: `/api/accounts`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
 
@@ -145,8 +145,8 @@ JSON Response Example (username):
 
 #### 2.1.3 Get Balance of Account
 
-Interface Address: /api/accounts/getBalance  
-Request Method: get  
+API Endpoint: `/api/accounts/getBalance`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
 
@@ -186,7 +186,7 @@ JSON Response Example:
 <!--
 #### 2.1.4 Get Account's Public Key
 
-Interface Address: /api/accounts/getPublickey
+API Endpoint: `/api/accounts/getPublickey`
 Request Method: GET
 Supported Format: urlencoded
 Request Parameter Description:
@@ -223,8 +223,8 @@ JSON Response Example:
 
 #### 2.2.1 Get the Transaction Detail Information
 
-Interface Address: /api/transactions  
-Request Method: get  
+API Endpoint: `/api/transactions`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Comment： if there is no parameter in request data, all transactions will be returned.
 
@@ -279,8 +279,8 @@ JSON Response Example:
 
 #### 2.2.3 Get Transaction Detail by Unconfirmed Transaction ID
 
-Interface Address: /api/transactions/unconfirmed/get  
-Request Method: GET  
+API Endpoint: `/api/transactions/unconfirmed/get`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Info: A unconfirmed transaction is only available up to 10 seconds until it is confirmed
 Request Parameter Description:
@@ -320,8 +320,8 @@ JSON Response Example:
 
 #### 2.2.4 Get Unconfirmed Transaction Detail Information [within all network]
 
-Interface Address: /api/transactions/unconfirmed  
-Request Method: GET  
+API Endpoint: `/api/transactions/unconfirmed`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Comment: If there is no parameter, all unconfirmed transactions in the whole network will be returned.
 Request Parameter Description:
@@ -355,8 +355,8 @@ JSON Response Example:
 
 ### 2.2.5 Create a Batch of Transactions
 
-Interface Address: /api/transactions/batch  
-Request Method: PUT  
+API Endpoint: `/api/transactions/batch`  
+HTTP Verb: PUT  
 Supported Format: JSON
 
 Request Parameter Description:  
@@ -426,8 +426,8 @@ JSON Response Example:
 
 #### 2.3.1 Get the Block Detail Information of the Given ID
 
-Interface Address: /api/blocks/get  
-Request Method: GET  
+API Endpoint: `/api/blocks/get`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
 
@@ -470,8 +470,8 @@ JSON Response Example:
 
 #### 2.3.2 Get the Latest Block
 
-Interface Address: /api/blocks  
-Request Method: GET  
+API Endpoint: `/api/blocks`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Comment: if there is no parameter, the detail of all the blocks in the whole network will be returned  
 Request Parameter Description:
@@ -500,7 +500,8 @@ curl -k -X GET 'http://localhost:4096/api/blocks?limit=2&offset=0&orderBy=height
 JSON Response Example:
 
 ```js
-{"count":56,
+{
+"count":56,
 "blocks":[
   {
     "version":0,
@@ -533,8 +534,8 @@ JSON Response Example:
 
 #### 2.3.3 Get the Block Height
 
-Interface Address: /api/blocks/getHeight  
-Request Method: GET  
+API Endpoint: `/api/blocks/getHeight`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -562,8 +563,8 @@ JSON Response Example:
 
 #### 2.3.5 Get the Milestone
 
-Interface Address: /api/blocks/getMilestone  
-Request Method: get  
+API Endpoint: `/api/blocks/getMilestone`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none  
 Response Parameter Description:
@@ -590,7 +591,7 @@ JSON Response Example:
 
 #### 2.3.6 Get the Reward Information of a Block
 
-Interface Address: /api/blocks/getReward  
+API Endpoint: `/api/blocks/getReward`  
 Request Method: GET  
 Supported Format: none  
 Request Parameter Description: none
@@ -619,8 +620,8 @@ JSON Response Example:
 
 #### 2.3.7 Get the Current Maximum Supply of the Blockchain
 
-Interface Address: /api/blocks/getSupply  
-Request Method: GET  
+API Endpoint: `/api/blocks/getSupply`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -647,8 +648,8 @@ JSON Response Example:
 
 #### 2.3.8 Get Current Status of Blockchain
 
-Interface Address: /api/blocks/getStatus  
-Request Method: GET  
+API Endpoint: `/api/blocks/getStatus`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -685,8 +686,8 @@ JSON Response Example:
 
 #### 2.4.1 Get the Total Number of Delegates
 
-Interface Address: /api/delegates/count  
-Request Method: get  
+API Endpoint: `/api/delegates/count`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -711,7 +712,7 @@ JSON Response Example:
 
 #### 2.4.2 Get Voters of Delegate by Delegate Public Key
 
-Interface Address: /api/delegates/voters  
+API Endpoint: `/api/delegates/voters`  
 Request Method: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
@@ -762,8 +763,8 @@ JSON Response Example:
 
 #### 2.4.3 Get the Delegate's Detail by Public Key or Name
 
-Interface Address: /api/delegates/get/  
-Request Method: GET  
+API Endpoint: `/api/delegates/get/`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Comment: Get the delegate's detail by his/her public key or user name  
 Request Parameter Description:
@@ -826,8 +827,8 @@ JSON Response Example:
 
 #### 2.4.4 Get the List of Delegates
 
-Interface Address: /api/delegates  
-Request Method: GET  
+API Endpoint: `/api/delegates`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Comment: if there is no parameter, all delegates in the whole network will be returned.
 Request Parameter Description:
@@ -899,8 +900,8 @@ JSON Response Example:
 
 #### 2.4.7 Enable Forging for Delegate
 
-Interface Address: /api/delegates/forging/enable  
-Request Method: POST  
+API Endpoint: `/api/delegates/forging/enable`  
+HTTP Verb: POST  
 Supported Format: urlencoded  
 Request Parameter Description:
 
@@ -931,8 +932,8 @@ JSON Response Example:
 
 #### 2.4.8 Disable Forging for Delegate
 
-Interface Address: /api/delegates/forging/disable  
-Request Method: POST  
+API Endpoint: `/api/delegates/forging/disable`  
+HTTP Verb: POST  
 Supported Format: urlencoded  
 Request Parameter Description:
 
@@ -963,8 +964,8 @@ JSON Response Example:
 
 #### 2.4.9 Check Delgate Forging Status
 
-Interface Address: /api/delegates/forging/status  
-Request Method: GET  
+API Endpoint: `/api/delegates/forging/status`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
 
@@ -998,8 +999,8 @@ JSON Response Example (forging disabled):
 
 #### 2.5.1 Get all Peers' Information in the Whole Network
 
-Interface Address: /api/peers  
-Request Method: GET  
+API Endpoint: `/api/peers`  
+HTTP Verb: GET  
 Supported Format: urlencoded  
 Request Parameter Description: none
 
@@ -1056,8 +1057,8 @@ JSON Response Example:
 
 #### 2.5.2 Get the Version of Peer
 
-Interface Address: /api/peers/version  
-Request Method: GET  
+API Endpoint: `/api/peers/version`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -1089,8 +1090,8 @@ JSON Response Example:
 
 #### 2.5.3 Get Node P2P Information
 
-Interface Address: /api/peers/version  
-Request Method: GET  
+API Endpoint: `/api/peers/version`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -1128,8 +1129,8 @@ JSON Response Example:
 
 #### 2.6.1 Get the local blockchain loadig status
 
-Interface Address: /api/loader/status  
-Request Method: get  
+API Endpoint: `/api/loader/status`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -1160,8 +1161,8 @@ JSON Response Example:
 
 #### 2.6.2 Get the block syncing status
 
-Interface Address: /api/loader/status/sync  
-Request Method: get  
+API Endpoint: `/api/loader/status/sync`  
+HTTP Verb: GET  
 Supported Format: none  
 Request Parameter Description: none
 
@@ -1234,7 +1235,7 @@ JSON Response:
 
 #### **2.11.2 Query information about a publisher by name**
 
-API Endpoint: /api/uia/issuers/:name|address  
+API Endpoint: `/api/uia/issuers/:name|address`  
 HTTP Verb: GET  
 Format: urlencoded
 
@@ -1280,7 +1281,7 @@ JSON Response:
 
 #### **2.11.3 View assets of a specified publisher**
 
-API Endpoint: /api/uia/issuers/:publisherName/assets  
+API Endpoint: `/api/uia/issuers/:publisherName/assets`  
 HTTP Verb: GET  
 Format: urlencoded
 
@@ -1326,7 +1327,7 @@ JSON Response:
 
 #### **2.11.4 Get all assets**
 
-API Endpoint: /api/uia/assets  
+API Endpoint: `/api/uia/assets`  
 HTTP Verb: GET  
 Format: urlencoded
 
@@ -1372,7 +1373,7 @@ JSON Response:
 
 #### **2.11.5 Get specified asset information**
 
-API Endpoint: /api/uia/assets/:name  
+API Endpoint: `/api/uia/assets/:name`  
 HTTP Verb: GET  
 Format: urlencoded
 
@@ -1415,7 +1416,7 @@ JSON Response:
 
 #### **2.11.6 Get the balance of all UIA Assets for an account**
 
-API Endpoint: /api/uia/balances/:address  
+API Endpoint: `/api/uia/balances/:address`  
 HTTP Verb: GET  
 Format: urlencoded
 
@@ -1458,7 +1459,7 @@ JSON Response:
 
 #### **2.11.6 Get balance of a specific UIA Assets for an account**
 
-API Endpoint: /api/uia/balances/:address/:currency  
+API Endpoint: `/api/uia/balances/:address/:currency`  
 HTTP Verb: GET  
 Format: urlencoded
 Request Parameter Description: none
@@ -1489,14 +1490,39 @@ JSON Response:
 }
 ```
 
-### 2.9 Peer to Peer Transportation[secure API]
+### 2.9 Initiate Transactions
 
 #### 2.9.1 Overview
 
-To request a peer related API, it is required to set a header like this:
+In order to send transactions you need set the `magic` header:
 
-- key=magic, and value=594fe0f3
-- key=version, and value=''
+`curl` example:
+
+```bash
+curl -X POST --header "magic: 594fe0f3"
+```
+
+[axios](https://www.npmjs.com/package/axios) (JavaScript example)
+
+```javascript
+const exampleUrl = "http://localhost:4096/peer/transactions";
+
+const data = {
+  transaction: someTransaction
+};
+
+const config = {
+  headers: {
+    magic: "594fe0f3"
+  }
+};
+
+await axios.post(url, data, config);
+```
+
+#### Transactions Endpoint
+
+All
 
 #### 2.9.2 Transaction
 
