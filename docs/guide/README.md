@@ -1,8 +1,20 @@
 # Guide
 
+## Account creationg
+
 - [Create P2P Secret](./create-p2p-secret.md)
 - [Create Secret](./create-secret.md)
-- [How to Send Transactions](./how-to-send-transactions.md)
+
+## Testnet
+
+- [Get GNY on Testnet](./get-gny-on-testnet.md)
+
+## Register Delegate
+
 - [Set Username](./set-username.md)
 - [Register as Delegate](./register-as-delegate.md)
 - [Vote for Delegate](./vote-for-delegate.md)
+
+## Initiate Transactions
+
+- [How to Send Transactions](./how-to-send-transactions.md)

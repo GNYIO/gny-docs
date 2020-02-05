@@ -108,6 +108,7 @@ module.exports = {
         children: [
           ['/guide/create-p2p-secret', 'Create P2P Secret'],
           ['/guide/create-secret', 'Create Delegate Secret'],
+          ['/guide/get-gny-on-testnet', 'Get GNY on Testnet'],
           ['/guide/how-to-send-transactions', 'Send Transaction'],
           ['/guide/set-username', 'Set Username'],
           ['/guide/register-as-delegate', 'Register as Delegate'],
