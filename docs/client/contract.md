@@ -143,7 +143,8 @@ Prize: 0.1 GNY
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-await onnection.contract.Basic.vote(keyList, secret, secondSecret);
+await connection.contract.Basic.vote(keyList, secret, secondSecret);
+
 ```
 
 Request Parameter Description:
