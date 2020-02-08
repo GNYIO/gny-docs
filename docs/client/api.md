@@ -6,19 +6,14 @@ The `@gny/client` acts as a wrapper for all [HTTP endpoints](../http) and **sign
 
 ## Account API
 
-### Basic usage
+
+### Open account
 
 ```typescript
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const accountApi = connection.api.Account;
-```
-
-### Open account
-
-```typescript
-const { data } = await accountApi.openAccount(publicKey);
+const result = await connection.api.Account.openAccount(publicKey);
 ```
 
 | Name      | Type   | Required | Description          |
@@ -59,7 +54,10 @@ JSON Response Example:
 ### Get balance
 
 ```typescript
-const { data } = await accountApi.getBalance(address);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Account.getBalance(address);
 ```
 
 Request Parameter Description:
@@ -92,7 +90,10 @@ JSON Response Example:
 ### Get balance by address and currency
 
 ```typescript
-const { data } = accountApi.getAddressCurrencyBalance(address, currency);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Account.getAddressCurrencyBalance(address, currency);
 ```
 
 Request Parameter Description:
@@ -121,7 +122,10 @@ JSON Response Example:
 ### Get the account by address
 
 ```typescript
-const { data } = accountApi.getAccountByAddress(address);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Account.getAccountByAddress(address);
 ```
 
 Request Parameter Description:
@@ -142,7 +146,10 @@ Response Parameter Description:
 ### Get account by username
 
 ```typescript
-const { data } = accountApi.getAccountByUsername(username);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Account.getAccountByUsername(username);
 ```
 
 Request Parameter Description:
@@ -163,7 +170,10 @@ Response Parameter Description:
 ### Get voted delegates
 
 ```typescript
-const { data } = accountApi.getVotedDelegates(address, username);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Account.getVotedDelegates(address, username);
 ```
 
 Request Parameter Description:
@@ -224,7 +234,10 @@ JSON Response Example:
 ### Count the number of accounts
 
 ```typescript
-const { data } = accountApi.countAccounts();
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Account.countAccounts();
 ```
 
 Request Parameter Description: none  
@@ -238,7 +251,10 @@ Response Parameter Description:
 ### Get publicKey
 
 ```typescript
-const { data } = accountApi.getPublicKey(address);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Account.getPublicKey(address);
 ```
 
 Request Parameter Description:
@@ -257,19 +273,13 @@ Response Parameter Description:
 
 ## Block API
 
-### Basic usage
+### Get block by id
 
 ```typescript
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const blockApi = connection.api.Block;
-```
-
-### Get block by id
-
-```typescript
-const { data } = blockApi.getBlockById(id);
+const result = await connection.api.Block.getBlockById(id);
 ```
 
 Request Parameter Description:
@@ -307,7 +317,10 @@ JSON Response Example:
 ### Get block by height
 
 ```typescript
-const { data } = blockApi.getBlockByHeight(height);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Block.getBlockByHeight(height);
 ```
 
 Request Parameter Description:
@@ -326,7 +339,10 @@ Response Parameter Description:
 ### Get blocks
 
 ```typescript
-const { data } = blockApi.getBlocks(offset, limit, orderBy, transactions);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Block.getBlocks(offset, limit, orderBy, transactions);
 ```
 
 Request Parameter Description:
@@ -383,7 +399,10 @@ JSON Response Example:
 ### Get block height
 
 ```typescript
-const { data } = blockApi.getHeight();
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Block.getHeight();
 ```
 
 Request Parameter Description: none
@@ -407,7 +426,10 @@ JSON Response Example:
 ### Get milestone
 
 ```typescript
-const { data } = blockApi.getMilestone();
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Block.getMilestone();
 ```
 
 Request Parameter Description: none  
@@ -430,7 +452,10 @@ JSON Response Example:
 ### Get reward information of a block
 
 ```typescript
-const { data } = blockApi.getReward();
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Block.getReward();
 ```
 
 Request Parameter Description: none
@@ -454,7 +479,10 @@ JSON Response Example:
 ### Get current maximum supply of the blockchain
 
 ```typescript
-const { data } = blockApi.getSupply();
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Block.getSupply();
 ```
 
 Request Parameter Description: none
@@ -477,7 +505,10 @@ JSON Response Example:
 ### Get current status of blockchain
 
 ```typescript
-const { data } = blockApi.getStatus();
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Block.getStatus();
 ```
 
 Request Parameter Description: none
@@ -507,19 +538,13 @@ JSON Response Example:
 
 ## Delegate
 
-### Basic usage
+### Count the number of delegates
 
 ```typescript
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const delegateApi = connection.api.Delegate;
-```
-
-### Count the number of delegates
-
-```typescript
-const { data } = delegateApi.count();
+const result = await connection.api.Delegate.count();
 ```
 
 Request Parameter Description: none
@@ -543,7 +568,10 @@ JSON Response Example:
 ### Get the voters by username
 
 ```typescript
-const { data } = delegateApi.getVoters(username);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Delegate.getVoters(username);
 ```
 
 Request Parameter Description:
@@ -582,7 +610,10 @@ JSON Response Example:
 ### Get delegate by public key
 
 ```typescript
-const { data } = delegateApi.getDelegateByPubKey(publicKey);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Delegate.getDelegateByPubKey(publicKey);
 ```
 
 Request Parameter Description:
@@ -624,7 +655,10 @@ JSON Response Example:
 ### Get delegate by user name
 
 ```typescript
-const { data } = delegateApi.getDelegateByUsername(username);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Delegate.getDelegateByUsername(username);
 ```
 
 Request Parameter Description:
@@ -643,7 +677,10 @@ Response Parameter Description:
 ### Get delegate by address
 
 ```typescript
-const { data } = delegateApi.getDelegateByAddress(address);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Delegate.getDelegateByAddress(address);
 ```
 
 Request Parameter Description:
@@ -663,7 +700,10 @@ Response Parameter Description:
 ### Get the list of Delegates
 
 ```typescript
-const { data } = delegateApi.getDelegates(offset, limit);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Delegate.getDelegates(offset, limit);
 ```
 
 Request Parameter Description:
@@ -724,7 +764,10 @@ JSON Response Example:
 ### Enable forging
 
 ```typescript
-const { data } = delegateApi.forgingEnable(secret, pulicKey);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Delegate.forgingEnable(secret, pulicKey);
 ```
 
 Request Parameter Description:
@@ -743,7 +786,10 @@ Response Parameter Description:
 ### Disable forging
 
 ```typescript
-const { data } = delegateApi.forgingDisable(secret, pulicKey);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Delegate.forgingDisable(secret, pulicKey);
 ```
 
 Request Parameter Description:
@@ -762,7 +808,10 @@ Response Parameter Description:
 ### Get forging status
 
 ```typescript
-const { data } = delegateApi.forgingStatus(pulicKey);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Delegate.forgingStatus(pulicKey);
 ```
 
 Request Parameter Description:
@@ -779,122 +828,16 @@ Response Parameter Description:
 | enabled | bool | true: forging is enabled                |
 
 
-## Exchange API
-
-### Basic usage
-
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-const exchangeApi = connection.api.Exchange;
-```
-
-### Open account
-
-```typescript
-const { data } = await accountApi.openAccount(secret);
-```
-
-| Name   | Type   | Required | Description          |
-| ------ | ------ | -------- | -------------------- |
-| secret | string | N        | gny account password |
-
-Response Parameter Description:
-
-| Name    | Type | Description                 |
-| ------- | ---- | --------------------------- |
-| success | bool | Whether login is successful |
-| account | json | Account information         |
-
-JSON Response Example:
-
-```js
-{
-  "account":{
-    "address":"G4b8BhmeRFBmWAHZemKD25BmEP2G",
-    "balance":"0",
-    "secondPublicKey":"",
-    "lockHeight":"0",
-    "publicKey":"bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
-    },
-    "latestBlock":{
-      "height":"53",
-      "timestamp":3471490
-    },
-    "version":{
-      "version":"1.0.0",
-      "build":"Tue Feb 04 2020 10:26:47 GMT+0100 (Central European Standard Time)",
-      "net":"testnet"
-    }
-}
-```
-
-### Generate Account
-
-```typescript
-const { data } = await exchangeApi.generateAccount();
-```
-
-Request Parameter Description: none  
-Response Parameter Description:
-
-| Name       | Type   | Description                   |
-| ---------- | ------ | ----------------------------- |
-| success    | bool   | Whether request is successful |
-| address    | string | Client's address              |
-| secret     | string | gny account password          |
-| privateKey | string | gny account private key       |
-| publicKey  | string | gny account public key        |
-
-JSON Response Example:
-
-```js
-{
-    "address": "G318FKKb7mF3M6JCUhBqYnLiha6y",
-    "secret" : "carpet pudding topple genuine relax rally problem before pill gun nation method",
-    "publicKey": "c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2",
-    "privateKey": "c68434b960ef024b2a868118be7641be25e566f720a5eb12ff314022629ccc71575bf8f32b941b9e6ae1af82539689198327b73d77d22a98cdef2460c9257f7b"
-}
-```
-
-
-### Generate publicKey
-
-```typescript
-const { data } = exchangeApi.generatePublicKey(secret);
-```
-
-Request Parameter Description:
-
-| Name   | Type   | Required | Description          |
-| ------ | ------ | -------- | -------------------- |
-| secret | string | Y        | gny account password |
-
-Response Parameter Description:
-
-| Name      | Type   | Description                             |
-| --------- | ------ | --------------------------------------- |
-| success   | bool   | true: response data return successfully |
-| publicKey | string | public key                              |
-
-
 
 ## Loader
-
-### Basic usage
-
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-const loaderApi = connection.api.Loader;
-```
 
 ### Get blockchain status
 
 ```typescript
-const { data } = loaderApi.getStatus();
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Loader.getStatus();
 ```
 
 Request Parameter Description: none
@@ -909,7 +852,10 @@ Response Parameter Description:
 ### Sync blockchain status
 
 ```typescript
-const { data } = loaderApi.getStatus();
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Loader.getStatus();
 ```
 
 Request Parameter Description: none
@@ -925,19 +871,13 @@ Response Parameter Description:
 
 ## Peer
 
-### Basic usage
+### Get peers
 
 ```typescript
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const peerApi = connection.api.Peer;
-```
-
-### Get peers
-
-```typescript
-const { data } = peerApi.getPeers();
+const result = await connection.api.Peer.getPeers();
 ```
 
 Request Parameter Description: none
@@ -990,7 +930,10 @@ JSON Response Example:
 ### Get version
 
 ```typescript
-const { data } = peerApi.getVersion();
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Peer.getVersion();
 ```
 
 Request Parameter Description: none
@@ -1018,7 +961,10 @@ JSON Response Example:
 ### Get info
 
 ```typescript
-const { data } = peerApi.getInfo();
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Peer.getInfo();
 ```
 
 Request Parameter Description: none
@@ -1049,19 +995,13 @@ JSON Response Example:
 
 ## System
 
-### Basic usage
+### Get version
 
 ```typescript
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const systemApi = connection.api.System;
-```
-
-### Get version
-
-```typescript
-const { data } = systemApi.getSystemInfo();
+const result = await connection.api.System.getSystemInfo();
 ```
 
 Request Parameter Description: none
@@ -1079,19 +1019,13 @@ Response Parameter Description:
 
 ## Transaction
 
-### Basic usage
+### Get transactions
 
 ```typescript
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const transactionApi = connection.api.Transaction;
-```
-
-### Get transactions
-
-```typescript
-const { data } = transactionApi.getTransactions(query);
+const result = await connection.api.Transaction.getTransactions(query);
 ```
 
 Request Parameter Description:
@@ -1140,7 +1074,10 @@ JSON Response Example:
 ### Get unconfirmed transactions by transaction id
 
 ```typescript
-const { data } = transactionApi.getUnconfirmedTransaction(id);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Transaction.getUnconfirmedTransaction(id);
 ```
 
 Request Parameter Description:
@@ -1176,7 +1113,10 @@ JSON Response Example:
 ### Get unconfirmed transactions by sender public key or address
 
 ```typescript
-const { data } = transactionApi.getUnconfirmedTransaction(publicKey, address);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Transaction.getUnconfirmedTransaction(publicKey, address);
 ```
 
 Request Parameter Description:
@@ -1206,6 +1146,9 @@ JSON Response Example:
 ### Create a batch of transactions
 
 ```typescript
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
 const genesisSecret =
   "grow pencil ten junk bomb right describe trade rich valid tuna service";
 const trs = gnyClient.basic.transfer(
@@ -1216,7 +1159,7 @@ const trs = gnyClient.basic.transfer(
   undefined
 );
 const transactions = [trs];
-const { data } = transactionApi.addTransactions(transactions);
+const result = await connection.api.Transaction.addTransactions(transactions);
 ```
 
 Request Parameter Description:  
@@ -1251,19 +1194,13 @@ JSON Response Example:
 
 ## Transfer
 
-### Basic usage
+### Get transfers
 
 ```typescript
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const transferApi = connection.api.Transfer;
-```
-
-### Get transfers
-
-```typescript
-const { data } = transferApi.getRoot(query);
+const result = await connection.api.Transfer.getRoot(query);
 ```
 
 Request Parameter Description:
@@ -1288,7 +1225,10 @@ Response Parameter Description:
 ### Get total amount of transfers
 
 ```typescript
-const { data } = transferApi.getAmount(startTimestamp, endTimestamp);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Transfer.getAmount(startTimestamp, endTimestamp);
 ```
 
 Request Parameter Description:
@@ -1309,19 +1249,13 @@ Response Parameter Description:
 
 ## Transport
 
-### Basic usage
+### Send unconfirmed transaction
 
 ```typescript
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const transportApi = connection.api.Transport;
-```
-
-### Send unconfirmed transaction
-
-```typescript
-const { data } = transportApi.sendTransaction(transaction);
+const result = await connection.api.Transport.sendTransaction(transaction);
 ```
 
 Request Parameter Description:
@@ -1340,19 +1274,13 @@ Response Parameter Description:
 
 ## User Defined Asset UIA
 
-### Basic usage
+### Get all publishers
 
 ```typescript
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const uiaApi = connection.api.Uia;
-```
-
-### Get all publishers
-
-```typescript
-const { data } = uiaApi.getIssuers(limit, offset);
+const result = await connection.api.Uia.getIssuers(limit, offset);
 ```
 
 Request Parameter Description:
@@ -1388,7 +1316,10 @@ JSON Response:
 ### Check if the address is a publisher
 
 ```typescript
-const { data } = uiaApi.isIssuer(address);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Uia.isIssuer(address);
 ```
 
 Request Parameter Description:
@@ -1418,7 +1349,10 @@ JSON Response:
 ### Query information about a publisher
 
 ```typescript
-const { data } = uiaApi.getIssuer(publisherName | address);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Uia.getIssuer(publisherName | address);
 ```
 
 Request Parameter Description:
@@ -1452,7 +1386,10 @@ JSON Response:
 ### View assets of a specified publisher
 
 ```typescript
-const { data } = uiaApi.getIssuerAssets(name, limit?, offset?);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Uia.getIssuerAssets(name, limit?, offset?);
 ```
 
 Request Parameter Description:
@@ -1493,7 +1430,10 @@ JSON Response:
 ### Get all assets
 
 ```typescript
-const { data } = uiaApi.getAssets(limit, offset);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Uia.getAssets(limit, offset);
 ```
 
 Request Parameter Description:
@@ -1533,7 +1473,10 @@ JSON Response:
 ### Get specified asset information
 
 ```typescript
-const { data } = uiaApi.getAsset(name);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Uia.getAsset(name);
 ```
 
 Request Parameter Description:
@@ -1570,7 +1513,10 @@ JSON Response:
 ### Get the balance of all UIA Assets for an account
 
 ```typescript
-const { data } = uiaApi.getBalances(address, limit?, offset?);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Uia.getBalances(address, limit?, offset?);
 ```
 
 Request Parameter Description:
@@ -1607,7 +1553,10 @@ JSON Response:
 ### Get balance of a specific UIA Asset for an account
 
 ```typescript
-const { data } = uiaApi.getBalance(address, currency);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Uia.getBalance(address, currency);
 ```
 
 Request Parameter Description:
