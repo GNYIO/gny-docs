@@ -8,7 +8,7 @@ Prize: 5 GNY
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const { data } = connection.contract.Basic.setUserName(username, secret, secondSecret);
+await connection.contract.Basic.setUserName(username, secret, secondSecret);
 ```
 
 Request Parameter Description:
@@ -34,7 +34,7 @@ Prize: 0.1 GNY
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const { data } = connection.contract.Basic.lockAccount(height, amount, secret);
+await connection.contract.Basic.lockAccount(height, amount, secret);
 ```
 
 Request Parameter Description:
@@ -58,7 +58,7 @@ Response Parameter Description:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const { data } = connection.contract.Basic.unlockAccount(secret);
+await connection.contract.Basic.unlockAccount(secret);
 ```
 
 Request Parameter Description:
@@ -83,7 +83,7 @@ Prize: 100 GNY
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const { data } = connection.contract.Basic.registerDelegate(secret);
+await connection.contract.Basic.registerDelegate(secret);
 ```
 
 Request Parameter Description:
@@ -108,7 +108,7 @@ Prize: 0.1 GNY
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const { data } = connection.contract.Basic.send(
+await connection.contract.Basic.send(
   recipient,
   amount,
   message,
@@ -143,7 +143,7 @@ Prize: 0.1 GNY
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const { data } = connection.contract.Basic.vote(keyList, secret, secondSecret);
+await onnection.contract.Basic.vote(keyList, secret, secondSecret);
 ```
 
 Request Parameter Description:
@@ -169,7 +169,7 @@ Prize: 0.1 GNY
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const { data } = connection.contract.Basic.unvote(keyList, secret, secondSecret);
+await connection.contract.Basic.unvote(keyList, secret, secondSecret);
 ```
 
 Request Parameter Description:
@@ -199,7 +199,7 @@ Prize: 500 GNY
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const { data } = connection.contract.Uia.registerAsset(
+await connection.contract.Uia.registerAsset(
   name,
   desc,
   maximum,
@@ -235,7 +235,7 @@ Prize: 100 GNY
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const { data } = connection.contract.Uia.registerIssuer(name, desc, secret, secondSecret);
+await connection.contract.Uia.registerIssuer(name, desc, secret, secondSecret);
 ```
 
 Request Parameter Description:
