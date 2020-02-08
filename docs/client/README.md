@@ -5,3 +5,4 @@ The `@gny/client` is a JavaScript client library. It offers wrapper functions fo
 - [Install](./install.md)
 - [API](./api.md)
 - [Contract](./contract.md)
+- [Exchange API](./exchange.md)
