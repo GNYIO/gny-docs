@@ -1,20 +1,14 @@
 ## Basic
 
-### Basic usage
-
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-const basicApi = connection.contract.Basic
-```
-
 ### Set username (contract)
 
 Prize: 5 GNY
 
 ```typescript
-const { data } = basicApi.setUserName(username, secret, secondSecret);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const { data } = connection.contract.Basic.setUserName(username, secret, secondSecret);
 ```
 
 Request Parameter Description:
@@ -37,7 +31,10 @@ Response Parameter Description:
 Prize: 0.1 GNY
 
 ```typescript
-const { data } = basicApi.lockAccount(height, amount, secret);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const { data } = connection.contract.Basic.lockAccount(height, amount, secret);
 ```
 
 Request Parameter Description:
@@ -58,7 +55,10 @@ Response Parameter Description:
 ### Unlock account
 
 ```typescript
-const { data } = basicApi.unlockAccount(secret);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const { data } = connection.contract.Basic.unlockAccount(secret);
 ```
 
 Request Parameter Description:
@@ -80,7 +80,10 @@ Response Parameter Description:
 Prize: 100 GNY
 
 ```typescript
-const { data } = basicApi.registerDelegate(secret);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const { data } = connection.contract.Basic.registerDelegate(secret);
 ```
 
 Request Parameter Description:
@@ -102,7 +105,10 @@ Response Parameter Description:
 Prize: 0.1 GNY
 
 ```typescript
-const { data } = basicApi.send(
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const { data } = connection.contract.Basic.send(
   recipient,
   amount,
   message,
@@ -134,7 +140,10 @@ Response Parameter Description:
 Prize: 0.1 GNY
 
 ```typescript
-const { data } = basicApi.vote(keyList, secret, secondSecret);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const { data } = connection.contract.Basic.vote(keyList, secret, secondSecret);
 ```
 
 Request Parameter Description:
@@ -157,7 +166,10 @@ Response Parameter Description:
 Prize: 0.1 GNY
 
 ```typescript
-const { data } = basicApi.unvote(keyList, secret, secondSecret);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const { data } = connection.contract.Basic.unvote(keyList, secret, secondSecret);
 ```
 
 Request Parameter Description:
@@ -179,20 +191,15 @@ Response Parameter Description:
 
 ## User Defined Asset UIA
 
-### Basic usage
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-const uiaApi = connection.contract.Uia
-```
-
 ### Register asset (contract)
 
 Prize: 500 GNY
 
 ```typescript
-const { data } = uiaApi.registerAsset(
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const { data } = connection.contract.Uia.registerAsset(
   name,
   desc,
   maximum,
@@ -225,7 +232,10 @@ Response Parameter Description:
 Prize: 100 GNY
 
 ```typescript
-const { data } = uiaApi.registerIssuer(name, desc, secret, secondSecret);
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const { data } = connection.contract.Uia.registerIssuer(name, desc, secret, secondSecret);
 ```
 
 Request Parameter Description:
