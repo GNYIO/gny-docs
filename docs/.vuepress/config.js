@@ -91,7 +91,7 @@ module.exports = {
         path: '/client/',
         collapsable: false,
         sidebarDepth: 0,
-        children: [['/client/install', 'Install'], ['/client/api', 'API']],
+        children: [['/client/install', 'Install'], ['/client/api', 'API'], ['/client/contract', 'Contract'], ['/client/exchange', 'Exchange API']],
       },
       {
         title: 'CLI',
