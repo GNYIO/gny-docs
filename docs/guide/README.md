@@ -1,10 +1,11 @@
 # Guide
 
-## Account creationg
+## Account creation
 
 - [Create P2P Secret](./create-p2p-secret.md)
 - [Create Secret](./create-secret.md)
 - [Show address from Secret](./show-address-from-secret.md)
+- [Check Balance](./check-balance.md)
 
 ## Testnet
 
