@@ -6,8 +6,6 @@ Before registering as delegate you need to [`set a username`](./set-username)
 
 In order to forge Blocks GNY network one has to first register as a delegate.
 
-Registering as delegate can be done in different ways:
-
 ## With CLI
 
 ```bash
