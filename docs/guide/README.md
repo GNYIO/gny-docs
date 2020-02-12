@@ -4,7 +4,7 @@
 
 - [Create P2P Secret](./create-p2p-secret.md)
 - [Create Secret](./create-secret.md)
-- [Show address from Secret](./guide/show-address-from-secret.md)
+- [Show address from Secret](./show-address-from-secret.md)
 
 ## Testnet
 

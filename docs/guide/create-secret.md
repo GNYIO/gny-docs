@@ -40,3 +40,9 @@ The result:
 ::: tip
 The `secret` is the key `secret` starting with: `source express orange...`
 :::
+
+::: tip
+In order to start forging you need to add your `secret` to your node configuration.
+
+Visit [run-node/configure](../run-node/configure) for details
+:::
