@@ -91,7 +91,12 @@ module.exports = {
         path: '/client/',
         collapsable: false,
         sidebarDepth: 0,
-        children: [['/client/install', 'Install'], ['/client/api', 'API'], ['/client/contract', 'Contract'], ['/client/exchange', 'Exchange API']],
+        children: [
+          ['/client/install', 'Install'],
+          ['/client/api', 'API'],
+          ['/client/contract', 'Contract'],
+          ['/client/exchange', 'Exchange API'],
+        ],
       },
       {
         title: 'CLI',
@@ -109,6 +114,7 @@ module.exports = {
           ['/guide/create-p2p-secret', 'Create P2P Secret'],
           ['/guide/create-secret', 'Create Delegate Secret'],
           ['/guide/get-gny-on-testnet', 'Get GNY on Testnet'],
+          ['/guide/show-address-from-secret', 'Show Address from Secret'],
           ['/guide/how-to-send-transactions', 'Send Transaction'],
           ['/guide/set-username', 'Set Username'],
           ['/guide/register-as-delegate', 'Register as Delegate'],
