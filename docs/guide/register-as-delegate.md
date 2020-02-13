@@ -9,7 +9,7 @@ In order to forge Blocks GNY network one has to first register as a delegate.
 ## With CLI
 
 ```bash
-gny-cli --host "45.76.215.117" --port 4096 registerdelegate --username "" --secret ""
+gny-cli --host "45.76.215.117" --port 4096 registerdelegate --secret ""
 ```
 
 <br/>
