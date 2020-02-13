@@ -7,7 +7,7 @@ Don't reuse this `secret` on differnet GNY networks (`localnet`, `testnet`, `mai
 ::::
 
 ::: tip
-This `BIP39` is used to access your funds on the GNY Blockhain and activates forging (if you are a delegate).
+This secret (`BIP39 standard`) is used to access your funds on the GNY Blockhain and activates forging (if you are a delegate).
 :::
 
 ## With CLI
@@ -31,7 +31,7 @@ The result:
 [
   {
     "address": "G2iZ5kf5z8NnyoTV17b6rSNEYQYzA",
-    "secret": "source express orange puppy spy boy another orange topple injury chapter artist",
+    "secret": "source express orange puppy spy...",
     "publicKey": "96ac2d8076bd2858d391d0e22dd63a4edc879a9447d0fe2f8a1d175e36f105c8"
   }
 ]
@@ -39,4 +39,10 @@ The result:
 
 ::: tip
 The `secret` is the key `secret` starting with: `source express orange...`
+:::
+
+::: tip
+In order to start forging you need to add your `secret` to your node configuration.
+
+Visit [run-node/configure](../run-node/configure) for details
 :::
