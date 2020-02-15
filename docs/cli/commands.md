@@ -1,15 +1,20 @@
 # API
 
 ::: tip
-Type `gny-cli [command] [parameter]` in your command line to invoke the commands.
-:::
+Type `gny-cli [command] <parameter>` in your command line to invoke the commands.
+
+INFO:
+
+- `[command]` -> **optional**. If we have a paremter `--username [username]` then `--username` is correct and `--username xpgeng` is also correct.
+- `<parameter>` -> **mandatory**. If we have a parameter `--username <username>` this means that for `<username>` a string must be substituted. This would be correct: `--username liang`. This would be wrong `--username`
+  :::
 
 ## Account API
 
 ### Open account
 
 ```bash
-gny-cli openaccount [publicKey]
+gny-cli openaccount <publicKey>
 ```
 
 open your account and get the infomation by publicKey
@@ -52,7 +57,7 @@ JSON Response Example:
 ### Get balance
 
 ```bash
-gny-cli getbalance [address]
+gny-cli getbalance <address>
 ```
 
 Request Parameter Description:
@@ -85,7 +90,7 @@ JSON Response Example:
 ### Get the account by address
 
 ```bash
-gny-cli getaccountbyaddress [address]
+gny-cli getaccountbyaddress <address>
 ```
 
 Request Parameter Description:
@@ -106,7 +111,7 @@ Response Parameter Description:
 ### Get account by username
 
 ```bash
-gny-cli getaccountbyusername [username]
+gny-cli getaccountbyusername <username>
 ```
 
 Request Parameter Description:
@@ -141,7 +146,7 @@ Response Parameter Description:
 ### Get voted delegates
 
 ```bash
-gny-cli getvoteddelegates -u [usename] -a [address]
+gny-cli getvoteddelegates -u <username> -a <address>
 ```
 
 Request Parameter Description:
@@ -202,7 +207,7 @@ JSON Response Example:
 ### Get publicKey by address
 
 ```bash
-gny-cli getpublickey [address]
+gny-cli getpublickey <address>
 ```
 
 Request Parameter Description:
@@ -221,7 +226,7 @@ Response Parameter Description:
 ### Generate publicKey by secret
 
 ```bash
-gny-cli genpublickey [secret]
+gny-cli genpublickey <secret>
 ```
 
 Request Parameter Description:
@@ -268,7 +273,7 @@ JSON Response Example:
 ### Get balance by address and currency
 
 ```bash
-gny-cli getbalancebyaddresscurrency -a [address] -c [currency]
+gny-cli getbalancebyaddresscurrency -a <address> -c <currency>
 ```
 
 Request Parameter Description:
@@ -321,7 +326,7 @@ JSON Response Example:
 ### Get block by height
 
 ```bash
-gny-cli getblockbyheight [height]
+gny-cli getblockbyheight <height>
 ```
 
 Request Parameter Description:
@@ -340,7 +345,7 @@ Response Parameter Description:
 ### Get block by id
 
 ```bash
-gny-cli getblockbyid [id]
+gny-cli getblockbyid <id>
 ```
 
 Request Parameter Description:
@@ -378,8 +383,8 @@ JSON Response Example:
 ### Get blocks
 
 ```bash
-gny-cli getblocks -o [offset] -l [limit] -s [orderBy] -t [transactions]
-gny-cli getblocks --offset [offset] --limit [limit] --sort [orderBy] --transactions [transactions]
+gny-cli getblocks -o <offset> -l <limit> -s <orderBy> -t <transactions>
+gny-cli getblocks --offset <offset> --limit <limit> --sort <orderBy> --transactions
 ```
 
 Request Parameter Description:
@@ -537,7 +542,7 @@ JSON Response Example:
 ### Get block bytes
 
 ```bash
-gny-cli getblockbytes -f [file]
+gny-cli getblockbytes -f <file>
 ```
 
 Request Parameter Description:
@@ -555,7 +560,7 @@ Response Parameter Description:
 ### Get block id
 
 ```bash
-gny-cli getblockid -f [file]
+gny-cli getblockid -f <file>
 ```
 
 Request Parameter Description:
@@ -573,7 +578,7 @@ Response Parameter Description:
 ### Get block payload hash
 
 ```bash
-gny-cli getblockpayloadhash -f [file]
+gny-cli getblockpayloadhash -f <file>
 ```
 
 Request Parameter Description:
@@ -615,7 +620,7 @@ JSON Response Example:
 ### Get the voters by username
 
 ```bash
-gny-cli getvoters [username]
+gny-cli getvoters <username>
 ```
 
 Request Parameter Description:
@@ -661,7 +666,7 @@ JSON Response Example:
 ### Get delegate by public key
 
 ```bash
-gny-cli getdelegatebypublickey [publicKey]
+gny-cli getdelegatebypublickey <publicKey>
 ```
 
 Request Parameter Description:
@@ -703,7 +708,7 @@ JSON Response Example:
 ### Get delegate by user name
 
 ```bash
-gny-cli getdelegatebyusername [username]
+gny-cli getdelegatebyusername <username>
 ```
 
 Request Parameter Description:
@@ -721,7 +726,7 @@ Response Parameter Description:
 ### Get delegate by address
 
 ```bash
-gny-cli getdelegatebyaddress [address]
+gny-cli getdelegatebyaddress <address>
 ```
 
 Request Parameter Description:
@@ -739,8 +744,8 @@ Response Parameter Description:
 ### Get the list of Delegates
 
 ```bash
-gny-cli getdelegates -o [offset] -l [limit]
-gny-cli getdelegates --offset [offset] --limit [limit]
+gny-cli getdelegates -o <offset> -l <limit>
+gny-cli getdelegates --offset <offset> --limit <limit>
 ```
 
 Request Parameter Description:
@@ -810,7 +815,7 @@ JSON Response Example:
 ### Open your account and get the infomation by secret
 
 ```bash
-gny-cli openaccountwithsecret [secret]
+gny-cli openaccountwithsecret <secret>
 ```
 
 open your account and get the infomation by secret
@@ -853,7 +858,7 @@ JSON Response Example:
 ### Generate public key with secret
 
 ```bash
-gny-cli genpublickey [secret]
+gny-cli genpublickey <secret>
 ```
 
 open your account and get the infomation by secret
@@ -1020,8 +1025,8 @@ Response Parameter Description:
 ### Get transactions
 
 ```bash
-gny-cli gettransactions -l [limit] -o [offset] -i [id] --senderId [senderId] --senderPublicKey [senderPublicKey] -b [blockId] -h [height] -t [type] -m [message]
-gny-cli gettransactions --limit [limit] --offset [offset] --id [id] --senderId [senderId] --senderPublicKey [senderPublicKey] --blockId [blockId] --height [height] --type [type] --message [message]
+gny-cli gettransactions -l <limit> -o <offset> -i <id> --senderId <senderId> --senderPublicKey <senderPublicKey> -b <blockId> -h <height> -t <type> -m <message>
+gny-cli gettransactions --limit <limit> --offset <offset> --id <id> --senderId <senderId> --senderPublicKey <senderPublicKey> --blockId <blockId> --height <height> --type <type> --message <message>
 ```
 
 Request Parameter Description:
@@ -1070,8 +1075,8 @@ JSON Response Example:
 ### Get unconfirmed transactions
 
 ```bash
-gny-cli getunconfirmedtransactions -k [sender public key] -a [address]
-gny-cli getunconfirmedtransactions --key [sender public key] --address [address]
+gny-cli getunconfirmedtransactions -k <sender public key> -a <address>
+gny-cli getunconfirmedtransactions --key <sender public key> --address <address>
 ```
 
 Request Parameter Description:
@@ -1109,7 +1114,7 @@ JSON Response Example:
 ### Get unconfirmed transaction by transaction id
 
 ```bash
-gny-cli gettransaction [id]
+gny-cli gettransaction <id>
 ```
 
 Request Parameter Description:
@@ -1146,8 +1151,8 @@ JSON Response Example:
 Prize: 0.1 GNY
 
 ```bash
-gny-cli sendmoney -e [secret] -s [secondSecret] -a [amount] -r [recipientId] -m [message]
-gny-cli sendmoney --secret [secret] --secondSecret [secondSecret] --amount [amount] --recipient [recipientId] --message [message]
+gny-cli sendmoney -e <secret> -s <secondSecret> -a <amount> -r <recipientId> -m <message>
+gny-cli sendmoney --secret <secret> --secondSecret <secondSecret> --amount <amount> --recipient <recipientId> --message <message>
 ```
 
 | Name         | Type    | Required | Description                                                                                    |
@@ -1167,7 +1172,7 @@ Response Parameter Description:
 ### Get transaction bytes
 
 ```bash
-gny-cli gettransactionbytes -f [file]
+gny-cli gettransactionbytes -f <file>
 ```
 
 Request Parameter Description:
@@ -1185,7 +1190,7 @@ Response Parameter Description:
 ### Get transaction id
 
 ```bash
-gny-cli gettransactionid -f [file]
+gny-cli gettransactionid -f <file>
 ```
 
 Request Parameter Description:
@@ -1203,7 +1208,7 @@ Response Parameter Description:
 ### Verify transaction bytes
 
 ```bash
-gny-cli verifybytes -b [bytes] -s [signature] -p [publicKey]
+gny-cli verifybytes -b <bytes> -s <signature> -p <publicKey>
 ```
 
 Request Parameter Description:
@@ -1223,8 +1228,8 @@ Response Parameter Description:
 ### Send transaction with fee
 
 ```bash
-gny-cli transaction -e [secret] -s [secondSecret] -a [amount] -r [recipientId] -m [message] -f [feee]
-gny-cli transaction --secret [secret] --secondSecret [secondSecret] --amount [amount] --recipient [recipientId] --message [message] --fee [fee]
+gny-cli transaction -e <secret> -s <secondSecret> -a <amount> -r <recipientId> -m <message> -f <feee>
+gny-cli transaction --secret <secret> --secondSecret <secondSecret> --amount <amount> --recipient <recipientId> --message <message> --fee <fee>
 ```
 
 Request Parameter Description:
@@ -1249,8 +1254,8 @@ Response Parameter Description:
 ### Get all publishers
 
 ```bash
-gny-cli getissuers -o [offset] -l [limit]
-gny-cli getissuers --offset [offset] --limit [limit]
+gny-cli getissuers -o <offset> -l <limit>
+gny-cli getissuers --offset <offset> --limit <limit>
 ```
 
 Request Parameter Description:
@@ -1286,7 +1291,7 @@ JSON Response:
 ### Check if the address is a publisher
 
 ```bash
-gny-cli isissuer [address]
+gny-cli isissuer <address>
 ```
 
 Request Parameter Description:
@@ -1316,7 +1321,7 @@ JSON Response:
 ### Query information about a publisher
 
 ```bash
-gny-cli getissuer [name or address]
+gny-cli getissuer <name or address>
 ```
 
 Request Parameter Description:
@@ -1349,7 +1354,7 @@ JSON Response:
 ### View assets of a specified publisher
 
 ```bash
-gny-cli getissuerassets [name]
+gny-cli getissuerassets <name>
 ```
 
 Request Parameter Description:
@@ -1390,8 +1395,8 @@ JSON Response:
 ### Get all assets
 
 ```bash
-gny-cli getassets -o [offset] -l [limit]
-gny-cli getassets --offset [offset] --limit [limit]
+gny-cli getassets -o <offset> -l <limit>
+gny-cli getassets --offset <offset> --limit <limit>
 ```
 
 Request Parameter Description:
@@ -1431,7 +1436,7 @@ JSON Response:
 ### Get specified asset information
 
 ```bash
-gny-cli getasset [name]
+gny-cli getasset <name>
 ```
 
 Request Parameter Description:
@@ -1468,8 +1473,8 @@ JSON Response:
 ### Get the balance of all UIA Assets for an account
 
 ```bash
-gny-cli getbalances -a [address] -l [limit] -o [offset]
-gny-cli getbalances --adress [address] --limit [limit] -offset [offset]
+gny-cli getbalances -a <address> -l <limit> -o <offset>
+gny-cli getbalances --adress <address> --limit <limit> -offset <offset>
 ```
 
 Request Parameter Description:
@@ -1506,8 +1511,8 @@ JSON Response:
 ### Get balance of a specific UIA Asset for an account
 
 ```bash
-gny-cli getbalance -a [address] -c [currency]
-gny-cli getbalance --address [address] --currency [currency]
+gny-cli getbalance -a <address> -c <currency>
+gny-cli getbalance --address <address> --currency <currency>
 ```
 
 Request Parameter Description:
