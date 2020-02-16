@@ -4,6 +4,6 @@
   "editor.renderWhitespace": "boundary",
   "editor.insertSpaces": true,
   "files.insertFinalNewline": true,
-  "files.trimTrailingWhitespace": true,
+  "files.trimTrailingWhitespace": false,
   "diffEditor.ignoreTrimWhitespace": false
 }
