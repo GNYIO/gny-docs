@@ -1663,16 +1663,16 @@ Response Parameter Description:
 Prize: 0.1 GNY
 
 ```bash
-gny-cli vote -e <secret> -p <keyList> [--s <secret>]
+gny-cli vote -e <secret> -u <usernames> [--s <secret>]
 
-gny-cli vote --secret <secret> --publicKeys <keyList> [--secondSecret <secret>]
+gny-cli vote --secret <secret> --usernames <usernames> [--secondSecret <secret>]
 ```
 
 Request Parameter Description:
 
 | Name         | Type   | Required | Description                 |
 | ------------ | ------ | -------- | --------------------------- |
-| publicKeys   | Array  | Y        | public key list to be voted |
+| usernames    | Array  | Y        | delegate usernames          |
 | secret       | string | Y        | gny account password        |
 | secondSecret | string | N        | gny account second password |
 
@@ -1688,16 +1688,16 @@ Response Parameter Description:
 Prize: 0.1 GNY
 
 ```bash
-gny-cli unvote -e <secret> -p <keyList> [-s <secret>]
+gny-cli unvote -e <secret> -u <usernames> [-s <secret>]
 
-gny-cli unvote --secret <secret> --publicKeys <keyList> [--secondSecret <secret>]
+gny-cli unvote --secret <secret> --usernames <usernames> [--secondSecret <secret>]
 ```
 
 Request Parameter Description:
 
 | Name         | Type   | Required | Description                 |
 | ------------ | ------ | -------- | --------------------------- |
-| publicKeys   | Array  | Y        | public key list to be voted |
+| usernames    | Array  | Y        | delegate usernames          |
 | secret       | string | Y        | gny account password        |
 | secondSecret | string | N        | gny account second password |
 
