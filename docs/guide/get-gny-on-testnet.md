@@ -21,7 +21,7 @@ Paste **your** address into the input field in the `Step 2` section on [`faucet.
 ![faucet form 2](../.vuepress/public/faucet_paste_address.png)
 
 ::: tip
-Check your `GNY token balance with the [check balance](./check-balance.md) guide
+Check your `GNY` token balance with the [check balance](./check-balance.md) guide
 
 It can take a few seconds for the balance to be shown
 :::

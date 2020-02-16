@@ -15,7 +15,7 @@ gny-cli --host "45.76.215.117" --port 4096 registerdelegate --secret ""
 <br/>
 
 ::: tip
-After you successfully registered as `delegate` be sure to add your account secret to your forging node in order to enable forging. Forging will be possible if you are beeing voted in the top **101 delegates**
+After you successfully registered as `delegate` be sure to add your account secret to your forging node in order to enable forging. Forging will be possible if you are being voted in the top **101 delegates**
 
 See [Configure](../run-node/configure) for details
 :::
