@@ -108,6 +108,32 @@ Response Parameter Description:
 | latestBlock | json | latest block information              |
 | version     | json | version information                   |
 
+JSON Response Example:
+
+```json
+{
+  "success": true,
+  "account": {
+    "address": "G3dGrHJfmZUFhAiYqytdrMG6rL4Lh",
+    "balance": "69420000000",
+    "secondPublicKey": null,
+    "lockHeight": "3728000",
+    "isDelegate": 1,
+    "username": "hello",
+    "publicKey": null
+  },
+  "latestBlock": {
+    "height": "158644",
+    "timestamp": 39368870
+  },
+  "version": {
+    "version": "1.0.7",
+    "build": "Fri Jan 31 2020 16:11:20 GMT+0000 (Coordinated Universal Time)",
+    "net": "localnet"
+  }
+}
+```
+
 ### Get account by username
 
 ```bash
@@ -129,6 +155,24 @@ Response Parameter Description:
 | latestBlock | json | latest block information              |
 | version     | json | version information                   |
 
+JSON Response Example:
+
+```json
+{
+  "success": true,
+  "address": "G3dGrHJfmZUFhAiYqytdrMG6rL4Lh",
+  "username": "hello",
+  "gny": "69420000000",
+  "publicKey": null,
+  "secondPublicKey": null,
+  "isDelegate": 1,
+  "isLocked": 1,
+  "lockHeight": "3728000",
+  "lockAmount": "60000000",
+  "_version_": 15
+}
+```
+
 ### Count the number of accounts
 
 ```bash
@@ -142,6 +186,15 @@ Response Parameter Description:
 | ------- | ------ | --------------------------------------- |
 | success | bool   | true: response data return successfully |
 | count   | number | the total number of accounts            |
+
+JSON Response Example:
+
+```json
+{
+  "success": true,
+  "count": 138
+}
+```
 
 ### Get voted delegates
 
@@ -1098,7 +1151,7 @@ JSON Response Example:
       "currency": "gny",
       "amount": "10000000000000000",
       "timestamp": 0,
-      "height": 0,
+      "height": "0",
       "_version_": 1
     }
   ]
