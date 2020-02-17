@@ -37,13 +37,13 @@ JSON Response Example:
   "success": true,
   "account": {
     "address": "G4b8BhmeRFBmWAHZemKD25BmEP2G",
-    "balance": 0,
+    "balance": "0",
     "secondPublicKey": "",
-    "lockHeight": 0,
+    "lockHeight": "0",
     "publicKey": "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
   },
   "latestBlock": {
-    "height": 53,
+    "height": "53",
     "timestamp": 3471490
   },
   "version": {
@@ -147,6 +147,8 @@ Response Parameter Description:
 
 ```bash
 gny-cli getvoteddelegates -u <username> -a <address>
+
+gny-cli getvoteddelegates --username <username> --address <address>
 ```
 
 Request Parameter Description:
@@ -174,9 +176,9 @@ JSON Response Example:
       "address": "GJX8DYKb7mF3M6JCUhBqYnLiha6y",
       "publicKey": "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7",
       "vote": 9901985415600500,
-      "producedblocks": 1373,
-      "missedblocks": 6,
-      "rate": 1,
+      "producedblocks": "1373",
+      "missedblocks": "6",
+      "rate": "1",
       "approval": "98.54",
       "productivity": "99.56"
     },
@@ -185,9 +187,9 @@ JSON Response Example:
       "address": "G318FKKb7mF3M6JCUhBqYnLiha6y",
       "publicKey": "c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2",
       "vote": 9891995435600500,
-      "producedblocks": 1371,
-      "missedblocks": 8,
-      "rate": 2,
+      "producedblocks": "1371",
+      "missedblocks": "8",
+      "rate": "2",
       "approval": "98.44",
       "productivity": "99.41"
     },
@@ -196,11 +198,11 @@ JSON Response Example:
       "address": "1869971419039689816",
       "publicKey": "c547df2dde6cbb4508aabcb5970d8f9132e5a1d1c422632da6bc20bf1df165b8",
       "vote": 32401577128413,
-      "producedblocks": 969,
-      "missedblocks": 8,
+      "producedblocks": "969",
+      "missedblocks": "8",
       "rate": 102,
       "approval": "0.32",
-      "productivity": 0
+      "productivity": "0"
     }
   ]
 }
@@ -299,7 +301,7 @@ JSON Response Example:
 ```json
 {
   "success": true,
-  "balance": 0
+  "balance": "0"
 }
 ```
 
@@ -374,10 +376,10 @@ JSON Response Example:
     "payloadHash": "3d2215b8d226b5a38ace219d0ab3f4d84830fd54a832dc05540e20ef81a00547",
     "timestamp": 0,
     "delegate": "61ca23509390845f06ccaa43384e889074dfd0c821e4ba3894f8e62b6a31895a",
-    "height": 0,
+    "height": "0",
     "count": 203,
-    "fees": 0,
-    "reward": 0,
+    "fees": "0",
+    "reward": "0",
     "signature": "d49b0d08b164c8df402dc1f24430d51126a05a9d1c4012fbdf89272ab95740454b11fd4b44dbf7c60d4757760d8015146433ae21e2e418fd0d7b3aa03adc5503",
     "id": "fed53e3ad0a1405f73122708ee53dfed2e9eccc34693d52043bdb6aec4751a8c"
   }
@@ -388,6 +390,7 @@ JSON Response Example:
 
 ```bash
 gny-cli getblocks [-o <offset>] [-l <limit>] [-s <height:asc | height:desc>] [-t]
+
 gny-cli getblocks [--offset <offset>] [--limit <limit>] [--sort <height:asc | height:desc>] [--transactions]
 ```
 
@@ -417,26 +420,26 @@ JSON Response Example:
     {
       "version": 0,
       "delegate": "ee9191dff690c0a5b74bba5ab4bddeff60042154d66f2d5c7111123ae8cb4396",
-      "height": 55,
+      "height": "55",
       "prevBlockId": "f8d9d54ab0fbbeec1063472a9296e24e8336866de3b0ad5d514fd92ddc73b539",
       "timestamp": 3621850,
       "count": 0,
-      "fees": 0,
+      "fees": "0",
       "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "reward": 0,
+      "reward": "0",
       "signature": "81b0090adc75346c8985ebe2c6341ba36eeb4b48a2a66ec69b701d55e35577f0dbdd5a633627098a7a64cb81dd1a9d6fbf13f7c0983fd162f46ef12c5468840f",
       "id": "e70c0b569ca877d262dadcd1967a02427a9996d8c189ee32b7c8bcff7fa3cff2"
     },
     {
       "version": 0,
       "delegate": "adc2fdf3174278b2d88f9a37d795fb720ab7530f72367e0aae863143b4b90259",
-      "height": 54,
+      "height": "54",
       "prevBlockId": "c3e75c7862a7cbe7f1933837704700bd158c2bd9fc6d1228327323003a0cdd15",
       "timestamp": 3620770,
       "count": 0,
-      "fees": 0,
+      "fees": "0",
       "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "reward": 0,
+      "reward": "0",
       "signature": "a17bf15385b65dd84e94a7be6ccd635dc291f63b8128dd4951f7544fafa0632fc281e70dd597ae2770b228bdb581fd182f98fda7dc4a2d82cf8e94ff344ef604",
       "id": "f8d9d54ab0fbbeec1063472a9296e24e8336866de3b0ad5d514fd92ddc73b539"
     }
@@ -453,10 +456,10 @@ gny-cli getmilestone
 Request Parameter Description: none
 Response Parameter Description:
 
-| Name      | Type    | Description                                                           |
-| --------- | ------- | --------------------------------------------------------------------- |
-| success   | bool    | true: response data return successfully                               |
-| milestone | integer | shows milestone of the last Block (the Block with the highest height) |
+| Name      | Type   | Description                                                           |
+| --------- | ------ | --------------------------------------------------------------------- |
+| success   | bool   | true: response data return successfully                               |
+| milestone | number | shows milestone of the last Block (the Block with the highest height) |
 
 JSON Response Example:
 
@@ -464,30 +467,6 @@ JSON Response Example:
 {
   "success": true,
   "milestone": 0
-}
-```
-
-### Get reward information of last block
-
-```bash
-gny-cli getreward
-```
-
-Request Parameter Description: none
-
-Response Parameter Description:
-
-| Name    | Type    | Description                                                        |
-| ------- | ------- | ------------------------------------------------------------------ |
-| success | bool    | true: response data return successfully                            |
-| reward  | integer | shows reward of the last Block (the Block with the highest height) |
-
-JSON Response Example:
-
-```json
-{
-  "success": true,
-  "reward": 200000000
 }
 ```
 
@@ -501,15 +480,16 @@ Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name    | Type    | Description                                  |
-| ------- | ------- | -------------------------------------------- |
-| success | bool    | true: response data return successfully      |
-| supply  | integer | the total amount of GNY in the whole network |
+| Name    | Type   | Description                                  |
+| ------- | ------ | -------------------------------------------- |
+| success | bool   | true: response data return successfully      |
+| supply  | string | the total amount of GNY in the whole network |
 
 JSON Response Example:
 
 ```json
 {
+  "success": true,
   "supply": "10000000000000000"
 }
 ```
@@ -524,24 +504,25 @@ Request Parameter Description: none
 
 Response Parameter Description:
 
-| Name      | Type      | Description                              |
-| --------- | --------- | ---------------------------------------- |
-| success   | bool      | true: response data return successfully  |
-| height    | string    | blockchain height                        |
-| fee       | string    | transaction fee                          |
-| milestone | integer   |                                          |
-| reward    | integer   | block reward                             |
-| supply    | BigNumber | total amount of GNY in the whole network |
+| Name      | Type   | Description                              |
+| --------- | ------ | ---------------------------------------- |
+| success   | bool   | true: response data return successfully  |
+| height    | string | blockchain height                        |
+| fee       | string | transaction fee                          |
+| milestone | number |                                          |
+| reward    | number | block reward                             |
+| supply    | string | total amount of GNY in the whole network |
 
 JSON Response Example:
 
 ```json
 {
-  "height": "11",
+  "success": true,
+  "height": "158514",
   "fee": "10000000",
   "milestone": 0,
-  "reward": 0,
-  "supply": "10000000000000000"
+  "reward": 200000000,
+  "supply": "40031271000000000"
 }
 ```
 
@@ -619,6 +600,7 @@ JSON Response Example:
 
 ```json
 {
+  "success": true,
   "count": 234
 }
 ```
@@ -680,30 +662,31 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name     | Type | Description                             |
-| -------- | ---- | --------------------------------------- |
-| delegate | JSON | the detail information of this delegate |
+| Name     | Type    | Description                             |
+| -------- | ------- | --------------------------------------- |
+| success  | boolean | Whether operation was successful        |
+| delegate | JSON    | the detail information of this delegate |
 
 JSON Response Example:
 
 ```json
 {
-  "address": "G3kkkSaJNVY87AhVPyxXVGFpR61VB",
-  "username": "gny_d1",
-  "transactionId": "156c950d69dda92214fa26d37baff860990fad43d40ba74a342fabf9adaaa2dc",
-  "publicKey": "85b4c2efe56642398dad3f1ec338e87e712063cfaee4a836cb58b673cdb820f4",
-  "votes": 0,
-  "producedBlocks": 0,
-  "missedBlocks": 0,
-  "fees": 0,
-  "rewards": 0,
-  "_version_": 1,
-  "rate": 47,
-  "approval": 0,
-  "productivity": "0.00",
-  "vote": 0,
-  "missedblocks": 0,
-  "producedblocks": 0
+  "success": true,
+  "delegate": {
+    "address": "G3dGrHJfmZUFhAiYqytdrMG6rL4Lh",
+    "username": "hello",
+    "tid": "a337fdde7850894130e69c446d849115c02f5bc1322104a94de00c4733a5a0eb",
+    "publicKey": "0a1e7a145532a20b60d3d043b48baf6a3f794c8a32f5b7ed86ed09f89642e9ed",
+    "votes": "60000000",
+    "producedBlocks": "0",
+    "missedBlocks": "361",
+    "fees": "0",
+    "rewards": "0",
+    "_version_": 363,
+    "rate": 1,
+    "approval": "0.000000149882805885",
+    "productivity": "99.99"
+  }
 }
 ```
 
@@ -725,6 +708,8 @@ Response Parameter Description:
 | -------- | ------- | --------------------------------------- |
 | success  | boolean | Whether operation was successful        |
 | delegate | JSON    | the detail information of this delegate |
+
+JSON Response Example:
 
 ```json
 {
@@ -761,14 +746,39 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name     | Type | Description                             |
-| -------- | ---- | --------------------------------------- |
-| delegate | JSON | the detail information of this delegate |
+| Name     | Type    | Description                             |
+| -------- | ------- | --------------------------------------- |
+| success  | boolean | Whether operation was successful        |
+| delegate | JSON    | the detail information of this delegate |
+
+JSON Response Example:
+
+```json
+{
+  "success": true,
+  "delegate": {
+    "address": "G3dGrHJfmZUFhAiYqytdrMG6rL4Lh",
+    "username": "hello",
+    "tid": "a337fdde7850894130e69c446d849115c02f5bc1322104a94de00c4733a5a0eb",
+    "publicKey": "0a1e7a145532a20b60d3d043b48baf6a3f794c8a32f5b7ed86ed09f89642e9ed",
+    "votes": "60000000",
+    "producedBlocks": "0",
+    "missedBlocks": "361",
+    "fees": "0",
+    "rewards": "0",
+    "_version_": 363,
+    "rate": 1,
+    "approval": "0.00000014988279615",
+    "productivity": "99.99"
+  }
+}
+```
 
 ### Get the list of Delegates
 
 ```bash
 gny-cli getdelegates [-o <offset>] [-l <limit>]
+
 gny-cli getdelegates [--offset <offset>] [--limit <limit>]
 ```
 
@@ -791,43 +801,38 @@ JSON Response Example:
 
 ```json
 {
-  "totalCount": 101,
+  "success": true,
+  "totalCount": 103,
   "delegates": [
     {
-      "address": "GmCQ2xoGv5bWWtaxQfiBNuTUvaoe",
-      "username": "gny_d95",
-      "transactionId": "d32dcf7b9db93591ae94878f4390807e21052b0b76044b5eadc8a6385557e503",
-      "publicKey": "fffd516f0748ead6720440e94da58ed3afd686b546f5d36a3c5b52cfed834371",
-      "votes": 0,
-      "producedBlocks": 0,
-      "missedBlocks": 0,
-      "fees": 0,
-      "rewards": 0,
-      "_version_": 1,
+      "address": "G3dGrHJfmZUFhAiYqytdrMG6rL4Lh",
+      "username": "hello",
+      "tid": "a337fdde7850894130e69c446d849115c02f5bc1322104a94de00c4733a5a0eb",
+      "publicKey": "0a1e7a145532a20b60d3d043b48baf6a3f794c8a32f5b7ed86ed09f89642e9ed",
+      "votes": "60000000",
+      "producedBlocks": "0",
+      "missedBlocks": "361",
+      "fees": "0",
+      "rewards": "0",
+      "_version_": 363,
       "rate": 1,
-      "approval": 0,
-      "productivity": "0.00",
-      "vote": 0,
-      "missedblocks": 0,
-      "producedblocks": 0
+      "approval": "0.000000149882784917",
+      "productivity": "99.99"
     },
     {
-      "address": "G94UbHjRnd6Em1o3FxQAqkMXA2RV",
-      "username": "gny_d10",
-      "transactionId": "9f9a6818b467dcc73c71c24ff622babeb63850263626dfc7472c1f87f58ebbe9",
-      "publicKey": "ff47c9e9bafcf28ae8528c2b259661ade96a3030ab73ddde82b52ee44c9122b5",
-      "votes": 0,
-      "producedBlocks": 0,
-      "missedBlocks": 0,
-      "fees": 0,
-      "rewards": 0,
-      "_version_": 1,
+      "address": "G3yguB3tazFf6bia3CU1RjXtv2iV6",
+      "tid": "ce6fced7d207e7e55f92a3b68a2394f34b2404cba5c35ea31bf80d2bc871efd5",
+      "username": "gny_d72",
+      "publicKey": "feda901bb63e494e2f30865734e40aa0464f59f2a526a61648c86ba2faf1a952",
+      "votes": "0",
+      "producedBlocks": "1592",
+      "missedBlocks": "0",
+      "fees": "247623722",
+      "rewards": "313520792052",
+      "_version_": 3162,
       "rate": 2,
-      "approval": 0,
-      "productivity": "0.00",
-      "vote": 0,
-      "missedblocks": 0,
-      "producedblocks": 0
+      "approval": "0",
+      "productivity": "100.00"
     }
   ]
 }
@@ -864,13 +869,13 @@ JSON Response Example:
   "success": true,
   "account": {
     "address": "G4b8BhmeRFBmWAHZemKD25BmEP2G",
-    "balance": 0,
+    "balance": "0",
     "secondPublicKey": "",
-    "lockHeight": 0,
+    "lockHeight": "0",
     "publicKey": "bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
   },
   "latestBlock": {
-    "height": 53,
+    "height": "53",
     "timestamp": 3471490
   },
   "version": {
@@ -1158,22 +1163,6 @@ Response Parameter Description:
 | success     | bool | true: response data return successfully    |
 | transaction | json | unconfirmed transaction detail inforamtion |
 
-JSON Response Example:
-
-```json
-{
-  "transactionId": "42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
-  "senderId": "G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
-  "recipientId": "G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
-  "recipientName": null,
-  "currency": "gny",
-  "amount": "10000000000000000",
-  "timestamp": 0,
-  "height": 0,
-  "_version_": 1
-}
-```
-
 ### Send money (contract)
 
 Prize: 0.1 GNY
@@ -1284,9 +1273,9 @@ Response Parameter Description:
 ### Get all publishers
 
 ```bash
-gny-cli getissuers -o <offset> -l <limit>
+gny-cli getissuers [-o <offset>] [-l <limit>]
 
-gny-cli getissuers --offset <offset> --limit <limit>
+gny-cli getissuers [--offset <offset>] [--limit <limit>]
 ```
 
 Request Parameter Description:
