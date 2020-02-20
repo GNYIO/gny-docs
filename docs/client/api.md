@@ -6,7 +6,6 @@ The `@gny/client` acts as a wrapper for all [HTTP endpoints](../http) and **sign
 
 ## Account API
 
-
 ### Open account
 
 ```typescript
@@ -16,9 +15,9 @@ const connection = new Connection();
 const result = await connection.api.Account.openAccount(publicKey);
 ```
 
-| Name      | Type   | Required | Description          |
-| --------- | ------ | -------- | -------------------- |
-| publicKey | string | N        | gny account publicKey|
+| Name      | Type   | Required | Description           |
+| --------- | ------ | -------- | --------------------- |
+| publicKey | string | N        | gny account publicKey |
 
 Response Parameter Description:
 
@@ -49,7 +48,6 @@ JSON Response Example:
     }
 }
 ```
-
 
 ### Get balance
 
@@ -93,7 +91,10 @@ JSON Response Example:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const result = await connection.api.Account.getAddressCurrencyBalance(address, currency);
+const result = await connection.api.Account.getAddressCurrencyBalance(
+  address,
+  currency
+);
 ```
 
 Request Parameter Description:
@@ -105,17 +106,17 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name    | Type    | Description                             |
-| ------- | ------- | --------------------------------------- |
-| success | bool    | true: response data return successfully |
-| balance | integer | balance                                 |
+| Name    | Type   | Description                             |
+| ------- | ------ | --------------------------------------- |
+| success | bool   | true: response data return successfully |
+| balance | string | balance                                 |
 
 JSON Response Example:
 
-```js
+```json
 {
   "success": true,
-  "balance": 0
+  "balance": "0"
 }
 ```
 
@@ -173,7 +174,10 @@ Response Parameter Description:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const result = await connection.api.Account.getVotedDelegates(address, username);
+const result = await connection.api.Account.getVotedDelegates(
+  address,
+  username
+);
 ```
 
 Request Parameter Description:
@@ -270,7 +274,6 @@ Response Parameter Description:
 | success   | bool   | true: response data return successfully |
 | publicKey | string | public key                              |
 
-
 ## Block API
 
 ### Get block by id
@@ -342,7 +345,12 @@ Response Parameter Description:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const result = await connection.api.Block.getBlocks(offset, limit, orderBy, transactions);
+const result = await connection.api.Block.getBlocks(
+  offset,
+  limit,
+  orderBy,
+  transactions
+);
 ```
 
 Request Parameter Description:
@@ -696,7 +704,6 @@ Response Parameter Description:
 | success  | bool | true: response data return successfully |
 | delegate | JSON | the detail information of this delegate |
 
-
 ### Get the list of Delegates
 
 ```typescript
@@ -826,8 +833,6 @@ Response Parameter Description:
 | ------- | ---- | --------------------------------------- |
 | success | bool | true: response data return successfully |
 | enabled | bool | true: forging is enabled                |
-
-
 
 ## Loader
 
@@ -1016,7 +1021,6 @@ Response Parameter Description:
 | timestamp | string | the time right now                      |
 | lastBlock | json   | Basic information about last block      |
 
-
 ## Transaction
 
 ### Get transactions
@@ -1109,14 +1113,16 @@ JSON Response Example:
 }
 ```
 
-
 ### Get unconfirmed transactions by sender public key or address
 
 ```typescript
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const result = await connection.api.Transaction.getUnconfirmedTransaction(publicKey, address);
+const result = await connection.api.Transaction.getUnconfirmedTransaction(
+  publicKey,
+  address
+);
 ```
 
 Request Parameter Description:
@@ -1132,7 +1138,6 @@ Response Parameter Description:
 | ------------ | ----- | ---------------------------------------------- |
 | success      | bool  | true: response data return successfully        |
 | transactions | Array | a list containing all unconfirmed transactions |
-
 
 JSON Response Example:
 
@@ -1163,9 +1168,9 @@ const result = await connection.api.Transaction.addTransactions(transactions);
 ```
 
 Request Parameter Description:  
-| Name         | Type  | Required | Description           |  
+| Name | Type | Required | Description |  
 | ------------ | ----- | -------- | --------------------- |  
-| transactions | Array | Y        | Array of transactions |
+| transactions | Array | Y | Array of transactions |
 
 JSON Response Example:
 
@@ -1228,7 +1233,10 @@ Response Parameter Description:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const result = await connection.api.Transfer.getAmount(startTimestamp, endTimestamp);
+const result = await connection.api.Transfer.getAmount(
+  startTimestamp,
+  endTimestamp
+);
 ```
 
 Request Parameter Description:
@@ -1246,7 +1254,6 @@ Response Parameter Description:
 | count          | string | the number of transfers                 |
 | strTotalAmount | string | the total amout of transfers            |
 
-
 ## Transport
 
 ### Send unconfirmed transaction
@@ -1260,9 +1267,9 @@ const result = await connection.api.Transport.sendTransaction(transaction);
 
 Request Parameter Description:
 
-| Name         | Type | Required | Description             |
-| ------------ | ---- | -------- | ----------------------- |
-| transaction  | json | Y        |  Unconfirmed transction |
+| Name        | Type | Required | Description            |
+| ----------- | ---- | -------- | ---------------------- |
+| transaction | json | Y        | Unconfirmed transction |
 
 Response Parameter Description:
 
@@ -1270,7 +1277,6 @@ Response Parameter Description:
 | ------------- | ------ | --------------------------------------- |
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
-
 
 ## User Defined Asset UIA
 
@@ -1586,4 +1592,3 @@ JSON Response:
   }
 }
 ```
-
