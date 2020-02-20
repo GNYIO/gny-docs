@@ -17,6 +17,7 @@
 - [Register as Delegate](./register-as-delegate.md)
 - [Lock account for Voting](./lock-account-for-voting.md)
 - [Vote for Delegate](./vote-for-delegate.md)
+- [Unvote Delegate](./unvote-delegate.md)
 
 ## Initiate Transactions
 

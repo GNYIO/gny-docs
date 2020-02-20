@@ -120,6 +120,7 @@ module.exports = {
           ['/guide/set-username', 'Set Username'],
           ['/guide/register-as-delegate', 'Register as Delegate'],
           ['/guide/vote-for-delegate', 'Vote for Delegate'],
+          ['/guide/unvote-delegate', 'Unvote Delegate'],
         ],
       },
       {

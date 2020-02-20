@@ -1,5 +1,5 @@
 ::: warning
-In order to be able to vote you need to first a part of your GNY tokens for a certain time period. Follow the [lock account for voting](./lock-account-for-voting.md) guide
+In order to be able to vote you need to first lock a part of your `GNY` tokens for a certain time period. Follow the [lock account for voting](./lock-account-for-voting.md) guide
 :::
 
 ::: tip
@@ -13,9 +13,5 @@ See guide [lock account for voting](./lock-account-for-voting.md) for details
 ## With CLI
 
 ```bash
-gny-cli --host "45.76.215.117" --port 4096 vote --secret "" -p "delegate-username"
+gny-cli --host "45.76.215.117" --port 4096 vote --secret "" --usernames "liangpeili,xpgeng,a1300"
 ```
-
-::: tip
-Now check your delegate position in
-:::
