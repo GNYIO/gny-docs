@@ -74,7 +74,6 @@ Response Parameter Description:
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
 
-
 ### Register as a delegate (contract)
 
 Prize: 100 GNY
@@ -98,7 +97,6 @@ Response Parameter Description:
 | ------------- | ------ | --------------------------------------- |
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
-
 
 ### Create a transaction (contract)
 
@@ -134,7 +132,6 @@ Response Parameter Description:
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
 
-
 ### Vote for a list of keys (contract)
 
 Prize: 0.1 GNY
@@ -143,17 +140,16 @@ Prize: 0.1 GNY
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-await connection.contract.Basic.vote(keyList, secret, secondSecret);
-
+await connection.contract.Basic.vote(usernames, secret, secondSecret);
 ```
 
 Request Parameter Description:
 
-| Name         | Type   | Required | Description                 |
-| ------------ | ------ | -------- | --------------------------- |
-| keyList      | Array  | Y        | public key list to be voted |
-| secret       | string | Y        | gny account password        |
-| secondSecret | string | N        | gny account second password |
+| Name         | Type     | Required | Description                 |
+| ------------ | -------- | -------- | --------------------------- |
+| usernames    | string[] | Y        | list of usernames           |
+| secret       | string   | Y        | gny account password        |
+| secondSecret | string   | N        | gny account second password |
 
 Response Parameter Description:
 
@@ -170,16 +166,16 @@ Prize: 0.1 GNY
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-await connection.contract.Basic.unvote(keyList, secret, secondSecret);
+await connection.contract.Basic.unvote(usernames, secret, secondSecret);
 ```
 
 Request Parameter Description:
 
-| Name         | Type   | Required | Description                 |
-| ------------ | ------ | -------- | --------------------------- |
-| keyList      | Array  | Y        | public key list to be voted |
-| secret       | string | Y        | gny account password        |
-| secondSecret | string | N        | gny account second password |
+| Name         | Type     | Required | Description                 |
+| ------------ | -------- | -------- | --------------------------- |
+| usernames    | string[] | Y        | list of usernames           |
+| secret       | string   | Y        | gny account password        |
+| secondSecret | string   | N        | gny account second password |
 
 Response Parameter Description:
 
@@ -187,8 +183,6 @@ Response Parameter Description:
 | ------------- | ------ | --------------------------------------- |
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
-
-
 
 ## User Defined Asset UIA
 
