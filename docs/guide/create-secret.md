@@ -46,3 +46,38 @@ In order to start forging you need to add your `secret` to your node configurati
 
 Visit [run-node/configure](../run-node/configure) for details
 :::
+
+<!-- <Secret/> -->
+
+{{ msg }}
+
+<br >
+
+{{secret}}
+
+<script lang="ts">
+import Vue from 'vue';
+import * as Mnemonic from "bitcore-mnemonic";
+
+export default Vue.extend({
+  data() {
+    return {
+      secret: '',
+    }
+  },
+
+  // mothods: {
+  //   async newAccount() {
+  //     this.secret = new Mnemonic(Mnemonic.Words.ENGLISH).toString();
+  //   }
+  // },
+
+  mounted() {
+    try {
+      this.secret = new Mnemonic(Mnemonic.Words.ENGLISH).toString();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+})
+</script>

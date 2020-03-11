@@ -21,6 +21,12 @@ module.exports = {
     ],
     ['vuepress-plugin-code-copy', true],
     ['seo'],
+    [
+      'vuepress-plugin-typescript',
+      {
+        tsLoaderOptions: {},
+      },
+    ],
   ],
   themeConfig: {
     repo: 'gnyio/gny-experiment',
