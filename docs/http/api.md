@@ -829,7 +829,78 @@ JSON Response Example:
 ]}
 ```
 
-#### 2.4.7 Enable Forging for Delegate
+#### 2.4.7 Get own Votes
+
+API Endpoint: `/api/delegates/getOwnVotes`  
+HTTP Verb: POST  
+Supported Format: urlencoded  
+Request Parameter Description:
+
+| Name     | Type   | Required | Description       |
+| -------- | ------ | -------- | ----------------- |
+| address  | string | N        | accounts address  |
+| username | string | N        | accounts username |
+
+Response Parameter Description:
+
+| Name     | Type  | Description                                     |
+| -------- | ----- | ----------------------------------------------- |
+| success  | bool  | true: response data return successfully         |
+| accounts | Array | a list containing delegates' detail information |
+
+Request Example (with username):
+
+```bash
+curl -k -X GET 'http://localhost:4096/api/delegates/getOwnVotes?username=a1300'
+```
+
+Request Example (with address):
+
+```bash
+curl -k -X GET 'http://localhost:4096/api/delegates/getOwnVotes?address=GtnevSTQqPUcZNAMFJmc8DLUXHFz'
+```
+
+JSON Response Example:
+
+```js
+{
+   "success":true,
+   "delegates":[
+      {
+         "address":"G3yguB3tazFf6bia3CU1RjXtv2iV6",
+         "username":"gny_d72",
+         "tid":"ce6fced7d207e7e55f92a3b68a2394f34b2404cba5c35ea31bf80d2bc871efd5",
+         "publicKey":"feda901bb63e494e2f30865734e40aa0464f59f2a526a61648c86ba2faf1a952",
+         "votes":"900000000000",
+         "producedBlocks":"0",
+         "missedBlocks":"0",
+         "fees":"0",
+         "rewards":"0",
+         "_version_":2,
+         "rate":1,
+         "approval":"0.00225",
+         "productivity":"NaN"
+      },
+      {
+         "address":"GtZDocCVQ6iNR6JzjPCqgJPzmoRN",
+         "username":"gny_d58",
+         "tid":"aeb8ae1404985bb38c18d695ce9c336b65382c94fa85d38db3d575f03d3ff84f",
+         "publicKey":"fbc95173f63a02239ff37f81236e283504d247d551143d16c2fee80c692b25bd",
+         "votes":"900000000000",
+         "producedBlocks":"1",
+         "missedBlocks":"0",
+         "fees":"0",
+         "rewards":"0",
+         "_version_":3,
+         "rate":2,
+         "approval":"0.00225",
+         "productivity":"100.00"
+      }
+   ]
+}
+```
+
+#### 2.4.8 Enable Forging for Delegate
 
 API Endpoint: `/api/delegates/forging/enable`  
 HTTP Verb: POST  
@@ -861,7 +932,7 @@ JSON Response Example:
 }
 ```
 
-#### 2.4.8 Disable Forging for Delegate
+#### 2.4.9 Disable Forging for Delegate
 
 API Endpoint: `/api/delegates/forging/disable`  
 HTTP Verb: POST  
@@ -893,7 +964,7 @@ JSON Response Example:
 }
 ```
 
-#### 2.4.9 Check Delgate Forging Status
+#### 2.4.10 Check Delgate Forging Status
 
 API Endpoint: `/api/delegates/forging/status`  
 HTTP Verb: GET  
