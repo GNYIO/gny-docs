@@ -843,10 +843,10 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name     | Type  | Description                                     |
-| -------- | ----- | ----------------------------------------------- |
-| success  | bool  | true: response data return successfully         |
-| accounts | Array | a list containing delegates' detail information |
+| Name      | Type  | Description                                     |
+| --------- | ----- | ----------------------------------------------- |
+| success   | bool  | true: response data return successfully         |
+| delegates | Array | a list containing delegates' detail information |
 
 Request Example (with username):
 
