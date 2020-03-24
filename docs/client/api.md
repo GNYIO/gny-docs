@@ -625,7 +625,7 @@ import { Connection } from "@gny/client";
 const params = { username: "a1300" };
 
 const connection = new Connection();
-const result = await connection.api.Delegate.getVoters(params);
+const result = await connection.api.Delegate.getOwnVotes(params);
 ```
 
 Get votes with address:
@@ -636,7 +636,7 @@ import { Connection } from "@gny/client";
 const params = { address: "GtnevSTQqPUcZNAMFJmc8DLUXHFz" };
 
 const connection = new Connection();
-const result = await connection.api.Delegate.getVoters(params);
+const result = await connection.api.Delegate.getOwnVotes(params);
 ```
 
 Request Parameter Description:
