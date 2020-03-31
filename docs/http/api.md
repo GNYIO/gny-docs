@@ -26,7 +26,7 @@ Head to the [@gny/client](../client) documentation for details
 
 ##### 2.1.1.1 Read Account with PublicKey
 
-API Endpoint: `/api/accounts/open`  
+API Endpoint: `/api/accounts/openAccount`  
 HTTP Verb: POST  
 Supported Format: JSON  
 Request Parameter Description:
@@ -54,9 +54,12 @@ JSON Response Example:
 {
   "account": {
     "address": "G2QEzc5BndQ2h6BsSNqimCWbSBV9L",
-    "balance": 0,
-    "secondPublicKey": "",
-    "lockHeight": 0,
+    "balance": "20000000000",
+    "secondPublicKey": null,
+    "lockHeight": "0",
+    "lockAmount": "0",
+    "isDelegate": 0,
+    "username": null,
     "publicKey": "a87c7230d9ade987dbf612605aab652667e6303d2a1c6b2ec91a13733593bb75"
   },
   "latestBlock": {
