@@ -618,6 +618,84 @@ JSON Response Example:
 }
 ```
 
+### Get own votes with username or address
+
+Get votes with username:
+
+```typescript
+import { Connection } from "@gny/client";
+
+const params = { username: "a1300" };
+
+const connection = new Connection();
+const result = await connection.api.Delegate.getOwnVotes(params);
+```
+
+Get votes with address:
+
+```typescript
+import { Connection } from "@gny/client";
+
+const params = { address: "GtnevSTQqPUcZNAMFJmc8DLUXHFz" };
+
+const connection = new Connection();
+const result = await connection.api.Delegate.getOwnVotes(params);
+```
+
+Request Parameter Description:
+
+| Name     | Type   | Required | Description             |
+| -------- | ------ | -------- | ----------------------- |
+| username | string | N        | username of the account |
+| address  | string | N        | address of the account  |
+
+Response Parameter Description:
+
+| Name      | Type  | Description                             |
+| --------- | ----- | --------------------------------------- |
+| success   | bool  | true: response data return successfully |
+| delegates | Array | a JSON object list of account           |
+
+JSON Response Example:
+
+```js
+{
+   "success":true,
+   "delegates":[
+      {
+         "address":"G3yguB3tazFf6bia3CU1RjXtv2iV6",
+         "username":"gny_d72",
+         "tid":"ce6fced7d207e7e55f92a3b68a2394f34b2404cba5c35ea31bf80d2bc871efd5",
+         "publicKey":"feda901bb63e494e2f30865734e40aa0464f59f2a526a61648c86ba2faf1a952",
+         "votes":"900000000000",
+         "producedBlocks":"0",
+         "missedBlocks":"0",
+         "fees":"0",
+         "rewards":"0",
+         "_version_":2,
+         "rate":1,
+         "approval":"0.00225",
+         "productivity":"100.00"
+      },
+      {
+         "address":"GtZDocCVQ6iNR6JzjPCqgJPzmoRN",
+         "username":"gny_d58",
+         "tid":"aeb8ae1404985bb38c18d695ce9c336b65382c94fa85d38db3d575f03d3ff84f",
+         "publicKey":"fbc95173f63a02239ff37f81236e283504d247d551143d16c2fee80c692b25bd",
+         "votes":"900000000000",
+         "producedBlocks":"1",
+         "missedBlocks":"0",
+         "fees":"0",
+         "rewards":"0",
+         "_version_":3,
+         "rate":2,
+         "approval":"0.00225",
+         "productivity":"100.00"
+      }
+   ]
+}
+```
+
 ### Get delegate by public key
 
 ```typescript
