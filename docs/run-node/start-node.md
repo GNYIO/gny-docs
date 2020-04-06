@@ -32,7 +32,7 @@ services:
   node1:
     container_name: "node1"
     image: a1300/testnet
-    command: bash -c 'while !</dev/tcp/db1/5432; do sleep 0.5; done; node packages/main/dist/src/app --ormConfig "ormconfig.integration.json"'
+    command: bash -c 'while !</dev/tcp/db1/5432; do sleep 0.5; done; node packages/main/dist/src/app'
     environment:
       - NODE_ENV=production
       - GNY_LOG_LEVEL=info
@@ -40,6 +40,11 @@ services:
       - GNY_SECRET=<here goes your BIP39 secret(s)>
       - GNY_P2P_SECRET="<here goes your p2p secret"
       - GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5
+      - GNY_DB_PASSWORD=docker
+      - GNY_DB_DATABASE=postgres
+      - GNY_DB_USER=postgres
+      - GNY_DB_HOST=db1
+      - GNY_DB_PORT=5432
     ports:
       - "4096:4096"
       - "4097:4097"
