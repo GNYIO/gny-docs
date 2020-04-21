@@ -37,7 +37,7 @@ module.exports = {
     ],
     sidebar: [
       {
-        title: 'Run Node',
+        title: 'Run Node with Docker',
         path: '/run-node/', // important is a / at the end
         collapsable: false,
         sidebarDepth: 0, // important otherwise the sidebar would get confusing
@@ -46,6 +46,18 @@ module.exports = {
           ['/run-node/start-node', 'Start node'],
           ['/run-node/configure', 'Configure'],
           ['/run-node/manage-node', 'Manage node'],
+        ],
+      },
+      {
+        title: 'Run Bare Metal Node',
+        path: '/run-bare-metal-node',
+        collapsable: false,
+        sidebarDepth: 0,
+        children: [
+          ['/run-bare-metal-node/get-started', 'Get Started'],
+          ['/run-bare-metal-node/start-node', 'Start node'],
+          ['/run-bare-metal-node/configure', 'Configure'],
+          ['/run-bare-metal-node/manage-node', 'Manage node'],
         ],
       },
       {
