@@ -105,9 +105,10 @@ It is important that the `multiaddrs` array displays only one entry with the cor
 
 ## Configure P2P Secret
 
-::: tip
-Checkout our [Guides](../guide/) on how to create a `p2p secret`
-:::
+<ClientOnly>
+  <P2PSecret>
+  </P2PSecret>
+</ClientOnly>
 
 The `p2p secret` keeps the connection between peers secure. This is option is **mandatory**.
 

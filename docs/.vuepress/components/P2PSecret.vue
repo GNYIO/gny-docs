@@ -16,7 +16,7 @@
 import * as peerId from '../../lib/peer-id';
 
 export default {
-  name: 'demo-1',
+  name: 'P2PSecret',
   methods: {
     recalculate() {
       peerId.create().then(x => {
@@ -29,7 +29,7 @@ export default {
       privateP2PKey: '',
     };
   },
-  mounted() {
+  beforeMount() {
     peerId.create().then(x => {
       this.privateP2PKey = x.toJSON().privKey;
     });
