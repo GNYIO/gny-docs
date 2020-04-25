@@ -21,12 +21,6 @@ module.exports = {
     ],
     ['vuepress-plugin-code-copy', true],
     ['seo'],
-    [
-      'vuepress-plugin-typescript',
-      {
-        tsLoaderOptions: {},
-      },
-    ],
   ],
   themeConfig: {
     repo: 'gnyio/gny-experiment',
@@ -136,5 +130,20 @@ module.exports = {
         sidebarDepth: 0,
       },
     ],
+  },
+
+  chainWebpack(config, isServer) {
+    if (isServer) {
+      return config.module
+        .rule('compile')
+        .test(/\.js$/)
+        .add('node_modules/peer-id/dist')
+        .end()
+        .use('babel')
+        .loader('babel-loader')
+        .options({
+          presets: [['@babel/preset-env', { modules: false }]],
+        });
+    }
   },
 };

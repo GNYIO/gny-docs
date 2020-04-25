@@ -44,22 +44,25 @@ JSON Response Example:
 
 ```js
 {
-  "account":{
-    "address":"G4b8BhmeRFBmWAHZemKD25BmEP2G",
-    "balance":"0",
-    "secondPublicKey":"",
-    "lockHeight":"0",
-    "publicKey":"bd1e78c5a10fbf1eca36b28bbb8ea85f320967659cbf1f7ff1603d0a368867b9"
-    },
-    "latestBlock":{
-      "height":"53",
-      "timestamp":3471490
-    },
-    "version":{
-      "version":"1.0.0",
-      "build":"Tue Feb 04 2020 10:26:47 GMT+0100 (Central European Standard Time)",
-      "net":"testnet"
-    }
+  "account": {
+    "address": "G2QEzc5BndQ2h6BsSNqimCWbSBV9L",
+    "balance": '20000000000',
+    "secondPublicKey": null,
+    "lockHeight": '0',
+    "lockAmount": '0',
+    "isDelegate": 0,
+    "username": null,
+    "publicKey": "a87c7230d9ade987dbf612605aab652667e6303d2a1c6b2ec91a13733593bb75"
+  },
+  "latestBlock": {
+    "height": 53,
+    "timestamp": 3471490
+  },
+  "version": {
+    "version": "1.0.0",
+    "build": "Sun Feb 02 2020 19:42:18 GMT+0100 (Central European Standard Time)",
+    "net": "testnet"
+  }
 }
 ```
 
@@ -94,7 +97,6 @@ JSON Response Example:
 }
 ```
 
-
 ### Generate publicKey
 
 ```typescript
@@ -116,7 +118,6 @@ Response Parameter Description:
 | --------- | ------ | --------------------------------------- |
 | success   | bool   | true: response data return successfully |
 | publicKey | string | public key                              |
-
 
 JSON Response Example:
 

@@ -27,5 +27,3 @@ The result:
 ::: tip
 The `p2p secret` is the key `privKey` starting with: `CAASpwkwggSjAgEAAoIBAQCXtFhfi...`
 :::
-
-<Peer2Peer/>
