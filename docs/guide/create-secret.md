@@ -54,3 +54,9 @@ Visit [run-node/configure](../run-node/configure) for details
     <p>Hello</p>
   </demo-1>
 </ClientOnly>
+
+<ClientOnly>
+  <demo-1>
+    <p>Hello</p>
+  </demo-1>
+</ClientOnly>
