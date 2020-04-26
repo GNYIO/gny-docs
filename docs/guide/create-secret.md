@@ -46,3 +46,5 @@ In order to start forging you need to add your `secret` to your node configurati
 
 Visit [run-node/configure](../run-node/configure) for details
 :::
+
+<br >
