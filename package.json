@@ -40,10 +40,7 @@
     "vuepress": "^1.3.0"
   },
   "dependencies": {
-    "@gny/client": "^1.0.27",
     "bitcore-mnemonic": "^8.13.2",
-    "peer-id": "^0.13.12",
-    "peer-info": "^0.15.1",
     "vue-property-decorator": "^8.4.0",
     "vuepress-plugin-code-copy": "^1.0.4",
     "vuepress-plugin-seo": "^0.1.2",
