@@ -21,6 +21,11 @@ Do not reuse your delegate secret on different GNY Blockchain networks (`localne
 In order to start forging you need to first register as delegate. Be sure to checkout our [Guides](../guide/) on how to register as `delegate` and how to create a random `secret`.
 :::
 
+<ClientOnly>
+  <GNYSecret>
+  </GNYSecret>
+</ClientOnly>
+
 In order to start forging please pass a secret or multiple secrets (comma separated) to the GNY Blockchain. This option is optional.
 
 Change CLI arguments:
