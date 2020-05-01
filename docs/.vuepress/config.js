@@ -112,7 +112,7 @@ module.exports = {
         sidebarDepth: 0,
         children: [
           ['/guide/create-p2p-secret', 'Create P2P Secret'],
-          ['/guide/create-secret', 'Create Delegate Secret'],
+          ['/guide/create-secret', 'Create Secret'],
           ['/guide/check-balance', 'Check Balance'],
           ['/guide/get-gny-on-testnet', 'Get GNY on Testnet'],
           ['/guide/show-address-from-secret', 'Show Address from Secret'],

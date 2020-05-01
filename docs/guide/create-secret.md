@@ -10,6 +10,13 @@ Don't reuse this `secret` on differnet GNY networks (`localnet`, `testnet`, `mai
 This secret (`BIP39 standard`) is used to access your funds on the GNY Blockhain and activates forging (if you are a delegate).
 :::
 
+## Here
+
+<ClientOnly>
+  <GNYSecret>
+  </GNYSecret>
+</ClientOnly>
+
 ## With CLI
 
 First install the `@gny/cli` via npm:
