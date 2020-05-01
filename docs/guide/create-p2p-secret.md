@@ -1,5 +1,12 @@
 # Create P2P Secret
 
+## Here
+
+<ClientOnly>
+  <P2PSecret>
+  </P2PSecret>
+</ClientOnly>
+
 ## With CLI
 
 First install the `@gny/cli` via npm:
