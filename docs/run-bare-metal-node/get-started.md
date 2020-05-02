@@ -39,7 +39,20 @@ nvm install v10.16.2
 nvm alias default
 ```
 
-Install necessary dependencies:
+### Install PostgreSQL
+
+```bash
+sudo apt-get install postgresql-10
+```
+
+### Setup PostgreSQL
+
+```bash
+sudo -i -u postgres psql -c "CREATE USER postgres2 WITH PASSWORD 'docker' CREATEDB;"
+sudo -i -u postgres psql -c "CREATE DATABASE postgres2 WITH OWNER postgres2;"
+```
+
+### Install necessary dependencies:
 
 ```bash
 sudo apt-get install curl ntp wget libssl-dev openssl make gcc g++ autoconf automake python build-essential -y
