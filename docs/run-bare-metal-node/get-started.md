@@ -39,7 +39,7 @@ nvm install v10.16.2
 nvm alias default
 ```
 
-### Install PostgreSQL
+### Install PostgreSQL 10
 
 ```bash
 sudo apt-get install postgresql-10
@@ -60,7 +60,7 @@ sudo apt-get install curl ntp wget libssl-dev openssl make gcc g++ autoconf auto
 sudo apt-get install libtool libtool-bin -y
 ```
 
-## Close Repository
+## Clone Repository
 
 ```bash
 git clone https://github.com/gnyio/gny && cd gny
