@@ -32,18 +32,6 @@ Start your node with:
 npm run start
 ```
 
-::: danger Edit Configuration
-In order to make the configuration work you need to edit the following properties:
-
-|              Property              |                                 Description                                  |          Formatting tips           |
-| :--------------------------------: | :--------------------------------------------------------------------------: | :--------------------------------: |
-|     `GNY_PUBLIC_IP=214.42...`      |                         replace with your public ip                          |  **don't** double quote public ip  |
-|   `GNY_SECRET=health typical...`   | twelve word [BIP39](https://en.bitcoin.it/wiki/Seed_phrase) forging secret - | **don't** double quote your secret |
-| `GNY_P2P_SECRET="CAASqgkwggSm..."` |            [libp2p](https://github.com/libp2p/js-libp2p/) secret             |       **double quote** value       |
-
-See [`Configure`](./configure) for more details.
-:::
-
 ::: tip
 For information on how to **forge Blocks** see [**configure**](./configure)
 :::
