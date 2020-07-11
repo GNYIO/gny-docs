@@ -17,7 +17,7 @@ We support currently only Linux. Please use Ubuntu or one of its derivates:
 sudo apt-get install git
 ```
 
-Install Git from their [Git Website](https://git-scm.com/)
+Install Git from the [Git Website](https://git-scm.com/)
 
 ### Install node.js
 
