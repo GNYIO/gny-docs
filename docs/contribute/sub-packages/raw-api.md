@@ -964,12 +964,10 @@ Supported Format: urlencoded
 Comment: if there is no parameter, all delegates in the whole network will be returned.
 Request Parameter Description:
 
-| Name    | Type    | Required | Description                                         |
-| ------- | ------- | -------- | --------------------------------------------------- |
-| address | string  | N        | delegate's address                                  |
-| limit   | int     | N        | maximum return records                              |
-| offset  | integer | N        | offset, minimum: 0                                  |
-| orderBy | string  | N        | [field used to sort]:[sort type] e.g., address:desc |
+| Name   | Type    | Required | Description            |
+| ------ | ------- | -------- | ---------------------- |
+| limit  | int     | N        | maximum return records |
+| offset | integer | N        | offset, minimum: 0     |
 
 Response Parameter Description:
 
@@ -1105,7 +1103,7 @@ Request Parameter Description:
 | publicKey | string | N        | public key of a delegate |
 
 ```bash
-curl -X GET 'http://localhost:4096/api/dy=ff47c9e9bafcf28ae8528c2b259661ade96a3030ab73ddde82b52ee44c9122b5'
+curl -X GET 'http://localhost:4096/api/delegates/forging/status?publicKey=ff47c9e9bafcf28ae8528c2b259661ade96a3030ab73ddde82b52ee44c9122b5'
 ```
 
 JSON Response Example (forging enabled):
