@@ -46,7 +46,7 @@ module.exports = {
           ['/run-node/start-node', 'Start node'],
           ['/run-node/configure', 'Configure'],
           ['/run-node/manage-node', 'Manage node'],
-          ['/run-node/upgrade', 'Upgrade'],
+          ['/run-node/upgrade-node', 'Upgrade Node'],
         ],
       },
       {
