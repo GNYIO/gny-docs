@@ -767,12 +767,10 @@ Supported Format: urlencoded
 Comment: if there is no parameter, all delegates in the whole network will be returned.
 Request Parameter Description:
 
-| Name    | Type    | Required | Description                                         |
-| ------- | ------- | -------- | --------------------------------------------------- |
-| address | string  | N        | delegate's address                                  |
-| limit   | int     | N        | maximum return records                              |
-| offset  | integer | N        | offset, minimum: 0                                  |
-| orderBy | string  | N        | [field used to sort]:[sort type] e.g., address:desc |
+| Name   | Type    | Required | Description            |
+| ------ | ------- | -------- | ---------------------- |
+| limit  | int     | N        | maximum return records |
+| offset | integer | N        | offset, minimum: 0     |
 
 Response Parameter Description:
 
