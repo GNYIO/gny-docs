@@ -1000,6 +1000,89 @@ JSON Response Example (forging disabled):
 }
 ```
 
+#### 2.4.11 Return own Delegates Produced Blocks
+
+API Endpoint: `/api/delegates/ownProducedBlocks`  
+HTTP Verb: GET  
+Supported Format: urlencoded
+
+Request Parameter Description:
+
+| Name      | Type    | Required | Description                                                    |
+| --------- | ------- | -------- | -------------------------------------------------------------- |
+| publicKey | string  | N        | public key of a delegate                                       |
+| address   | string  | N        | address of a delegate                                          |
+| username  | string  | N        | username of a delegate                                         |
+| limit     | integer | N        | maximum number of produced blocks to return, between 0 and 100 |
+| offset    | integer | N        | Offset, minimum 0                                              |
+
+Response Parameter Description:
+
+| Name     | Type  | Description                                    |
+| -------- | ----- | ---------------------------------------------- |
+| success  | bool  | true: response data return successfully        |
+| delegate | JSON  | the detail information of this delegate        |
+| blocks   | Array | a list of JSON objects containing block detail |
+
+Request Example:
+
+```bash
+curl -k -X GET 'http://localhost:4096/api/delegates/ownProducedBlocks?username=gny_d1'
+```
+
+JSON Response Example:
+
+```js
+{
+  "success": true,
+  "delegate": {
+    "address": "GM5CevQY3brUyRtDMng5Co41nWHh",
+    "username": "gny_d1",
+    "tid": "4c1ff5bfa17873df950b81f371cd0c9273d87af97af148b215d2f24545e383b2",
+    "publicKey": "0bcf038e0cb8cb61b72cb06f943afcca62094ad568276426a295ba8f550708a9",
+    "votes": "0",
+    "producedBlocks": "2",
+    "missedBlocks": "0",
+    "fees": "0",
+    "rewards": "0",
+    "_version_": 3,
+    "rate": 97,
+    "approval": "0",
+    "productivity": "1"
+  },
+  "blocks": [
+    {
+      "id": "716bb19a164a648e51cdadb65abdaa23c694c4cc9c0b4a2d93fb514700a94e7a",
+      "version": 0,
+      "timestamp": 51573040,
+      "height": "30",
+      "prevBlockId": "8a7cd22f62a38479c289a20ab127b85c1c6c8051c94923cf7658a5b793324f4e",
+      "count": 0,
+      "fees": "0",
+      "reward": "0",
+      "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "delegate": "0bcf038e0cb8cb61b72cb06f943afcca62094ad568276426a295ba8f550708a9",
+      "signature": "3f7f435bac597e613556aba202608f2a4cec3b0c669c560668842fbc175312732845f49d00417100ed58c3b54a21cfc52606cdd86791081b93203713d0a79e01",
+      "_version_": 0
+    },
+    {
+      "id": "e931f45694b3ebec04ef8c46862674b6794edfbb2864380645606127130e3375",
+      "version": 0,
+      "timestamp": 51574500,
+      "height": "176",
+      "prevBlockId": "c338eff51fb578ba608d2d652bcb8efabd69275e3857fda422bab34df88da9a9",
+      "count": 0,
+      "fees": "0",
+      "reward": "0",
+      "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "delegate": "0bcf038e0cb8cb61b72cb06f943afcca62094ad568276426a295ba8f550708a9",
+      "signature": "2f58cc7c186639b447a33efc2111679e363a0cfbe82525e6c910b47722a397ac31e57538d8880392a4192056bee549ac48d81ca847b581f9aca53ba08d265908",
+      "_version_": 0
+    }
+  ]
+}
+```
+
 ### 2.5 Peers
 
 #### 2.5.1 Get all Peers' Information in the Whole Network
