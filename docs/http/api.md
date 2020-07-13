@@ -360,7 +360,7 @@ JSON Response Example:
 
 #### 2.3.1 Get the Block Detail Information of the Given ID
 
-API Endpoint: `/api/blocks/get`  
+API Endpoint: `/api/blocks/getBlock`  
 HTTP Verb: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
@@ -380,7 +380,7 @@ Response Parameter Description:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks/get?id=fed53e3ad0a1405f73122708ee53dfed2e9eccc34693d52043bdb6aec4751a8c'
+curl -k -X GET 'http://localhost:4096/api/blocks/getBlock?id=fed53e3ad0a1405f73122708ee53dfed2e9eccc34693d52043bdb6aec4751a8c'
 ```
 
 JSON Response Example:
