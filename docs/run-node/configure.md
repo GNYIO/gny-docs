@@ -207,7 +207,7 @@ The `dbDatabase` configures the database name to which the GNY Blockchain should
 The `dbDatabase` option can be passed to the GNY node:
 
 - as argument: `--dbDatabase=postgres`
-- as environment variable: `GNY_DB_PASSWORD=postgres`
+- as environment variable: `GNY_DB_DATABASE=postgres`
 
 Pass `dbDatabase` as argument:
 
