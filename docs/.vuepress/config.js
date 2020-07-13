@@ -57,6 +57,7 @@ module.exports = {
           ['/run-bare-metal-node/get-started', 'Get Started'],
           ['/run-bare-metal-node/start-node', 'Start node'],
           ['/run-bare-metal-node/configure', 'Configure'],
+          ['/run-bare-metal-node/manage-node', 'Manage node'],
         ],
       },
       {
