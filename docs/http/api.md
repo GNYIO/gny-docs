@@ -979,7 +979,7 @@ Request Parameter Description:
 | publicKey | string | N        | public key of a delegate |
 
 ```bash
-curl -X GET 'http://localhost:4096/api/dy=ff47c9e9bafcf28ae8528c2b259661ade96a3030ab73ddde82b52ee44c9122b5'
+curl -X GET 'http://localhost:4096/api/delegates/forging/status?publicKey=ff47c9e9bafcf28ae8528c2b259661ade96a3030ab73ddde82b52ee44c9122b5'
 ```
 
 JSON Response Example (forging enabled):
