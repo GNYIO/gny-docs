@@ -646,7 +646,7 @@ JSON Response Example:
 
 #### 2.4.2 Get Voters of Delegate by Delegate Public Key
 
-API Endpoint: `/api/delegates/voters`  
+API Endpoint: `/api/delegates/getVoters`  
 Request Method: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
@@ -665,7 +665,7 @@ Response Parameter Description:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/voters?username=gny_d1'
+curl -k -X GET 'http://localhost:4096/api/delegates/getVoters?username=gny_d1'
 ```
 
 JSON Response Example:
