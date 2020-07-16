@@ -241,77 +241,6 @@ JSON Response Example:
 }
 ```
 
-#### 2.1.6 Get Voting List by Address
-
-Interface Address: /api/accounts/delegates  
-Request Method: get  
-Supported Format: urlencoded  
-Request Parameter Description:
-
-| Name    | Type   | Required | Description     |
-| ------- | ------ | -------- | --------------- |
-| address | string | Y        | Voter's address |
-
-Response Parameter Description:
-
-| Name      | Type  | Description                                                                       |
-| --------- | ----- | --------------------------------------------------------------------------------- |
-| success   | bool  | true: response data return successfully                                           |
-| delegates | Array | A list that contains detail information of those delegates who have already voted |
-
-Request Example (address):
-
-```bash
-curl -k -X GET 'http://localhost:4096/api/accounts/delegates?address=GJX8DYKb7mF3M6JCUhBqYnLiha6y'
-```
-
-Request Example (username):
-
-```bash
-curl -k -X GET 'http://localhost:4096/api/accounts/delegates?name=gny_d11'
-```
-
-JSON Response Example:
-
-```js
-{
-	"success": true,
-	"delegates": [{
-		"username": "wgl_002",
-		"address": "GJX8DYKb7mF3M6JCUhBqYnLiha6y",
-		"publicKey": "ae256559d06409435c04bd62628b3e7ea3894c43298556f52b1cfb01fb3e3dc7",
-		"vote": 9901985415600500,
-		"producedblocks": 1373,
-		"missedblocks": 6,
-		"rate": 1,
-		"approval": "98.54",
-		"productivity": "99.56"
-	},
-	{
-		"username": "wgl_003",
-		"address": "G318FKKb7mF3M6JCUhBqYnLiha6y",
-		"publicKey": "c292db6ea14d518bc29e37cb227ff260be21e2e164ca575028835a1f499e4fe2",
-		"vote": 9891995435600500,
-		"producedblocks": 1371,
-		"missedblocks": 8,
-		"rate": 2,
-		"approval": "98.44",
-		"productivity": "99.41"
-	},
-	{
-		"username": "wgl_001",
-		"address": "1869971419039689816",
-		"publicKey": "c547df2dde6cbb4508aabcb5970d8f9132e5a1d1c422632da6bc20bf1df165b8",
-		"vote": 32401577128413,
-		"producedblocks": 969,
-		"missedblocks": 8,
-		"rate": 102,
-		"approval": "0.32",
-		"productivity": 0
-	}]
-}
-```
-
 ### 2.2 Transactions
 
 #### 2.2.1 Get the Transaction Detail Information
@@ -843,7 +772,7 @@ JSON Response Example:
 
 #### 2.4.2 Get Voters of Delegate by Delegate Public Key
 
-Interface Address: /api/delegates/voters  
+Interface Address: /api/delegates/getVoters  
 Request Method: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
@@ -862,7 +791,7 @@ Response Parameter Description:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/voters?username=gny_d1'
+curl -k -X GET 'http://localhost:4096/api/delegates/getVoters?username=gny_d1'
 ```
 
 JSON Response Example:
@@ -1121,6 +1050,77 @@ JSON Response Example (forging disabled):
 {
   "success":true,
   "enabled":false
+}
+```
+
+#### 2.4.10 Get own Votes
+
+API Endpoint: `/api/delegates/getOwnVotes`  
+HTTP Verb: POST  
+Supported Format: urlencoded  
+Request Parameter Description:
+
+| Name     | Type   | Required | Description       |
+| -------- | ------ | -------- | ----------------- |
+| address  | string | N        | accounts address  |
+| username | string | N        | accounts username |
+
+Response Parameter Description:
+
+| Name      | Type  | Description                                     |
+| --------- | ----- | ----------------------------------------------- |
+| success   | bool  | true: response data return successfully         |
+| delegates | Array | a list containing delegates' detail information |
+
+Request Example (with username):
+
+```bash
+curl -k -X GET 'http://localhost:4096/api/delegates/getOwnVotes?username=a1300'
+```
+
+Request Example (with address):
+
+```bash
+curl -k -X GET 'http://localhost:4096/api/delegates/getOwnVotes?address=GtnevSTQqPUcZNAMFJmc8DLUXHFz'
+```
+
+JSON Response Example:
+
+```js
+{
+   "success":true,
+   "delegates":[
+      {
+         "address":"G3yguB3tazFf6bia3CU1RjXtv2iV6",
+         "username":"gny_d72",
+         "tid":"ce6fced7d207e7e55f92a3b68a2394f34b2404cba5c35ea31bf80d2bc871efd5",
+         "publicKey":"feda901bb63e494e2f30865734e40aa0464f59f2a526a61648c86ba2faf1a952",
+         "votes":"900000000000",
+         "producedBlocks":"0",
+         "missedBlocks":"0",
+         "fees":"0",
+         "rewards":"0",
+         "_version_":2,
+         "rate":1,
+         "approval":"0.00225",
+         "productivity":"NaN"
+      },
+      {
+         "address":"GtZDocCVQ6iNR6JzjPCqgJPzmoRN",
+         "username":"gny_d58",
+         "tid":"aeb8ae1404985bb38c18d695ce9c336b65382c94fa85d38db3d575f03d3ff84f",
+         "publicKey":"fbc95173f63a02239ff37f81236e283504d247d551143d16c2fee80c692b25bd",
+         "votes":"900000000000",
+         "producedBlocks":"1",
+         "missedBlocks":"0",
+         "fees":"0",
+         "rewards":"0",
+         "_version_":3,
+         "rate":2,
+         "approval":"0.00225",
+         "productivity":"100.00"
+      }
+   ]
 }
 ```
 
