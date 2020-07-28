@@ -46,39 +46,27 @@ export GNY_SECRET=forum forum forum forum forum forum forum forum forum forum fo
 The **publicIp** option is mandatory on the `testnet` and on the `mainnet`. If you don't set it then the node will automatically use its privateIp which which will make the p2p communication with other nodes not work.
 ::::
 
-The GNY Blockchain uses [libp2p](https://github.com/libp2p/js-libp2p/) for p2p communication. Libp2p itself communicates with the help of [multiaddr](https://www.npmjs.com/package/multiaddr). The standard procedure is that the GNY Blockchain adds a multiaddrs that listens on `0.0.0.0` and the libp2p automatically binds to the privateIP address. As pointed out above this will not work on the `testnet` and on the `mainnet`
+Pass `public ip` as argument:
 
-```js
-const multi = `/ip4/0.0.0.0/tcp/4097`;
-peerInfo.multiaddrs.add(multi);
+```diff
+- npm run start
++ npm run start -- --publicIP="20.188.42.0"
 ```
 
-This results in a multiaddr array where for example `10.0.3.4` is used as the private IP address
+Pass `public ip` as environment variable:
 
-```js
-{
-  multiaddr: [
-    "/ip4/10.0.3.4/tcp/4097/ipfs/QmQbVdde9AeXSP3FoLyVNd3Fi3BjCe2tFyJV43bNWEBYSA"
-  ];
-}
-```
-
-The problem shows itself in the communication with other nodes. Because our node announces a private IP address which other nodes can't communicate with. Therefore we have to pass the **publicIP** to the GNY node.
-
-Configure `public ip`:
-
-```bash
-# WARNING this is an example, use your ip address
-export GNY_PUBLIC_IP=20.188.42.0
+```diff
+services:
+  # db1 service omitted
+  node1:
+    # other keys omitted
+    environment:
++	  - GNY_PUBLIC_IP=20.188.42.0
 ```
 
 ::: tip
 After that the nodes own `public ip` configuration should be checked with the HTTP API endpoint `/api/peers/info`. This endpoint displays information about the own node!
 :::
-
-It is important that the `multiaddrs` array displays only one entry with the correct **publicIp**
-
-![multiaddrs_publicIp_config](../.vuepress/public/multiaddrs_publicIp_config.png)
 
 ![multiaddrs_publicIp_api_peers_info](../.vuepress/public/multiaddrs_publicIp_api_peers_info.png)
 
