@@ -77,3 +77,7 @@ heroku pg:psql
 - `/help`: help summary
 
 > You can add any command by yourself. Here is [TeleBot usage](https://github.com/mullwar/telebot) for your reference.
+
+## GNY Bot
+
+We also deploy a GNY Bot, you can interacte with @gny_telegram_bot to monitor your node.
