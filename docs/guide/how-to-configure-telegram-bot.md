@@ -4,6 +4,8 @@
 
 Please read this doc about [how to create a new bot by BotFather](https://core.telegram.org/bots#creating-a-new-bot). BotFather is also a telegram bot which helps you create new bots and change settings for your bots. You should remember your bot token.
 
+![bot father](../shapes/bot_father.png)
+
 ## Deloy the bot backend
 
 - Clone `gny-telegram-bot`
@@ -46,18 +48,32 @@ After running this command, a DATABASE_URL config var is added to your app’s c
 ```
 heroku restart
 
-heroku log --tail
+heroku logs --tail
 
 heroku pg:psql
 ```
 
 ## Commands
 
+![start](../shapes/bot_start.png)
+
 - `/status`: show the node status
+
+![status](../shapes/bot_status.png)
+
 - `/add [ip] [port] [network] [https]`: add a node
-  - `/add 127.0.0.1 4097 testnet true`
+  - `/add testnet.gny.io 443 testnet true`
+
+![add a node](../shapes/bot_status.png)
+
 - `/remove [ip]`: remove a node
+
+![remove a node](../shapes/bot_remove.png)
+
 - `/price`: get GNY current price
+
+![get GNY price](../shapes/bot_price.png)
+
 - `/help`: help summary
 
 > You can add any command by yourself. Here is [TeleBot usage](https://github.com/mullwar/telebot) for your reference.
