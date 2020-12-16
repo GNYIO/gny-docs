@@ -35,7 +35,7 @@ The [`multiaddr`](https://www.npmjs.com/package/multiaddr) is part of the [`mult
 A `multiaddr` describes a self-describing network address. Like:
 
 ```
-/ip4/20.174.24.9/tcp/4097/ipfs/QmRHqTMqdtmomUu7rSnikhnFtKx3B1gaXzctvr2TtLLJmE
+/ip4/20.174.24.9/tcp/4097/p2p/QmRHqTMqdtmomUu7rSnikhnFtKx3B1gaXzctvr2TtLLJmE
 ```
 
 ### Whats a `p2pSecret`?

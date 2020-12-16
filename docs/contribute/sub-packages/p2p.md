@@ -126,8 +126,8 @@ Results in:
       "pubKey": "CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDUtSDoa4O9oFyyXSawNgNACbQd60UZ2/Zc4VcemCf4SDuXzd0y+E4QGrb/8/rLRRnmXu8n1fLV4D3mvY1gf6OPCMkHu4k/xDh+Y7KoBsBHxb4Wq16vv+coe5jGw/7tDpoFqeVKvNoJ/Xudjdl53/C03RGTlFIWP+llcwXIYWPwuPH/pAF3X+sDQedaoVHrDdxnpNuPelw0naNtopv7yK75esTdi3FDmkwxTFF9BzF+LlgScXiyiprlZgg36nFA5YRWgBqILwTyEVURjTuS6vwPiieUrjZfMOViTyEQWnQD88FHGeg2sGjrk+SGQ8/eWENPtLlpVvnbE/YT1pZgqQJHAgMBAAE="
     },
     "multiaddrs": [
-      "/ip4/127.0.0.1/tcp/30001/ipfs/QmVTNMpLacyzEjPQyhGUCGmhCVBPBXai2FhFsfKyLoExUP",
-      "/ip4/10.0.2.15/tcp/30001/ipfs/QmVTNMpLacyzEjPQyhGUCGmhCVBPBXai2FhFsfKyLoExUP"
+      "/ip4/127.0.0.1/tcp/30001/p2p/QmVTNMpLacyzEjPQyhGUCGmhCVBPBXai2FhFsfKyLoExUP",
+      "/ip4/10.0.2.15/tcp/30001/p2p/QmVTNMpLacyzEjPQyhGUCGmhCVBPBXai2FhFsfKyLoExUP"
     ],
     "simple": {
       "port": 30001,

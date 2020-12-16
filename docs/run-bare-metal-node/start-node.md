@@ -17,7 +17,7 @@ export GNY_PUBLIC_IP=<your ip>
 export GNY_SECRET=<your secret>
 export GNY_P2P_SECRET=<your p2p secret>
 
-export GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5
+export GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/p2p/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5
 
 export GNY_DB_PASSWORD=docker
 export GNY_DB_USER=postgres2

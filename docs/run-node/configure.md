@@ -5,8 +5,8 @@
 ::: tip
 In order to connect to the **`testnet`** be sure to use one of the following configurations:
 
-- `--peers="/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5"`
-- `GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5`
+- `--peers="/ip4/45.76.215.117/tcp/4097/p2p/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5"`
+- `GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/p2p/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5`
   ::::
 
 <br/>
@@ -120,14 +120,14 @@ The `p2p peers` option says to which peer(s) (comma separated) we should connect
 
 The `p2p peers` option can be passed to the GNY node:
 
-- as argument: `--peers="/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5"`
-- as environment variable: `GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5`
+- as argument: `--peers="/ip4/45.76.215.117/tcp/4097/p2p/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5"`
+- as environment variable: `GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/p2p/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5`
 
 Pass `p2p peers` as argument:
 
 ```diff
 - npm run start
-+ npm run start -- --peers="/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5"
++ npm run start -- --peers="/ip4/45.76.215.117/tcp/4097/p2p/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5"
 ```
 
 Pass `p2p peers` as environment variable:
@@ -138,7 +138,7 @@ services:
   node1:
     # other keys omitted
     environment:
-+	  - GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5
++	  - GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/p2p/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5
 ```
 
 <br/>
