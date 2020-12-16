@@ -6,7 +6,7 @@
 In order to connect to the **`testnet`** be sure to use the following configuration:
 
 ```bash
-export GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5
+export GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/p2p/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5
 ```
 
 ::::
@@ -96,7 +96,7 @@ The `p2p peers` option says to which peer(s) (comma separated) we should connect
 Pass `p2p peers` as environment variable:
 
 ```bash
-export GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/ipfs/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5
+export GNY_P2P_PEERS=/ip4/45.76.215.117/tcp/4097/p2p/QmNT5ZNU8Nf9shpuz45phNHimUnsNZRj35B3ucSE3iKCk5
 ```
 
 <br/>
