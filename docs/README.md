@@ -12,5 +12,5 @@ features:
     details: You only pay for what you use. No hidden costs or service flats.
   - title: Secure
     details: Store your data safely on-chain. You keep control over your data. No need to give your data to a 3rd party
-footer: MIT Licensed | Copyright © 2018 GNY
+footer: MIT Licensed | Copyright © 2021 GNY
 ---
