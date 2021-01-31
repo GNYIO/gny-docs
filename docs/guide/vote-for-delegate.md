@@ -13,5 +13,5 @@ See guide [lock account for voting](./lock-account-for-voting.md) for details
 ## With CLI
 
 ```bash
-gny-cli --host "45.76.215.117" --port 4096 vote --secret "" --usernames "liangpeili,xpgeng,a1300"
+gny-cli --host "192.248.155.206" --port 4096 vote --secret "" --usernames "liangpeili,xpgeng,a1300"
 ```
