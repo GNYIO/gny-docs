@@ -3,5 +3,5 @@
 ## With CLI
 
 ```bash
-gny-cli --host "45.76.215.117" --port 4096 unvote --secret "" --usernames "liangpieli,xpgeng"
+gny-cli --host "192.248.155.206" --port 4096 unvote --secret "" --usernames "liangpieli,xpgeng"
 ```
