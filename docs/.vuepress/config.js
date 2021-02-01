@@ -21,6 +21,7 @@ module.exports = {
     ],
     ['vuepress-plugin-code-copy', true],
     ['seo'],
+    ['vuepress-plugin-element-tabs'],
   ],
   themeConfig: {
     repo: 'gnyio/gny-experiment',
