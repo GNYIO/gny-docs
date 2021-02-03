@@ -547,9 +547,10 @@ Response Parameter Description:
 | success      | bool  | true: response data return successfully        |
 | transactions | Array | a list containing all unconfirmed transactions |
 
-:::: tabs
+:::: tabs
 
-::: tab mainnet 
+::: tab mainnet
+
 Request Example:
 
 ```bash
@@ -567,7 +568,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -608,9 +609,9 @@ Response Parameter Description:
 | success | bool | true: response data return successfully |
 | block   | json | the block detail information            |
 
-:::: tabs
+:::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -638,7 +639,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -693,7 +694,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -737,7 +738,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -799,7 +800,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet
+::: tab mainnet
 
 Request Example:
 
@@ -818,7 +819,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -853,7 +854,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet
+::: tab mainnet
 
 ```bash
 curl -k -X GET 'https://mainnet.gny.io/api/blocks/getMilestone'
@@ -870,7 +871,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet
+::: tab testnet
 
 ```bash
 curl -k -X GET 'http://localhost:4096/api/blocks/getMilestone'
@@ -907,7 +908,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -925,7 +926,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -961,7 +962,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -978,7 +979,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -1017,7 +1018,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet
+::: tab mainnet
 
 ```bash
 curl -k -X GET 'https://mainnet.gny.io/api/blocks/getStatus'
@@ -1037,7 +1038,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet
+::: tab testnet
 
 ```bash
 curl -k -X GET 'http://localhost:4096/api/blocks/getStatus'
@@ -1079,7 +1080,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -1094,7 +1095,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -1131,7 +1132,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -1167,7 +1168,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -1228,7 +1229,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example (publicKey):
 
 ```bash
@@ -1274,7 +1275,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example (publicKey):
 
 ```bash
@@ -1345,7 +1346,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -1398,7 +1399,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -1474,7 +1475,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet
+::: tab mainnet
 
 Request Example (with username):
 
@@ -1530,7 +1531,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet
+::: tab testnet
 
 Request Example (with username):
 
@@ -1608,7 +1609,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -1625,7 +1626,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -1664,7 +1665,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -1681,7 +1682,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -1713,7 +1714,7 @@ Request Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -1740,7 +1741,7 @@ JSON Response Example (forging disabled):
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -1795,7 +1796,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -1857,7 +1858,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -1940,7 +1941,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -1986,7 +1987,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -2052,7 +2053,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -2072,7 +2073,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -2113,7 +2114,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -2136,7 +2137,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -2181,7 +2182,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -2200,7 +2201,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -2237,7 +2238,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request Example:
 
 ```bash
@@ -2256,7 +2257,7 @@ JSON Response Example:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request Example:
 
 ```bash
@@ -2302,7 +2303,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request example:
 
 ```js
@@ -2326,7 +2327,7 @@ JSON Response:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request example:
 
 ```js
@@ -2374,7 +2375,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request example (publisher name):
 
 ```js
@@ -2403,7 +2404,7 @@ JSON Response:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request example (publisher name):
 
 ```js
@@ -2457,7 +2458,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request example:
 
 ```js
@@ -2485,7 +2486,7 @@ JSON Response:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request example:
 
 ```js
@@ -2538,7 +2539,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request example:
 
 ```js
@@ -2566,7 +2567,7 @@ JSON Response:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request example:
 
 ```js
@@ -2617,7 +2618,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request example:
 
 ```js
@@ -2644,7 +2645,7 @@ JSON Response:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request example:
 
 ```js
@@ -2697,7 +2698,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request example:
 
 ```bash
@@ -2721,7 +2722,7 @@ JSON Response:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request example:
 
 ```bash
@@ -2762,7 +2763,7 @@ Response Parameter Description:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 Request example:
 
 ```bash
@@ -2785,7 +2786,7 @@ JSON Response:
 
 :::
 
-::: tab testnet 
+::: tab testnet
 Request example:
 
 ```bash
@@ -2818,7 +2819,7 @@ In order to send transactions you need set the `magic` header:
 
 :::: tabs
 
-::: tab mainnet 
+::: tab mainnet
 `curl` example:
 
 ```bash
@@ -2845,7 +2846,7 @@ await axios.post(url, data, config);
 
 :::
 
-::: tab testnet 
+::: tab testnet
 `curl` example:
 
 ```bash
