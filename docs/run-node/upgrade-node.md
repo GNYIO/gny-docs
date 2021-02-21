@@ -8,9 +8,29 @@ sudo docker-compose --file docker-compose.yml ps
 
 ## Pull newest docker image
 
+:::: tabs
+
+::: tab mainnet
+
+Pull the latest `mainnet` image:
+
 ```bash
-sudo docker pull a1300/testnet:latest
+sudo docker pull gnyio/node:mainnet
 ```
+
+:::
+
+::: tab testnet
+
+Pull the latest `testnet` image:
+
+```bash
+sudo docker pull gnyio/node:testnet
+```
+
+:::
+
+::::
 
 ## Check your local docker images
 
