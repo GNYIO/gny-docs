@@ -26,9 +26,39 @@ const generateAccount = async () => {
 
 ## Connection configuration
 
+:::: tabs
+
+::: tab mainnet
+
+This is the `mainnet` configuration:
+
 ```typescript
-const connection = new Connection(host, port, network);
+const host = "https://mainnet.gny.io";
+const port = 8096;
+const network = "mainnet";
+const https = true;
+
+const connection = new Connection(host, port, network, https);
 ```
+
+:::
+
+::: tab testnet
+
+This is the `testnet` configuration:
+
+```typescript
+const host = "https://testnet.gny.io";
+const port = 4096;
+const network = "testnet";
+const https = true;
+
+const connection = new Connection(host, port, network, https);
+```
+
+:::
+
+::::
 
 ### Default value
 
@@ -38,6 +68,7 @@ All the args of `Connection` are optional, and the default values are:
 {
   "host": "127.0.0.1",
   "port": 4096,
-  "network": "testnet"
+  "network": "localnet",
+  "https": false
 }
 ```
