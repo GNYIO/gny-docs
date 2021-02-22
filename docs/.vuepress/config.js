@@ -131,7 +131,6 @@ module.exports = {
           ['/guide/check-balance', 'Check Balance'],
           ['/guide/get-gny-on-testnet', 'Get GNY on Testnet'],
           ['/guide/show-address-from-secret', 'Show Address from Secret'],
-          ['/guide/how-to-send-transactions', 'Send Transaction'],
           ['/guide/set-username', 'Set Username'],
           ['/guide/register-as-delegate', 'Register as Delegate'],
           ['/guide/vote-for-delegate', 'Vote for Delegate'],

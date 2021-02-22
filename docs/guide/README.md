@@ -18,7 +18,3 @@
 - [Lock account for Voting](./lock-account-for-voting.md)
 - [Vote for Delegate](./vote-for-delegate.md)
 - [Unvote Delegate](./unvote-delegate.md)
-
-## Initiate Transactions
-
-- [How to Send Transactions](./how-to-send-transactions.md)

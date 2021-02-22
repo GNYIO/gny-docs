@@ -62,9 +62,31 @@ sudo apt-get install libtool libtool-bin -y
 
 ## Clone Repository
 
+:::: tabs
+
+::: tab mainnet
+
+Clone the repository and checkout the `mainnet` branch:
+
 ```bash
 git clone https://github.com/gnyio/gny && cd gny
+git checkout mainnet
 ```
+
+:::
+
+::: tab testnet
+
+Clone the repository and checkout the `testnet` branch:
+
+```bash
+git clone https://github.com/gnyio/gny && cd gny
+git checkout testnet
+```
+
+:::
+
+::::
 
 ## Compile project
 

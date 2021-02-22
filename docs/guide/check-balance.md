@@ -1,9 +1,5 @@
 # Check Balance
 
-## With CLI
-
-WIP
-
 ## With Wallet
 
 Head to [wallet.gny.io](http://wallet.gny.io)

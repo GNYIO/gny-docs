@@ -2,12 +2,31 @@
 
 # Configure
 
-::: tip
+::::: tip
+
+Connect to the right network
+
+:::: tabs
+
+::: tab mainnet
+
+In order to connect to the **`mainnet`** be sure to use one of the following configurations:
+
+> `GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/4097/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh`
+
+:::
+
+::: tab testnet
+
 In order to connect to the **`testnet`** be sure to use one of the following configurations:
 
-- `--peers="/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS"`
-- `GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS`
-  ::::
+> `GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS`
+
+:::
+
+::::
+
+:::::
 
 <br/>
 
@@ -80,6 +99,60 @@ After that the nodes own `public ip` configuration should be checked with the HT
 
 <br>
 
+## Configure Network
+
+The option `network` sets which network the node should connect to. This option is **mandatory**.
+
+The `network` can be passed to the GNY node:
+
+- as argument `--network=mainnet`
+- as environment variable `GNY_NETWORK=mainnet`
+
+:::: tabs
+
+::: tab mainnet
+
+```diff
+services:
+  # db1 service omitted
+  node1:
+    # other keys omitted
+    environment:
++	  - GNY_NETWORK=mainnet
+```
+
+:::
+
+::: tab testnet
+
+```diff
+services:
+  # db1 service omitted
+  node1:
+    # other keys omitted
+    environment:
++	  - GNY_NETWORK=testnet
+```
+
+:::
+
+::: tab localnet
+
+```diff
+services:
+  # db1 service omitted
+  node1:
+    # other keys omitted
+    environment:
++	  - GNY_NETWORK=localnet
+```
+
+:::
+
+::::
+
+<br/>
+
 ## Configure P2P Secret
 
 <ClientOnly>
@@ -123,6 +196,32 @@ The `p2p peers` option can be passed to the GNY node:
 - as argument: `--peers="/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS"`
 - as environment variable: `GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS`
 
+:::: tabs
+
+::: tab mainnet
+
+Pass `p2p peers` as argument:
+
+```diff
+- npm run start
++ npm run start -- --peers="/ip4/78.141.235.22/tcp/4097/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh"
+```
+
+Pass `p2p peers` as environment variable:
+
+```diff
+services:
+  # db1 service omitted
+  node1:
+    # other keys omitted
+    environment:
++	  - GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/4097/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh
+```
+
+:::
+
+::: tab testnet
+
 Pass `p2p peers` as argument:
 
 ```diff
@@ -140,6 +239,10 @@ services:
     environment:
 +	  - GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS
 ```
+
+:::
+
+::::
 
 <br/>
 

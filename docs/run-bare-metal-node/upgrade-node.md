@@ -19,6 +19,28 @@ rm -rf gny
 git clone https://github.com/gnyio/gny-experiment gny-experiment && cd $_
 ```
 
+Checkout the corresponding branch:
+
+:::: tabs
+
+::: tab mainnet
+
+```bash
+git checkout mainnet
+```
+
+:::
+
+::: tab testnet
+
+```bash
+git checkout testnet
+```
+
+:::
+
+::::
+
 ## Compile project
 
 ```bash

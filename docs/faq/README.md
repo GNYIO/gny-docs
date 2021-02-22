@@ -91,4 +91,8 @@ Every 10 seconds a Block is mined.
 
 ### What is a `network` type?
 
-WIP
+There are three different network types:
+
+- `mainnet` is the production network
+- `testnet` is the network on which new features are first tested before they are deployed on the `mainnet`
+- `localnet` is the network used for develop on your local computer
