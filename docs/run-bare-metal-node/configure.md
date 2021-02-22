@@ -2,14 +2,31 @@
 
 # Configure
 
-::: tip
-In order to connect to the **`testnet`** be sure to use the following configuration:
+::::: tip
 
-```bash
-export GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS
-```
+Connect to the right network
+
+:::: tabs
+
+::: tab mainnet
+
+In order to connect to the **`mainnet`** be sure to use one of the following configurations:
+
+> `GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/4097/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh`
+
+:::
+
+::: tab testnet
+
+In order to connect to the **`testnet`** be sure to use one of the following configurations:
+
+> `GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS`
+
+:::
 
 ::::
+
+:::::
 
 <br/>
 
@@ -56,12 +73,7 @@ Pass `public ip` as argument:
 Pass `public ip` as environment variable:
 
 ```diff
-services:
-  # db1 service omitted
-  node1:
-    # other keys omitted
-    environment:
-+	  - GNY_PUBLIC_IP=20.188.42.0
++ export GNY_PUBLIC_IP=20.188.42.0
 ```
 
 ::: tip
@@ -72,6 +84,45 @@ After that the nodes own `public ip` configuration should be checked with the HT
 
 <br>
 
+## Configure Network
+
+The option `network` sets which network the node should connect to. This option is **mandatory**.
+
+The `network` can be passed to the GNY node:
+
+- as argument `--network=mainnet`
+- as environment variable `export GNY_NETWORK=mainnet`
+
+:::: tabs
+
+::: tab mainnet
+
+```diff
++ export GNY_NETWORK=mainnet
+```
+
+:::
+
+::: tab testnet
+
+```diff
++	export GNY_NETWORK=testnet
+```
+
+:::
+
+::: tab localnet
+
+```diff
++ export GNY_NETWORK=localnet
+```
+
+:::
+
+::::
+
+<br/>
+
 ## Configure P2P Secret
 
 <ClientOnly>
@@ -80,6 +131,18 @@ After that the nodes own `public ip` configuration should be checked with the HT
 </ClientOnly>
 
 The `p2p secret` keeps the connection between peers secure. This is option is **mandatory**.
+
+The `p2p secret` can be passed to the GNY node:
+
+- as argument: `--privateP2PKey="CAASqQkwggSlAgEA..."`
+- as environment variable: `export GNY_P2P_SECRET="CAASqQkwggSlAgEA..."`
+
+Pass `p2p secret` as argument:
+
+```diff
+- npm run start
++ npm run start -- --privateP2PKey="CAASqQkwggSlAgEA..."
+```
 
 Pass `p2p secret` as environment variable:
 
@@ -93,11 +156,48 @@ export GNY_P2P_SECRET=<your p2p secret>
 
 The `p2p peers` option says to which peer(s) (comma separated) we should connect in the network. This option is optional
 
+The `p2p peers` option can be passed to the GNY node:
+
+- as argument: `--peers="/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS"`
+- as environment variable: `GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS`
+
+:::: tabs
+
+::: tab mainnet
+
+Pass `p2p peers` as argument:
+
+```diff
+- npm run start
++ npm run start -- --peers="/ip4/78.141.235.22/tcp/4097/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh"
+```
+
 Pass `p2p peers` as environment variable:
 
-```bash
-export GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS
+```diff
++	GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/4097/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh
 ```
+
+:::
+
+::: tab testnet
+
+Pass `p2p peers` as argument:
+
+```diff
+- npm run start
++ npm run start -- --peers="/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS"
+```
+
+Pass `p2p peers` as environment variable:
+
+```diff
++	GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS
+```
+
+:::
+
+::::
 
 <br/>
 
@@ -143,7 +243,7 @@ The `dbHost` sets the database host to which the GNY Blockchain should connect t
 
 Pass `dbHost` as environment variable:
 
-```diff
+```bash
 export GNY_DB_HOST=db1
 ```
 
