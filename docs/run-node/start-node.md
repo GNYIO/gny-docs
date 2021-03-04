@@ -85,7 +85,7 @@ services:
       - GNY_PUBLIC_IP=<here goes your public ip address>
       - GNY_SECRET=<here goes your BIP39 secret(s)>
       - GNY_P2P_SECRET="<here goes your p2p secret"
-      - GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS
+      - GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmUTkMvTdFsgNdtYMcN6U7VHBMzcVbg2oC3xYCagCJbRNs
       - GNY_DB_PASSWORD=docker
       - GNY_DB_DATABASE=postgres
       - GNY_DB_USER=postgres

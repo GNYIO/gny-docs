@@ -20,7 +20,7 @@ In order to connect to the **`mainnet`** be sure to use one of the following con
 
 In order to connect to the **`testnet`** be sure to use one of the following configurations:
 
-> `GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS`
+> `GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmUTkMvTdFsgNdtYMcN6U7VHBMzcVbg2oC3xYCagCJbRNs`
 
 :::
 
@@ -158,8 +158,8 @@ The `p2p peers` option says to which peer(s) (comma separated) we should connect
 
 The `p2p peers` option can be passed to the GNY node:
 
-- as argument: `--peers="/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS"`
-- as environment variable: `GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS`
+- as argument: `--peers="/ip4/192.248.155.206/tcp/4097/p2p/QmUTkMvTdFsgNdtYMcN6U7VHBMzcVbg2oC3xYCagCJbRNs"`
+- as environment variable: `GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmUTkMvTdFsgNdtYMcN6U7VHBMzcVbg2oC3xYCagCJbRNs`
 
 :::: tabs
 
@@ -186,13 +186,13 @@ Pass `p2p peers` as argument:
 
 ```diff
 - npm run start
-+ npm run start -- --peers="/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS"
++ npm run start -- --peers="/ip4/192.248.155.206/tcp/4097/p2p/QmUTkMvTdFsgNdtYMcN6U7VHBMzcVbg2oC3xYCagCJbRNs"
 ```
 
 Pass `p2p peers` as environment variable:
 
 ```diff
-+	GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmfJ2QhAfqWySWwQGeLmaxraVvrbJNjUENpoZixKSjuFkS
++	GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmUTkMvTdFsgNdtYMcN6U7VHBMzcVbg2oC3xYCagCJbRNs
 ```
 
 :::
