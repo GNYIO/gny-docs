@@ -1673,3 +1673,39 @@ JSON Response:
   }
 }
 ```
+
+### Get holders of a specific UIA Asset
+
+```typescript
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Uia.getHolders(currency);
+```
+
+Request Parameter Description:
+
+| Name     | Type   | Required | Description          |
+| -------- | ------ | -------- | -------------------- |
+| currency | string | Y        | a specific UIA Asset |
+
+Response Parameter Description:
+
+| Name    | Type    | Description                                                                        |
+| ------- | ------- | ---------------------------------------------------------------------------------- |
+| success | boolean | Whether operation was successful                                                   |
+| holders | Array   | Asset array, each element is an asset holder, including address, balance, currency |
+| count   | integer | The number of holders owning this asset                                            |
+
+JSON Response:
+
+```js
+{
+  "count":1,
+  "holders":[{
+    "address":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
+    "currency":"AAA.BBB",
+    "balance":"500000000",
+  }]
+}
+```
