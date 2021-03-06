@@ -592,7 +592,7 @@ JSON Response Example:
 
 #### 2.3.1 Get the Block Detail Information of the Given ID
 
-API Endpoint: `/api/blocks/get`  
+API Endpoint: `/api/blocks/getBlock`  
 HTTP Verb: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
@@ -615,7 +615,7 @@ Response Parameter Description:
 Request Example:
 
 ```bash
-curl -k -X GET 'https://mainnet.gny.io/api/blocks/get?id=fed53e3ad0a1405f73122708ee53dfed2e9eccc34693d52043bdb6aec4751a8c'
+curl -k -X GET 'https://mainnet.gny.io/api/blocks/getBlock?id=fed53e3ad0a1405f73122708ee53dfed2e9eccc34693d52043bdb6aec4751a8c'
 ```
 
 JSON Response Example:
@@ -643,7 +643,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks/get?id=fed53e3ad0a1405f73122708ee53dfed2e9eccc34693d52043bdb6aec4751a8c'
+curl -k -X GET 'http://localhost:4096/api/blocks/getBlock?id=fed53e3ad0a1405f73122708ee53dfed2e9eccc34693d52043bdb6aec4751a8c'
 ```
 
 JSON Response Example:
@@ -2829,16 +2829,16 @@ curl -X POST --header "magic: 594fe0f3"
 [axios](https://www.npmjs.com/package/axios) (JavaScript example)
 
 ```javascript
-const exampleUrl = 'https://mainnet.gny.io/peer/transactions';
+const exampleUrl = "https://mainnet.gny.io/peer/transactions";
 
 const data = {
-  transaction: someTransaction,
+  transaction: someTransaction
 };
 
 const config = {
   headers: {
-    magic: '594fe0f3',
-  },
+    magic: "594fe0f3"
+  }
 };
 
 await axios.post(url, data, config);
@@ -2856,16 +2856,16 @@ curl -X POST --header "magic: 594fe0f3"
 [axios](https://www.npmjs.com/package/axios) (JavaScript example)
 
 ```javascript
-const exampleUrl = 'http://localhost:4096/peer/transactions';
+const exampleUrl = "http://localhost:4096/peer/transactions";
 
 const data = {
-  transaction: someTransaction,
+  transaction: someTransaction
 };
 
 const config = {
   headers: {
-    magic: '594fe0f3',
-  },
+    magic: "594fe0f3"
+  }
 };
 
 await axios.post(url, data, config);
