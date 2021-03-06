@@ -2748,7 +2748,7 @@ JSON Response:
 
 ::::
 
-#### **2.11.6 Get balance of a specific UIA Assets for an account**
+#### **2.11.7 Get balance of a specific UIA Asset for an account**
 
 API Endpoint: `/api/uia/balances/:address/:currency`  
 HTTP Verb: GET  
@@ -2804,6 +2804,69 @@ JSON Response:
     "flag":2,
     "_version_":2
   }
+}
+```
+
+:::
+
+::::
+
+#### **2.11.8 Get holders of a specific UIA Asset**
+
+API Endpoint: `/api/uia/holders/:currency`  
+HTTP Verb: GET  
+Format: urlencoded
+Request Parameter Description: none
+
+Response Parameter Description:
+
+| Name    | Type    | Description                                                                        |
+| ------- | ------- | ---------------------------------------------------------------------------------- |
+| success | boolean | Whether operation was successful                                                   |
+| holders | Array   | Asset array, each element is an asset holder, including address, balance, currency |
+| count   | integer | The number of holders owning this asset                                            |
+
+:::: tabs
+
+::: tab mainnet
+Request example:
+
+```bash
+curl -X GET 'https://mainnet.gny.io/api/uia/holders/AAA.BBB'
+```
+
+JSON Response:
+
+```js
+{
+  "count":1,
+  "holders":[{
+    "address":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
+    "currency":"AAA.BBB",
+    "balance":"500000000",
+  }]
+}
+```
+
+:::
+
+::: tab testnet
+Request example:
+
+```bash
+curl -X GET 'http://localhost:4096/api/uia/holders/AAA.BBB'
+```
+
+JSON Response:
+
+```js
+{
+  "count":1,
+  "holders":[{
+    "address":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
+    "currency":"AAA.BBB",
+    "balance":"500000000",
+  }]
 }
 ```
 
