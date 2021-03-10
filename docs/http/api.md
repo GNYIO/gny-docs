@@ -2278,6 +2278,182 @@ JSON Response Example:
 
 ::::
 
+### 2.7 Transfers
+
+#### 2.6.1 Get the transfers
+
+API Endpoint: `/api/transfers/`
+HTTP Verb: GET  
+Supported Format: none  
+Request Parameter Description:
+
+| Name              | Type    | Required | Description                                                 |
+| ----------------- | ------- | -------- | ----------------------------------------------------------- |
+| query.limit       | integer | N        | the limitation of returned records，minimum：0,maximum：100 |
+| query.offset      | integer | N        | offset, minimum 0                                           |
+| query.ownId       | string  | N        | public key related to transfers                             |
+| query.currency    | string  | N        | gny UIA Assets                                              |
+| query.senderId    | string  | N        | GNY address of sender                                       |
+| query.recipientId | string  | N        | recipient's public key                                      |
+
+Response Parameter Description:
+
+| Name      | Type   | Description                             |
+| --------- | ------ | --------------------------------------- |
+| success   | bool   | true: response data return successfully |
+| count     | string | the number of transfers                 |
+| transfers | Array  | An array of transfers                   |
+
+:::: tabs
+
+::: tab mainnet
+Request Example:
+
+```bash
+curl -k -X GET 'https://mainnet.gny.io/api/transfers/'
+```
+
+JSON Response Example:
+
+```js
+{
+  "count": 1,
+  "transfers": [
+    {"tid": "0b20e6bebe415f6112f47ffc59ec0d6a2119acc292a1bf1dd2d04140ba23633a",
+    "senderId": "GiAefCner9PPTYs53XcYhfdLsCJ1",
+    "recipientId": "GQSyZwU8RMZeNDJjitwBbxVCCwD8",
+    "recipientName":null,
+    "currency": "GNY",
+    "amount": "999998500000000",
+    "timestamp": 72634135,
+    "height": "256896",
+    "_version_": 1,
+    "transaction": {
+      "id": "0b20e6bebe415f6112f47ffc59ec0d6a2119acc292a1bf1dd2d04140ba23633a",
+      "type": 0,
+      "timestamp": 72634135,
+      "senderId": "GiAefCner9PPTYs53XcYhfdLsCJ1",
+      "senderPublicKey": "2d30669f98960a039d2a7a40f64883c7bd18706c9a06cba55f1bfa98611c1652",
+      "fee": "10000000",
+      "signatures": ["68c639064eb3dc2e31cc0aabcc46cd2a07b62e5071693630a5bca075f216fe24531d4a0e2570f950709c06efb7488c9edf104995a6ffe042f94f334f767e0b08"],
+      "secondSignature": null,
+      "args": "["999998500000000","GQSyZwU8RMZeNDJjitwBbxVCCwD8"]",
+      "height": "256896",
+      "message": "",
+      "_version_": 1
+      }
+    }
+  ]
+}
+```
+
+:::
+
+::: tab testnet
+Request Example:
+
+```bash
+curl -k -X GET 'http://localhost:4096/api/transfers/'
+```
+
+JSON Response Example:
+
+```js
+{
+  "count": 1,
+  "transfers": [
+    {"tid": "0b20e6bebe415f6112f47ffc59ec0d6a2119acc292a1bf1dd2d04140ba23633a",
+    "senderId": "GiAefCner9PPTYs53XcYhfdLsCJ1",
+    "recipientId": "GQSyZwU8RMZeNDJjitwBbxVCCwD8",
+    "recipientName":null,
+    "currency": "GNY",
+    "amount": "999998500000000",
+    "timestamp": 72634135,
+    "height": "256896",
+    "_version_": 1,
+    "transaction": {
+      "id": "0b20e6bebe415f6112f47ffc59ec0d6a2119acc292a1bf1dd2d04140ba23633a",
+      "type": 0,
+      "timestamp": 72634135,
+      "senderId": "GiAefCner9PPTYs53XcYhfdLsCJ1",
+      "senderPublicKey": "2d30669f98960a039d2a7a40f64883c7bd18706c9a06cba55f1bfa98611c1652",
+      "fee": "10000000",
+      "signatures": ["68c639064eb3dc2e31cc0aabcc46cd2a07b62e5071693630a5bca075f216fe24531d4a0e2570f950709c06efb7488c9edf104995a6ffe042f94f334f767e0b08"],
+      "secondSignature": null,
+      "args": "["999998500000000","GQSyZwU8RMZeNDJjitwBbxVCCwD8"]",
+      "height": "256896",
+      "message": "",
+      "_version_": 1
+      }
+    }
+  ]
+}
+```
+
+:::
+
+::::
+
+#### 2.6.2 Get the total amount of transfers
+
+API Endpoint: `/api/transfers/amount`  
+HTTP Verb: GET  
+Supported Format: none  
+Request Parameter Description:
+
+| Name           | Type   | Required | Description     |
+| -------------- | ------ | -------- | --------------- |
+| startTimestamp | string | Y        | start timestamp |
+| endTimestamp   | string | Y        | end timestamp   |
+
+Response Parameter Description:
+
+| Name           | Type   | Description                             |
+| -------------- | ------ | --------------------------------------- |
+| success        | bool   | true: response data return successfully |
+| count          | string | the number of transfers                 |
+| strTotalAmount | string | the total amout of transfers            |
+
+:::: tabs
+
+::: tab mainnet
+Request Example:
+
+```bash
+curl -k -X GET 'https://mainnet.gny.io/api/transfers/amount'
+```
+
+JSON Response Example:
+
+```js
+{
+  "count": 43,
+  "strTotalAmount": "87709270370000000"
+}
+```
+
+:::
+
+::: tab testnet
+Request Example:
+
+```bash
+curl -k -X GET 'http://localhost:4096/api/transfers/amount'
+```
+
+JSON Response Example:
+
+```js
+{
+  "count": 43,
+  "strTotalAmount": "87709270370000000"
+}
+```
+
+:::
+
+::::
+
 ### **2.11 User Defined Asset UIA**
 
 #### **2.11.1 Get all publishers**
@@ -2829,16 +3005,16 @@ curl -X POST --header "magic: 594fe0f3"
 [axios](https://www.npmjs.com/package/axios) (JavaScript example)
 
 ```javascript
-const exampleUrl = 'https://mainnet.gny.io/peer/transactions';
+const exampleUrl = "https://mainnet.gny.io/peer/transactions";
 
 const data = {
-  transaction: someTransaction,
+  transaction: someTransaction
 };
 
 const config = {
   headers: {
-    magic: '594fe0f3',
-  },
+    magic: "594fe0f3"
+  }
 };
 
 await axios.post(url, data, config);
@@ -2856,16 +3032,16 @@ curl -X POST --header "magic: 594fe0f3"
 [axios](https://www.npmjs.com/package/axios) (JavaScript example)
 
 ```javascript
-const exampleUrl = 'http://localhost:4096/peer/transactions';
+const exampleUrl = "http://localhost:4096/peer/transactions";
 
 const data = {
-  transaction: someTransaction,
+  transaction: someTransaction
 };
 
 const config = {
   headers: {
-    magic: '594fe0f3',
-  },
+    magic: "594fe0f3"
+  }
 };
 
 await axios.post(url, data, config);
