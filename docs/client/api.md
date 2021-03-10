@@ -1685,9 +1685,11 @@ const result = await connection.api.Uia.getHolders(currency);
 
 Request Parameter Description:
 
-| Name     | Type   | Required | Description          |
-| -------- | ------ | -------- | -------------------- |
-| currency | string | Y        | a specific UIA Asset |
+| Name     | Type    | Required | Description                                            |
+| -------- | ------- | -------- | ------------------------------------------------------ |
+| currency | string  | Y        | a specific UIA Asset                                   |
+| limit    | integer | N        | maximum number of records to return, between 0 and 100 |
+| offset   | integer | N        | Offset, minimum 0                                      |
 
 Response Parameter Description:
 

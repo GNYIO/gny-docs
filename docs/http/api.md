@@ -2816,7 +2816,13 @@ JSON Response:
 API Endpoint: `/api/uia/holders/:currency`  
 HTTP Verb: GET  
 Format: urlencoded
-Request Parameter Description: none
+Request Parameter Description:
+
+| Name     | Type    | Required | Description                                            |
+| -------- | ------- | -------- | ------------------------------------------------------ |
+| currency | string  | Y        | a specific UIA Asset                                   |
+| limit    | integer | N        | maximum number of records to return, between 0 and 100 |
+| offset   | integer | N        | Offset, minimum 0                                      |
 
 Response Parameter Description:
 
@@ -2886,7 +2892,7 @@ In order to send transactions you need set the `magic` header:
 `curl` example:
 
 ```bash
-curl -X POST --header "magic: 594fe0f3"
+curl -X POST --header "magic: e6a8a4cd"
 ```
 
 [axios](https://www.npmjs.com/package/axios) (JavaScript example)
@@ -2900,7 +2906,7 @@ const data = {
 
 const config = {
   headers: {
-    magic: "594fe0f3"
+    magic: "e6a8a4cd"
   }
 };
 
