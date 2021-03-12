@@ -2291,10 +2291,10 @@ Request Parameter Description:
 | ----------------- | ------- | -------- | ----------------------------------------------------------- |
 | query.limit       | integer | N        | the limitation of returned records，minimum：0,maximum：100 |
 | query.offset      | integer | N        | offset, minimum 0                                           |
-| query.ownId       | string  | N        | public key related to transfers                             |
+| query.ownId       | string  | N        | GNY address, this will return all transfers where the `ownId` is the recipient or the sender  |
 | query.currency    | string  | N        | gny UIA Assets                                              |
 | query.senderId    | string  | N        | GNY address of sender                                       |
-| query.recipientId | string  | N        | recipient's public key                                      |
+| query.recipientId | string  | N        | recipient's GNY address                                      |
 
 Response Parameter Description:
 
@@ -2315,7 +2315,7 @@ curl -k -X GET 'https://mainnet.gny.io/api/transfers/'
 
 JSON Response Example:
 
-```js
+```json
 {
   "count": 1,
   "transfers": [
@@ -2358,7 +2358,7 @@ curl -k -X GET 'http://localhost:4096/api/transfers/'
 
 JSON Response Example:
 
-```js
+```json
 {
   "count": 1,
   "transfers": [
@@ -2425,7 +2425,7 @@ curl -k -X GET 'https://mainnet.gny.io/api/transfers/amount'
 
 JSON Response Example:
 
-```js
+```json
 {
   "count": 43,
   "strTotalAmount": "87709270370000000"
@@ -2443,7 +2443,7 @@ curl -k -X GET 'http://localhost:4096/api/transfers/amount'
 
 JSON Response Example:
 
-```js
+```json
 {
   "count": 43,
   "strTotalAmount": "87709270370000000"
