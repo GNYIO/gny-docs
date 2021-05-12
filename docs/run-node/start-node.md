@@ -6,6 +6,18 @@ The GNY docker image will be pulled from dockerhub repository [gnyio/node](https
 
 ## With Docker
 
+Before starting the node, you need to prepare the encypted secrets file `secret.txt`, `p2psecret.txt`, the corresponding key files `secret.key` and `p2psecret.key`. All the files should be put into the folder `./secrets/`.
+
+### Encrpt secret file (Same as P2P secret file)
+
+```bash
+# Generate key file
+openssl req -x509 -nodes -days 100000 -newkey rsa:8912 -keyout secret.key -out secretcertificate.pem
+
+# Encrypt secret file
+openssl smime -encrypt -aes-256-cbc -in originalsecret.txt -out secret.txt -outform DER secretcertificate.pem
+```
+
 To get up and running you will need to create a `docker-compose.yml` file.
 
 Create a new file `docker-compose.yml`:
@@ -42,8 +54,6 @@ services:
       - GNY_NETWORK=mainnet
       - GNY_LOG_LEVEL=info
       - GNY_PUBLIC_IP=<here goes your public ip address>
-      - GNY_SECRET=<here goes your BIP39 secret(s)>
-      - GNY_P2P_SECRET="<here goes your p2p secret"
       - GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/4097/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh
       - GNY_DB_PASSWORD=docker
       - GNY_DB_DATABASE=postgres
@@ -53,6 +63,8 @@ services:
     ports:
       - "4096:4096"
       - "4097:4097"
+    volumes:
+      - ./secrets:/usr/src/app/secrets
     depends_on:
       - db1
 ```
@@ -83,8 +95,6 @@ services:
       - GNY_NETWORK=testnet
       - GNY_LOG_LEVEL=info
       - GNY_PUBLIC_IP=<here goes your public ip address>
-      - GNY_SECRET=<here goes your BIP39 secret(s)>
-      - GNY_P2P_SECRET="<here goes your p2p secret"
       - GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmUTkMvTdFsgNdtYMcN6U7VHBMzcVbg2oC3xYCagCJbRNs
       - GNY_DB_PASSWORD=docker
       - GNY_DB_DATABASE=postgres
@@ -94,6 +104,8 @@ services:
     ports:
       - "4096:4096"
       - "4097:4097"
+    volumes:
+      - ./secrets:/usr/src/app/secrets
     depends_on:
       - db1
 ```
