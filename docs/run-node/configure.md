@@ -54,7 +54,7 @@ Change CLI arguments:
 + npm run start -- --secret="chief next globe deny try danger trust wet spoil away eight task"
 ```
 
-Create your encrypted secret file, put it the folder `./secrets` and use `docker-compose.yml`:
+Create your encrypted secret file `secret.txt`, put it and its corresponding key file `secret.key` in the folder `./secrets`, and use `docker-compose.yml`:
 
 ```diff
 # Generate key file
@@ -173,15 +173,14 @@ Pass `p2p secret` as argument:
 + npm run start -- --privateP2PKey="CAASqQkwggSlAgEA..."
 ```
 
-Pass `p2p secret` as environment variable:
+Use your encrypted P2P secret file `p2psecret.txt`, put it and its correspoding key file `p2psecret.key` in the folder `./secrets` and use `docker-compose.yml` :
 
 ```diff
-services:
-  # db1 service omitted
-  node1:
-    # other keys omitted
-    environment:
-+	  - GNY_P2P_SECRET="CAASqQkwggSlAgEA..."
+# Generate key file
+openssl req -x509 -nodes -days 100000 -newkey rsa:8912 -keyout p2psecret.key -out p2psecretcertificate.pem
+
+# Encrypt secret file
+openssl smime -encrypt -aes-256-cbc -in originalp2psecret.txt -out p2psecret.txt -outform DER p2psecretcertificate.pem
 ```
 
 <br/>
