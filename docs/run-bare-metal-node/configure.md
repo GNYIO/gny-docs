@@ -45,14 +45,15 @@ In order to start forging you need to first register as delegate. Be sure to che
   </GNYSecret>
 </ClientOnly>
 
-In order to start forging please pass a secret or multiple secrets (comma separated) to the GNY Blockchain. This option is optional.
+In order to start forging please create an encrypted secret or multiple encrypted secrets (comma separated) file. This option is optional.
 
 ```bash
-# one secret example
-export GNY_SECRET=enroll enroll enroll enroll enroll enroll enroll enroll enroll enroll enroll enroll
+# Generate key file
+openssl req -x509 -nodes -days 100000 -newkey rsa:8912 -keyout secret.key -out secretcertificate.pem
 
-# multiple secret example
-export GNY_SECRET=forum forum forum forum forum forum forum forum forum forum forum forum,enroll enroll enroll enroll enroll enroll enroll enroll enroll enroll enroll enroll
+# Encrypt secret file
+openssl smime -encrypt -aes-256-cbc -in originalsecret.txt -out secret.txt -outform DER secretcertificate.pem
+
 ```
 
 <br/>
@@ -135,9 +136,8 @@ The `p2p secret` keeps the connection between peers secure. This is option is **
 The `p2p secret` can be passed to the GNY node:
 
 - as argument: `--privateP2PKey="CAASqQkwggSlAgEA..."`
-- as environment variable: `export GNY_P2P_SECRET="CAASqQkwggSlAgEA..."`
 
-Pass `p2p secret` as argument:
+Use an encrypted p2p secret file:
 
 ```diff
 - npm run start
@@ -147,7 +147,11 @@ Pass `p2p secret` as argument:
 Pass `p2p secret` as environment variable:
 
 ```bash
-export GNY_P2P_SECRET=<your p2p secret>
+# Generate key file
+openssl req -x509 -nodes -days 100000 -newkey rsa:8912 -keyout p2psecret.key -out p2psecretcertificate.pem
+
+# Encrypt secret file
+openssl smime -encrypt -aes-256-cbc -in originalp2psecret.txt -out p2psecret.txt -outform DER p2psecretcertificate.pem
 ```
 
 <br/>
