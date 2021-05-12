@@ -54,15 +54,14 @@ Change CLI arguments:
 + npm run start -- --secret="chief next globe deny try danger trust wet spoil away eight task"
 ```
 
-Change your `docker-compose.yml`:
+Create your encrypted secret file, put it the folder `./secrets` and use `docker-compose.yml`:
 
 ```diff
-services:
-  # db1 service omitted
-  node1:
-    # other keys omitted
-    environment:
-+     - GNY_SECRET=chief next globe deny try danger trust wet spoil away eight task
+# Generate key file
+openssl req -x509 -nodes -days 100000 -newkey rsa:8912 -keyout secret.key -out secretcertificate.pem
+
+# Encrypt secret file
+openssl smime -encrypt -aes-256-cbc -in originalsecret.txt -out secret.txt -outform DER secretcertificate.pem
 ```
 
 <br/>
