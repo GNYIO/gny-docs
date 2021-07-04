@@ -1922,6 +1922,117 @@ JSON Response Example:
 
 ::::
 
+#### 2.4.12 Search for Delegates
+
+API Endpoint: `/api/delegates/search`  
+HTTP Verb: GET  
+Supported Format: urlencoded
+
+Request Parameter Description:
+
+| Name      | Type    | Required | Description                                                                                                                                                                                                               |
+| --------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| searchFor | string  | Y        | if provided with a full `address`, only this delegate gets returned. If provided with a part of a delegate (e.g. `jo`) all matching delegates that include this pattern get returned. This endpoint is **case sensitive** |
+| limit     | integer | N        | limit, default 200                                                                                                                                                                                                        |
+| offset    | integer | N        | offset, default 0                                                                                                                                                                                                         |
+
+Response Parameter Description:
+
+| Name     | Type   | Description                                                                                                                                                                                                                                   |
+| -------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| success  | bool   | true: response data return successfully                                                                                                                                                                                                       |
+| delegate | Array  | the detail information of the matching delegates                                                                                                                                                                                              |
+| count    | number | count how many delegates match the `searchFor` pattern overall. By default only 200 delegates get returned that match the `searchFor` pattern, therefore you need to have page thourgh the rest with the help of the `offset` query parameter |
+
+:::: tabs
+
+::: tab mainnet
+Request Example by searching for `pattern`:
+
+```bash
+curl -k -X GET 'https://mainnet.gny.io/api/delegates/search?searchFor=1&limit=2&offset=0'
+```
+
+JSON Response Example:
+
+```js
+{
+  "success": true,
+  "count": 21,
+  "delegates": [
+    {
+      "address": "G446P6BKURurRxJHD2UUEG4o4VA3B",
+      "username": "gny_d13",
+      "tid": "8588f5deaf615e5c850b975d73b3d3686e0300640112b88edb21f02c53428597",
+      "publicKey": "f1e2b42cfdd374c80d0d6ad5b826f3fc6b5fc9fb5ede58414a64478c965e12dd",
+      "votes": "0",
+      "producedBlocks": "0",
+      "missedBlocks": "0",
+      "fees": "0",
+      "rewards": "0",
+      "_version_": 1,
+      "rate": 3,
+      "approval": "0",
+      "productivity": "0"
+    },
+    {
+      "address": "G3CNAxZjNPh6eB9yfunwP6LSXu2uN",
+      "username": "gny_d15",
+      "tid": "ef1252e509e9c8a5fdddf187f7e85d37323f0be31fb78b3bc3848f22d4021a2b",
+      "publicKey": "df4223caa6f544075a3791429532f1129d22da11f4b514053fa8a336a2b8980a",
+      "votes": "0",
+      "producedBlocks": "0",
+      "missedBlocks": "0",
+      "fees": "0",
+      "rewards": "0",
+      "_version_": 1,
+      "rate": 10,
+      "approval": "0",
+      "productivity": "0"
+    }
+  ]
+}
+```
+
+:::
+
+::: tab testnet
+Request Example with an `address`:
+
+```bash
+curl -k -X GET 'https://testnet.gny.io/api/delegates/search?searchFor=GvgEVFdRQqr9x2MAEuRRik26b78e'
+```
+
+JSON Response Example:
+
+```js
+{
+  "success": true,
+  "count": 1,
+  "delegates": [
+    {
+      "address": "GvgEVFdRQqr9x2MAEuRRik26b78e",
+      "username": "gny_d101",
+      "tid": "3c6c6fa4316c63f64bc0ee7374a4635004c2a1a9f0c1e14cac31866a0986c69d",
+      "publicKey": "b2f69ec1ea80fd8a323fe31eee467fd12094b93d0f10ce8ad4e1cf301a749893",
+      "votes": "0",
+      "producedBlocks": "0",
+      "missedBlocks": "0",
+      "fees": "0",
+      "rewards": "0",
+      "_version_": 1,
+      "rate": 25,
+      "approval": "0",
+      "productivity": "0"
+    }
+  ]
+}
+```
+
+:::
+
+::::
+
 ### 2.5 Peers
 
 #### 2.5.1 Get all Peers' Information in the Whole Network
@@ -2287,14 +2398,14 @@ HTTP Verb: GET
 Supported Format: none  
 Request Parameter Description:
 
-| Name              | Type    | Required | Description                                                 |
-| ----------------- | ------- | -------- | ----------------------------------------------------------- |
-| query.limit       | integer | N        | the limitation of returned records，minimum：0,maximum：100 |
-| query.offset      | integer | N        | offset, minimum 0                                           |
-| query.ownId       | string  | N        | GNY address, this will return all transfers where the `ownId` is the recipient or the sender  |
-| query.currency    | string  | N        | gny UIA Assets                                              |
-| query.senderId    | string  | N        | GNY address of sender                                       |
-| query.recipientId | string  | N        | recipient's GNY address                                      |
+| Name              | Type    | Required | Description                                                                                  |
+| ----------------- | ------- | -------- | -------------------------------------------------------------------------------------------- |
+| query.limit       | integer | N        | the limitation of returned records，minimum：0,maximum：100                                  |
+| query.offset      | integer | N        | offset, minimum 0                                                                            |
+| query.ownId       | string  | N        | GNY address, this will return all transfers where the `ownId` is the recipient or the sender |
+| query.currency    | string  | N        | gny UIA Assets                                                                               |
+| query.senderId    | string  | N        | GNY address of sender                                                                        |
+| query.recipientId | string  | N        | recipient's GNY address                                                                      |
 
 Response Parameter Description:
 
