@@ -100,6 +100,88 @@ services:
 
 :::
 
+::: tab mainnet-arm
+
+```yml
+version: "3.3"
+services:
+  db1:
+    image: "postgres:9.6.12"
+    container_name: "db1"
+    restart: always
+    expose: # only internal
+      - "5432"
+    environment:
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+  node1:
+    container_name: "node1"
+    image: gnyio/node:mainnet-arm
+    command: bash -c 'while !</dev/tcp/db1/5432; do sleep 0.5; done; node packages/main/dist/src/app'
+    environment:
+      - NODE_ENV=production
+      - GNY_NETWORK=mainnet
+      - GNY_LOG_LEVEL=info
+      - GNY_PUBLIC_IP=<here goes your public ip address>
+      - GNY_SECRET=<here goes your BIP39 secret(s)>
+      - GNY_P2P_SECRET="<here goes your p2p secret"
+      - GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/4097/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh
+      - GNY_DB_PASSWORD=docker
+      - GNY_DB_DATABASE=postgres
+      - GNY_DB_USER=postgres
+      - GNY_DB_HOST=db1
+      - GNY_DB_PORT=5432
+    ports:
+      - "4096:4096"
+      - "4097:4097"
+    depends_on:
+      - db1
+```
+
+:::
+
+::: tab testnet-arm
+
+```yml
+version: "3.3"
+services:
+  db1:
+    image: "postgres:9.6.12"
+    container_name: "db1"
+    restart: always
+    expose: # only internal
+      - "5432"
+    environment:
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+  node1:
+    container_name: "node1"
+    image: gnyio/node:testnet-arm
+    command: bash -c 'while !</dev/tcp/db1/5432; do sleep 0.5; done; node packages/main/dist/src/app'
+    environment:
+      - NODE_ENV=production
+      - GNY_NETWORK=testnet
+      - GNY_LOG_LEVEL=info
+      - GNY_PUBLIC_IP=<here goes your public ip address>
+      - GNY_SECRET=<here goes your BIP39 secret(s)>
+      - GNY_P2P_SECRET="<here goes your p2p secret"
+      - GNY_P2P_PEERS=/ip4/192.248.155.206/tcp/4097/p2p/QmUTkMvTdFsgNdtYMcN6U7VHBMzcVbg2oC3xYCagCJbRNs
+      - GNY_DB_PASSWORD=docker
+      - GNY_DB_DATABASE=postgres
+      - GNY_DB_USER=postgres
+      - GNY_DB_HOST=db1
+      - GNY_DB_PORT=5432
+    ports:
+      - "4096:4096"
+      - "4097:4097"
+    depends_on:
+      - db1
+```
+
+:::
+
 ::::
 
 ::: danger Edit docker-compose.yml file

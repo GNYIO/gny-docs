@@ -30,6 +30,26 @@ sudo docker pull gnyio/node:testnet
 
 :::
 
+::: tab mainnet-arm
+
+Pull the latest `mainnet-arm` image:
+
+```bash
+sudo docker pull gnyio/node:mainnet-arm
+```
+
+:::
+
+::: tab testnet-arm
+
+Pull the latest `testnet-arm` image:
+
+```bash
+sudo docker pull gnyio/node:testnet-arm
+```
+
+:::
+
 ::::
 
 ## Check your local docker images
