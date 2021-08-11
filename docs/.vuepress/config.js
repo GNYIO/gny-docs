@@ -22,6 +22,12 @@ module.exports = {
     ['vuepress-plugin-code-copy', true],
     ['seo'],
     ['vuepress-plugin-element-tabs'],
+    [
+      'check-md',
+      {
+        pattern: '**/*.md',
+      },
+    ],
   ],
   themeConfig: {
     repo: 'gnyio/gny-experiment',
