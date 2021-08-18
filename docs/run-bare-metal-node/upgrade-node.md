@@ -55,3 +55,42 @@ npm run lerna:tsc
 # start gny
 pm2 start --name gny npm -- start
 ```
+
+## Restore from snapshots
+
+:::: tabs
+
+::: tab mainnet
+Get the latest `mainnet` snapshot file name from [the snapshots site](https://mainnet.snapshots.gny.io/), and run the following bash script by replacing the snapshot name:
+
+```bash
+
+
+#You need ~ 10GB of free space for this
+sudo apt-get install zip unzip
+
+# download
+wget http://mainnet.snapshots.gny.io/v2_height_xxxxxxx_xx-xx-2021_xx_xx_xx.zip
+unzip v2_height_xxxxxxx_xx-xx-2021_xx_xx_xx.zip
+
+```
+
+:::
+
+::: tab testnet
+
+Get the latest `testnet` snapshot file name from [the snapshots site](https://testnet.snapshots.gny.io/), and run the following bash script by replacing the snapshot name:
+
+```bash
+#You need ~ 10GB of free space for this
+sudo apt-get install zip unzip
+
+# download
+wget http://testnet.snapshots.gny.io/v2_height_xxxxxxx_xx-xx-2021_xx_xx_xx.zip
+unzip v2_height_xxxxxxx_xx-xx-2021_xx_xx_xx.zip
+
+```
+
+:::
+
+::::
