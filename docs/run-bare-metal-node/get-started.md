@@ -42,6 +42,14 @@ nvm alias default
 ### Install PostgreSQL 10
 
 ```bash
+# Import repo key
+sudo apt install curl ca-certificates gnupg
+curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+# Add PostgreSQL apt repo
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+
+sudo apt update
 sudo apt-get install postgresql-10
 ```
 
