@@ -1,6 +1,5 @@
 module.exports = {
-  theme: 'vuepress-theme-default-vue-a11y',
-  // theme: 'default-prefers-color-scheme',
+  theme: 'default-prefers-color-scheme',
   title: 'GNY Blockchain',
   description: 'Decentralized machine learning on the blockchain',
   markdown: {
@@ -32,12 +31,7 @@ module.exports = {
     editLinks: true,
     docsDir: 'docs',
     lastUpdated: true, // string | boolean
-    colorMode: {
-      props: {
-        modes: ['light', 'dark'],
-      },
-    },
-    // overrideTheme: 'dark',
+    overrideTheme: { light: [6, 18], dark: [18, 6] },
     nav: [
       {
         text: 'Website',

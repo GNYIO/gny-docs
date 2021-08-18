@@ -45,7 +45,6 @@
     "vuepress-plugin-code-copy": "^1.0.6",
     "vuepress-plugin-seo": "^0.1.4",
     "vuepress-plugin-zooming": "^1.1.8",
-    "vuepress-theme-default-prefers-color-scheme": "^2.0.0",
-    "vuepress-theme-default-vue-a11y": "^0.1.15"
+    "vuepress-theme-default-prefers-color-scheme": "^2.0.0"
   }
 }
