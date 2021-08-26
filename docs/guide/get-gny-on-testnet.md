@@ -16,7 +16,7 @@ See guide [show address from secret](./show-address-from-secret.md) to see the a
 
 We will use the address `GuPmGpiHfdnokkABdg...` for our example.
 
-Paste **your** address into the input field in the `Step 2` section on [`faucet.gny.io`](faucet.gny.io):
+Paste **your** address into the input field in the `Step 2` section on [`faucet.gny.io`](https://faucet.gny.io):
 
 ![faucet form 2](../.vuepress/public/faucet_paste_address.png)
 
