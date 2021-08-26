@@ -64,14 +64,18 @@ pm2 start --name gny npm -- start
 Get the latest `mainnet` snapshot file name from [the snapshots site](https://mainnet.snapshots.gny.io/), and run the following bash script by replacing the snapshot name:
 
 ```bash
-
-
 #You need ~ 10GB of free space for this
 sudo apt-get install zip unzip
 
 # download
-wget http://mainnet.snapshots.gny.io/v2_height_xxxxxxx_xx-xx-2021_xx_xx_xx.zip
-unzip v2_height_xxxxxxx_xx-xx-2021_xx_xx_xx.zip
+sudo -i -u postgres wget http://mainnet.snapshots.gny.io/v2_height_xxxxxxx_xx-xx-2021_xx_xx_xx.zip
+sudo -i -u postgres unzip v2_height_xxxxxxx_xx-xx-2021_xx_xx_xx.zip
+
+# Restore postgres database
+sudo -i -u postgres psql -f v2_height_xxxxxxx_xx-xx-2021_xx_xx_xx.sql
+
+# start again
+npm run start
 
 ```
 
@@ -85,9 +89,15 @@ Get the latest `testnet` snapshot file name from [the snapshots site](https://te
 #You need ~ 10GB of free space for this
 sudo apt-get install zip unzip
 
-# download
-wget http://testnet.snapshots.gny.io/v2_height_xxxxxxx_xx-xx-2021_xx_xx_xx.zip
-unzip v2_height_xxxxxxx_xx-xx-2021_xx_xx_xx.zip
+# download database
+sudo -i -u postgres wget http://testnet.snapshots.gny.io/v2_height_xxxxxxx_xx-xx-2021_xx_xx_xx.zip
+sudo -i -u postgres unzip v2_height_xxxxxxx_xx-xx-2021_xx_xx_xx.zip
+
+# Restore postgres database
+sudo -i -u postgres psql -f v2_height_xxxxxxx_xx-xx-2021_xx_xx_xx.sql
+
+# start again
+npm run start
 
 ```
 
