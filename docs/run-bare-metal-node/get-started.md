@@ -14,6 +14,8 @@ We support currently only Linux. Please use Ubuntu or one of its derivates:
 ### Install Git
 
 ```bash
+sudo apt-get update
+sudo apt-get upgrade
 sudo apt-get install git
 ```
 
