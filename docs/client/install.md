@@ -33,8 +33,8 @@ const generateAccount = async () => {
 This is the `mainnet` configuration:
 
 ```typescript
-const host = "https://mainnet.gny.io";
-const port = 8096;
+const host = "mainnet.gny.io";
+const port = 80;
 const network = "mainnet";
 const https = true;
 
@@ -48,8 +48,8 @@ const connection = new Connection(host, port, network, https);
 This is the `testnet` configuration:
 
 ```typescript
-const host = "https://testnet.gny.io";
-const port = 4096;
+const host = "testnet.gny.io";
+const port = 80;
 const network = "testnet";
 const https = true;
 
