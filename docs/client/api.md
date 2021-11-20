@@ -1361,6 +1361,87 @@ JSON Response Example:
 }
 ```
 
+### Get Transactions count
+
+```typescript
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+const result = await connection.api.Transaction.count();
+```
+
+Request Parameter Description: none
+
+Request Parameter Description:  
+| Name | Type | Description |
+| ----- | ------ | ---------------------------------------------------------------- |
+| count | number | the number of currently confirmed transactions on the Blockchain |
+
+JSON Response Example:
+
+```js
+{
+  "count": 203
+}
+```
+
+### Get newest Transaction
+
+```typescript
+import { Connection } from "@gny/client";
+
+// get first count
+const count = await transactionApi.count();
+const offset = 0;
+const limit = 10;
+
+const response = await transactionApi.newestFirst(count, offset, limit);
+```
+
+Request Parameter Description:
+
+| Name   | Type   | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------ | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| count  | number | Y        | The `count` paramter is required. New transactions can be added to the Blockchain every second and which transaction are the newest and get returned by this endpoint **changes** when new transactions arrive. If the total transaction count changes between two HTTP requests, then the starting point of the counting would change. This would lead to inconsistent result. This makes this parameter mandatory. Therefore it is advised to first fetch the current count of all transactions (`/api/transactions/count`) and pass it then to this endpoint (`/api/transactions/newestFirst?count=123`). If the `count` parameter is passed in, the returned values are consistent. Then paging can be used with `?count=123&offset=0` and then `?count=123&offset=100` to get the first 100 transactions and then the next 23 |
+| limit  | number | N        | maximum number of returned records, between 0 and 100                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| offset | number | N        | default is 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+
+Response Parameter Description:
+
+| Name         | Type   | Description                                                      |
+| ------------ | ------ | ---------------------------------------------------------------- |
+| success      | bool   | true: response data return successfully                          |
+| count        | number | the number of currently confirmed transactions on the Blockchain |
+| transactions | Array  | a list containing all unconfirmed transactions                   |
+
+First JSON Response Example:
+
+```js
+{
+	"count": 203
+}
+```
+
+Second JSON Response Example:
+
+```js
+"transactions":[
+    {
+      "transactionId":"42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
+      "senderId":"G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
+      "recipientId":"G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
+      "recipientName":null,
+      "currency":"gny",
+      "amount":"10000000000000000",
+      "timestamp":0,
+      "height":0,
+      "_version_":1
+    },
+    // ...
+  ],
+  "count":203
+```
+
 ## Transfer
 
 ### Get transfers
