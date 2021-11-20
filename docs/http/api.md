@@ -588,6 +588,164 @@ JSON Response Example:
 
 ::::
 
+#### 2.2.5 Get Count of confirmed Transaction
+
+API Endpoint: `/api/transactions/count`  
+HTTP Verb: GET  
+Supported Format: urlencoded
+
+Response Parameter Description:
+
+| Name  | Type   | Description                                                      |
+| ----- | ------ | ---------------------------------------------------------------- |
+| count | number | the number of currently confirmed transactions on the Blockchain |
+
+:::: tabs
+
+::: tab mainnet
+
+Request Example:
+
+```bash
+curl -k -X GET 'https://mainnet.gny.io/api/transactions/count'
+```
+
+JSON Response Example:
+
+```js
+{
+	"count": 203
+}
+```
+
+:::
+
+::: tab testnet
+Request Example:
+
+```bash
+curl -k -X GET 'https://testnet.gny.io/api/transactions/count'
+```
+
+JSON Response Example:
+
+```js
+{
+	"count": 203
+}
+```
+
+:::
+
+::::
+
+#### 2.2.6 Get Transactions, newest first
+
+API Endpoint: `/api/transactions/newestFirst`  
+HTTP Verb: GET  
+Supported Format: urlencoded
+
+Request Parameter Description:
+
+| Name   | Type   | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------ | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| count  | number | Y        | The `count` paramter is required. New transactions can be added to the Blockchain every second and which transaction are the newest and get returned by this endpoint **changes** when new transactions arrive. If the total transaction count changes between two HTTP requests, then the starting point of the counting would change. This would lead to inconsistent result. This makes this parameter mandatory. Therefore it is advised to first fetch the current count of all transactions (`/api/transactions/count`) and pass it then to this endpoint (`/api/transactions/newestFirst?count=123`). If the `count` parameter is passed in, the returned values are consistent. Then paging can be used with `?count=123&offset=0` and then `?count=123&offset=100` to get the first 100 transactions and then the next 23 |
+| limit  | number | N        | maximum number of returned records, between 0 and 100                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| offset | number | N        | default is 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+
+Response Parameter Description:
+
+| Name         | Type  | Description                                    |
+| ------------ | ----- | ---------------------------------------------- |
+| success      | bool  | true: response data return successfully        |
+| transactions | Array | a list containing all unconfirmed transactions |
+
+:::: tabs
+
+::: tab mainnet
+
+Request Example:
+
+```bash
+# first fetch current count of confirmed transactions
+curl -k -X GET 'https://mainnet.gny.io/api/transactions/count'
+# then get the newest transactions by passing the count to the endpoint
+curl -k -X GET 'https://mainnet.gny.io/api/transactions/newestFirst?count=123'
+```
+
+First JSON Response Example:
+
+```js
+{
+	"count": 203
+}
+```
+
+Second JSON Response Example:
+
+```js
+"transactions":[
+    {
+      "transactionId":"42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
+      "senderId":"G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
+      "recipientId":"G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
+      "recipientName":null,
+      "currency":"gny",
+      "amount":"10000000000000000",
+      "timestamp":0,
+      "height":0,
+      "_version_":1
+    },
+    // ...
+  ],
+  "count":203
+```
+
+:::
+
+::: tab testnet
+
+Request Example:
+
+```bash
+# first fetch current count of confirmed transactions
+curl -k -X GET 'https://testnet.gny.io/api/transactions/count'
+# then get the newest transactions by passing the count to the endpoint
+curl -k -X GET 'https://testnet.gny.io/api/transactions/newestFirst?count=123'
+```
+
+First JSON Response Example:
+
+```js
+{
+	"count": 203
+}
+```
+
+Second JSON Response Example:
+
+```js
+"transactions":[
+    {
+      "transactionId":"42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
+      "senderId":"G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
+      "recipientId":"G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
+      "recipientName":null,
+      "currency":"gny",
+      "amount":"10000000000000000",
+      "timestamp":0,
+      "height":0,
+      "_version_":1
+    },
+    // ...
+  ],
+  "count":203
+```
+
+:::
+
+::::
+
 ### 2.3 Blocks
 
 #### 2.3.1 Get the Block Detail Information of the Given ID
