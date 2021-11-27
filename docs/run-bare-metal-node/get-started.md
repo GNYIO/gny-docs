@@ -34,10 +34,10 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 If this didn't worked please visit the [`nvm website`](https://github.com/nvm-sh/nvm)
 
-Install `node.js` version `v10.16.2`:
+Install `node.js` version `v12.22.6`:
 
 ```bash
-nvm install v10.16.2
+nvm install v12.22.6
 nvm alias default
 ```
 

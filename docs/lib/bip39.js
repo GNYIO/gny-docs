@@ -9624,11 +9624,11 @@
               }
             };
           }.call(this, {
-            isBuffer: require('../../../../../../.nvm/versions/node/v10.16.2/lib/node_modules/browserify/node_modules/is-buffer/index.js'),
+            isBuffer: require('../../../../../../.nvm/versions/node/v12.22.6/lib/node_modules/browserify/node_modules/is-buffer/index.js'),
           }));
         },
         {
-          '../../../../../../.nvm/versions/node/v10.16.2/lib/node_modules/browserify/node_modules/is-buffer/index.js': 8,
+          '../../../../../../.nvm/versions/node/v12.22.6/lib/node_modules/browserify/node_modules/is-buffer/index.js': 8,
         },
       ],
       44: [
