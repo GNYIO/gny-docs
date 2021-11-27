@@ -58,8 +58,7 @@ sudo apt-get install postgresql-10
 ### Setup PostgreSQL
 
 ```bash
-sudo -i -u postgres psql -c "CREATE USER postgres2 WITH PASSWORD 'docker' CREATEDB;"
-sudo -i -u postgres psql -c "CREATE DATABASE postgres2 WITH OWNER postgres2;"
+sudo --login --user postgres psql -c "ALTER USER postgres WITH PASSWORD 'docker';"
 ```
 
 ### Install necessary dependencies:
