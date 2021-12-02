@@ -1365,12 +1365,30 @@ JSON Response Example:
 
 ```typescript
 import { Connection } from "@gny/client";
-
 const connection = new Connection();
-const result = await connection.api.Transaction.count();
+
+// no argument (count all transactions)
+const result0 = await connection.api.Transaction.count();
+
+// or (count transactions of a specific user)
+const senderPublicKey =
+  "1dcd1197d073e1ed3bba872572afda6b02dd926fa1e4454ec796bf4ec0313973";
+const result1 = await connection.api.Transaction.count({
+  senderPublicKey
+});
+
+// or (count transactions of a specific user)
+const senderId = "G3TCoN8jRQenDPRLKj3wEx4DkXKy4";
+const result2 = await connection.api.Transaction.count({
+  senderId
+});
 ```
 
-Request Parameter Description: none
+Request Parameter Description:
+| Name | Type | Required | Description |
+| ----- | ------ | ------ | ---------------------------------------------------------------- |
+| senderId | string | N | Optional `senderId` parameter |
+| senderPublicKey | N | string | Optional `senderPublicKey` parameter |
 
 Request Parameter Description:  
 | Name | Type | Description |
@@ -1389,22 +1407,56 @@ JSON Response Example:
 
 ```typescript
 import { Connection } from "@gny/client";
+const connection = new Connection();
 
-// get first count
-const count = await transactionApi.count();
-const offset = 0;
-const limit = 10;
+// get transactions of all users
+// first get the count
+const allUsersCount = await connection.api.Transaction.count();
+// now get the transactions
+const response0 = await connection.api.Transaction.newestFirst({
+  count: allUsersCount.count,
+  offset: 0,
+  limit: 100
+});
 
-const response = await transactionApi.newestFirst(count, offset, limit);
+// get the transactions of a specific user (by senderId)
+// first count the transactions for this user
+const senderId = "G3TCoN8jRQenDPRLKj3wEx4DkXKy4";
+const userTransactionCount = connection.api.Transaction.count({
+  senderId
+});
+// now get the transactions for this user (by senderId)
+const response1 = await connection.api.Transaction.newestFirst({
+  count: userTransactionCount.count,
+  offset: 0,
+  limit: 100,
+  senderId
+});
+
+// get the transactions of a specific user (by senderPublicKey)
+const senderPublicKey =
+  "1dcd1197d073e1ed3bba872572afda6b02dd926fa1e4454ec796bf4ec0313973";
+const userPublicKeyTransactionCount = await connection.api.Transaction.count({
+  senderPublicKey
+});
+// now get the transactions for this user (by senderPublicKey)
+const response1 = await connection.api.Transaction.newestFirst({
+  count: userPublicKeyTransactionCount.count,
+  offset: 0,
+  limit: 100,
+  senderPublicKey
+});
 ```
 
 Request Parameter Description:
 
-| Name   | Type   | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------ | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| count  | number | Y        | The `count` paramter is required. New transactions can be added to the Blockchain every second and which transaction are the newest and get returned by this endpoint **changes** when new transactions arrive. If the total transaction count changes between two HTTP requests, then the starting point of the counting would change. This would lead to inconsistent result. This makes this parameter mandatory. Therefore it is advised to first fetch the current count of all transactions (`/api/transactions/count`) and pass it then to this endpoint (`/api/transactions/newestFirst?count=123`). If the `count` parameter is passed in, the returned values are consistent. Then paging can be used with `?count=123&offset=0` and then `?count=123&offset=100` to get the first 100 transactions and then the next 23 |
-| limit  | number | N        | maximum number of returned records, between 0 and 100                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| offset | number | N        | default is 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Name            | Type   | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| count           | number | Y        | The `count` paramter is required. New transactions can be added to the Blockchain every second and which transaction are the newest and get returned by this endpoint **changes** when new transactions arrive. If the total transaction count changes between two HTTP requests, then the starting point of the counting would change. This would lead to inconsistent result. This makes this parameter mandatory. Therefore it is advised to first fetch the current count of all transactions (`/api/transactions/count`) and pass it then to this endpoint (`/api/transactions/newestFirst?count=123`). If the `count` parameter is passed in, the returned values are consistent. Then paging can be used with `?count=123&offset=0` and then `?count=123&offset=100` to get the first 100 transactions and then the next 23 |
+| limit           | number | N        | maximum number of returned records, between 0 and 100                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| offset          | number | N        | default is 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| senderId        | string | N        | Optional parameter `senderId`. This can be used to filter for the `senderId` of all transactions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| senderPublicKey | sring  | N        | Optional parameter `senderPublicKey`. This can be used to filter for the `senderPublicKey` of all transactions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 Response Parameter Description:
 
