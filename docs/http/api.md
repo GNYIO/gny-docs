@@ -850,7 +850,7 @@ Response Parameter Description:
 | blocks  | Array   | a list of JSON objects containing block detail |
 | count   | integer | block height                                   |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -956,7 +956,7 @@ Response Parameter Description:
 | success | bool    | true: response data return successfully |
 | height  | integer | block height                            |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 
@@ -1010,7 +1010,7 @@ Response Parameter Description:
 | success   | bool    | true: response data return successfully |
 | milestone | integer |                                         |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 
@@ -1064,7 +1064,7 @@ Response Parameter Description:
 | success | bool    | true: response data return successfully |
 | reward  | integer | the reward of the block                 |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1118,7 +1118,7 @@ Response Parameter Description:
 | success | bool    | true: response data return successfully      |
 | supply  | integer | the total amount of XAS in the whole network |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1174,7 +1174,7 @@ Response Parameter Description:
 | reward    | integer | block reward                             |
 | supply    | integer | total amount of XAS in the whole network |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 
@@ -1236,7 +1236,7 @@ Response Parameter Description:
 | success | bool    | true: response data return successfully |
 | count   | integer | total number of delegates               |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1288,7 +1288,7 @@ Response Parameter Description:
 | success  | bool  | true: response data return successfully |
 | accounts | Array | a JSON object list of account           |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1385,7 +1385,7 @@ Response Parameter Description:
 | success  | bool | true: response data return successfully |
 | delegate | JSON | the detail information of this delegate |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example (publicKey):
@@ -1502,7 +1502,7 @@ Response Parameter Description:
 | delegates | Array  | a list containing delegates' detail information |
 | count     | number | How many delegates exist overall?               |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1631,7 +1631,7 @@ Response Parameter Description:
 | success   | bool  | true: response data return successfully         |
 | delegates | Array | a list containing delegates' detail information |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 
@@ -1765,7 +1765,7 @@ Response Parameter Description:
 | ------- | ---- | --------------------------------------- |
 | success | bool | true: response data return successfully |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1821,7 +1821,7 @@ Response Parameter Description:
 | ------- | ---- | --------------------------------------- |
 | success | bool | true: response data return successfully |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1870,7 +1870,7 @@ Request Parameter Description:
 | --------- | ------ | -------- | ------------------------ |
 | publicKey | string | N        | public key of a delegate |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1952,7 +1952,7 @@ Response Parameter Description:
 | delegate | JSON  | the detail information of this delegate        |
 | blocks   | Array | a list of JSON objects containing block detail |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2102,7 +2102,7 @@ Response Parameter Description:
 | delegate | Array  | the detail information of the matching delegates                                                                                                                                                                                              |
 | count    | number | count how many delegates match the `searchFor` pattern overall. By default only 200 delegates get returned that match the `searchFor` pattern, therefore you need to have page thourgh the rest with the help of the `offset` query parameter |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example by searching for `pattern`:
@@ -2208,7 +2208,7 @@ Response Parameter Description:
 | peers   | Array   | a JSON array of peers' information      |
 | count   | integer | the number of currently running peers   |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2320,7 +2320,7 @@ Response Parameter Description:
 | build   | timestamp | built time                              |
 | net     | string    | either localnet, testnet or mainnet     |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2381,7 +2381,7 @@ Response Parameter Description:
 | publicIp   | string           | own public ip                                                                                             |
 | address    | string           | ip address on which the server is listening. Normal this is a private ip address                          |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2449,7 +2449,7 @@ Response Parameter Description:
 | blocksCount | integer |                                         |
 | now         | integer |                                         |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2505,7 +2505,7 @@ Response Parameter Description:
 | success | bool | true: response data return successfully |
 | height  | int  | block height                            |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2573,7 +2573,7 @@ Response Parameter Description:
 | count     | string | the number of transfers                 |
 | transfers | Array  | An array of transfers                   |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2683,7 +2683,7 @@ Response Parameter Description:
 | count          | string | the number of transfers                 |
 | strTotalAmount | string | the total amout of transfers            |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2746,7 +2746,7 @@ Response Parameter Description:
 | issuers | Array   | Array of publishers              |
 | count   | integer | Total number of publishers       |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example:
@@ -2818,7 +2818,7 @@ Response Parameter Description:
 | success | boolean | Whether operation was successful                              |
 | issuers | JSON    | Contains the publisher name, description and id (GNY address) |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example (publisher name):
@@ -2901,7 +2901,7 @@ Response Parameter Description:
 | assets  | Array    | Array of assets                                        |
 | count   | interger | The total number of assets registered by the publisher |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example:
@@ -2982,7 +2982,7 @@ Response Parameter Description:
 | assets  | Array   | Array of assets                  |
 | count   | integer | Number of all assets             |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example:
@@ -3061,7 +3061,7 @@ Response Parameter Description:
 | success | boolean | Whether operation was successful                                                                  |
 | assets  | JSON    | Contains asset name, description, cap, precision, current circulation, issue height, publisher id |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example:
@@ -3141,7 +3141,7 @@ Response Parameter Description:
 | balances | Array   | Asset array, details owned, each element is an asset, including asset name, balance, cap, precision, current circulation, whether to cancel (0: not cancelled, 1: cancelled) |
 | count    | integer | The number of assets currently owned by this address                                                                                                                         |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example:
@@ -3206,7 +3206,7 @@ Response Parameter Description:
 | ------- | ------- | -------------------------------- |
 | success | boolean | Whether operation was successful |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example:
@@ -3277,7 +3277,7 @@ Response Parameter Description:
 | holders | Array   | Asset array, each element is an asset holder, including address, balance, currency |
 | count   | integer | The number of holders owning this asset                                            |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example:
@@ -3331,7 +3331,7 @@ JSON Response:
 
 In order to send transactions you need set the `magic` header:
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 `curl` example:
