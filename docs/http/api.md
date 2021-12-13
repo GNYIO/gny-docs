@@ -588,11 +588,20 @@ JSON Response Example:
 
 ::::
 
+<br/>
+
 #### 2.2.5 Get Count of confirmed Transaction
 
 API Endpoint: `/api/transactions/count`  
 HTTP Verb: GET  
 Supported Format: urlencoded
+
+Request Parameter Description:
+
+| Name            | Required | Type   | Description                          |
+| --------------- | -------- | ------ | ------------------------------------ |
+| senderId        | N        | string | Optional `senderId` parameter        |
+| senderPublicKey | N        | string | Optional `senderPublicKey` parameter |
 
 Response Parameter Description:
 
@@ -604,7 +613,7 @@ Response Parameter Description:
 
 ::: tab mainnet
 
-Request Example:
+**1. Request Example** (count all transactions, from all users):
 
 ```bash
 curl -k -X GET 'https://mainnet.gny.io/api/transactions/count'
@@ -618,10 +627,40 @@ JSON Response Example:
 }
 ```
 
+<br/>
+
+**2. Request Example** (count transactions of user, by `senderPublicKey`):
+
+```bash
+curl -k -X GET 'https://mainnet.gny.io/api/transactions/count?senderPublicKey=1dcd1197d073e1ed3bba872572afda6b02dd926fa1e4454ec796bf4ec0313973'
+```
+
+JSON Response Example:
+
+```js
+{
+	"count": 5
+}
+```
+
+<br/>
+
+**3. Request Example** (count transactions of user, by `senderId`):
+
+```bash
+curl -k -X GET 'https://mainnet.gny.io/api/transactions/count?senderId=G3TCoN8jRQenDPRLKj3wEx4DkXKy4'
+```
+
+```js
+{
+	"count": 10
+}
+```
+
 :::
 
 ::: tab testnet
-Request Example:
+**1. Request Example** (count all transactions, from all users):
 
 ```bash
 curl -k -X GET 'https://testnet.gny.io/api/transactions/count'
@@ -635,9 +674,43 @@ JSON Response Example:
 }
 ```
 
+<br/>
+
+**2. Request Example** (count transactions of user, by `senderPublicKey`):
+
+```bash
+curl -k -X GET 'https://testnet.gny.io/api/transactions/count?senderPublicKey=8ea683cbaf24286001f266fe2f676ed7ec88cc5e585b696410b23c251420276d'
+```
+
+JSON Response Example:
+
+```js
+{
+	"count": 5
+}
+```
+
+<br/>
+
+**3. Request Example** (count transactions of user, by `senderId`):
+
+```bash
+curl -k -X GET 'https://testnet.gny.io/api/transactions/count?senderId=G43MMwsCg41JupFvddvwM4vQkjhRt'
+```
+
+JSON Response Example:
+
+```js
+{
+	"count": 10
+}
+```
+
 :::
 
 ::::
+
+<br/>
 
 #### 2.2.6 Get Transactions, newest first
 
@@ -647,11 +720,13 @@ Supported Format: urlencoded
 
 Request Parameter Description:
 
-| Name   | Type   | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------ | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| count  | number | Y        | The `count` paramter is required. New transactions can be added to the Blockchain every second and which transaction are the newest and get returned by this endpoint **changes** when new transactions arrive. If the total transaction count changes between two HTTP requests, then the starting point of the counting would change. This would lead to inconsistent result. This makes this parameter mandatory. Therefore it is advised to first fetch the current count of all transactions (`/api/transactions/count`) and pass it then to this endpoint (`/api/transactions/newestFirst?count=123`). If the `count` parameter is passed in, the returned values are consistent. Then paging can be used with `?count=123&offset=0` and then `?count=123&offset=100` to get the first 100 transactions and then the next 23 |
-| limit  | number | N        | maximum number of returned records, between 0 and 100                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| offset | number | N        | default is 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Name            | Type   | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| count           | number | Y        | The `count` paramter is required. New transactions can be added to the Blockchain every second and which transaction are the newest and get returned by this endpoint **changes** when new transactions arrive. If the total transaction count changes between two HTTP requests, then the starting point of the counting would change. This would lead to inconsistent result. This makes this parameter mandatory. Therefore it is advised to first fetch the current count of all transactions (`/api/transactions/count`) and pass it then to this endpoint (`/api/transactions/newestFirst?count=123`). If the `count` parameter is passed in, the returned values are consistent. Then paging can be used with `?count=123&offset=0` and then `?count=123&offset=100` to get the first 100 transactions and then the next 23 |
+| limit           | number | N        | maximum number of returned records, between 0 and 100                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| offset          | number | N        | default is 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| senderId        | string | N        | Optional parameter `senderId`. This can be used to filter for the `senderId` of all transactions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| senderPublicKey | sring  | N        | Optional parameter `senderPublicKey`. This can be used to filter for the `senderPublicKey` of all transactions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 Response Parameter Description:
 
@@ -664,7 +739,7 @@ Response Parameter Description:
 
 ::: tab mainnet
 
-Request Example:
+**1. Request Example** (for all users):
 
 ```bash
 # first fetch current count of confirmed transactions
@@ -701,11 +776,89 @@ Second JSON Response Example:
   "count":203
 ```
 
+<br/>
+
+**2. Request Example** (for user, by `senderPublicKey`):
+
+```bash
+# first fetch current count of confirmed transactions
+curl -k -X GET 'https://mainnet.gny.io/api/transactions/count?senderPublicKey=8ea683cbaf24286001f266fe2f676ed7ec88cc5e585b696410b23c251420276d'
+# then get the newest transactions by passing the count to the endpoint
+curl -k -X GET 'https://mainnet.gny.io/api/transactions/newestFirst?count=123&senderPublicKey=8ea683cbaf24286001f266fe2f676ed7ec88cc5e585b696410b23c251420276d'
+```
+
+First JSON Response Example:
+
+```js
+{
+	"count": 5
+}
+```
+
+Second JSON Response Example:
+
+```js
+"transactions":[
+    {
+      "transactionId":"42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
+      "senderId":"G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
+      "recipientId":"G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
+      "recipientName":null,
+      "currency":"gny",
+      "amount":"10000000000000000",
+      "timestamp":0,
+      "height":0,
+      "_version_":1
+    },
+    // ...
+  ],
+  "count":5
+```
+
+<br/>
+
+**3. Request Example** (for user, by `senderId`):
+
+```bash
+# first fetch current count of confirmed transactions
+curl -k -X GET 'https://mainnet.gny.io/api/transactions/count?senderId=G4XwKvHy6AFCXV8XQK4cqDYsbhiPp'
+# then get the newest transactions by passing the count to the endpoint
+curl -k -X GET 'https://mainnet.gny.io/api/transactions/newestFirst?count=123&senderId=G4XwKvHy6AFCXV8XQK4cqDYsbhiPp'
+```
+
+First JSON Response Example:
+
+```js
+{
+	"count": 10
+}
+```
+
+Second JSON Response Example:
+
+```js
+"transactions":[
+    {
+      "transactionId":"42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
+      "senderId":"G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
+      "recipientId":"G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
+      "recipientName":null,
+      "currency":"gny",
+      "amount":"10000000000000000",
+      "timestamp":0,
+      "height":0,
+      "_version_":1
+    },
+    // ...
+  ],
+  "count":10
+```
+
 :::
 
 ::: tab testnet
 
-Request Example:
+**1. Request Example** (for all users):
 
 ```bash
 # first fetch current count of confirmed transactions
@@ -742,9 +895,89 @@ Second JSON Response Example:
   "count":203
 ```
 
+<br/>
+
+**2. Request Example** (for user, by `senderPublicKey`):
+
+```bash
+# first fetch current count of confirmed transactions
+curl -k -X GET 'https://testnet.gny.io/api/transactions/count?senderPublicKey=8ea683cbaf24286001f266fe2f676ed7ec88cc5e585b696410b23c251420276d'
+# then get the newest transactions by passing the count to the endpoint
+curl -k -X GET 'https://testnet.gny.io/api/transactions/newestFirst?count=123&senderPublicKey=8ea683cbaf24286001f266fe2f676ed7ec88cc5e585b696410b23c251420276d'
+```
+
+First JSON Response Example:
+
+```js
+{
+	"count": 5
+}
+```
+
+Second JSON Response Example:
+
+```js
+"transactions":[
+    {
+      "transactionId":"42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
+      "senderId":"G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
+      "recipientId":"G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
+      "recipientName":null,
+      "currency":"gny",
+      "amount":"10000000000000000",
+      "timestamp":0,
+      "height":0,
+      "_version_":1
+    },
+    // ...
+  ],
+  "count":5
+```
+
+<br/>
+
+**3. Request Example** (for user, by `senderId`):
+
+```bash
+# first fetch current count of confirmed transactions
+curl -k -X GET 'https://testnet.gny.io/api/transactions/count?senderId=G4XwKvHy6AFCXV8XQK4cqDYsbhiPp'
+# then get the newest transactions by passing the count to the endpoint
+curl -k -X GET 'https://testnet.gny.io/api/transactions/newestFirst?count=123&senderId=G4XwKvHy6AFCXV8XQK4cqDYsbhiPp'
+```
+
+First JSON Response Example:
+
+```js
+{
+	"count": 10
+}
+```
+
+Second JSON Response Example:
+
+```js
+"transactions":[
+    {
+      "transactionId":"42254052d4bc1e1132c316469194e6b756a6c0f086a24b00c05a91ced5502046",
+      "senderId":"G25AKCRu8mK2b4QXq8Jk8bFiNfxeY",
+      "recipientId":"G2MdtJJPCWTFGZ75QoP7Z5KowRhst",
+      "recipientName":null,
+      "currency":"gny",
+      "amount":"10000000000000000",
+      "timestamp":0,
+      "height":0,
+      "_version_":1
+    },
+    // ...
+  ],
+  "count":10
+```
+
 :::
 
 ::::
+
+<br/>
 
 ### 2.3 Blocks
 
@@ -850,7 +1083,7 @@ Response Parameter Description:
 | blocks  | Array   | a list of JSON objects containing block detail |
 | count   | integer | block height                                   |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -956,7 +1189,7 @@ Response Parameter Description:
 | success | bool    | true: response data return successfully |
 | height  | integer | block height                            |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 
@@ -1010,7 +1243,7 @@ Response Parameter Description:
 | success   | bool    | true: response data return successfully |
 | milestone | integer |                                         |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 
@@ -1064,7 +1297,7 @@ Response Parameter Description:
 | success | bool    | true: response data return successfully |
 | reward  | integer | the reward of the block                 |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1118,7 +1351,7 @@ Response Parameter Description:
 | success | bool    | true: response data return successfully      |
 | supply  | integer | the total amount of XAS in the whole network |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1174,7 +1407,7 @@ Response Parameter Description:
 | reward    | integer | block reward                             |
 | supply    | integer | total amount of XAS in the whole network |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 
@@ -1236,7 +1469,7 @@ Response Parameter Description:
 | success | bool    | true: response data return successfully |
 | count   | integer | total number of delegates               |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1288,7 +1521,7 @@ Response Parameter Description:
 | success  | bool  | true: response data return successfully |
 | accounts | Array | a JSON object list of account           |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1385,7 +1618,7 @@ Response Parameter Description:
 | success  | bool | true: response data return successfully |
 | delegate | JSON | the detail information of this delegate |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example (publicKey):
@@ -1502,7 +1735,7 @@ Response Parameter Description:
 | delegates | Array  | a list containing delegates' detail information |
 | count     | number | How many delegates exist overall?               |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1631,7 +1864,7 @@ Response Parameter Description:
 | success   | bool  | true: response data return successfully         |
 | delegates | Array | a list containing delegates' detail information |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 
@@ -1765,7 +1998,7 @@ Response Parameter Description:
 | ------- | ---- | --------------------------------------- |
 | success | bool | true: response data return successfully |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1821,7 +2054,7 @@ Response Parameter Description:
 | ------- | ---- | --------------------------------------- |
 | success | bool | true: response data return successfully |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1870,7 +2103,7 @@ Request Parameter Description:
 | --------- | ------ | -------- | ------------------------ |
 | publicKey | string | N        | public key of a delegate |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -1952,7 +2185,7 @@ Response Parameter Description:
 | delegate | JSON  | the detail information of this delegate        |
 | blocks   | Array | a list of JSON objects containing block detail |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2102,7 +2335,7 @@ Response Parameter Description:
 | delegate | Array  | the detail information of the matching delegates                                                                                                                                                                                              |
 | count    | number | count how many delegates match the `searchFor` pattern overall. By default only 200 delegates get returned that match the `searchFor` pattern, therefore you need to have page thourgh the rest with the help of the `offset` query parameter |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example by searching for `pattern`:
@@ -2208,7 +2441,7 @@ Response Parameter Description:
 | peers   | Array   | a JSON array of peers' information      |
 | count   | integer | the number of currently running peers   |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2320,7 +2553,7 @@ Response Parameter Description:
 | build   | timestamp | built time                              |
 | net     | string    | either localnet, testnet or mainnet     |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2381,7 +2614,7 @@ Response Parameter Description:
 | publicIp   | string           | own public ip                                                                                             |
 | address    | string           | ip address on which the server is listening. Normal this is a private ip address                          |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2449,7 +2682,7 @@ Response Parameter Description:
 | blocksCount | integer |                                         |
 | now         | integer |                                         |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2505,7 +2738,7 @@ Response Parameter Description:
 | success | bool | true: response data return successfully |
 | height  | int  | block height                            |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2573,7 +2806,7 @@ Response Parameter Description:
 | count     | string | the number of transfers                 |
 | transfers | Array  | An array of transfers                   |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2683,7 +2916,7 @@ Response Parameter Description:
 | count          | string | the number of transfers                 |
 | strTotalAmount | string | the total amout of transfers            |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request Example:
@@ -2746,7 +2979,7 @@ Response Parameter Description:
 | issuers | Array   | Array of publishers              |
 | count   | integer | Total number of publishers       |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example:
@@ -2818,7 +3051,7 @@ Response Parameter Description:
 | success | boolean | Whether operation was successful                              |
 | issuers | JSON    | Contains the publisher name, description and id (GNY address) |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example (publisher name):
@@ -2901,7 +3134,7 @@ Response Parameter Description:
 | assets  | Array    | Array of assets                                        |
 | count   | interger | The total number of assets registered by the publisher |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example:
@@ -2982,7 +3215,7 @@ Response Parameter Description:
 | assets  | Array   | Array of assets                  |
 | count   | integer | Number of all assets             |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example:
@@ -3061,7 +3294,7 @@ Response Parameter Description:
 | success | boolean | Whether operation was successful                                                                  |
 | assets  | JSON    | Contains asset name, description, cap, precision, current circulation, issue height, publisher id |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example:
@@ -3141,7 +3374,7 @@ Response Parameter Description:
 | balances | Array   | Asset array, details owned, each element is an asset, including asset name, balance, cap, precision, current circulation, whether to cancel (0: not cancelled, 1: cancelled) |
 | count    | integer | The number of assets currently owned by this address                                                                                                                         |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example:
@@ -3206,7 +3439,7 @@ Response Parameter Description:
 | ------- | ------- | -------------------------------- |
 | success | boolean | Whether operation was successful |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example:
@@ -3277,7 +3510,7 @@ Response Parameter Description:
 | holders | Array   | Asset array, each element is an asset holder, including address, balance, currency |
 | count   | integer | The number of holders owning this asset                                            |
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 Request example:
@@ -3331,7 +3564,7 @@ JSON Response:
 
 In order to send transactions you need set the `magic` header:
 
-:::: tabs
+:::: tabs
 
 ::: tab mainnet
 `curl` example:

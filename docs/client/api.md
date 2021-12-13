@@ -1368,18 +1368,18 @@ import { Connection } from "@gny/client";
 const connection = new Connection();
 
 // no argument (count all transactions)
-const result0 = await connection.api.Transaction.count();
+const countAllTransactions = await connection.api.Transaction.count();
 
 // or (count transactions of a specific user)
 const senderPublicKey =
   "1dcd1197d073e1ed3bba872572afda6b02dd926fa1e4454ec796bf4ec0313973";
-const result1 = await connection.api.Transaction.count({
+const countTrsOfPublicKey = await connection.api.Transaction.count({
   senderPublicKey
 });
 
 // or (count transactions of a specific user)
 const senderId = "G3TCoN8jRQenDPRLKj3wEx4DkXKy4";
-const result2 = await connection.api.Transaction.count({
+const countTrsOfSenderId = await connection.api.Transaction.count({
   senderId
 });
 ```
@@ -1387,10 +1387,10 @@ const result2 = await connection.api.Transaction.count({
 Request Parameter Description:
 | Name | Type | Required | Description |
 | ----- | ------ | ------ | ---------------------------------------------------------------- |
-| senderId | string | N | Optional `senderId` parameter |
+| senderId | N | string | Optional `senderId` parameter |
 | senderPublicKey | N | string | Optional `senderPublicKey` parameter |
 
-Request Parameter Description:  
+Response Parameter Description:  
 | Name | Type | Description |
 | ----- | ------ | ---------------------------------------------------------------- |
 | count | number | the number of currently confirmed transactions on the Blockchain |
@@ -1403,14 +1403,14 @@ JSON Response Example:
 }
 ```
 
-### Get newest Transaction
+### Get Transaction (newest first)
 
 ```typescript
 import { Connection } from "@gny/client";
 const connection = new Connection();
 
 // get transactions of all users
-// first get the count
+// first fetch the count of all transactions
 const allUsersCount = await connection.api.Transaction.count();
 // now get the transactions
 const response0 = await connection.api.Transaction.newestFirst({
