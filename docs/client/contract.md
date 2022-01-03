@@ -238,7 +238,7 @@ Request Parameter Description:
 | ------------ | ------ | -------- | ---------------------------------- |
 | name         | string | Y        | the currency name to be registered |
 | desc         | string | Y        | a descripition about the currency  |
-| maximum      | string | Y        | maximum number of the currency     |
+| maximum      | string | Y        | maximum supply     |
 | precision    | number | Y        | precision of the currency          |
 | secret       | string | Y        | gny account password               |
 | secondSecret | string | N        | gny account second password        |
@@ -250,3 +250,35 @@ Response Parameter Description:
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
 
+
+### Issue or Mint Asset (contract)
+
+Price: 0.1 GNY
+
+```typescript
+import { Connection } from "@gny/client";
+
+const currency = 'AAA.BBB';
+const amount = String(10 * 1e8); // when precision 8
+const secret = 'hole sign tray march general grape pudding apology art almost street again';
+
+const connection = new Connection();
+await connection.contract.Uia.issue(currency, amount, secret);
+```
+
+Request Parameter Description:
+
+| Name         | Type   | Required | Description                        |
+| ------------ | ------ | -------- | ---------------------------------- |
+| currency | string | Y | The currency to issue. For example `AAA.BBB` |
+| amount | string | Y | The amount to issue. Multiple issue contract counts are possible. For example if the maximum supply is 100 `AAA.BBB`. Then there could be multiple `issue` contract calls until the maximum supply is reached. One could `issue` 100 `AAA.BBB` at once. Or with four `issue` contract calls with 25 `AAA.BBB` each.  |
+| secret | string | Y | gny account password |
+| secondSecret | string | N        | gny account second password (optional)      |
+
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
