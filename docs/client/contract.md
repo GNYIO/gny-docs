@@ -186,6 +186,34 @@ Response Parameter Description:
 
 ## User Defined Asset UIA
 
+### Register as an issuer (contract)
+
+Prize: 100 GNY
+
+```typescript
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+await connection.contract.Uia.registerIssuer(name, desc, secret, secondSecret);
+```
+
+Request Parameter Description:
+
+| Name         | Type   | Required | Description                        |
+| ------------ | ------ | -------- | ---------------------------------- |
+| name         | string | Y        | the currency name to be registered |
+| desc         | string | Y        | a descripition about the currency  |
+| secret       | string | Y        | gny account password               |
+| secondSecret | string | N        | gny account second password        |
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
+
+
 ### Register asset (contract)
 
 Prize: 500 GNY
@@ -222,29 +250,3 @@ Response Parameter Description:
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
 
-### Register as an issuer (contract)
-
-Prize: 100 GNY
-
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-await connection.contract.Uia.registerIssuer(name, desc, secret, secondSecret);
-```
-
-Request Parameter Description:
-
-| Name         | Type   | Required | Description                        |
-| ------------ | ------ | -------- | ---------------------------------- |
-| name         | string | Y        | the currency name to be registered |
-| desc         | string | Y        | a descripition about the currency  |
-| secret       | string | Y        | gny account password               |
-| secondSecret | string | N        | gny account second password        |
-
-Response Parameter Description:
-
-| Name          | Type   | Description                             |
-| ------------- | ------ | --------------------------------------- |
-| success       | bool   | true: response data return successfully |
-| transactionId | string | transaction id                          |
