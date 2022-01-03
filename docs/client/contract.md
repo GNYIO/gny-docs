@@ -282,3 +282,40 @@ Response Parameter Description:
 | ------------- | ------ | --------------------------------------- |
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
+
+
+### Transfer Asset (contract)
+
+Price: 0.1 GNY
+
+```typescript
+import { Connection } from "@gny/client";
+
+const currency = 'AAA.BBB';
+const amount = String(30 * 1e8); // depends upon the precision
+const recipientId = 'G3pJNqwU3Lrkt5CooU66eubgTYXX';
+const message = null;
+const secret = 'swamp stage diesel armor genius famous horror endorse wave wisdom govern inner';
+
+const connection = new Connection(currency, amount, recipientId, message, secret);
+await connection.contract.Uia.transfer(currency, amount, recipientId, message, secret);
+```
+
+Request Parameter Description:
+
+| Name         | Type   | Required | Description                        |
+| ------------ | ------ | -------- | ---------------------------------- |
+| currency | string | Y | The currency to transfer. For example to transfer the asset `AAA.BBB` or any other custom asset. GNY can't be transferred with this contract call  |
+| amount | string  | Y | The amount to transfer. To calculate the correct amount to transfer one needs to consider the precision of the asset. Please remember that an asset needs to be issued first before it can be transferred. |
+| message | string | N | The optional message. Pass `null` if no message should be send |
+| secret | string | Y | gny account password |
+| secondSecret | string | N        | gny account second password (optional)      |
+
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
+
