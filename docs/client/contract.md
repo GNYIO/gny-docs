@@ -2,7 +2,7 @@
 
 ### Set username (contract)
 
-Prize: 5 GNY
+Price: 5 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
@@ -28,7 +28,7 @@ Response Parameter Description:
 
 ### Lock account (contract)
 
-Prize: 0.1 GNY
+Price: 0.1 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
@@ -76,7 +76,7 @@ Response Parameter Description:
 
 ### Register as a delegate (contract)
 
-Prize: 100 GNY
+Price: 100 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
@@ -100,7 +100,7 @@ Response Parameter Description:
 
 ### Create a transaction (contract)
 
-Prize: 0.1 GNY
+Price: 0.1 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
@@ -134,7 +134,7 @@ Response Parameter Description:
 
 ### Vote for a list of keys (contract)
 
-Prize: 0.1 GNY
+Price: 0.1 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
@@ -160,7 +160,7 @@ Response Parameter Description:
 
 ### Unvote for a list of keys (contract)
 
-Prize: 0.1 GNY
+Price: 0.1 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
@@ -188,7 +188,7 @@ Response Parameter Description:
 
 ### Register as an issuer (contract)
 
-Prize: 100 GNY
+Price: 100 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
@@ -216,7 +216,7 @@ Response Parameter Description:
 
 ### Register asset (contract)
 
-Prize: 500 GNY
+Price: 500 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
