@@ -1222,7 +1222,7 @@ Response Parameter Description:
 
 ### Send money (contract)
 
-Prize: 0.1 GNY
+Price: 0.1 GNY
 
 ```bash
 gny-cli sendmoney -e <secret> -a <amount> -r <recipientId> [-m <message>] [-s <secondSecret>]
@@ -1604,7 +1604,7 @@ JSON Response:
 
 ### Send asset (contract)
 
-Prize: 10000000
+Price: 10000000
 
 ```bash
 gny-cli sendasset -e <secret> -c <currency> -a <amount> -r <address> [-m <message>] [-s <secret>]
@@ -1632,7 +1632,7 @@ Response Parameter Description:
 
 ### Register as a delegate (contract)
 
-Prize: 100 GNY
+Price: 100 GNY
 
 ```bash
 gny-cli registerdelegate --secret <secret> [--secondSecret <secret>]
@@ -1656,7 +1656,7 @@ Response Parameter Description:
 
 ### Set second secret (contract)
 
-Prize: 5 GNY
+Price: 5 GNY
 
 ```bash
 gny-cli setsecondsecret -e <secret> -s <secret>
@@ -1680,7 +1680,7 @@ Response Parameter Description:
 
 ### Lock account (contract)
 
-Prize: 0.1 GNY
+Price: 0.1 GNY
 
 ```bash
 gny-cli lock -e <secret> -h <height> -m <amount> [-s <secret>]
@@ -1706,7 +1706,7 @@ Response Parameter Description:
 
 ### Vote for a list of keys (contract)
 
-Prize: 0.1 GNY
+Price: 0.1 GNY
 
 ```bash
 gny-cli vote -e <secret> -u <usernames> [--s <secret>]
@@ -1731,7 +1731,7 @@ Response Parameter Description:
 
 ### Unvote for a list of keys (contract)
 
-Prize: 0.1 GNY
+Price: 0.1 GNY
 
 ```bash
 gny-cli unvote -e <secret> -u <usernames> [-s <secret>]

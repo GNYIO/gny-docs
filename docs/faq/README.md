@@ -70,7 +70,7 @@ Contracts are the only tools that can change the Blockchain. If you want to tran
 
 Here is a full list of all available contracts currently in the GNY Blockchain:
 
-| Contract Type |            Name             |                    Description                     | Prize (GNY) |
+| Contract Type |            Name             |                    Description                     | Price (GNY) |
 | :-----------: | :-------------------------: | :------------------------------------------------: | :---------: |
 |       0       |      `basic.transfer`       |     Transfer `GNY` from one account to another     |     0.1     |
 |       1       |     `basic.setUserName`     |             Set `username` for Account             |      5      |

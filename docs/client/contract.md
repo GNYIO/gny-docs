@@ -2,7 +2,7 @@
 
 ### Set username (contract)
 
-Prize: 5 GNY
+Price: 5 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
@@ -28,7 +28,7 @@ Response Parameter Description:
 
 ### Lock account (contract)
 
-Prize: 0.1 GNY
+Price: 0.1 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
@@ -76,7 +76,7 @@ Response Parameter Description:
 
 ### Register as a delegate (contract)
 
-Prize: 100 GNY
+Price: 100 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
@@ -100,7 +100,7 @@ Response Parameter Description:
 
 ### Create a transaction (contract)
 
-Prize: 0.1 GNY
+Price: 0.1 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
@@ -134,7 +134,7 @@ Response Parameter Description:
 
 ### Vote for a list of keys (contract)
 
-Prize: 0.1 GNY
+Price: 0.1 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
@@ -160,7 +160,7 @@ Response Parameter Description:
 
 ### Unvote for a list of keys (contract)
 
-Prize: 0.1 GNY
+Price: 0.1 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
@@ -186,45 +186,9 @@ Response Parameter Description:
 
 ## User Defined Asset UIA
 
-### Register asset (contract)
-
-Prize: 500 GNY
-
-```typescript
-import { Connection } from "@gny/client";
-
-const connection = new Connection();
-await connection.contract.Uia.registerAsset(
-  name,
-  desc,
-  maximum,
-  precision,
-  secret,
-  secondSecret
-);
-```
-
-Request Parameter Description:
-
-| Name         | Type   | Required | Description                        |
-| ------------ | ------ | -------- | ---------------------------------- |
-| name         | string | Y        | the currency name to be registered |
-| desc         | string | Y        | a descripition about the currency  |
-| maximum      | string | Y        | maximum number of the currency     |
-| precision    | number | Y        | precision of the currency          |
-| secret       | string | Y        | gny account password               |
-| secondSecret | string | N        | gny account second password        |
-
-Response Parameter Description:
-
-| Name          | Type   | Description                             |
-| ------------- | ------ | --------------------------------------- |
-| success       | bool   | true: response data return successfully |
-| transactionId | string | transaction id                          |
-
 ### Register as an issuer (contract)
 
-Prize: 100 GNY
+Price: 100 GNY
 
 ```typescript
 import { Connection } from "@gny/client";
@@ -248,3 +212,110 @@ Response Parameter Description:
 | ------------- | ------ | --------------------------------------- |
 | success       | bool   | true: response data return successfully |
 | transactionId | string | transaction id                          |
+
+
+### Register asset (contract)
+
+Price: 500 GNY
+
+```typescript
+import { Connection } from "@gny/client";
+
+const connection = new Connection();
+await connection.contract.Uia.registerAsset(
+  name,
+  desc,
+  maximum,
+  precision,
+  secret,
+  secondSecret
+);
+```
+
+Request Parameter Description:
+
+| Name         | Type   | Required | Description                        |
+| ------------ | ------ | -------- | ---------------------------------- |
+| name         | string | Y        | the currency name to be registered |
+| desc         | string | Y        | a descripition about the currency  |
+| maximum      | string | Y        | maximum supply     |
+| precision    | number | Y        | precision of the currency          |
+| secret       | string | Y        | gny account password               |
+| secondSecret | string | N        | gny account second password        |
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
+
+
+### Issue or Mint Asset (contract)
+
+Price: 0.1 GNY
+
+```typescript
+import { Connection } from "@gny/client";
+
+const currency = 'AAA.BBB';
+const amount = String(10 * 1e8); // when precision 8
+const secret = 'hole sign tray march general grape pudding apology art almost street again';
+
+const connection = new Connection();
+await connection.contract.Uia.issue(currency, amount, secret);
+```
+
+Request Parameter Description:
+
+| Name         | Type   | Required | Description                        |
+| ------------ | ------ | -------- | ---------------------------------- |
+| currency | string | Y | The currency to issue. For example `AAA.BBB` |
+| amount | string | Y | The amount to issue. Multiple issue contract counts are possible. For example if the maximum supply is 100 `AAA.BBB`. Then there could be multiple `issue` contract calls until the maximum supply is reached. One could `issue` 100 `AAA.BBB` at once. Or with four `issue` contract calls with 25 `AAA.BBB` each.  |
+| secret | string | Y | gny account password |
+| secondSecret | string | N        | gny account second password (optional)      |
+
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
+
+
+### Transfer Asset (contract)
+
+Price: 0.1 GNY
+
+```typescript
+import { Connection } from "@gny/client";
+
+const currency = 'AAA.BBB';
+const amount = String(30 * 1e8); // depends upon the precision
+const recipientId = 'G3pJNqwU3Lrkt5CooU66eubgTYXX';
+const message = null;
+const secret = 'swamp stage diesel armor genius famous horror endorse wave wisdom govern inner';
+
+const connection = new Connection(currency, amount, recipientId, message, secret);
+await connection.contract.Uia.transfer(currency, amount, recipientId, message, secret);
+```
+
+Request Parameter Description:
+
+| Name         | Type   | Required | Description                        |
+| ------------ | ------ | -------- | ---------------------------------- |
+| currency | string | Y | The currency to transfer. For example to transfer the asset `AAA.BBB` or any other custom asset. GNY can't be transferred with this contract call  |
+| amount | string  | Y | The amount to transfer. To calculate the correct amount to transfer one needs to consider the precision of the asset. Please remember that an asset needs to be issued first before it can be transferred. |
+| message | string | N | The optional message. Pass `null` if no message should be send |
+| secret | string | Y | gny account password |
+| secondSecret | string | N        | gny account second password (optional)      |
+
+
+Response Parameter Description:
+
+| Name          | Type   | Description                             |
+| ------------- | ------ | --------------------------------------- |
+| success       | bool   | true: response data return successfully |
+| transactionId | string | transaction id                          |
+
