@@ -1727,12 +1727,13 @@ JSON Response:
 
 ```js
 {
-  "issuer":{
-    "tid":"c194bf2d4ccb1d07829f161165b307332d91a14f44a71a7a99a28dea8154e524",
-    "name":"AAA",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "desc":"\"some description\"",
-    "_version_":1
+  "success": true,
+  "issuer": {
+    "name": "AAA",
+    "tid": "f4662fe3cdedce4064961502bdad77b48769a894f5bc413ad385d878605af614",
+    "issuerId": "G2ofFMDz8GtWq9n65khKit83bWkQr",
+    "desc": "aaa",
+    "_version_": 1
   }
 }
 ```
