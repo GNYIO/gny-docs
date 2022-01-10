@@ -1503,23 +1503,24 @@ JSON Response Example:
 
 ::::
 
-#### 2.4.2 Get Voters of Delegate by Delegate Public Key
+#### 2.4.2 Get the Voters for a Delegate
 
 API Endpoint: `/api/delegates/getVoters`  
 Request Method: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
 
-| Name      | Type   | Required | Description                |
-| --------- | ------ | -------- | -------------------------- |
-| publicKey | string | Y        | public key of the delegate |
+| Name     | Type   | Required | Description              |
+| -------- | ------ | -------- | ------------------------ |
+| username | string | Y        | username of the delegate |
 
 Response Parameter Description:
 
-| Name     | Type  | Description                             |
-| -------- | ----- | --------------------------------------- |
-| success  | bool  | true: response data return successfully |
-| accounts | Array | a JSON object list of account           |
+| Name                 | Type   | Description                                                                                                                                                                                                                   |
+| -------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| success              | bool   | true: response data return successfully                                                                                                                                                                                       |
+| accounts             | Array  | an array of accounts that voted for this delegate. In order to vote one doesn't need to be delegate. It is enough to have some GNY tokens locked. Only the locked GNY tokens add to the weight of the delegate in the ranking |
+| accounts[0].delegate | Object | The `delegate` object on an account object is entirely optional. The `delegate` object appears only if the the account that voted is also a `delegate`.                                                                       |
 
 :::: tabs
 
@@ -1534,26 +1535,66 @@ JSON Response Example:
 
 ```js
 {
-	"success": true,
-	"accounts": [{
-		"address": "2918354313445278349",
-		"publicKey": "4fde4c49f1297d5d3a24b1494204543c4281aff17917ff7ff8ff32da3b4b222f",
-		"balance": 1338227722727,
-		"weight": 0.013316660647014596
-	},
-	{
-		"address": "1523444724068322527",
-		"publicKey": "8a6a61c28dc47541aadf1eecec2175c8f768f2331eea3472b1593bf1aa4e1fb4",
-		"balance": 2109297623765,
-		"weight": 0.020989552213127274
-	},
-	{
-		"address": "14483826354741911727",
-		"publicKey": "5dacb7983095466b9b037690150c3edec0f073815326e33a4744b6d1d50953e2",
-		"balance": 5135815841470,
-		"weight": 0.051106336795243436
-	}
-	}]
+  "success": true,
+  "accounts": [
+    {
+      "address": "G3uxh6H3iB4mmtPYnzvpT9itQHCzz",
+      "username": null,
+      "gny": "19980000000",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 0,
+      "isLocked": 1,
+      "lockHeight": "2500000",
+      "lockAmount": "20000000000",
+      "_version_": 5,
+      "balance": "19980000000",
+      "weightRatio": "0.00004964719289781813"
+    },
+    {
+      "address": "GAeE4cWpKxs33gMrbJ7B5TXKBBQE",
+      "username": "www",
+      "gny": "19450000000",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 0,
+      "isLocked": 1,
+      "lockHeight": "2600000",
+      "lockAmount": "40000000000",
+      "_version_": 11,
+      "balance": "19450000000",
+      "weightRatio": "0.00009929438579563626"
+    },
+    {
+      "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+      "username": "tonyt_gny",
+      "gny": "2988814356531",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 1,
+      "isLocked": 1,
+      "lockHeight": "173400",
+      "lockAmount": "89000000000",
+      "_version_": 13687,
+      "balance": "2988814356531",
+      "weightRatio": "0.00022093000839529067",
+      "delegate": {
+        "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+        "tid": "3332ffe9344877de18ede0294fee8b350d36992e89e61d1672e813a894e323db",
+        "username": "tonyt_gny",
+        "publicKey": "e6408dcb79ac12cb2e61d77b869a146081f554e73501608a686a809043de0b88",
+        "votes": "557100000000",
+        "producedBlocks": "25341",
+        "missedBlocks": "812",
+        "fees": "2334356531",
+        "rewards": "2986000000000",
+        "_version_": 24342,
+        "rate": 1,
+        "approval": "0.001382922558168724",
+        "productivity": "0.96895193668030436279"
+      }
+    }
+  ]
 }
 ```
 
@@ -1570,26 +1611,66 @@ JSON Response Example:
 
 ```js
 {
-	"success": true,
-	"accounts": [{
-		"address": "2918354313445278349",
-		"publicKey": "4fde4c49f1297d5d3a24b1494204543c4281aff17917ff7ff8ff32da3b4b222f",
-		"balance": 1338227722727,
-		"weight": 0.013316660647014596
-	},
-	{
-		"address": "1523444724068322527",
-		"publicKey": "8a6a61c28dc47541aadf1eecec2175c8f768f2331eea3472b1593bf1aa4e1fb4",
-		"balance": 2109297623765,
-		"weight": 0.020989552213127274
-	},
-	{
-		"address": "14483826354741911727",
-		"publicKey": "5dacb7983095466b9b037690150c3edec0f073815326e33a4744b6d1d50953e2",
-		"balance": 5135815841470,
-		"weight": 0.051106336795243436
-	}
-	}]
+  "success": true,
+  "accounts": [
+    {
+      "address": "G3uxh6H3iB4mmtPYnzvpT9itQHCzz",
+      "username": null,
+      "gny": "19980000000",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 0,
+      "isLocked": 1,
+      "lockHeight": "2500000",
+      "lockAmount": "20000000000",
+      "_version_": 5,
+      "balance": "19980000000",
+      "weightRatio": "0.00004964719289781813"
+    },
+    {
+      "address": "GAeE4cWpKxs33gMrbJ7B5TXKBBQE",
+      "username": "www",
+      "gny": "19450000000",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 0,
+      "isLocked": 1,
+      "lockHeight": "2600000",
+      "lockAmount": "40000000000",
+      "_version_": 11,
+      "balance": "19450000000",
+      "weightRatio": "0.00009929438579563626"
+    },
+    {
+      "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+      "username": "tonyt_gny",
+      "gny": "2988814356531",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 1,
+      "isLocked": 1,
+      "lockHeight": "173400",
+      "lockAmount": "89000000000",
+      "_version_": 13687,
+      "balance": "2988814356531",
+      "weightRatio": "0.00022093000839529067",
+      "delegate": {
+        "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+        "tid": "3332ffe9344877de18ede0294fee8b350d36992e89e61d1672e813a894e323db",
+        "username": "tonyt_gny",
+        "publicKey": "e6408dcb79ac12cb2e61d77b869a146081f554e73501608a686a809043de0b88",
+        "votes": "557100000000",
+        "producedBlocks": "25341",
+        "missedBlocks": "812",
+        "fees": "2334356531",
+        "rewards": "2986000000000",
+        "_version_": 24342,
+        "rate": 1,
+        "approval": "0.001382922558168724",
+        "productivity": "0.96895193668030436279"
+      }
+    }
+  ]
 }
 ```
 
