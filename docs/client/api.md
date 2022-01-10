@@ -576,13 +576,16 @@ JSON Response Example:
 }
 ```
 
-### Get the voters by username
+### Get the Voters for a Delegate
 
 ```typescript
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const result = await connection.api.Delegate.getVoters(username);
+
+// get accounts that voted for delegate leo
+const delegate = "leo";
+const result = await connection.api.Delegate.getVoters(delegate);
 ```
 
 Request Parameter Description:
@@ -593,28 +596,76 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name     | Type  | Description                             |
-| -------- | ----- | --------------------------------------- |
-| success  | bool  | true: response data return successfully |
-| accounts | Array | a JSON object list of account           |
+| Name                 | Type   | Description                                                                                                                                                                                                                   |
+| -------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| success              | bool   | true: response data return successfully                                                                                                                                                                                       |
+| accounts             | Array  | an array of accounts that voted for this delegate. In order to vote one doesn't need to be delegate. It is enough to have some GNY tokens locked. Only the locked GNY tokens add to the weight of the delegate in the ranking |
+| accounts[0].delegate | Object | The `delegate` object on an account object is entirely optional. The `delegate` object appears only if the the account that voted is also a `delegate`.                                                                       |
 
 JSON Response Example:
 
 ```js
 {
-	"success": true,
-	"accounts": [{
-		"address": "G3kkkSaJNVY87AhVPyxXVGFpR61VB",
-		"publicKey": "85b4c2efe56642398dad3f1ec338e87e712063cfaee4a836cb58b673cdb820f4",
-		"balance": "1338227722727",
-		"weight": 0.013316660647014596
-	},
-	{
-		"address": "GmCQ2xoGv5bWWtaxQfiBNuTUvaoe",
-		"publicKey": "fffd516f0748ead6720440e94da58ed3afd686b546f5d36a3c5b52cfed834371",
-		"balance": "2109297623765",
-		"weight": 0.020989552213127274
-	}]
+  "success": true,
+  "accounts": [
+    {
+      "address": "G3uxh6H3iB4mmtPYnzvpT9itQHCzz",
+      "username": null,
+      "gny": "19980000000",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 0,
+      "isLocked": 1,
+      "lockHeight": "2500000",
+      "lockAmount": "20000000000",
+      "_version_": 5,
+      "balance": "19980000000",
+      "weightRatio": "0.00004964719289781813"
+    },
+    {
+      "address": "GAeE4cWpKxs33gMrbJ7B5TXKBBQE",
+      "username": "www",
+      "gny": "19450000000",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 0,
+      "isLocked": 1,
+      "lockHeight": "2600000",
+      "lockAmount": "40000000000",
+      "_version_": 11,
+      "balance": "19450000000",
+      "weightRatio": "0.00009929438579563626"
+    },
+    {
+      "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+      "username": "tonyt_gny",
+      "gny": "2988814356531",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 1,
+      "isLocked": 1,
+      "lockHeight": "173400",
+      "lockAmount": "89000000000",
+      "_version_": 13687,
+      "balance": "2988814356531",
+      "weightRatio": "0.00022093000839529067",
+      "delegate": {
+        "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+        "tid": "3332ffe9344877de18ede0294fee8b350d36992e89e61d1672e813a894e323db",
+        "username": "tonyt_gny",
+        "publicKey": "e6408dcb79ac12cb2e61d77b869a146081f554e73501608a686a809043de0b88",
+        "votes": "557100000000",
+        "producedBlocks": "25341",
+        "missedBlocks": "812",
+        "fees": "2334356531",
+        "rewards": "2986000000000",
+        "_version_": 24342,
+        "rate": 1,
+        "approval": "0.001382922558168724",
+        "productivity": "0.96895193668030436279"
+      }
+    }
+  ]
 }
 ```
 
@@ -1692,6 +1743,7 @@ JSON Response:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
+const name = 'MARCUS';
 const result = await connection.api.Uia.getIssuerAssets(name, limit?, offset?);
 ```
 
@@ -1699,34 +1751,44 @@ Request Parameter Description:
 
 | Name   | Type    | Required | Description                                            |
 | ------ | ------- | -------- | ------------------------------------------------------ |
-| name   | string  | Y        | Can be GNY publisher name                              |
+| name   | string  | Y        | GNY issuer name. For example `MARCUS`                  |
 | limit  | integer | N        | maximum number of records to return, between 0 and 100 |
 | offset | integer | N        | Offset, minimum 0                                      |
 
 Response Parameter Description:
 
-| Name    | Type     | Description                                            |
-| ------- | -------- | ------------------------------------------------------ |
-| success | boolean  | true: response data return successfully                |
-| assets  | Array    | Array of assets                                        |
-| count   | interger | The total number of assets registered by the publisher |
+| Name    | Type     | Description                                          |
+| ------- | -------- | ---------------------------------------------------- |
+| success | boolean  | true: response data return successfully              |
+| assets  | Array    | Array of assets                                      |
+| count   | interger | The total number of assets registered by this issuer |
 
 JSON Response:
 
 ```js
 {
-  "count":1,
-  "assets":[{
-    "tid":"4316b799601e15831bbd8514862e61b6b67754b8971938f90025723d1be9eb67",
-    "name":"AAA.BBB",
-    "timestamp":3714160,
-    "maximum":"1000000000",
-    "precision":8,
-    "quantity":"500000000",
-    "desc":"some description",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "_version_":2
-  }]
+  "success": true,
+  "count": 1,
+  "assets": [
+    {
+      "name": "ISSUER.ASSET",
+      "tid": "333b5854f9ce60dd2c6cb71999b750f62691ebad78a9ec6f9fec390eee70db4d",
+      "timestamp": 98784628,
+      "maximum": "100000000000000000",
+      "precision": 8,
+      "quantity": "100000000000000000",
+      "desc": "descr",
+      "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+      "_version_": 2,
+      "issuer": {
+        "name": "ISSUER",
+        "tid": "6026a23a06f3d05ee082b7843a234bbbc13b54f97d0dadc1131f17f6062050b8",
+        "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+        "desc": "my issuer",
+        "_version_": 1
+      }
+    }
+  ]
 }
 ```
 
@@ -1758,18 +1820,64 @@ JSON Response:
 
 ```js
 {
-  "count":1,
-  "assets":[{
-    "tid":"44fd0eff16f2a39be263a3b77f34145c7039b16790265feef74c52538eff9cde",
-    "name":"AAA.BBB",
-    "timestamp":3714682,
-    "maximum":"1000000000",
-    "precision":8,
-    "quantity":"500000000",
-    "desc":"some description",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "_version_":2
-  }]
+  "success": true,
+  "count": 3,
+  "assets": [
+    {
+      "name": "FIRST.AAA",
+      "tid": "9a8848352cc22bfcf75cb3cacc9b6db1cbc4262cd2fa483d95853469b6ceb42b",
+      "timestamp": 82044060,
+      "maximum": "10000000000000000",
+      "precision": 8,
+      "quantity": "0",
+      "desc": "aaa",
+      "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+      "_version_": 1,
+      "issuer": {
+        "name": "FIRST",
+        "tid": "5a44da33e3df355ec717968436f304af9f21d8f25b8ec01ed2c22b8fd6ebad6f",
+        "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+        "desc": "first",
+        "_version_": 1
+      }
+    },
+    {
+      "name": "yarooo.YAR",
+      "tid": "204dcc7a77f823a7abb96830ddace9c4d91df1806a57810a1f1e76daf7ae63ea",
+      "timestamp": 98558028,
+      "maximum": "10000000000000000",
+      "precision": 8,
+      "quantity": "20000000000000",
+      "desc": "yarooo coin",
+      "issuerId": "G4V8YbZtXz7VZrpiD4trDPG8RtjUh",
+      "_version_": 2,
+      "issuer": {
+        "name": "yarooo",
+        "tid": "e97169d3453b519c4e0c7196510a9189aa7a40f0026ea2fe8396e8b19af6a001",
+        "issuerId": "G4V8YbZtXz7VZrpiD4trDPG8RtjUh",
+        "desc": "yarooo coin",
+        "_version_": 1
+      }
+    },
+    {
+      "name": "ISSUER.ASSET",
+      "tid": "333b5854f9ce60dd2c6cb71999b750f62691ebad78a9ec6f9fec390eee70db4d",
+      "timestamp": 98784628,
+      "maximum": "100000000000000000",
+      "precision": 8,
+      "quantity": "100000000000000000",
+      "desc": "descr",
+      "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+      "_version_": 2,
+      "issuer": {
+        "name": "ISSUER",
+        "tid": "6026a23a06f3d05ee082b7843a234bbbc13b54f97d0dadc1131f17f6062050b8",
+        "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+        "desc": "my issuer",
+        "_version_": 1
+      }
+    }
+  ]
 }
 ```
 
@@ -1779,6 +1887,7 @@ JSON Response:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
+const name = "FIRST.AAA";
 const result = await connection.api.Uia.getAsset(name);
 ```
 
@@ -1790,25 +1899,33 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name    | Type    | Description                                                                                       |
-| ------- | ------- | ------------------------------------------------------------------------------------------------- |
-| success | boolean | true: response data return successfully                                                           |
-| asset   | JSON    | Contains asset name, description, cap, precision, current circulation, issue height, publisher id |
+| Name    | Type    | Description                             |
+| ------- | ------- | --------------------------------------- |
+| success | boolean | true: response data return successfully |
+| asset   | JSON    | The requested asset                     |
 
 JSON Response:
 
 ```js
 {
-  "asset":{
-    "tid":"92bf426d9a517a35ac6a63ef210d0f062f5195b636f35878e949e7581355d5b8",
-    "name":"AAA.BBB",
-    "timestamp":3717011,
-    "maximum":"1000000000",
-    "precision":8,
-    "quantity":"500000000",
-    "desc":"some description",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "_version_":2
+  "success": true,
+  "asset": {
+    "name": "FIRST.AAA",
+    "tid": "9a8848352cc22bfcf75cb3cacc9b6db1cbc4262cd2fa483d95853469b6ceb42b",
+    "timestamp": 82044060,
+    "maximum": "10000000000000000",
+    "precision": 8,
+    "quantity": "0",
+    "desc": "aaa",
+    "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+    "_version_": 1,
+    "issuer": {
+      "name": "FIRST",
+      "tid": "5a44da33e3df355ec717968436f304af9f21d8f25b8ec01ed2c22b8fd6ebad6f",
+      "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+      "desc": "first",
+      "_version_": 1
+    }
   }
 }
 ```

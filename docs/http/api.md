@@ -84,7 +84,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -X POST --data "publicKey=41d36d74761593dcf1380faafcd487b84e014eba27c044d1aa87782d1cbd1a19" http://localhost:4096/api/accounts/openAccount/
+curl -X POST --data "publicKey=41d36d74761593dcf1380faafcd487b84e014eba27c044d1aa87782d1cbd1a19" http://testnet.gny.io/api/accounts/openAccount/
 ```
 
 JSON Response Example:
@@ -200,13 +200,13 @@ JSON Response Example (username):
 Request Example (address):
 
 ```bash
-curl -k -X GET http://localhost:4096/api/accounts?address=G4b8BhmeRFBmWAHZemKD25BmEP2G
+curl -k -X GET http://testnet.gny.io/api/accounts?address=G4b8BhmeRFBmWAHZemKD25BmEP2G
 ```
 
 Request Example (username):
 
 ```bash
-curl -k -X GET http://localhost:4096/api/accounts?username=liangpeili
+curl -k -X GET http://testnet.gny.io/api/accounts?username=liangpeili
 ```
 
 JSON Response Example (address):
@@ -303,7 +303,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/accounts/getBalance?address=GJX8DYKb7mF3M6JCUhBqYnLiha6y'
+curl -k -X GET 'http://testnet.gny.io/api/accounts/getBalance?address=GJX8DYKb7mF3M6JCUhBqYnLiha6y'
 ```
 
 JSON Response Example:
@@ -345,7 +345,7 @@ Response Parameter Description:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/accounts/getPublickey?address=GJX8DYKb7mF3M6JCUhBqYnLiha6y'
+curl -k -X GET 'http://testnet.gny.io/api/accounts/getPublickey?address=GJX8DYKb7mF3M6JCUhBqYnLiha6y'
 ```
 
 JSON Response Example:
@@ -426,7 +426,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/transactions?recipientId=16723473400748954103&orderBy=t_timestamp:desc&limit=3'
+curl -k -X GET 'http://testnet.gny.io/api/transactions?recipientId=16723473400748954103&orderBy=t_timestamp:desc&limit=3'
 ```
 
 JSON Response Example:
@@ -504,7 +504,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/transactions/unconfirmed/get?id=1dd72aac3dd011754ea2ca80406014404acbe7550463232208c7ddaf63398c03'
+curl -k -X GET 'http://testnet.gny.io/api/transactions/unconfirmed/get?id=1dd72aac3dd011754ea2ca80406014404acbe7550463232208c7ddaf63398c03'
 ```
 
 JSON Response Example:
@@ -572,7 +572,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/transactions/unconfirmed'
+curl -k -X GET 'http://testnet.gny.io/api/transactions/unconfirmed'
 ```
 
 JSON Response Example:
@@ -1034,7 +1034,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks/getBlock?id=fed53e3ad0a1405f73122708ee53dfed2e9eccc34693d52043bdb6aec4751a8c'
+curl -k -X GET 'http://testnet.gny.io/api/blocks/getBlock?id=fed53e3ad0a1405f73122708ee53dfed2e9eccc34693d52043bdb6aec4751a8c'
 ```
 
 JSON Response Example:
@@ -1133,7 +1133,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks?limit=2&offset=0&orderBy=height:desc'
+curl -k -X GET 'http://testnet.gny.io/api/blocks?limit=2&offset=0&orderBy=height:desc'
 ```
 
 JSON Response Example:
@@ -1214,7 +1214,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks/getheight'
+curl -k -X GET 'http://testnet.gny.io/api/blocks/getheight'
 ```
 
 JSON Response Example:
@@ -1265,7 +1265,7 @@ JSON Response Example:
 ::: tab testnet
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks/getMilestone'
+curl -k -X GET 'http://testnet.gny.io/api/blocks/getMilestone'
 ```
 
 JSON Response Example:
@@ -1321,7 +1321,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks/getReward'
+curl -k -X GET 'http://testnet.gny.io/api/blocks/getReward'
 ```
 
 JSON Response Example:
@@ -1374,7 +1374,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks/getSupply'
+curl -k -X GET 'http://testnet.gny.io/api/blocks/getSupply'
 ```
 
 JSON Response Example:
@@ -1432,7 +1432,7 @@ JSON Response Example:
 ::: tab testnet
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks/getStatus'
+curl -k -X GET 'http://testnet.gny.io/api/blocks/getStatus'
 ```
 
 JSON Response Example:
@@ -1490,7 +1490,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/count'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/count'
 ```
 
 JSON Response Example:
@@ -1503,23 +1503,24 @@ JSON Response Example:
 
 ::::
 
-#### 2.4.2 Get Voters of Delegate by Delegate Public Key
+#### 2.4.2 Get the Voters for a Delegate
 
 API Endpoint: `/api/delegates/getVoters`  
 Request Method: GET  
 Supported Format: urlencoded  
 Request Parameter Description:
 
-| Name      | Type   | Required | Description                |
-| --------- | ------ | -------- | -------------------------- |
-| publicKey | string | Y        | public key of the delegate |
+| Name     | Type   | Required | Description              |
+| -------- | ------ | -------- | ------------------------ |
+| username | string | Y        | username of the delegate |
 
 Response Parameter Description:
 
-| Name     | Type  | Description                             |
-| -------- | ----- | --------------------------------------- |
-| success  | bool  | true: response data return successfully |
-| accounts | Array | a JSON object list of account           |
+| Name                 | Type   | Description                                                                                                                                                                                                                   |
+| -------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| success              | bool   | true: response data return successfully                                                                                                                                                                                       |
+| accounts             | Array  | an array of accounts that voted for this delegate. In order to vote one doesn't need to be delegate. It is enough to have some GNY tokens locked. Only the locked GNY tokens add to the weight of the delegate in the ranking |
+| accounts[0].delegate | Object | The `delegate` object on an account object is entirely optional. The `delegate` object appears only if the the account that voted is also a `delegate`.                                                                       |
 
 :::: tabs
 
@@ -1534,26 +1535,66 @@ JSON Response Example:
 
 ```js
 {
-	"success": true,
-	"accounts": [{
-		"address": "2918354313445278349",
-		"publicKey": "4fde4c49f1297d5d3a24b1494204543c4281aff17917ff7ff8ff32da3b4b222f",
-		"balance": 1338227722727,
-		"weight": 0.013316660647014596
-	},
-	{
-		"address": "1523444724068322527",
-		"publicKey": "8a6a61c28dc47541aadf1eecec2175c8f768f2331eea3472b1593bf1aa4e1fb4",
-		"balance": 2109297623765,
-		"weight": 0.020989552213127274
-	},
-	{
-		"address": "14483826354741911727",
-		"publicKey": "5dacb7983095466b9b037690150c3edec0f073815326e33a4744b6d1d50953e2",
-		"balance": 5135815841470,
-		"weight": 0.051106336795243436
-	}
-	}]
+  "success": true,
+  "accounts": [
+    {
+      "address": "G3uxh6H3iB4mmtPYnzvpT9itQHCzz",
+      "username": null,
+      "gny": "19980000000",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 0,
+      "isLocked": 1,
+      "lockHeight": "2500000",
+      "lockAmount": "20000000000",
+      "_version_": 5,
+      "balance": "19980000000",
+      "weightRatio": "0.00004964719289781813"
+    },
+    {
+      "address": "GAeE4cWpKxs33gMrbJ7B5TXKBBQE",
+      "username": "www",
+      "gny": "19450000000",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 0,
+      "isLocked": 1,
+      "lockHeight": "2600000",
+      "lockAmount": "40000000000",
+      "_version_": 11,
+      "balance": "19450000000",
+      "weightRatio": "0.00009929438579563626"
+    },
+    {
+      "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+      "username": "tonyt_gny",
+      "gny": "2988814356531",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 1,
+      "isLocked": 1,
+      "lockHeight": "173400",
+      "lockAmount": "89000000000",
+      "_version_": 13687,
+      "balance": "2988814356531",
+      "weightRatio": "0.00022093000839529067",
+      "delegate": {
+        "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+        "tid": "3332ffe9344877de18ede0294fee8b350d36992e89e61d1672e813a894e323db",
+        "username": "tonyt_gny",
+        "publicKey": "e6408dcb79ac12cb2e61d77b869a146081f554e73501608a686a809043de0b88",
+        "votes": "557100000000",
+        "producedBlocks": "25341",
+        "missedBlocks": "812",
+        "fees": "2334356531",
+        "rewards": "2986000000000",
+        "_version_": 24342,
+        "rate": 1,
+        "approval": "0.001382922558168724",
+        "productivity": "0.96895193668030436279"
+      }
+    }
+  ]
 }
 ```
 
@@ -1563,33 +1604,73 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/getVoters?username=gny_d1'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/getVoters?username=gny_d1'
 ```
 
 JSON Response Example:
 
 ```js
 {
-	"success": true,
-	"accounts": [{
-		"address": "2918354313445278349",
-		"publicKey": "4fde4c49f1297d5d3a24b1494204543c4281aff17917ff7ff8ff32da3b4b222f",
-		"balance": 1338227722727,
-		"weight": 0.013316660647014596
-	},
-	{
-		"address": "1523444724068322527",
-		"publicKey": "8a6a61c28dc47541aadf1eecec2175c8f768f2331eea3472b1593bf1aa4e1fb4",
-		"balance": 2109297623765,
-		"weight": 0.020989552213127274
-	},
-	{
-		"address": "14483826354741911727",
-		"publicKey": "5dacb7983095466b9b037690150c3edec0f073815326e33a4744b6d1d50953e2",
-		"balance": 5135815841470,
-		"weight": 0.051106336795243436
-	}
-	}]
+  "success": true,
+  "accounts": [
+    {
+      "address": "G3uxh6H3iB4mmtPYnzvpT9itQHCzz",
+      "username": null,
+      "gny": "19980000000",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 0,
+      "isLocked": 1,
+      "lockHeight": "2500000",
+      "lockAmount": "20000000000",
+      "_version_": 5,
+      "balance": "19980000000",
+      "weightRatio": "0.00004964719289781813"
+    },
+    {
+      "address": "GAeE4cWpKxs33gMrbJ7B5TXKBBQE",
+      "username": "www",
+      "gny": "19450000000",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 0,
+      "isLocked": 1,
+      "lockHeight": "2600000",
+      "lockAmount": "40000000000",
+      "_version_": 11,
+      "balance": "19450000000",
+      "weightRatio": "0.00009929438579563626"
+    },
+    {
+      "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+      "username": "tonyt_gny",
+      "gny": "2988814356531",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 1,
+      "isLocked": 1,
+      "lockHeight": "173400",
+      "lockAmount": "89000000000",
+      "_version_": 13687,
+      "balance": "2988814356531",
+      "weightRatio": "0.00022093000839529067",
+      "delegate": {
+        "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+        "tid": "3332ffe9344877de18ede0294fee8b350d36992e89e61d1672e813a894e323db",
+        "username": "tonyt_gny",
+        "publicKey": "e6408dcb79ac12cb2e61d77b869a146081f554e73501608a686a809043de0b88",
+        "votes": "557100000000",
+        "producedBlocks": "25341",
+        "missedBlocks": "812",
+        "fees": "2334356531",
+        "rewards": "2986000000000",
+        "_version_": 24342,
+        "rate": 1,
+        "approval": "0.001382922558168724",
+        "productivity": "0.96895193668030436279"
+      }
+    }
+  ]
 }
 ```
 
@@ -1670,19 +1751,19 @@ JSON Response Example:
 Request Example (publicKey):
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/get?publicKey=85b4c2efe56642398dad3f1ec338e87e712063cfaee4a836cb58b673cdb820f4'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/get?publicKey=85b4c2efe56642398dad3f1ec338e87e712063cfaee4a836cb58b673cdb820f4'
 ```
 
 Request Example (username):
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/get?username=gny_d1'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/get?username=gny_d1'
 ```
 
 Request Example (address):
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/get?address=G3kkkSaJNVY87AhVPyxXVGFpR61VB'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/get?address=G3kkkSaJNVY87AhVPyxXVGFpR61VB'
 ```
 
 JSON Response Example:
@@ -1794,7 +1875,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates?limit=2&offset=2'
+curl -k -X GET 'http://testnet.gny.io/api/delegates?limit=2&offset=2'
 ```
 
 JSON Response Example:
@@ -1927,13 +2008,13 @@ JSON Response Example:
 Request Example (with username):
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/getOwnVotes?username=a1300'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/getOwnVotes?username=a1300'
 ```
 
 Request Example (with address):
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/getOwnVotes?address=GtnevSTQqPUcZNAMFJmc8DLUXHFz'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/getOwnVotes?address=GtnevSTQqPUcZNAMFJmc8DLUXHFz'
 ```
 
 JSON Response Example:
@@ -2021,7 +2102,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"flat entire admit review filter addict friend author ahead bullet wife bind"}' 'http://localhost:4096/api/delegates/forging/enable'
+curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"flat entire admit review filter addict friend author ahead bullet wife bind"}' 'http://testnet.gny.io/api/delegates/forging/enable'
 ```
 
 JSON Response Example:
@@ -2077,7 +2158,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"flat entire admit review filter addict friend author ahead bullet wife bind"}' 'http://localhost:4096/api/delegates/forging/disable'
+curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"flat entire admit review filter addict friend author ahead bullet wife bind"}' 'http://testnet.gny.io/api/delegates/forging/disable'
 ```
 
 JSON Response Example:
@@ -2136,7 +2217,7 @@ JSON Response Example (forging disabled):
 Request Example:
 
 ```bash
-curl -X GET 'http://localhost:4096/api/delegates/forging/status?publicKey=ff47c9e9bafcf28ae8528c2b259661ade96a3030ab73ddde82b52ee44c9122b5'
+curl -X GET 'http://testnet.gny.io/api/delegates/forging/status?publicKey=ff47c9e9bafcf28ae8528c2b259661ade96a3030ab73ddde82b52ee44c9122b5'
 ```
 
 JSON Response Example (forging enabled):
@@ -2253,7 +2334,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/ownProducedBlocks?username=gny_d1'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/ownProducedBlocks?username=gny_d1'
 ```
 
 JSON Response Example:
@@ -2493,7 +2574,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/peers'
+curl -k -X GET 'http://testnet.gny.io/api/peers'
 ```
 
 JSON Response Example:
@@ -2579,7 +2660,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/peers/version'
+curl -k -X GET 'http://testnet.gny.io/api/peers/version'
 ```
 
 JSON Response Example:
@@ -2643,7 +2724,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/peers/info'
+curl -k -X GET 'http://testnet.gny.io/api/peers/info'
 ```
 
 JSON Response Example:
@@ -2707,7 +2788,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/loader/status'
+curl -k -X GET 'http://testnet.gny.io/api/loader/status'
 ```
 
 JSON Response Example:
@@ -2763,7 +2844,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/loader/status/sync'
+curl -k -X GET 'http://testnet.gny.io/api/loader/status/sync'
 ```
 
 JSON Response Example:
@@ -2855,7 +2936,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/transfers/'
+curl -k -X GET 'http://testnet.gny.io/api/transfers/'
 ```
 
 JSON Response Example:
@@ -2940,7 +3021,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/transfers/amount'
+curl -k -X GET 'http://testnet.gny.io/api/transfers/amount'
 ```
 
 JSON Response Example:
@@ -3009,7 +3090,7 @@ JSON Response:
 Request example:
 
 ```js
-curl -X GET 'http://localhost:4096/api/uia/issuers?offset=0&limit=2'
+curl -X GET 'http://testnet.gny.io/api/uia/issuers?offset=0&limit=2'
 ```
 
 JSON Response:
@@ -3086,13 +3167,13 @@ JSON Response:
 Request example (publisher name):
 
 ```js
-curl -X GET 'http://localhost:4096/api/uia/issuers/AAA'
+curl -X GET 'http://testnet.gny.io/api/uia/issuers/AAA'
 ```
 
 Request example (publisher address):
 
 ```js
-curl -X GET 'http://localhost:4096/api/uia/issuers/G4GDW6G78sgQdSdVAQUXdm5xPS13t'
+curl -X GET 'http://testnet.gny.io/api/uia/issuers/G4GDW6G78sgQdSdVAQUXdm5xPS13t'
 ```
 
 JSON Response:
@@ -3123,16 +3204,17 @@ Request Parameter Description:
 
 | Name   | Type    | Required | Description                                            |
 | ------ | ------- | -------- | ------------------------------------------------------ |
+| name   | string  | Y        | GNY issuer name. For example `MARCUS`                  |
 | limit  | integer | N        | maximum number of records to return, between 0 and 100 |
 | offset | integer | N        | Offset, minimum 0                                      |
 
 Response Parameter Description:
 
-| Name    | Type     | Description                                            |
-| ------- | -------- | ------------------------------------------------------ |
-| success | boolean  | Whether operation was successful                       |
-| assets  | Array    | Array of assets                                        |
-| count   | interger | The total number of assets registered by the publisher |
+| Name    | Type     | Description                                          |
+| ------- | -------- | ---------------------------------------------------- |
+| success | boolean  | true: response data return successfully              |
+| assets  | Array    | Array of assets                                      |
+| count   | interger | The total number of assets registered by this issuer |
 
 :::: tabs
 
@@ -3147,18 +3229,28 @@ JSON Response:
 
 ```js
 {
-  "count":1,
-  "assets":[{
-    "tid":"4316b799601e15831bbd8514862e61b6b67754b8971938f90025723d1be9eb67",
-    "name":"AAA.BBB",
-    "timestamp":3714160,
-    "maximum":"1000000000",
-    "precision":8,
-    "quantity":"500000000",
-    "desc":"some description",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "_version_":2
-  }]
+  "success": true,
+  "count": 1,
+  "assets": [
+    {
+      "name": "ISSUER.ASSET",
+      "tid": "333b5854f9ce60dd2c6cb71999b750f62691ebad78a9ec6f9fec390eee70db4d",
+      "timestamp": 98784628,
+      "maximum": "100000000000000000",
+      "precision": 8,
+      "quantity": "100000000000000000",
+      "desc": "descr",
+      "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+      "_version_": 2,
+      "issuer": {
+        "name": "ISSUER",
+        "tid": "6026a23a06f3d05ee082b7843a234bbbc13b54f97d0dadc1131f17f6062050b8",
+        "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+        "desc": "my issuer",
+        "_version_": 1
+      }
+    }
+  ]
 }
 ```
 
@@ -3168,25 +3260,35 @@ JSON Response:
 Request example:
 
 ```js
-curl -X GET 'http://localhost:4096/api/uia/issuers/AAA/assets/'
+curl -X GET 'http://testnet.gny.io/api/uia/issuers/AAA/assets/'
 ```
 
 JSON Response:
 
 ```js
 {
-  "count":1,
-  "assets":[{
-    "tid":"4316b799601e15831bbd8514862e61b6b67754b8971938f90025723d1be9eb67",
-    "name":"AAA.BBB",
-    "timestamp":3714160,
-    "maximum":"1000000000",
-    "precision":8,
-    "quantity":"500000000",
-    "desc":"some description",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "_version_":2
-  }]
+  "success": true,
+  "count": 1,
+  "assets": [
+    {
+      "name": "ISSUER.ASSET",
+      "tid": "333b5854f9ce60dd2c6cb71999b750f62691ebad78a9ec6f9fec390eee70db4d",
+      "timestamp": 98784628,
+      "maximum": "100000000000000000",
+      "precision": 8,
+      "quantity": "100000000000000000",
+      "desc": "descr",
+      "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+      "_version_": 2,
+      "issuer": {
+        "name": "ISSUER",
+        "tid": "6026a23a06f3d05ee082b7843a234bbbc13b54f97d0dadc1131f17f6062050b8",
+        "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+        "desc": "my issuer",
+        "_version_": 1
+      }
+    }
+  ]
 }
 ```
 
@@ -3220,26 +3322,72 @@ Response Parameter Description:
 ::: tab mainnet
 Request example:
 
-```js
-curl -X GET 'https://mainnet.gny.io/api/uia/assets?offset=0&limit=2'
+```bash
+curl -X GET 'https://mainnet.gny.io/api/uia/assets?offset=0&limit=100'
 ```
 
 JSON Response:
 
 ```js
 {
-  "count":1,
-  "assets":[{
-    "tid":"44fd0eff16f2a39be263a3b77f34145c7039b16790265feef74c52538eff9cde",
-    "name":"AAA.BBB",
-    "timestamp":3714682,
-    "maximum":"1000000000",
-    "precision":8,
-    "quantity":"500000000",
-    "desc":"some description",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "_version_":2
-  }]
+  "success": true,
+  "count": 3,
+  "assets": [
+    {
+      "name": "FIRST.AAA",
+      "tid": "9a8848352cc22bfcf75cb3cacc9b6db1cbc4262cd2fa483d95853469b6ceb42b",
+      "timestamp": 82044060,
+      "maximum": "10000000000000000",
+      "precision": 8,
+      "quantity": "0",
+      "desc": "aaa",
+      "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+      "_version_": 1,
+      "issuer": {
+        "name": "FIRST",
+        "tid": "5a44da33e3df355ec717968436f304af9f21d8f25b8ec01ed2c22b8fd6ebad6f",
+        "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+        "desc": "first",
+        "_version_": 1
+      }
+    },
+    {
+      "name": "yarooo.YAR",
+      "tid": "204dcc7a77f823a7abb96830ddace9c4d91df1806a57810a1f1e76daf7ae63ea",
+      "timestamp": 98558028,
+      "maximum": "10000000000000000",
+      "precision": 8,
+      "quantity": "20000000000000",
+      "desc": "yarooo coin",
+      "issuerId": "G4V8YbZtXz7VZrpiD4trDPG8RtjUh",
+      "_version_": 2,
+      "issuer": {
+        "name": "yarooo",
+        "tid": "e97169d3453b519c4e0c7196510a9189aa7a40f0026ea2fe8396e8b19af6a001",
+        "issuerId": "G4V8YbZtXz7VZrpiD4trDPG8RtjUh",
+        "desc": "yarooo coin",
+        "_version_": 1
+      }
+    },
+    {
+      "name": "ISSUER.ASSET",
+      "tid": "333b5854f9ce60dd2c6cb71999b750f62691ebad78a9ec6f9fec390eee70db4d",
+      "timestamp": 98784628,
+      "maximum": "100000000000000000",
+      "precision": 8,
+      "quantity": "100000000000000000",
+      "desc": "descr",
+      "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+      "_version_": 2,
+      "issuer": {
+        "name": "ISSUER",
+        "tid": "6026a23a06f3d05ee082b7843a234bbbc13b54f97d0dadc1131f17f6062050b8",
+        "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+        "desc": "my issuer",
+        "_version_": 1
+      }
+    }
+  ]
 }
 ```
 
@@ -3248,26 +3396,72 @@ JSON Response:
 ::: tab testnet
 Request example:
 
-```js
-curl -X GET 'http://localhost:4096/api/uia/assets?offset=0&limit=2'
+```bash
+curl -X GET 'http://testnet.gny.io/api/uia/assets?offset=0&limit100'
 ```
 
 JSON Response:
 
 ```js
 {
-  "count":1,
-  "assets":[{
-    "tid":"44fd0eff16f2a39be263a3b77f34145c7039b16790265feef74c52538eff9cde",
-    "name":"AAA.BBB",
-    "timestamp":3714682,
-    "maximum":"1000000000",
-    "precision":8,
-    "quantity":"500000000",
-    "desc":"some description",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "_version_":2
-  }]
+  "success": true,
+  "count": 3,
+  "assets": [
+    {
+      "name": "FIRST.AAA",
+      "tid": "9a8848352cc22bfcf75cb3cacc9b6db1cbc4262cd2fa483d95853469b6ceb42b",
+      "timestamp": 82044060,
+      "maximum": "10000000000000000",
+      "precision": 8,
+      "quantity": "0",
+      "desc": "aaa",
+      "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+      "_version_": 1,
+      "issuer": {
+        "name": "FIRST",
+        "tid": "5a44da33e3df355ec717968436f304af9f21d8f25b8ec01ed2c22b8fd6ebad6f",
+        "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+        "desc": "first",
+        "_version_": 1
+      }
+    },
+    {
+      "name": "yarooo.YAR",
+      "tid": "204dcc7a77f823a7abb96830ddace9c4d91df1806a57810a1f1e76daf7ae63ea",
+      "timestamp": 98558028,
+      "maximum": "10000000000000000",
+      "precision": 8,
+      "quantity": "20000000000000",
+      "desc": "yarooo coin",
+      "issuerId": "G4V8YbZtXz7VZrpiD4trDPG8RtjUh",
+      "_version_": 2,
+      "issuer": {
+        "name": "yarooo",
+        "tid": "e97169d3453b519c4e0c7196510a9189aa7a40f0026ea2fe8396e8b19af6a001",
+        "issuerId": "G4V8YbZtXz7VZrpiD4trDPG8RtjUh",
+        "desc": "yarooo coin",
+        "_version_": 1
+      }
+    },
+    {
+      "name": "ISSUER.ASSET",
+      "tid": "333b5854f9ce60dd2c6cb71999b750f62691ebad78a9ec6f9fec390eee70db4d",
+      "timestamp": 98784628,
+      "maximum": "100000000000000000",
+      "precision": 8,
+      "quantity": "100000000000000000",
+      "desc": "descr",
+      "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+      "_version_": 2,
+      "issuer": {
+        "name": "ISSUER",
+        "tid": "6026a23a06f3d05ee082b7843a234bbbc13b54f97d0dadc1131f17f6062050b8",
+        "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+        "desc": "my issuer",
+        "_version_": 1
+      }
+    }
+  ]
 }
 ```
 
@@ -3289,10 +3483,10 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name    | Type    | Description                                                                                       |
-| ------- | ------- | ------------------------------------------------------------------------------------------------- |
-| success | boolean | Whether operation was successful                                                                  |
-| assets  | JSON    | Contains asset name, description, cap, precision, current circulation, issue height, publisher id |
+| Name    | Type    | Description                             |
+| ------- | ------- | --------------------------------------- |
+| success | boolean | true: response data return successfully |
+| asset   | JSON    | The requested asset                     |
 
 :::: tabs
 
@@ -3300,23 +3494,31 @@ Response Parameter Description:
 Request example:
 
 ```js
-curl -X GET 'https://mainnet.gny.io/api/uia/assets/AAA.BBB'
+curl -X GET 'https://mainnet.gny.io/api/uia/assets/FIRST.AAA'
 ```
 
 JSON Response:
 
 ```js
 {
-  "asset":{
-    "tid":"92bf426d9a517a35ac6a63ef210d0f062f5195b636f35878e949e7581355d5b8",
-    "name":"AAA.BBB",
-    "timestamp":3717011,
-    "maximum":"1000000000",
-    "precision":8,
-    "quantity":"500000000",
-    "desc":"some description",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "_version_":2
+  "success": true,
+  "asset": {
+    "name": "FIRST.AAA",
+    "tid": "9a8848352cc22bfcf75cb3cacc9b6db1cbc4262cd2fa483d95853469b6ceb42b",
+    "timestamp": 82044060,
+    "maximum": "10000000000000000",
+    "precision": 8,
+    "quantity": "0",
+    "desc": "aaa",
+    "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+    "_version_": 1,
+    "issuer": {
+      "name": "FIRST",
+      "tid": "5a44da33e3df355ec717968436f304af9f21d8f25b8ec01ed2c22b8fd6ebad6f",
+      "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+      "desc": "first",
+      "_version_": 1
+    }
   }
 }
 ```
@@ -3327,23 +3529,31 @@ JSON Response:
 Request example:
 
 ```js
-curl -X GET 'http://localhost:4096/api/uia/assets/AAA.BBB'
+curl -X GET 'https://testnet.gny.io/api/uia/assets/FIRST.AAA'
 ```
 
 JSON Response:
 
 ```js
 {
-  "asset":{
-    "tid":"92bf426d9a517a35ac6a63ef210d0f062f5195b636f35878e949e7581355d5b8",
-    "name":"AAA.BBB",
-    "timestamp":3717011,
-    "maximum":"1000000000",
-    "precision":8,
-    "quantity":"500000000",
-    "desc":"some description",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "_version_":2
+  "success": true,
+  "asset": {
+    "name": "FIRST.AAA",
+    "tid": "9a8848352cc22bfcf75cb3cacc9b6db1cbc4262cd2fa483d95853469b6ceb42b",
+    "timestamp": 82044060,
+    "maximum": "10000000000000000",
+    "precision": 8,
+    "quantity": "0",
+    "desc": "aaa",
+    "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+    "_version_": 1,
+    "issuer": {
+      "name": "FIRST",
+      "tid": "5a44da33e3df355ec717968436f304af9f21d8f25b8ec01ed2c22b8fd6ebad6f",
+      "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+      "desc": "first",
+      "_version_": 1
+    }
   }
 }
 ```
@@ -3404,7 +3614,7 @@ JSON Response:
 Request example:
 
 ```bash
-curl -X GET 'http://localhost:4096/api/uia/balances/G4GDW6G78sgQdSdVAQUXdm5xPS13t'
+curl -X GET 'http://testnet.gny.io/api/uia/balances/G4GDW6G78sgQdSdVAQUXdm5xPS13t'
 ```
 
 JSON Response:
@@ -3468,7 +3678,7 @@ JSON Response:
 Request example:
 
 ```bash
-curl -X GET 'http://localhost:4096/api/uia/balances/G4GDW6G78sgQdSdVAQUXdm5xPS13t/AAA.BBB'
+curl -X GET 'http://testnet.gny.io/api/uia/balances/G4GDW6G78sgQdSdVAQUXdm5xPS13t/AAA.BBB'
 ```
 
 JSON Response:
@@ -3538,7 +3748,7 @@ JSON Response:
 Request example:
 
 ```bash
-curl -X GET 'http://localhost:4096/api/uia/holders/AAA.BBB'
+curl -X GET 'http://testnet.gny.io/api/uia/holders/AAA.BBB'
 ```
 
 JSON Response:
@@ -3603,7 +3813,7 @@ curl -X POST --header "magic: 594fe0f3"
 [axios](https://www.npmjs.com/package/axios) (JavaScript example)
 
 ```javascript
-const exampleUrl = "http://localhost:4096/peer/transactions";
+const exampleUrl = "http://testnet.gny.io/peer/transactions";
 
 const data = {
   transaction: someTransaction
