@@ -1887,6 +1887,7 @@ JSON Response:
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
+const name = "FIRST.AAA";
 const result = await connection.api.Uia.getAsset(name);
 ```
 
@@ -1898,25 +1899,33 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name    | Type    | Description                                                                                       |
-| ------- | ------- | ------------------------------------------------------------------------------------------------- |
-| success | boolean | true: response data return successfully                                                           |
-| asset   | JSON    | Contains asset name, description, cap, precision, current circulation, issue height, publisher id |
+| Name    | Type    | Description                             |
+| ------- | ------- | --------------------------------------- |
+| success | boolean | true: response data return successfully |
+| asset   | JSON    | The requested asset                     |
 
 JSON Response:
 
 ```js
 {
-  "asset":{
-    "tid":"92bf426d9a517a35ac6a63ef210d0f062f5195b636f35878e949e7581355d5b8",
-    "name":"AAA.BBB",
-    "timestamp":3717011,
-    "maximum":"1000000000",
-    "precision":8,
-    "quantity":"500000000",
-    "desc":"some description",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "_version_":2
+  "success": true,
+  "asset": {
+    "name": "FIRST.AAA",
+    "tid": "9a8848352cc22bfcf75cb3cacc9b6db1cbc4262cd2fa483d95853469b6ceb42b",
+    "timestamp": 82044060,
+    "maximum": "10000000000000000",
+    "precision": 8,
+    "quantity": "0",
+    "desc": "aaa",
+    "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+    "_version_": 1,
+    "issuer": {
+      "name": "FIRST",
+      "tid": "5a44da33e3df355ec717968436f304af9f21d8f25b8ec01ed2c22b8fd6ebad6f",
+      "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+      "desc": "first",
+      "_version_": 1
+    }
   }
 }
 ```
