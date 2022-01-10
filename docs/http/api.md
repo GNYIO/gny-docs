@@ -3204,16 +3204,17 @@ Request Parameter Description:
 
 | Name   | Type    | Required | Description                                            |
 | ------ | ------- | -------- | ------------------------------------------------------ |
+| name   | string  | Y        | GNY issuer name. For example `MARCUS`                  |
 | limit  | integer | N        | maximum number of records to return, between 0 and 100 |
 | offset | integer | N        | Offset, minimum 0                                      |
 
 Response Parameter Description:
 
-| Name    | Type     | Description                                            |
-| ------- | -------- | ------------------------------------------------------ |
-| success | boolean  | Whether operation was successful                       |
-| assets  | Array    | Array of assets                                        |
-| count   | interger | The total number of assets registered by the publisher |
+| Name    | Type     | Description                                          |
+| ------- | -------- | ---------------------------------------------------- |
+| success | boolean  | true: response data return successfully              |
+| assets  | Array    | Array of assets                                      |
+| count   | interger | The total number of assets registered by this issuer |
 
 :::: tabs
 
@@ -3228,18 +3229,28 @@ JSON Response:
 
 ```js
 {
-  "count":1,
-  "assets":[{
-    "tid":"4316b799601e15831bbd8514862e61b6b67754b8971938f90025723d1be9eb67",
-    "name":"AAA.BBB",
-    "timestamp":3714160,
-    "maximum":"1000000000",
-    "precision":8,
-    "quantity":"500000000",
-    "desc":"some description",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "_version_":2
-  }]
+  "success": true,
+  "count": 1,
+  "assets": [
+    {
+      "name": "ISSUER.ASSET",
+      "tid": "333b5854f9ce60dd2c6cb71999b750f62691ebad78a9ec6f9fec390eee70db4d",
+      "timestamp": 98784628,
+      "maximum": "100000000000000000",
+      "precision": 8,
+      "quantity": "100000000000000000",
+      "desc": "descr",
+      "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+      "_version_": 2,
+      "issuer": {
+        "name": "ISSUER",
+        "tid": "6026a23a06f3d05ee082b7843a234bbbc13b54f97d0dadc1131f17f6062050b8",
+        "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+        "desc": "my issuer",
+        "_version_": 1
+      }
+    }
+  ]
 }
 ```
 
@@ -3256,18 +3267,28 @@ JSON Response:
 
 ```js
 {
-  "count":1,
-  "assets":[{
-    "tid":"4316b799601e15831bbd8514862e61b6b67754b8971938f90025723d1be9eb67",
-    "name":"AAA.BBB",
-    "timestamp":3714160,
-    "maximum":"1000000000",
-    "precision":8,
-    "quantity":"500000000",
-    "desc":"some description",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "_version_":2
-  }]
+  "success": true,
+  "count": 1,
+  "assets": [
+    {
+      "name": "ISSUER.ASSET",
+      "tid": "333b5854f9ce60dd2c6cb71999b750f62691ebad78a9ec6f9fec390eee70db4d",
+      "timestamp": 98784628,
+      "maximum": "100000000000000000",
+      "precision": 8,
+      "quantity": "100000000000000000",
+      "desc": "descr",
+      "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+      "_version_": 2,
+      "issuer": {
+        "name": "ISSUER",
+        "tid": "6026a23a06f3d05ee082b7843a234bbbc13b54f97d0dadc1131f17f6062050b8",
+        "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+        "desc": "my issuer",
+        "_version_": 1
+      }
+    }
+  ]
 }
 ```
 
