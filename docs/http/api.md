@@ -3322,26 +3322,72 @@ Response Parameter Description:
 ::: tab mainnet
 Request example:
 
-```js
-curl -X GET 'https://mainnet.gny.io/api/uia/assets?offset=0&limit=2'
+```bash
+curl -X GET 'https://mainnet.gny.io/api/uia/assets?offset=0&limit=100'
 ```
 
 JSON Response:
 
 ```js
 {
-  "count":1,
-  "assets":[{
-    "tid":"44fd0eff16f2a39be263a3b77f34145c7039b16790265feef74c52538eff9cde",
-    "name":"AAA.BBB",
-    "timestamp":3714682,
-    "maximum":"1000000000",
-    "precision":8,
-    "quantity":"500000000",
-    "desc":"some description",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "_version_":2
-  }]
+  "success": true,
+  "count": 3,
+  "assets": [
+    {
+      "name": "FIRST.AAA",
+      "tid": "9a8848352cc22bfcf75cb3cacc9b6db1cbc4262cd2fa483d95853469b6ceb42b",
+      "timestamp": 82044060,
+      "maximum": "10000000000000000",
+      "precision": 8,
+      "quantity": "0",
+      "desc": "aaa",
+      "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+      "_version_": 1,
+      "issuer": {
+        "name": "FIRST",
+        "tid": "5a44da33e3df355ec717968436f304af9f21d8f25b8ec01ed2c22b8fd6ebad6f",
+        "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+        "desc": "first",
+        "_version_": 1
+      }
+    },
+    {
+      "name": "yarooo.YAR",
+      "tid": "204dcc7a77f823a7abb96830ddace9c4d91df1806a57810a1f1e76daf7ae63ea",
+      "timestamp": 98558028,
+      "maximum": "10000000000000000",
+      "precision": 8,
+      "quantity": "20000000000000",
+      "desc": "yarooo coin",
+      "issuerId": "G4V8YbZtXz7VZrpiD4trDPG8RtjUh",
+      "_version_": 2,
+      "issuer": {
+        "name": "yarooo",
+        "tid": "e97169d3453b519c4e0c7196510a9189aa7a40f0026ea2fe8396e8b19af6a001",
+        "issuerId": "G4V8YbZtXz7VZrpiD4trDPG8RtjUh",
+        "desc": "yarooo coin",
+        "_version_": 1
+      }
+    },
+    {
+      "name": "ISSUER.ASSET",
+      "tid": "333b5854f9ce60dd2c6cb71999b750f62691ebad78a9ec6f9fec390eee70db4d",
+      "timestamp": 98784628,
+      "maximum": "100000000000000000",
+      "precision": 8,
+      "quantity": "100000000000000000",
+      "desc": "descr",
+      "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+      "_version_": 2,
+      "issuer": {
+        "name": "ISSUER",
+        "tid": "6026a23a06f3d05ee082b7843a234bbbc13b54f97d0dadc1131f17f6062050b8",
+        "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+        "desc": "my issuer",
+        "_version_": 1
+      }
+    }
+  ]
 }
 ```
 
@@ -3350,26 +3396,72 @@ JSON Response:
 ::: tab testnet
 Request example:
 
-```js
-curl -X GET 'http://localhost:4096/api/uia/assets?offset=0&limit=2'
+```bash
+curl -X GET 'http://testnet.gny.io/api/uia/assets?offset=0&limit100'
 ```
 
 JSON Response:
 
 ```js
 {
-  "count":1,
-  "assets":[{
-    "tid":"44fd0eff16f2a39be263a3b77f34145c7039b16790265feef74c52538eff9cde",
-    "name":"AAA.BBB",
-    "timestamp":3714682,
-    "maximum":"1000000000",
-    "precision":8,
-    "quantity":"500000000",
-    "desc":"some description",
-    "issuerId":"G4GDW6G78sgQdSdVAQUXdm5xPS13t",
-    "_version_":2
-  }]
+  "success": true,
+  "count": 3,
+  "assets": [
+    {
+      "name": "FIRST.AAA",
+      "tid": "9a8848352cc22bfcf75cb3cacc9b6db1cbc4262cd2fa483d95853469b6ceb42b",
+      "timestamp": 82044060,
+      "maximum": "10000000000000000",
+      "precision": 8,
+      "quantity": "0",
+      "desc": "aaa",
+      "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+      "_version_": 1,
+      "issuer": {
+        "name": "FIRST",
+        "tid": "5a44da33e3df355ec717968436f304af9f21d8f25b8ec01ed2c22b8fd6ebad6f",
+        "issuerId": "GhaMhSdrVCG4Juw1NPTvxY6YAVTF",
+        "desc": "first",
+        "_version_": 1
+      }
+    },
+    {
+      "name": "yarooo.YAR",
+      "tid": "204dcc7a77f823a7abb96830ddace9c4d91df1806a57810a1f1e76daf7ae63ea",
+      "timestamp": 98558028,
+      "maximum": "10000000000000000",
+      "precision": 8,
+      "quantity": "20000000000000",
+      "desc": "yarooo coin",
+      "issuerId": "G4V8YbZtXz7VZrpiD4trDPG8RtjUh",
+      "_version_": 2,
+      "issuer": {
+        "name": "yarooo",
+        "tid": "e97169d3453b519c4e0c7196510a9189aa7a40f0026ea2fe8396e8b19af6a001",
+        "issuerId": "G4V8YbZtXz7VZrpiD4trDPG8RtjUh",
+        "desc": "yarooo coin",
+        "_version_": 1
+      }
+    },
+    {
+      "name": "ISSUER.ASSET",
+      "tid": "333b5854f9ce60dd2c6cb71999b750f62691ebad78a9ec6f9fec390eee70db4d",
+      "timestamp": 98784628,
+      "maximum": "100000000000000000",
+      "precision": 8,
+      "quantity": "100000000000000000",
+      "desc": "descr",
+      "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+      "_version_": 2,
+      "issuer": {
+        "name": "ISSUER",
+        "tid": "6026a23a06f3d05ee082b7843a234bbbc13b54f97d0dadc1131f17f6062050b8",
+        "issuerId": "G2b5NLaaXrfGFHsJpdTfeHZveth85",
+        "desc": "my issuer",
+        "_version_": 1
+      }
+    }
+  ]
 }
 ```
 
