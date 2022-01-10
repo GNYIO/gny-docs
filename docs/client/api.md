@@ -576,13 +576,16 @@ JSON Response Example:
 }
 ```
 
-### Get the voters by username
+### Get the Voters for a Delegate
 
 ```typescript
 import { Connection } from "@gny/client";
 
 const connection = new Connection();
-const result = await connection.api.Delegate.getVoters(username);
+
+// get accounts that voted for delegate leo
+const delegate = "leo";
+const result = await connection.api.Delegate.getVoters(delegate);
 ```
 
 Request Parameter Description:
@@ -593,28 +596,76 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name     | Type  | Description                             |
-| -------- | ----- | --------------------------------------- |
-| success  | bool  | true: response data return successfully |
-| accounts | Array | a JSON object list of account           |
+| Name                 | Type   | Description                                                                                                                                                                                                                   |
+| -------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| success              | bool   | true: response data return successfully                                                                                                                                                                                       |
+| accounts             | Array  | an array of accounts that voted for this delegate. In order to vote one doesn't need to be delegate. It is enough to have some GNY tokens locked. Only the locked GNY tokens add to the weight of the delegate in the ranking |
+| accounts[0].delegate | Object | The `delegate` object on an account object is entirely optional. The `delegate` object appears only if the the account that voted is also a `delegate`.                                                                       |
 
 JSON Response Example:
 
 ```js
 {
-	"success": true,
-	"accounts": [{
-		"address": "G3kkkSaJNVY87AhVPyxXVGFpR61VB",
-		"publicKey": "85b4c2efe56642398dad3f1ec338e87e712063cfaee4a836cb58b673cdb820f4",
-		"balance": "1338227722727",
-		"weight": 0.013316660647014596
-	},
-	{
-		"address": "GmCQ2xoGv5bWWtaxQfiBNuTUvaoe",
-		"publicKey": "fffd516f0748ead6720440e94da58ed3afd686b546f5d36a3c5b52cfed834371",
-		"balance": "2109297623765",
-		"weight": 0.020989552213127274
-	}]
+  "success": true,
+  "accounts": [
+    {
+      "address": "G3uxh6H3iB4mmtPYnzvpT9itQHCzz",
+      "username": null,
+      "gny": "19980000000",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 0,
+      "isLocked": 1,
+      "lockHeight": "2500000",
+      "lockAmount": "20000000000",
+      "_version_": 5,
+      "balance": "19980000000",
+      "weightRatio": "0.00004964719289781813"
+    },
+    {
+      "address": "GAeE4cWpKxs33gMrbJ7B5TXKBBQE",
+      "username": "www",
+      "gny": "19450000000",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 0,
+      "isLocked": 1,
+      "lockHeight": "2600000",
+      "lockAmount": "40000000000",
+      "_version_": 11,
+      "balance": "19450000000",
+      "weightRatio": "0.00009929438579563626"
+    },
+    {
+      "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+      "username": "tonyt_gny",
+      "gny": "2988814356531",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 1,
+      "isLocked": 1,
+      "lockHeight": "173400",
+      "lockAmount": "89000000000",
+      "_version_": 13687,
+      "balance": "2988814356531",
+      "weightRatio": "0.00022093000839529067",
+      "delegate": {
+        "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+        "tid": "3332ffe9344877de18ede0294fee8b350d36992e89e61d1672e813a894e323db",
+        "username": "tonyt_gny",
+        "publicKey": "e6408dcb79ac12cb2e61d77b869a146081f554e73501608a686a809043de0b88",
+        "votes": "557100000000",
+        "producedBlocks": "25341",
+        "missedBlocks": "812",
+        "fees": "2334356531",
+        "rewards": "2986000000000",
+        "_version_": 24342,
+        "rate": 1,
+        "approval": "0.001382922558168724",
+        "productivity": "0.96895193668030436279"
+      }
+    }
+  ]
 }
 ```
 
