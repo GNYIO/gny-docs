@@ -674,10 +674,11 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name     | Type    | Description                      |
-| -------- | ------- | -------------------------------- |
-| success  | boolean | Whether operation was successful |
-| accounts | Array   | a JSON object list of account    |
+| Name                 | Type   | Description                                                                                                                                                                                                                   |
+| -------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| success              | bool   | true: response data return successfully                                                                                                                                                                                       |
+| accounts             | Array  | an array of accounts that voted for this delegate. In order to vote one doesn't need to be delegate. It is enough to have some GNY tokens locked. Only the locked GNY tokens add to the weight of the delegate in the ranking |
+| accounts[0].delegate | Object | The `delegate` object on an account object is entirely optional. The `delegate` object appears only if the the account that voted is also a `delegate`.                                                                       |
 
 JSON Response Example:
 
@@ -686,18 +687,61 @@ JSON Response Example:
   "success": true,
   "accounts": [
     {
-      "address": "G3dGrHJfmZUFhAiYqytdrMG6rL4Lh",
-      "username": "hello",
-      "gny": "69420000000",
+      "address": "G3uxh6H3iB4mmtPYnzvpT9itQHCzz",
+      "username": null,
+      "gny": "19980000000",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 0,
+      "isLocked": 1,
+      "lockHeight": "2500000",
+      "lockAmount": "20000000000",
+      "_version_": 5,
+      "balance": "19980000000",
+      "weightRatio": "0.00004964719289781813"
+    },
+    {
+      "address": "GAeE4cWpKxs33gMrbJ7B5TXKBBQE",
+      "username": "www",
+      "gny": "19450000000",
+      "publicKey": null,
+      "secondPublicKey": null,
+      "isDelegate": 0,
+      "isLocked": 1,
+      "lockHeight": "2600000",
+      "lockAmount": "40000000000",
+      "_version_": 11,
+      "balance": "19450000000",
+      "weightRatio": "0.00009929438579563626"
+    },
+    {
+      "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+      "username": "tonyt_gny",
+      "gny": "2988814356531",
       "publicKey": null,
       "secondPublicKey": null,
       "isDelegate": 1,
       "isLocked": 1,
-      "lockHeight": "3728000",
-      "lockAmount": "60000000",
-      "_version_": 15,
-      "balance": "69420000000",
-      "weightRatio": "0.00000014989341154452"
+      "lockHeight": "173400",
+      "lockAmount": "89000000000",
+      "_version_": 13687,
+      "balance": "2988814356531",
+      "weightRatio": "0.00022093000839529067",
+      "delegate": {
+        "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+        "tid": "3332ffe9344877de18ede0294fee8b350d36992e89e61d1672e813a894e323db",
+        "username": "tonyt_gny",
+        "publicKey": "e6408dcb79ac12cb2e61d77b869a146081f554e73501608a686a809043de0b88",
+        "votes": "557100000000",
+        "producedBlocks": "25341",
+        "missedBlocks": "812",
+        "fees": "2334356531",
+        "rewards": "2986000000000",
+        "_version_": 24342,
+        "rate": 1,
+        "approval": "0.001382922558168724",
+        "productivity": "0.96895193668030436279"
+      }
     }
   ]
 }
