@@ -84,7 +84,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -X POST --data "publicKey=41d36d74761593dcf1380faafcd487b84e014eba27c044d1aa87782d1cbd1a19" http://localhost:4096/api/accounts/openAccount/
+curl -X POST --data "publicKey=41d36d74761593dcf1380faafcd487b84e014eba27c044d1aa87782d1cbd1a19" http://testnet.gny.io/api/accounts/openAccount/
 ```
 
 JSON Response Example:
@@ -200,13 +200,13 @@ JSON Response Example (username):
 Request Example (address):
 
 ```bash
-curl -k -X GET http://localhost:4096/api/accounts?address=G4b8BhmeRFBmWAHZemKD25BmEP2G
+curl -k -X GET http://testnet.gny.io/api/accounts?address=G4b8BhmeRFBmWAHZemKD25BmEP2G
 ```
 
 Request Example (username):
 
 ```bash
-curl -k -X GET http://localhost:4096/api/accounts?username=liangpeili
+curl -k -X GET http://testnet.gny.io/api/accounts?username=liangpeili
 ```
 
 JSON Response Example (address):
@@ -303,7 +303,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/accounts/getBalance?address=GJX8DYKb7mF3M6JCUhBqYnLiha6y'
+curl -k -X GET 'http://testnet.gny.io/api/accounts/getBalance?address=GJX8DYKb7mF3M6JCUhBqYnLiha6y'
 ```
 
 JSON Response Example:
@@ -345,7 +345,7 @@ Response Parameter Description:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/accounts/getPublickey?address=GJX8DYKb7mF3M6JCUhBqYnLiha6y'
+curl -k -X GET 'http://testnet.gny.io/api/accounts/getPublickey?address=GJX8DYKb7mF3M6JCUhBqYnLiha6y'
 ```
 
 JSON Response Example:
@@ -426,7 +426,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/transactions?recipientId=16723473400748954103&orderBy=t_timestamp:desc&limit=3'
+curl -k -X GET 'http://testnet.gny.io/api/transactions?recipientId=16723473400748954103&orderBy=t_timestamp:desc&limit=3'
 ```
 
 JSON Response Example:
@@ -504,7 +504,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/transactions/unconfirmed/get?id=1dd72aac3dd011754ea2ca80406014404acbe7550463232208c7ddaf63398c03'
+curl -k -X GET 'http://testnet.gny.io/api/transactions/unconfirmed/get?id=1dd72aac3dd011754ea2ca80406014404acbe7550463232208c7ddaf63398c03'
 ```
 
 JSON Response Example:
@@ -572,7 +572,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/transactions/unconfirmed'
+curl -k -X GET 'http://testnet.gny.io/api/transactions/unconfirmed'
 ```
 
 JSON Response Example:
@@ -1034,7 +1034,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks/getBlock?id=fed53e3ad0a1405f73122708ee53dfed2e9eccc34693d52043bdb6aec4751a8c'
+curl -k -X GET 'http://testnet.gny.io/api/blocks/getBlock?id=fed53e3ad0a1405f73122708ee53dfed2e9eccc34693d52043bdb6aec4751a8c'
 ```
 
 JSON Response Example:
@@ -1133,7 +1133,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks?limit=2&offset=0&orderBy=height:desc'
+curl -k -X GET 'http://testnet.gny.io/api/blocks?limit=2&offset=0&orderBy=height:desc'
 ```
 
 JSON Response Example:
@@ -1214,7 +1214,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks/getheight'
+curl -k -X GET 'http://testnet.gny.io/api/blocks/getheight'
 ```
 
 JSON Response Example:
@@ -1265,7 +1265,7 @@ JSON Response Example:
 ::: tab testnet
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks/getMilestone'
+curl -k -X GET 'http://testnet.gny.io/api/blocks/getMilestone'
 ```
 
 JSON Response Example:
@@ -1321,7 +1321,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks/getReward'
+curl -k -X GET 'http://testnet.gny.io/api/blocks/getReward'
 ```
 
 JSON Response Example:
@@ -1374,7 +1374,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks/getSupply'
+curl -k -X GET 'http://testnet.gny.io/api/blocks/getSupply'
 ```
 
 JSON Response Example:
@@ -1432,7 +1432,7 @@ JSON Response Example:
 ::: tab testnet
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/blocks/getStatus'
+curl -k -X GET 'http://testnet.gny.io/api/blocks/getStatus'
 ```
 
 JSON Response Example:
@@ -1490,7 +1490,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/count'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/count'
 ```
 
 JSON Response Example:
@@ -1604,7 +1604,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/getVoters?username=gny_d1'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/getVoters?username=gny_d1'
 ```
 
 JSON Response Example:
@@ -1751,19 +1751,19 @@ JSON Response Example:
 Request Example (publicKey):
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/get?publicKey=85b4c2efe56642398dad3f1ec338e87e712063cfaee4a836cb58b673cdb820f4'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/get?publicKey=85b4c2efe56642398dad3f1ec338e87e712063cfaee4a836cb58b673cdb820f4'
 ```
 
 Request Example (username):
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/get?username=gny_d1'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/get?username=gny_d1'
 ```
 
 Request Example (address):
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/get?address=G3kkkSaJNVY87AhVPyxXVGFpR61VB'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/get?address=G3kkkSaJNVY87AhVPyxXVGFpR61VB'
 ```
 
 JSON Response Example:
@@ -1875,7 +1875,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates?limit=2&offset=2'
+curl -k -X GET 'http://testnet.gny.io/api/delegates?limit=2&offset=2'
 ```
 
 JSON Response Example:
@@ -2008,13 +2008,13 @@ JSON Response Example:
 Request Example (with username):
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/getOwnVotes?username=a1300'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/getOwnVotes?username=a1300'
 ```
 
 Request Example (with address):
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/getOwnVotes?address=GtnevSTQqPUcZNAMFJmc8DLUXHFz'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/getOwnVotes?address=GtnevSTQqPUcZNAMFJmc8DLUXHFz'
 ```
 
 JSON Response Example:
@@ -2102,7 +2102,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"flat entire admit review filter addict friend author ahead bullet wife bind"}' 'http://localhost:4096/api/delegates/forging/enable'
+curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"flat entire admit review filter addict friend author ahead bullet wife bind"}' 'http://testnet.gny.io/api/delegates/forging/enable'
 ```
 
 JSON Response Example:
@@ -2158,7 +2158,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"flat entire admit review filter addict friend author ahead bullet wife bind"}' 'http://localhost:4096/api/delegates/forging/disable'
+curl -k -H "Content-Type: application/json" -X POST -d '{"secret":"flat entire admit review filter addict friend author ahead bullet wife bind"}' 'http://testnet.gny.io/api/delegates/forging/disable'
 ```
 
 JSON Response Example:
@@ -2217,7 +2217,7 @@ JSON Response Example (forging disabled):
 Request Example:
 
 ```bash
-curl -X GET 'http://localhost:4096/api/delegates/forging/status?publicKey=ff47c9e9bafcf28ae8528c2b259661ade96a3030ab73ddde82b52ee44c9122b5'
+curl -X GET 'http://testnet.gny.io/api/delegates/forging/status?publicKey=ff47c9e9bafcf28ae8528c2b259661ade96a3030ab73ddde82b52ee44c9122b5'
 ```
 
 JSON Response Example (forging enabled):
@@ -2334,7 +2334,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/delegates/ownProducedBlocks?username=gny_d1'
+curl -k -X GET 'http://testnet.gny.io/api/delegates/ownProducedBlocks?username=gny_d1'
 ```
 
 JSON Response Example:
@@ -2574,7 +2574,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/peers'
+curl -k -X GET 'http://testnet.gny.io/api/peers'
 ```
 
 JSON Response Example:
@@ -2660,7 +2660,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/peers/version'
+curl -k -X GET 'http://testnet.gny.io/api/peers/version'
 ```
 
 JSON Response Example:
@@ -2724,7 +2724,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/peers/info'
+curl -k -X GET 'http://testnet.gny.io/api/peers/info'
 ```
 
 JSON Response Example:
@@ -2788,7 +2788,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/loader/status'
+curl -k -X GET 'http://testnet.gny.io/api/loader/status'
 ```
 
 JSON Response Example:
@@ -2844,7 +2844,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/loader/status/sync'
+curl -k -X GET 'http://testnet.gny.io/api/loader/status/sync'
 ```
 
 JSON Response Example:
@@ -2936,7 +2936,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/transfers/'
+curl -k -X GET 'http://testnet.gny.io/api/transfers/'
 ```
 
 JSON Response Example:
@@ -3021,7 +3021,7 @@ JSON Response Example:
 Request Example:
 
 ```bash
-curl -k -X GET 'http://localhost:4096/api/transfers/amount'
+curl -k -X GET 'http://testnet.gny.io/api/transfers/amount'
 ```
 
 JSON Response Example:
@@ -3090,7 +3090,7 @@ JSON Response:
 Request example:
 
 ```js
-curl -X GET 'http://localhost:4096/api/uia/issuers?offset=0&limit=2'
+curl -X GET 'http://testnet.gny.io/api/uia/issuers?offset=0&limit=2'
 ```
 
 JSON Response:
@@ -3167,13 +3167,13 @@ JSON Response:
 Request example (publisher name):
 
 ```js
-curl -X GET 'http://localhost:4096/api/uia/issuers/AAA'
+curl -X GET 'http://testnet.gny.io/api/uia/issuers/AAA'
 ```
 
 Request example (publisher address):
 
 ```js
-curl -X GET 'http://localhost:4096/api/uia/issuers/G4GDW6G78sgQdSdVAQUXdm5xPS13t'
+curl -X GET 'http://testnet.gny.io/api/uia/issuers/G4GDW6G78sgQdSdVAQUXdm5xPS13t'
 ```
 
 JSON Response:
@@ -3260,7 +3260,7 @@ JSON Response:
 Request example:
 
 ```js
-curl -X GET 'http://localhost:4096/api/uia/issuers/AAA/assets/'
+curl -X GET 'http://testnet.gny.io/api/uia/issuers/AAA/assets/'
 ```
 
 JSON Response:
@@ -3614,7 +3614,7 @@ JSON Response:
 Request example:
 
 ```bash
-curl -X GET 'http://localhost:4096/api/uia/balances/G4GDW6G78sgQdSdVAQUXdm5xPS13t'
+curl -X GET 'http://testnet.gny.io/api/uia/balances/G4GDW6G78sgQdSdVAQUXdm5xPS13t'
 ```
 
 JSON Response:
@@ -3678,7 +3678,7 @@ JSON Response:
 Request example:
 
 ```bash
-curl -X GET 'http://localhost:4096/api/uia/balances/G4GDW6G78sgQdSdVAQUXdm5xPS13t/AAA.BBB'
+curl -X GET 'http://testnet.gny.io/api/uia/balances/G4GDW6G78sgQdSdVAQUXdm5xPS13t/AAA.BBB'
 ```
 
 JSON Response:
@@ -3748,7 +3748,7 @@ JSON Response:
 Request example:
 
 ```bash
-curl -X GET 'http://localhost:4096/api/uia/holders/AAA.BBB'
+curl -X GET 'http://testnet.gny.io/api/uia/holders/AAA.BBB'
 ```
 
 JSON Response:
@@ -3813,7 +3813,7 @@ curl -X POST --header "magic: 594fe0f3"
 [axios](https://www.npmjs.com/package/axios) (JavaScript example)
 
 ```javascript
-const exampleUrl = "http://localhost:4096/peer/transactions";
+const exampleUrl = "http://testnet.gny.io/peer/transactions";
 
 const data = {
   transaction: someTransaction
