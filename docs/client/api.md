@@ -140,12 +140,37 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name        | Type | Description                           |
-| ----------- | ---- | ------------------------------------- |
-| success     | bool | whether response data can be returned |
-| account     | json | account information                   |
-| latestBlock | json | latest block information              |
-| version     | json | version information                   |
+| Name            | Type   | Description                                                                       |
+| --------------- | ------ | --------------------------------------------------------------------------------- |
+| success         | bool   | whether response returned successfully                                            |
+| address         | string | Address of of an account. e.g. G3J3aXARHkaGhuwkuzSL2BqYXkcNJ                      |
+| username        | string | username of an account. e.g. liangpeili                                           |
+| gny             | string | balance of an account. e.g. 476500000000                                          |
+| publicKey       | string | publickey of an account                                                           |
+| secondPublicKey | string | second publickey of an account (optional)                                         |
+| isDelegate      | number | if the account is a delegate. Either 0 (false) or 1 (true)                        |
+| isLocked        | number | if the account is locked. Either 0 (false) or 1 (true)                            |
+| lockHeight      | string | if the account is locked this will be not `"0"` but e.g. block height `"2800000"` |
+| lockAmount      | string | if the account is locked then this will not be `"0"` but e.g. `"476500000000"`    |
+| `_version_`     | number | the number of how often the properties on the account changed                     |
+
+JSON Response Example:
+
+```json
+{
+  "success": true,
+  "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+  "username": "tonyt_gny",
+  "gny": "4184509307015",
+  "publicKey": null,
+  "secondPublicKey": null,
+  "isDelegate": 1,
+  "isLocked": 1,
+  "lockHeight": "173400",
+  "lockAmount": "89000000000",
+  "_version_": 19586
+}
+```
 
 ### Get account by username
 
@@ -164,12 +189,37 @@ Request Parameter Description:
 
 Response Parameter Description:
 
-| Name        | Type | Description                           |
-| ----------- | ---- | ------------------------------------- |
-| success     | bool | whether response data can be returned |
-| account     | json | account information                   |
-| latestBlock | json | latest block information              |
-| version     | json | version information                   |
+| Name            | Type   | Description                                                                       |
+| --------------- | ------ | --------------------------------------------------------------------------------- |
+| success         | bool   | whether response returned successfully                                            |
+| address         | string | Address of of an account. e.g. G3J3aXARHkaGhuwkuzSL2BqYXkcNJ                      |
+| username        | string | username of an account. e.g. liangpeili                                           |
+| gny             | string | balance of an account. e.g. 476500000000                                          |
+| publicKey       | string | publickey of an account                                                           |
+| secondPublicKey | string | second publickey of an account (optional)                                         |
+| isDelegate      | number | if the account is a delegate. Either 0 (false) or 1 (true)                        |
+| isLocked        | number | if the account is locked. Either 0 (false) or 1 (true)                            |
+| lockHeight      | string | if the account is locked this will be not `"0"` but e.g. block height `"2800000"` |
+| lockAmount      | string | if the account is locked then this will not be `"0"` but e.g. `"476500000000"`    |
+| `_version_`     | number | the number of how often the properties on the account changed                     |
+
+JSON Response Example:
+
+```json
+{
+  "success": true,
+  "address": "GXDgJFW9nnSKYomtZirW8SqDDnqW",
+  "username": "tonyt_gny",
+  "gny": "4184509307015",
+  "publicKey": null,
+  "secondPublicKey": null,
+  "isDelegate": 1,
+  "isLocked": 1,
+  "lockHeight": "173400",
+  "lockAmount": "89000000000",
+  "_version_": 19586
+}
+```
 
 ### Get voted delegates
 
