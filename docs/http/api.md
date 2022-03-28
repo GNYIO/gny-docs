@@ -145,34 +145,30 @@ Response Parameter Description:
 Request Example (address):
 
 ```bash
-curl -k -X GET https://mainnet.gny.io/api/accounts?address=G4b8BhmeRFBmWAHZemKD25BmEP2G
+curl -k -X GET https://mainnet.gny.io/api/accounts?address=G3J3aXARHkaGhuwkuzSL2BqYXkcNJ
 ```
 
 Request Example (username):
 
 ```bash
-curl -k -X GET https://mainnet.gny.io/api/accounts?username=liangpeili
+curl -k -X GET https://mainnet.gny.io/api/accounts?username=gny_d11
 ```
 
 JSON Response Example (address):
 
 ```json
 {
-  "account": {
-    "address": "G3wAwmGh3rimRm9v4qjuh7RkkAebM",
-    "balance": 2000000000000,
-    "secondPublicKey": "",
-    "lockHeight": 0
-  },
-  "latestBlock": {
-    "height": 5,
-    "timestamp": 3472080
-  },
-  "version": {
-    "version": "1.0.0",
-    "build": "Sun Feb 02 2020 19:46:48 GMT+0100 (Central European Standard Time)",
-    "net": "mainnet"
-  }
+  "success": true,
+  "address": "G3J3aXARHkaGhuwkuzSL2BqYXkcNJ",
+  "username": "gny_d11",
+  "gny": "4765077326923",
+  "publicKey": null,
+  "secondPublicKey": null,
+  "isDelegate": 1,
+  "isLocked": 0,
+  "lockHeight": "0",
+  "lockAmount": "0",
+  "_version_": 23549
 }
 ```
 
@@ -180,16 +176,17 @@ JSON Response Example (username):
 
 ```json
 {
-  "address": "G3wAwmGh3rimRm9v4qjuh7RkkAebM",
-  "username": "liangpeili",
-  "gny": 2000000000000,
+  "success": true,
+  "address": "G3J3aXARHkaGhuwkuzSL2BqYXkcNJ",
+  "username": "gny_d11",
+  "gny": "4765077326923",
   "publicKey": null,
   "secondPublicKey": null,
   "isDelegate": 1,
   "isLocked": 0,
-  "lockHeight": 0,
-  "lockAmount": 0,
-  "_version_": 3
+  "lockHeight": "0",
+  "lockAmount": "0",
+  "_version_": 23549
 }
 ```
 
@@ -200,34 +197,30 @@ JSON Response Example (username):
 Request Example (address):
 
 ```bash
-curl -k -X GET http://testnet.gny.io/api/accounts?address=G4b8BhmeRFBmWAHZemKD25BmEP2G
+curl -k -X GET http://testnet.gny.io/api/accounts?address=G4V8YbZtXz7VZrpiD4trDPG8RtjUh
 ```
 
 Request Example (username):
 
 ```bash
-curl -k -X GET http://testnet.gny.io/api/accounts?username=liangpeili
+curl -k -X GET http://testnet.gny.io/api/accounts?username=yarooo
 ```
 
 JSON Response Example (address):
 
 ```json
 {
-  "account": {
-    "address": "G3wAwmGh3rimRm9v4qjuh7RkkAebM",
-    "balance": 2000000000000,
-    "secondPublicKey": "",
-    "lockHeight": 0
-  },
-  "latestBlock": {
-    "height": 5,
-    "timestamp": 3472080
-  },
-  "version": {
-    "version": "1.0.0",
-    "build": "Sun Feb 02 2020 19:46:48 GMT+0100 (Central European Standard Time)",
-    "net": "testnet"
-  }
+  "success": true,
+  "address": "G4V8YbZtXz7VZrpiD4trDPG8RtjUh",
+  "username": "yarooo",
+  "gny": "290098811827",
+  "publicKey": null,
+  "secondPublicKey": null,
+  "isDelegate": 1,
+  "isLocked": 1,
+  "lockHeight": "3280000",
+  "lockAmount": "4450100000000",
+  "_version_": 19982
 }
 ```
 
@@ -235,16 +228,17 @@ JSON Response Example (username):
 
 ```json
 {
-  "address": "G3wAwmGh3rimRm9v4qjuh7RkkAebM",
-  "username": "liangpeili",
-  "gny": 2000000000000,
+  "success": true,
+  "address": "G4V8YbZtXz7VZrpiD4trDPG8RtjUh",
+  "username": "yarooo",
+  "gny": "290098811827",
   "publicKey": null,
   "secondPublicKey": null,
   "isDelegate": 1,
-  "isLocked": 0,
-  "lockHeight": 0,
-  "lockAmount": 0,
-  "_version_": 3
+  "isLocked": 1,
+  "lockHeight": "3280000",
+  "lockAmount": "4450100000000",
+  "_version_": 19982
 }
 ```
 
