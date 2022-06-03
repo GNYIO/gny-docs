@@ -44,15 +44,15 @@ services:
       - GNY_PUBLIC_IP=here goes your public ip address
       - GNY_SECRET=here goes your BIP39 secret(s)
       - GNY_P2P_SECRET="here goes your p2p secret"
-      - GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/4097/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh
+      - GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/8193/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh
       - GNY_DB_PASSWORD=docker
       - GNY_DB_DATABASE=postgres
       - GNY_DB_USER=postgres
       - GNY_DB_HOST=db1
       - GNY_DB_PORT=5432
     ports:
-      - "4096:4096"
-      - "4097:4097"
+      - "8192:8192"
+      - "8193:8193"
     depends_on:
       - db1
 ```
@@ -126,7 +126,7 @@ services:
       - GNY_PUBLIC_IP=here goes your public ip address
       - GNY_SECRET=here goes your BIP39 secret(s)
       - GNY_P2P_SECRET="here goes your p2p secret"
-      - GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/4097/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh
+      - GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/8193/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh
       - GNY_DB_PASSWORD=docker
       - GNY_DB_DATABASE=postgres
       - GNY_DB_USER=postgres
