@@ -12,7 +12,7 @@ Connect to the right network
 
 In order to connect to the **`mainnet`** be sure to use one of the following configurations:
 
-> `GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/4097/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh`
+> `GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/8193/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh`
 
 :::
 
@@ -204,7 +204,7 @@ Pass `p2p peers` as argument:
 
 ```diff
 - npm run start
-+ npm run start -- --peers="/ip4/78.141.235.22/tcp/4097/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh"
++ npm run start -- --peers="/ip4/78.141.235.22/tcp/8193/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh"
 ```
 
 Pass `p2p peers` as environment variable:
@@ -215,7 +215,7 @@ services:
   node1:
     # other keys omitted
     environment:
-+	  - GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/4097/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh
++	  - GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/8193/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh
 ```
 
 :::

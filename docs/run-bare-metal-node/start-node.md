@@ -26,7 +26,7 @@ export GNY_SECRET=<your secret>
 export GNY_P2P_SECRET=<your p2p secret>
 
 export GNY_NETWORK=mainnet
-export GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/4097/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh
+export GNY_P2P_PEERS=/ip4/78.141.235.22/tcp/8193/p2p/QmdEmHir6AxNzHrhWBJ3PfUddRBabmmEGmdSaCenrKMCUh
 
 export GNY_DB_PASSWORD=docker
 export GNY_DB_USER=postgres2

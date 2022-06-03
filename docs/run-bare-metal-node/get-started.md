@@ -9,7 +9,7 @@ A Blockchain node consists of a `node.js` app and a `postgres` database.
 We support currently only Linux. Please use Ubuntu or one of its derivates:
 
 - Ubuntu 18.04.3 LTS
-- Ubuntu 19.10
+- Ubuntu 20.04 LTS
 
 ### Install Git
 
